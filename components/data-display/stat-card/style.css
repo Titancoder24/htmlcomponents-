@@ -1,0 +1,156 @@
+/*
+ * Stat Card Component Styles
+ * Purpose: Styles for statistic display card with value, label, trend
+ * indicator, change percentage, and icon. Supports sizes and dark mode.
+ */
+
+/* === Custom Properties === */
+.voltz-stat-card {
+  --voltz-stat-card-bg: #ffffff;
+  --voltz-stat-card-border: #e2e8f0;
+  --voltz-stat-card-radius: 0.75rem;
+  --voltz-stat-card-padding: 1.25rem;
+  --voltz-stat-card-label-color: #64748b;
+  --voltz-stat-card-value-color: #0f172a;
+  --voltz-stat-card-value-size: 1.875rem;
+  --voltz-stat-card-label-size: 0.8125rem;
+  --voltz-stat-card-icon-bg: #f1f5f9;
+  --voltz-stat-card-icon-color: #3b82f6;
+  --voltz-stat-card-trend-up: #16a34a;
+  --voltz-stat-card-trend-down: #dc2626;
+  --voltz-stat-card-trend-neutral: #64748b;
+  --voltz-stat-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .voltz-stat-card {
+  --voltz-stat-card-bg: #1e293b;
+  --voltz-stat-card-border: #334155;
+  --voltz-stat-card-label-color: #94a3b8;
+  --voltz-stat-card-value-color: #f1f5f9;
+  --voltz-stat-card-icon-bg: #0f172a;
+  --voltz-stat-card-icon-color: #60a5fa;
+  --voltz-stat-card-trend-up: #4ade80;
+  --voltz-stat-card-trend-down: #f87171;
+  --voltz-stat-card-trend-neutral: #94a3b8;
+  --voltz-stat-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* === Base === */
+.voltz-stat-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: var(--voltz-stat-card-padding);
+  background: var(--voltz-stat-card-bg);
+  border-radius: var(--voltz-stat-card-radius);
+  box-shadow: var(--voltz-stat-card-shadow);
+  border: 1px solid var(--voltz-stat-card-border);
+}
+
+/* === Icon === */
+.voltz-stat-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
+  background: var(--voltz-stat-card-icon-bg);
+  color: var(--voltz-stat-card-icon-color);
+  flex-shrink: 0;
+}
+
+/* === Content === */
+.voltz-stat-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.voltz-stat-card__label {
+  font-size: var(--voltz-stat-card-label-size);
+  color: var(--voltz-stat-card-label-color);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.voltz-stat-card__value {
+  font-size: var(--voltz-stat-card-value-size);
+  font-weight: 700;
+  color: var(--voltz-stat-card-value-color);
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* === Trend === */
+.voltz-stat-card__trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.voltz-stat-card__trend--up {
+  color: var(--voltz-stat-card-trend-up);
+}
+
+.voltz-stat-card__trend--down {
+  color: var(--voltz-stat-card-trend-down);
+}
+
+.voltz-stat-card__trend--neutral {
+  color: var(--voltz-stat-card-trend-neutral);
+}
+
+.voltz-stat-card__trend-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* === Variant: Outlined === */
+.voltz-stat-card--outlined {
+  box-shadow: none;
+  border: 2px solid var(--voltz-stat-card-border);
+}
+
+/* === Variant: Filled === */
+.voltz-stat-card--filled {
+  background: var(--voltz-stat-card-icon-color);
+  border-color: transparent;
+  --voltz-stat-card-value-color: #ffffff;
+  --voltz-stat-card-label-color: rgba(255, 255, 255, 0.8);
+  --voltz-stat-card-trend-up: #bbf7d0;
+  --voltz-stat-card-trend-down: #fecaca;
+  --voltz-stat-card-trend-neutral: rgba(255, 255, 255, 0.7);
+  --voltz-stat-card-icon-bg: rgba(255, 255, 255, 0.15);
+  --voltz-stat-card-icon-color: #ffffff;
+}
+
+/* === Size: sm === */
+.voltz-stat-card--sm {
+  --voltz-stat-card-padding: 0.875rem;
+  --voltz-stat-card-value-size: 1.375rem;
+  --voltz-stat-card-label-size: 0.75rem;
+}
+
+.voltz-stat-card--sm .voltz-stat-card__icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* === Size: lg === */
+.voltz-stat-card--lg {
+  --voltz-stat-card-padding: 1.5rem;
+  --voltz-stat-card-value-size: 2.5rem;
+  --voltz-stat-card-label-size: 0.9375rem;
+}
+
+.voltz-stat-card--lg .voltz-stat-card__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}

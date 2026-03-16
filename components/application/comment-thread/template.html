@@ -1,0 +1,103 @@
+<!--
+  Comment Thread Component
+  Threaded comments with avatars, author info, timestamps,
+  nested replies with visual indentation, and like/upvote actions.
+-->
+<div class="voltz-comment-thread">
+  <!-- Top-level comment -->
+  <article class="voltz-comment-thread__comment" data-id="c1">
+    <div class="voltz-comment-thread__avatar">
+      <span class="voltz-comment-thread__avatar-text">SC</span>
+    </div>
+    <div class="voltz-comment-thread__body">
+      <div class="voltz-comment-thread__header">
+        <span class="voltz-comment-thread__author">Sarah Chen</span>
+        <time class="voltz-comment-thread__time" datetime="2026-03-16T08:30:00">2 hours ago</time>
+      </div>
+      <p class="voltz-comment-thread__content">
+        This is a really solid approach to the new API design. I especially like how you've handled the pagination — using cursor-based pagination will scale much better than offset-based.
+      </p>
+      <div class="voltz-comment-thread__actions">
+        <button class="voltz-comment-thread__action" data-action="like" aria-label="Like this comment">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M7 2.5C5.5.5 2 1 2 4c0 3 5 6.5 5 6.5S12 7 12 4c0-3-3.5-3.5-5-1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+          </svg>
+          <span class="voltz-comment-thread__action-count">4</span>
+        </button>
+        <button class="voltz-comment-thread__action" data-action="reply">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M5 8L2 5l3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 5h6a4 4 0 0 1 4 4v1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Reply
+        </button>
+      </div>
+
+      <!-- Nested replies -->
+      <div class="voltz-comment-thread__replies">
+        <article class="voltz-comment-thread__comment voltz-comment-thread__comment--reply" data-id="c2">
+          <div class="voltz-comment-thread__avatar voltz-comment-thread__avatar--sm">
+            <span class="voltz-comment-thread__avatar-text">MR</span>
+          </div>
+          <div class="voltz-comment-thread__body">
+            <div class="voltz-comment-thread__header">
+              <span class="voltz-comment-thread__author">Mike Rodriguez</span>
+              <time class="voltz-comment-thread__time" datetime="2026-03-16T09:15:00">1 hour ago</time>
+            </div>
+            <p class="voltz-comment-thread__content">
+              Agreed! One thought — should we also add a max page size parameter to prevent overly large responses?
+            </p>
+            <div class="voltz-comment-thread__actions">
+              <button class="voltz-comment-thread__action" data-action="like" aria-label="Like this comment">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M7 2.5C5.5.5 2 1 2 4c0 3 5 6.5 5 6.5S12 7 12 4c0-3-3.5-3.5-5-1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                </svg>
+                <span class="voltz-comment-thread__action-count">2</span>
+              </button>
+              <button class="voltz-comment-thread__action" data-action="reply">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M5 8L2 5l3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2 5h6a4 4 0 0 1 4 4v1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+                Reply
+              </button>
+            </div>
+
+            <!-- Deeply nested reply -->
+            <div class="voltz-comment-thread__replies">
+              <article class="voltz-comment-thread__comment voltz-comment-thread__comment--reply" data-id="c3">
+                <div class="voltz-comment-thread__avatar voltz-comment-thread__avatar--sm">
+                  <span class="voltz-comment-thread__avatar-text">SC</span>
+                </div>
+                <div class="voltz-comment-thread__body">
+                  <div class="voltz-comment-thread__header">
+                    <span class="voltz-comment-thread__author">Sarah Chen</span>
+                    <time class="voltz-comment-thread__time" datetime="2026-03-16T09:45:00">45 min ago</time>
+                  </div>
+                  <p class="voltz-comment-thread__content">
+                    Good call — I'll add a configurable max_page_size with a default of 100.
+                  </p>
+                  <div class="voltz-comment-thread__actions">
+                    <button class="voltz-comment-thread__action" data-action="like" aria-label="Like this comment">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M7 2.5C5.5.5 2 1 2 4c0 3 5 6.5 5 6.5S12 7 12 4c0-3-3.5-3.5-5-1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                      </svg>
+                      <span class="voltz-comment-thread__action-count">1</span>
+                    </button>
+                    <button class="voltz-comment-thread__action" data-action="reply">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M5 8L2 5l3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 5h6a4 4 0 0 1 4 4v1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                      </svg>
+                      Reply
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,172 @@
+/*
+ * Checkbox Component - style.css
+ * Purpose: Styles for the checkbox primitive including sizes (sm/md/lg),
+ * color variants, checked/indeterminate/disabled states, and custom
+ * check/indeterminate icons. Supports dark mode and reduced motion.
+ */
+
+/* === Base === */
+.voltz-checkbox {
+  --voltz-checkbox-size: 1.25rem;
+  --voltz-checkbox-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-checkbox-radius: var(--voltz-radius-sm, 0.25rem);
+  --voltz-checkbox-border-color: var(--voltz-color-neutral-300, #d1d5db);
+  --voltz-checkbox-bg: var(--voltz-color-white, #fff);
+  --voltz-checkbox-checked-bg: var(--voltz-color-primary-600, #2563eb);
+  --voltz-checkbox-checked-color: var(--voltz-color-white, #fff);
+  --voltz-checkbox-focus-ring: var(--voltz-color-primary-400, #60a5fa);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--voltz-space-2, 0.5rem);
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--voltz-font-family-sans, system-ui, sans-serif);
+  font-size: var(--voltz-checkbox-font-size);
+  line-height: 1.4;
+}
+
+/* === Hidden native input === */
+.voltz-checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* === Custom control box === */
+.voltz-checkbox__control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--voltz-checkbox-size);
+  height: var(--voltz-checkbox-size);
+  flex-shrink: 0;
+  background-color: var(--voltz-checkbox-bg);
+  border: 2px solid var(--voltz-checkbox-border-color);
+  border-radius: var(--voltz-checkbox-radius);
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.voltz-checkbox__icon {
+  width: 0.75em;
+  height: 0.75em;
+  color: var(--voltz-checkbox-checked-color);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* === Focus === */
+.voltz-checkbox__input:focus-visible + .voltz-checkbox__control {
+  outline: 2px solid var(--voltz-checkbox-focus-ring);
+  outline-offset: 2px;
+}
+
+/* === Checked State === */
+.voltz-checkbox__input:checked + .voltz-checkbox__control {
+  background-color: var(--voltz-checkbox-checked-bg);
+  border-color: var(--voltz-checkbox-checked-bg);
+}
+
+.voltz-checkbox__input:checked + .voltz-checkbox__control .voltz-checkbox__icon--check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === Indeterminate State === */
+.voltz-checkbox__input:indeterminate + .voltz-checkbox__control {
+  background-color: var(--voltz-checkbox-checked-bg);
+  border-color: var(--voltz-checkbox-checked-bg);
+}
+
+.voltz-checkbox__input:indeterminate + .voltz-checkbox__control .voltz-checkbox__icon--check {
+  opacity: 0;
+}
+
+.voltz-checkbox__input:indeterminate + .voltz-checkbox__control .voltz-checkbox__icon--indeterminate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === Hover === */
+.voltz-checkbox:hover .voltz-checkbox__control {
+  border-color: var(--voltz-color-neutral-400, #9ca3af);
+}
+
+.voltz-checkbox:hover .voltz-checkbox__input:checked + .voltz-checkbox__control,
+.voltz-checkbox:hover .voltz-checkbox__input:indeterminate + .voltz-checkbox__control {
+  opacity: 0.9;
+}
+
+/* === Disabled === */
+.voltz-checkbox--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* === Sizes === */
+.voltz-checkbox--sm {
+  --voltz-checkbox-size: 1rem;
+  --voltz-checkbox-font-size: var(--voltz-font-size-xs, 0.75rem);
+}
+
+.voltz-checkbox--lg {
+  --voltz-checkbox-size: 1.5rem;
+  --voltz-checkbox-font-size: var(--voltz-font-size-md, 1rem);
+}
+
+/* === Label === */
+.voltz-checkbox__label {
+  color: var(--voltz-color-neutral-700, #374151);
+}
+
+/* === Colors === */
+.voltz-checkbox--primary {
+  --voltz-checkbox-checked-bg: var(--voltz-color-primary-600, #2563eb);
+  --voltz-checkbox-focus-ring: var(--voltz-color-primary-400, #60a5fa);
+}
+
+.voltz-checkbox--neutral {
+  --voltz-checkbox-checked-bg: var(--voltz-color-neutral-700, #374151);
+  --voltz-checkbox-focus-ring: var(--voltz-color-neutral-400, #9ca3af);
+}
+
+.voltz-checkbox--success {
+  --voltz-checkbox-checked-bg: var(--voltz-color-success-600, #16a34a);
+  --voltz-checkbox-focus-ring: var(--voltz-color-success-400, #4ade80);
+}
+
+.voltz-checkbox--warning {
+  --voltz-checkbox-checked-bg: var(--voltz-color-warning-500, #f59e0b);
+  --voltz-checkbox-focus-ring: var(--voltz-color-warning-400, #fbbf24);
+}
+
+.voltz-checkbox--error {
+  --voltz-checkbox-checked-bg: var(--voltz-color-error-600, #dc2626);
+  --voltz-checkbox-focus-ring: var(--voltz-color-error-400, #f87171);
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] .voltz-checkbox {
+  --voltz-checkbox-bg: var(--voltz-color-neutral-800, #1f2937);
+  --voltz-checkbox-border-color: var(--voltz-color-neutral-600, #4b5563);
+}
+
+[data-theme="dark"] .voltz-checkbox__label {
+  color: var(--voltz-color-neutral-200, #e5e7eb);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-checkbox__control,
+  .voltz-checkbox__icon {
+    transition: none;
+  }
+}

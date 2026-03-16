@@ -1,0 +1,14 @@
+<!--
+  Pulse Button Component
+  Button with pulsing glow animation.
+  Variants: continuous, hover
+  CSS-only animation using transform scale and opacity.
+-->
+<button class="voltz-pulse-button voltz-pulse-button--{{variant}}"
+        data-voltz-pulse-button
+        data-variant="{{variant}}"
+        type="button">
+  <span class="voltz-pulse-button__ring"></span>
+  <span class="voltz-pulse-button__ring voltz-pulse-button__ring--delayed"></span>
+  <span class="voltz-pulse-button__content">{{slot:default}}</span>
+</button>

@@ -1,0 +1,73 @@
+{
+  "name": "avatar",
+  "displayName": "Avatar",
+  "description": "A user avatar supporting image, initials, and icon fallback with sizes, shapes, and status indicator.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["xs", "sm", "md", "lg", "xl"],
+      "description": "Size of the avatar"
+    },
+    "shape": {
+      "type": "string",
+      "default": "circle",
+      "options": ["circle", "square"],
+      "description": "Shape of the avatar"
+    },
+    "src": {
+      "type": "string",
+      "default": "",
+      "description": "Image source URL"
+    },
+    "alt": {
+      "type": "string",
+      "default": "",
+      "description": "Alt text for the image"
+    },
+    "initials": {
+      "type": "string",
+      "default": "",
+      "description": "Initials to display when no image is provided"
+    },
+    "status": {
+      "type": "string",
+      "default": "",
+      "options": ["", "online", "offline", "busy", "away"],
+      "description": "Status indicator to display"
+    },
+    "color": {
+      "type": "string",
+      "default": "neutral",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Background color for initials/icon fallback"
+    }
+  },
+  "slots": {
+    "icon": {
+      "description": "Custom icon fallback when no image or initials"
+    }
+  },
+  "events": {},
+  "accessibility": {
+    "role": "img",
+    "ariaAttributes": ["aria-label", "alt"]
+  },
+  "examples": [
+    {
+      "title": "Image avatar",
+      "props": { "src": "/avatar.jpg", "alt": "John Doe", "size": "md" }
+    },
+    {
+      "title": "Initials avatar",
+      "props": { "initials": "JD", "color": "primary", "size": "lg" }
+    },
+    {
+      "title": "Avatar with status",
+      "props": { "src": "/avatar.jpg", "alt": "Jane", "status": "online" }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "fade-in",
+  "description": "Simple fade-in animation with directional options. Triggered by IntersectionObserver on scroll with configurable duration and delay.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["none", "up", "down", "left", "right"],
+  "tags": ["fade", "animation", "scroll", "reveal"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-fade-in-duration",
+    "--voltz-fade-in-delay",
+    "--voltz-fade-in-easing",
+    "--voltz-fade-in-distance"
+  ],
+  "slots": {
+    "default": "Content to fade in"
+  }
+}

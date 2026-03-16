@@ -1,0 +1,48 @@
+{
+  "id": "ordered-list",
+  "name": "Ordered List",
+  "description": "Styled ordered list with numbered, lettered, and roman numeral variants. Supports nesting and marker color customization.",
+  "category": "typography",
+  "tags": ["ordered-list", "ol", "numbered", "list", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "list",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses semantic <ol> and <li> elements. Screen readers announce list items and count."
+  },
+  "variants": {
+    "variant": {
+      "type": "string",
+      "options": ["numbered", "lettered", "roman"],
+      "default": "numbered",
+      "description": "List marker style"
+    },
+    "size": {
+      "type": "string",
+      "options": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Font size"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Contains li elements"
+    }
+  },
+  "examples": [
+    {
+      "name": "Numbered List",
+      "props": { "variant": "numbered", "size": "md" },
+      "content": "<li>First item</li><li>Second item</li><li>Third item</li>"
+    },
+    {
+      "name": "Roman Numerals",
+      "props": { "variant": "roman", "size": "lg" },
+      "content": "<li>Chapter one</li><li>Chapter two</li>"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["unordered-list", "description-list"]
+}

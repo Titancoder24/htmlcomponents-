@@ -1,0 +1,196 @@
+/* Command Palette Component Styles */
+/* Cmd+K overlay with search, filtering, and keyboard navigation */
+
+.voltz-command-palette {
+  --voltz-cmdpal-bg: var(--voltz-color-surface, #ffffff);
+  --voltz-cmdpal-text: var(--voltz-color-text, #1a1a2e);
+  --voltz-cmdpal-text-muted: var(--voltz-color-text-muted, #64748b);
+  --voltz-cmdpal-border: var(--voltz-color-border, #e2e8f0);
+  --voltz-cmdpal-hover-bg: var(--voltz-color-surface-hover, #f8fafc);
+  --voltz-cmdpal-active: var(--voltz-color-primary, #6366f1);
+  --voltz-cmdpal-active-bg: rgba(99, 102, 241, 0.08);
+  --voltz-cmdpal-shadow: 0 16px 70px rgba(0, 0, 0, 0.2);
+  --voltz-cmdpal-backdrop: rgba(0, 0, 0, 0.5);
+  --voltz-cmdpal-radius: var(--voltz-radius-xl, 16px);
+
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: var(--voltz-z-modal, 9999);
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+}
+
+.voltz-command-palette[data-open="true"] {
+  display: flex;
+}
+
+.voltz-command-palette__backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--voltz-cmdpal-backdrop);
+}
+
+.voltz-command-palette__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 60vh;
+  margin: 0 var(--voltz-spacing-4, 16px);
+  background: var(--voltz-cmdpal-bg);
+  border: 1px solid var(--voltz-cmdpal-border);
+  border-radius: var(--voltz-cmdpal-radius);
+  box-shadow: var(--voltz-cmdpal-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.voltz-command-palette__header {
+  display: flex;
+  align-items: center;
+  gap: var(--voltz-spacing-2, 8px);
+  padding: var(--voltz-spacing-3, 12px) var(--voltz-spacing-4, 16px);
+  border-bottom: 1px solid var(--voltz-cmdpal-border);
+}
+
+.voltz-command-palette__search-icon {
+  color: var(--voltz-cmdpal-text-muted);
+  flex-shrink: 0;
+  display: flex;
+}
+
+.voltz-command-palette__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--voltz-cmdpal-text);
+  font-size: var(--voltz-font-md, 1rem);
+  padding: var(--voltz-spacing-1, 4px) 0;
+}
+
+.voltz-command-palette__input::placeholder {
+  color: var(--voltz-cmdpal-text-muted);
+}
+
+.voltz-command-palette__shortcut,
+.voltz-command-palette__item-shortcut {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  font-size: var(--voltz-font-xs, 0.75rem);
+  font-family: inherit;
+  color: var(--voltz-cmdpal-text-muted);
+  background: var(--voltz-cmdpal-hover-bg);
+  border: 1px solid var(--voltz-cmdpal-border);
+  border-radius: var(--voltz-radius-sm, 4px);
+}
+
+.voltz-command-palette__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--voltz-spacing-2, 8px);
+}
+
+.voltz-command-palette__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.voltz-command-palette__group-label {
+  padding: var(--voltz-spacing-2, 8px) var(--voltz-spacing-3, 12px);
+  font-size: var(--voltz-font-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--voltz-cmdpal-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.voltz-command-palette__item {
+  display: flex;
+  align-items: center;
+  gap: var(--voltz-spacing-3, 12px);
+  padding: var(--voltz-spacing-2, 8px) var(--voltz-spacing-3, 12px);
+  border-radius: var(--voltz-radius-md, 6px);
+  cursor: pointer;
+  color: var(--voltz-cmdpal-text);
+  font-size: var(--voltz-font-sm, 0.875rem);
+}
+
+.voltz-command-palette__item[aria-selected="true"] {
+  background: var(--voltz-cmdpal-active-bg);
+  color: var(--voltz-cmdpal-active);
+}
+
+.voltz-command-palette__item:hover {
+  background: var(--voltz-cmdpal-hover-bg);
+}
+
+.voltz-command-palette__item-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voltz-command-palette__item-label {
+  flex: 1;
+}
+
+.voltz-command-palette__item[data-hidden="true"] {
+  display: none;
+}
+
+.voltz-command-palette__empty {
+  text-align: center;
+  padding: var(--voltz-spacing-8, 32px);
+  color: var(--voltz-cmdpal-text-muted);
+  font-size: var(--voltz-font-sm, 0.875rem);
+}
+
+.voltz-command-palette__empty[data-visible="false"] {
+  display: none;
+}
+
+.voltz-command-palette__footer {
+  display: flex;
+  gap: var(--voltz-spacing-4, 16px);
+  padding: var(--voltz-spacing-2, 8px) var(--voltz-spacing-4, 16px);
+  border-top: 1px solid var(--voltz-cmdpal-border);
+  font-size: var(--voltz-font-xs, 0.75rem);
+  color: var(--voltz-cmdpal-text-muted);
+}
+
+.voltz-command-palette__hint kbd {
+  display: inline-flex;
+  padding: 1px 4px;
+  font-size: 0.7rem;
+  background: var(--voltz-cmdpal-hover-bg);
+  border: 1px solid var(--voltz-cmdpal-border);
+  border-radius: 3px;
+  margin-right: 2px;
+  font-family: inherit;
+}
+
+/* Dark mode */
+[data-theme="dark"] .voltz-command-palette {
+  --voltz-cmdpal-bg: var(--voltz-color-surface-dark, #1e1e2e);
+  --voltz-cmdpal-text: var(--voltz-color-text-dark, #e2e8f0);
+  --voltz-cmdpal-text-muted: var(--voltz-color-text-muted-dark, #94a3b8);
+  --voltz-cmdpal-border: var(--voltz-color-border-dark, #2d2d44);
+  --voltz-cmdpal-hover-bg: rgba(255, 255, 255, 0.05);
+  --voltz-cmdpal-backdrop: rgba(0, 0, 0, 0.7);
+  --voltz-cmdpal-shadow: 0 16px 70px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-command-palette,
+  .voltz-command-palette__item {
+    transition: none;
+  }
+}

@@ -1,0 +1,14 @@
+<!--
+  Spotlight Component
+  Spotlight effect that follows cursor position.
+  Radial gradient overlay positioned via CSS custom properties.
+  JS tracks mouse; CSS renders the spotlight.
+-->
+<div class="voltz-spotlight"
+     data-voltz-spotlight
+     role="presentation">
+  <div class="voltz-spotlight__content">
+    {{slot:default}}
+  </div>
+  <div class="voltz-spotlight__effect" aria-hidden="true"></div>
+</div>

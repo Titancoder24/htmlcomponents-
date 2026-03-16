@@ -1,0 +1,260 @@
+/**
+ * Hero Animated Styles
+ * Floating shapes, text reveal, staggered CTA animations.
+ * Pure CSS animations. Responsive 320px-2560px.
+ */
+
+.voltz-hero-animated {
+  --voltz-hero-animated-bg: #050510;
+  --voltz-hero-animated-text-color: #ffffff;
+  --voltz-hero-animated-subtext-color: rgba(255, 255, 255, 0.65);
+  --voltz-hero-animated-accent: #6366f1;
+  --voltz-hero-animated-accent-2: #ec4899;
+  --voltz-hero-animated-accent-3: #06b6d4;
+  --voltz-hero-animated-cta-bg: #6366f1;
+  --voltz-hero-animated-cta-hover-bg: #4f46e5;
+  --voltz-hero-animated-cta-text: #ffffff;
+  --voltz-hero-animated-padding: 8rem 1.5rem;
+}
+
+[data-theme="light"] .voltz-hero-animated,
+.voltz-hero-animated[data-theme="light"] {
+  --voltz-hero-animated-bg: #f8f9ff;
+  --voltz-hero-animated-text-color: #0a0a0a;
+  --voltz-hero-animated-subtext-color: rgba(0, 0, 0, 0.55);
+}
+
+.voltz-hero-animated {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  background: var(--voltz-hero-animated-bg);
+  padding: var(--voltz-hero-animated-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Floating Shapes */
+.voltz-hero-animated__shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.voltz-hero-animated__shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(60px);
+}
+
+.voltz-hero-animated__shape--1 {
+  width: 400px; height: 400px;
+  background: var(--voltz-hero-animated-accent);
+  top: -10%; left: -5%;
+  animation: voltz-hero-animated-float 12s ease-in-out infinite;
+}
+
+.voltz-hero-animated__shape--2 {
+  width: 300px; height: 300px;
+  background: var(--voltz-hero-animated-accent-2);
+  top: 20%; right: -5%;
+  animation: voltz-hero-animated-float 10s ease-in-out infinite reverse;
+}
+
+.voltz-hero-animated__shape--3 {
+  width: 250px; height: 250px;
+  background: var(--voltz-hero-animated-accent-3);
+  bottom: -5%; left: 30%;
+  animation: voltz-hero-animated-float 14s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.voltz-hero-animated__shape--4 {
+  width: 150px; height: 150px;
+  background: var(--voltz-hero-animated-accent);
+  top: 50%; right: 20%;
+  animation: voltz-hero-animated-float 9s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.voltz-hero-animated__shape--5 {
+  width: 200px; height: 200px;
+  background: var(--voltz-hero-animated-accent-2);
+  bottom: 20%; left: 5%;
+  animation: voltz-hero-animated-float 11s ease-in-out infinite reverse;
+  animation-delay: -2s;
+}
+
+.voltz-hero-animated__shape--6 {
+  width: 180px; height: 180px;
+  background: var(--voltz-hero-animated-accent-3);
+  top: 5%; left: 50%;
+  animation: voltz-hero-animated-float 13s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+@keyframes voltz-hero-animated-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 30px) scale(0.95); }
+  75% { transform: translate(20px, 20px) scale(1.02); }
+}
+
+/* Minimal variant: fewer shapes */
+.voltz-hero-animated.minimal .voltz-hero-animated__shape--4,
+.voltz-hero-animated.minimal .voltz-hero-animated__shape--5,
+.voltz-hero-animated.minimal .voltz-hero-animated__shape--6 {
+  display: none;
+}
+
+/* Container */
+.voltz-hero-animated__container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Text Reveal */
+.voltz-hero-animated__headline {
+  font-size: clamp(2.5rem, 6vw + 1rem, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--voltz-hero-animated-text-color);
+  letter-spacing: -0.03em;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.35em;
+}
+
+.voltz-hero-animated__word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: voltz-hero-animated-reveal 0.6s ease forwards;
+}
+
+.voltz-hero-animated__word:nth-child(1) { animation-delay: 0.1s; }
+.voltz-hero-animated__word:nth-child(2) { animation-delay: 0.25s; }
+.voltz-hero-animated__word:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes voltz-hero-animated-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.voltz-hero-animated__highlight {
+  background: linear-gradient(135deg, var(--voltz-hero-animated-accent), var(--voltz-hero-animated-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.voltz-hero-animated__subheadline {
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.375rem);
+  line-height: 1.6;
+  color: var(--voltz-hero-animated-subtext-color);
+  max-width: 580px;
+  margin: 0;
+  opacity: 0;
+  animation: voltz-hero-animated-fade-in 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes voltz-hero-animated-fade-in {
+  to { opacity: 1; }
+}
+
+/* Staggered CTAs */
+.voltz-hero-animated__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.voltz-hero-animated__stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: voltz-hero-animated-reveal 0.5s ease forwards;
+}
+
+.voltz-hero-animated__stagger:nth-child(1) { animation-delay: 0.8s; }
+.voltz-hero-animated__stagger:nth-child(2) { animation-delay: 1s; }
+
+.voltz-hero-animated__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.voltz-hero-animated__cta--primary {
+  background: var(--voltz-hero-animated-cta-bg);
+  color: var(--voltz-hero-animated-cta-text);
+}
+
+.voltz-hero-animated__cta--primary:hover {
+  background: var(--voltz-hero-animated-cta-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+}
+
+.voltz-hero-animated__cta--secondary {
+  background: transparent;
+  color: var(--voltz-hero-animated-text-color);
+  border: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.voltz-hero-animated__cta--secondary:hover {
+  border-color: var(--voltz-hero-animated-text-color);
+  background: rgba(128, 128, 128, 0.1);
+}
+
+@media (max-width: 768px) {
+  .voltz-hero-animated {
+    --voltz-hero-animated-padding: 5rem 1.25rem;
+    min-height: 70vh;
+  }
+  .voltz-hero-animated__actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  .voltz-hero-animated__cta { width: 100%; justify-content: center; }
+  .voltz-hero-animated__shape { filter: blur(40px); }
+}
+
+@media (max-width: 480px) {
+  .voltz-hero-animated { --voltz-hero-animated-padding: 4rem 1rem; }
+}
+
+@media (min-width: 1920px) {
+  .voltz-hero-animated { --voltz-hero-animated-padding: 10rem 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-hero-animated__shape { animation: none; }
+  .voltz-hero-animated__word,
+  .voltz-hero-animated__subheadline,
+  .voltz-hero-animated__stagger {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

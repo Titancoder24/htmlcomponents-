@@ -1,0 +1,18 @@
+<!--
+  Count Up Component
+  Number counting up animation triggered on scroll.
+  Variants: default, comma, decimal
+  Uses IntersectionObserver for scroll trigger, JS for number interpolation.
+-->
+<span class="voltz-count-up voltz-count-up--{{variant}}"
+      data-voltz-count-up
+      data-variant="{{variant}}"
+      data-start="{{#if start}}{{start}}{{else}}0{{/if}}"
+      data-end="{{#if end}}{{end}}{{else}}100{{/if}}"
+      {{#if decimals}}data-decimals="{{decimals}}"{{/if}}
+      role="text"
+      aria-label="{{#if end}}{{end}}{{else}}100{{/if}}">
+  {{#if prefix}}<span class="voltz-count-up__prefix">{{slot:prefix}}</span>{{/if}}
+  <span class="voltz-count-up__value">{{#if start}}{{start}}{{else}}0{{/if}}</span>
+  {{#if suffix}}<span class="voltz-count-up__suffix">{{slot:suffix}}</span>{{/if}}
+</span>

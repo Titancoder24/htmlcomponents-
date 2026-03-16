@@ -1,0 +1,26 @@
+<!--
+  Skeleton Component - template.html
+  Purpose: Renders content placeholder elements with shimmer animation.
+  Supports text lines, circles, and rectangles. Hidden from assistive
+  technology with aria-hidden.
+-->
+<div
+  class="voltz-skeleton voltz-skeleton--{{variant}} voltz-skeleton--{{size}} {{#if rounded}}voltz-skeleton--rounded{{/if}} {{#if animated}}voltz-skeleton--animated{{/if}}"
+  aria-hidden="true"
+  aria-label="Loading content"
+  {{#if width}}style="width: {{width}}; {{#if height}}height: {{height}};{{/if}}"{{/if}}
+>
+  {{#if variant === 'text'}}
+    {{#each count}}
+    <div class="voltz-skeleton__line"></div>
+    {{/each}}
+  {{/if}}
+
+  {{#if variant === 'circle'}}
+    <div class="voltz-skeleton__circle"></div>
+  {{/if}}
+
+  {{#if variant === 'rectangle'}}
+    <div class="voltz-skeleton__rect"></div>
+  {{/if}}
+</div>

@@ -1,0 +1,199 @@
+/**
+ * Voltz UI - State Transitions
+ *
+ * Smooth CSS transitions for interactive state changes.
+ * Covers common properties: colors, backgrounds, borders, shadows,
+ * transforms, and opacity. Uses only transform and opacity where possible.
+ * Includes prefers-reduced-motion fallbacks.
+ *
+ * Usage: Apply transition classes to elements that change state on hover/focus.
+ */
+
+/* ========================================================================
+ * Base Transition Classes
+ * ======================================================================== */
+
+.voltz-transition-none {
+  transition: none;
+}
+
+.voltz-transition-all {
+  transition-property: all;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.voltz-transition-colors {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.voltz-transition-opacity {
+  transition-property: opacity;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.voltz-transition-shadow {
+  transition-property: box-shadow;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.voltz-transition-transform {
+  transition-property: transform;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+/* ========================================================================
+ * Duration Modifiers
+ * ======================================================================== */
+
+.voltz-transition-fast {
+  transition-duration: var(--voltz-duration-fast, 100ms);
+}
+
+.voltz-transition-slow {
+  transition-duration: var(--voltz-duration-slow, 300ms);
+}
+
+.voltz-transition-slower {
+  transition-duration: var(--voltz-duration-slower, 500ms);
+}
+
+/* ========================================================================
+ * Easing Modifiers
+ * ======================================================================== */
+
+.voltz-ease-linear {
+  transition-timing-function: var(--voltz-easing-linear, linear);
+}
+
+.voltz-ease-in {
+  transition-timing-function: var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1));
+}
+
+.voltz-ease-out {
+  transition-timing-function: var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1));
+}
+
+.voltz-ease-in-out {
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.voltz-ease-spring {
+  transition-timing-function: var(--voltz-easing-spring, cubic-bezier(0.175, 0.885, 0.32, 1.275));
+}
+
+.voltz-ease-bounce {
+  transition-timing-function: var(--voltz-easing-bounce, cubic-bezier(0.68, -0.55, 0.265, 1.55));
+}
+
+/* ========================================================================
+ * Interactive State Presets
+ * ======================================================================== */
+
+.voltz-hover-lift {
+  transition-property: transform, box-shadow;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1));
+}
+
+.voltz-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--voltz-shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+}
+
+.voltz-hover-grow {
+  transition-property: transform;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-spring, cubic-bezier(0.175, 0.885, 0.32, 1.275));
+}
+
+.voltz-hover-grow:hover {
+  transform: scale(1.05);
+}
+
+.voltz-hover-shrink {
+  transition-property: transform;
+  transition-duration: var(--voltz-duration-fast, 100ms);
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.voltz-hover-shrink:hover {
+  transform: scale(0.97);
+}
+
+.voltz-hover-glow {
+  transition-property: box-shadow;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1));
+}
+
+.voltz-hover-glow:hover {
+  box-shadow: var(--voltz-shadow-primary, 0 4px 14px 0 rgb(59 130 246 / 0.25));
+}
+
+.voltz-active-press {
+  transition-property: transform;
+  transition-duration: var(--voltz-duration-fast, 100ms);
+  transition-timing-function: var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1));
+}
+
+.voltz-active-press:active {
+  transform: scale(0.95);
+}
+
+/* ========================================================================
+ * Collapsible / Expandable
+ * ======================================================================== */
+
+.voltz-collapse {
+  overflow: hidden;
+  transition-property: opacity, transform;
+  transition-duration: var(--voltz-duration-normal, 200ms);
+  transition-timing-function: var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.voltz-collapse[aria-hidden="true"],
+.voltz-collapse.is-collapsed {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.voltz-collapse[aria-hidden="false"],
+.voltz-collapse.is-expanded {
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+/* ========================================================================
+ * Reduced Motion Fallback
+ * ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-transition-all,
+  .voltz-transition-colors,
+  .voltz-transition-opacity,
+  .voltz-transition-shadow,
+  .voltz-transition-transform,
+  .voltz-hover-lift,
+  .voltz-hover-grow,
+  .voltz-hover-shrink,
+  .voltz-hover-glow,
+  .voltz-active-press,
+  .voltz-collapse {
+    transition-duration: 0.01ms !important;
+  }
+
+  .voltz-hover-lift:hover,
+  .voltz-hover-grow:hover,
+  .voltz-hover-shrink:hover,
+  .voltz-active-press:active {
+    transform: none !important;
+  }
+}

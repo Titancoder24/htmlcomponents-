@@ -1,0 +1,27 @@
+{
+  "name": "stepper",
+  "displayName": "Stepper",
+  "description": "Step-by-step progress indicator with horizontal and vertical variants. Supports completed, current, and upcoming states.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["horizontal", "vertical"],
+  "slots": {
+    "default": "Step items"
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "horizontal",
+      "options": ["horizontal", "vertical"]
+    },
+    "clickable": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"],
+    "aria": ["role=navigation", "aria-label", "aria-current", "aria-disabled"]
+  }
+}

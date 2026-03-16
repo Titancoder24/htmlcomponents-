@@ -1,0 +1,77 @@
+{
+  "id": "search-input",
+  "name": "SearchInput",
+  "description": "A search input field with a search icon, clear button, loading spinner state, and Escape-to-clear keyboard support. Supports multiple sizes.",
+  "category": "primitives",
+  "tags": ["search", "input", "filter", "find", "query"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "searchbox",
+    "keyboard": {
+      "Escape": "Clears the search input value"
+    },
+    "ariaAttributes": ["aria-label", "role"]
+  },
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the search input"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Search...",
+      "description": "Placeholder text for the input"
+    },
+    "value": {
+      "type": "string",
+      "default": "",
+      "description": "Current value of the search input"
+    },
+    "loading": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show a loading spinner"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is disabled"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {},
+  "events": {
+    "input": {
+      "description": "Fired when the input value changes",
+      "payload": { "value": "string" }
+    },
+    "clear": {
+      "description": "Fired when the input is cleared"
+    }
+  },
+  "examples": [
+    {
+      "title": "Default search input",
+      "props": { "size": "md", "placeholder": "Search..." }
+    },
+    {
+      "title": "Loading search",
+      "props": { "size": "md", "loading": true, "value": "query" }
+    },
+    {
+      "title": "Small search input",
+      "props": { "size": "sm", "placeholder": "Filter items..." }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["input"]
+}

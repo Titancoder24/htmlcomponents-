@@ -1,0 +1,174 @@
+/*
+ * Table Component Styles
+ * Purpose: Provides styling for basic table with simple/striped/bordered
+ * variants, sm/md/lg sizes, sticky header, sortable indicators, and
+ * responsive horizontal scroll. Supports dark mode and reduced motion.
+ */
+
+/* === Custom Properties === */
+.voltz-table-wrapper {
+  --voltz-table-border-color: #e2e8f0;
+  --voltz-table-header-bg: #f8fafc;
+  --voltz-table-header-color: #334155;
+  --voltz-table-cell-color: #1e293b;
+  --voltz-table-row-hover-bg: #f1f5f9;
+  --voltz-table-stripe-bg: #f8fafc;
+  --voltz-table-empty-color: #94a3b8;
+  --voltz-table-sort-color: #64748b;
+  --voltz-table-sort-active-color: #3b82f6;
+  --voltz-table-font-size: 0.875rem;
+  --voltz-table-cell-padding: 0.75rem 1rem;
+  --voltz-table-border-radius: 0.5rem;
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] .voltz-table-wrapper {
+  --voltz-table-border-color: #334155;
+  --voltz-table-header-bg: #1e293b;
+  --voltz-table-header-color: #e2e8f0;
+  --voltz-table-cell-color: #cbd5e1;
+  --voltz-table-row-hover-bg: #1e293b;
+  --voltz-table-stripe-bg: #0f172a;
+  --voltz-table-empty-color: #64748b;
+  --voltz-table-sort-color: #94a3b8;
+  --voltz-table-sort-active-color: #60a5fa;
+}
+
+/* === Wrapper (responsive scroll) === */
+.voltz-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--voltz-table-border-radius);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* === Base Table === */
+.voltz-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: var(--voltz-table-font-size);
+  color: var(--voltz-table-cell-color);
+}
+
+/* === Header === */
+.voltz-table__head th {
+  background: var(--voltz-table-header-bg);
+  color: var(--voltz-table-header-color);
+  font-weight: 600;
+  padding: var(--voltz-table-cell-padding);
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--voltz-table-border-color);
+  position: relative;
+  user-select: none;
+}
+
+/* === Sortable Header === */
+.voltz-table__head th[data-sortable] {
+  cursor: pointer;
+  padding-right: 2rem;
+}
+
+.voltz-table__head th[data-sortable]::after {
+  content: "";
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 5px solid var(--voltz-table-sort-color);
+  opacity: 0.4;
+}
+
+.voltz-table__head th[data-sort="asc"]::after {
+  border-bottom: 5px solid var(--voltz-table-sort-active-color);
+  opacity: 1;
+}
+
+.voltz-table__head th[data-sort="desc"]::after {
+  border-bottom: none;
+  border-top: 5px solid var(--voltz-table-sort-active-color);
+  opacity: 1;
+}
+
+/* === Body Cells === */
+.voltz-table__body td {
+  padding: var(--voltz-table-cell-padding);
+  border-bottom: 1px solid var(--voltz-table-border-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.voltz-table__body tr:last-child td {
+  border-bottom: none;
+}
+
+/* === Row Hover === */
+.voltz-table__body tr:hover {
+  background: var(--voltz-table-row-hover-bg);
+  transition: background-color 0.15s ease;
+}
+
+/* === Variant: Striped === */
+.voltz-table--striped .voltz-table__body tr:nth-child(even) {
+  background: var(--voltz-table-stripe-bg);
+}
+
+/* === Variant: Bordered === */
+.voltz-table--bordered .voltz-table {
+  border: 1px solid var(--voltz-table-border-color);
+}
+
+.voltz-table--bordered .voltz-table__body td,
+.voltz-table--bordered .voltz-table__head th {
+  border: 1px solid var(--voltz-table-border-color);
+}
+
+/* === Sticky Header === */
+.voltz-table--sticky .voltz-table__head th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* === Size: sm === */
+.voltz-table--sm {
+  --voltz-table-font-size: 0.75rem;
+  --voltz-table-cell-padding: 0.375rem 0.625rem;
+}
+
+/* === Size: md (default) === */
+.voltz-table--md {
+  --voltz-table-font-size: 0.875rem;
+  --voltz-table-cell-padding: 0.75rem 1rem;
+}
+
+/* === Size: lg === */
+.voltz-table--lg {
+  --voltz-table-font-size: 1rem;
+  --voltz-table-cell-padding: 1rem 1.25rem;
+}
+
+/* === Empty State === */
+.voltz-table__empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.voltz-table__empty-text {
+  color: var(--voltz-table-empty-color);
+  font-style: italic;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-table__body tr:hover {
+    transition: none;
+  }
+}

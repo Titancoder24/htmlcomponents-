@@ -1,0 +1,27 @@
+<!--
+  Table Component Template
+  Purpose: Basic table with variants (simple/striped/bordered), sizes,
+  sortable headers (visual only), sticky header, and responsive scroll.
+-->
+<div class="voltz-table-wrapper voltz-table--{{variant}} voltz-table--{{size}} {{#if stickyHeader}}voltz-table--sticky{{/if}}"
+     role="region"
+     aria-label="Data table"
+     tabindex="0">
+  <table class="voltz-table" role="table">
+    <thead class="voltz-table__head">
+      {{slot:head}}
+    </thead>
+    <tbody class="voltz-table__body">
+      {{#if empty}}
+      <tr class="voltz-table__empty-row">
+        <td class="voltz-table__empty-cell" colspan="100%">
+          <div class="voltz-table__empty-state">
+            <span class="voltz-table__empty-text">No data available</span>
+          </div>
+        </td>
+      </tr>
+      {{/if}}
+      {{slot:default}}
+    </tbody>
+  </table>
+</div>

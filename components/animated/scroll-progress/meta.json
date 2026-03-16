@@ -1,0 +1,17 @@
+{
+  "name": "scroll-progress",
+  "description": "Scroll progress indicator bar at top or bottom of page with configurable color and height options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["top", "bottom"],
+  "tags": ["scroll", "progress", "indicator", "bar"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-scroll-progress-color",
+    "--voltz-scroll-progress-height",
+    "--voltz-scroll-progress-bg",
+    "--voltz-scroll-progress-z-index"
+  ],
+  "slots": {}
+}

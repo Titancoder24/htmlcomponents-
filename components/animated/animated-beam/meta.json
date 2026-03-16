@@ -1,0 +1,18 @@
+{
+  "name": "animated-beam",
+  "description": "Animated beam/laser connecting two points with configurable color, width, and speed using CSS gradient animation.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "dashed", "pulse"],
+  "tags": ["beam", "laser", "connection", "animation", "gradient"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-beam-color",
+    "--voltz-beam-width",
+    "--voltz-beam-duration",
+    "--voltz-beam-glow",
+    "--voltz-beam-length"
+  ],
+  "slots": {}
+}

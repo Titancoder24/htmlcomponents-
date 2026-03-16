@@ -1,0 +1,83 @@
+{
+  "id": "drawer",
+  "name": "Drawer",
+  "description": "A slide-in panel overlay from any edge of the viewport. Supports multiple positions, sizes, overlay backdrop, focus trapping, and Escape to close.",
+  "category": "primitives",
+  "tags": ["drawer", "panel", "sidebar", "slide", "overlay"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "dialog",
+    "keyboard": {
+      "Escape": "Closes the drawer",
+      "Tab": "Cycles focus within the drawer"
+    },
+    "ariaAttributes": ["aria-modal", "aria-labelledby", "role"]
+  },
+  "props": {
+    "position": {
+      "type": "string",
+      "default": "right",
+      "options": ["left", "right", "top", "bottom"],
+      "description": "Edge from which the drawer slides in"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Width (left/right) or height (top/bottom) of the drawer"
+    },
+    "closeOnOverlay": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether clicking the overlay closes the drawer"
+    },
+    "closeOnEscape": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether pressing Escape closes the drawer"
+    }
+  },
+  "variants": [
+    {
+      "name": "position",
+      "options": ["left", "right", "top", "bottom"],
+      "default": "right"
+    },
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Main body content of the drawer"
+    },
+    "header": {
+      "description": "Drawer header with title and close button"
+    },
+    "footer": {
+      "description": "Drawer footer with action buttons"
+    }
+  },
+  "examples": [
+    {
+      "title": "Right drawer medium",
+      "props": { "position": "right", "size": "md" },
+      "slots": { "header": "Settings", "default": "Drawer content here" }
+    },
+    {
+      "title": "Left drawer large",
+      "props": { "position": "left", "size": "lg" },
+      "slots": { "header": "Navigation", "default": "Nav links" }
+    },
+    {
+      "title": "Bottom drawer small",
+      "props": { "position": "bottom", "size": "sm" },
+      "slots": { "default": "Quick actions" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["dialog", "popover"]
+}

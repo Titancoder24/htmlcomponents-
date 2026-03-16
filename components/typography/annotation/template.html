@@ -1,0 +1,17 @@
+<!--
+  Annotation Component Template
+  Purpose: Renders an inline annotation marker (superscript number)
+  with a tooltip that appears on hover/focus showing annotation text.
+-->
+<span
+  class="voltz-annotation"
+  data-voltz-annotation
+  tabindex="0"
+  role="note"
+  aria-label="Annotation {{variant:number}}"
+>
+  <span class="voltz-annotation__marker" aria-hidden="true">{{variant:number}}</span>
+  <span class="voltz-annotation__tooltip" role="tooltip" id="voltz-annotation-{{variant:number}}">
+    {{slot:default}}
+  </span>
+</span>

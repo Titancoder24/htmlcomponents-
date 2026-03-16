@@ -1,0 +1,37 @@
+{
+  "id": "spacer",
+  "name": "Spacer",
+  "description": "Empty space element for adding whitespace between components. Uses spacing scale with responsive size options.",
+  "category": "layout",
+  "tags": ["spacer", "whitespace", "gap", "spacing", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Purely decorative spacing element. Hidden from assistive technologies via aria-hidden."
+  },
+  "variants": [
+    { "name": "xs", "description": "Extra small spacer (0.25rem)" },
+    { "name": "sm", "description": "Small spacer (0.5rem)" },
+    { "name": "md", "description": "Medium spacer (1rem)" },
+    { "name": "lg", "description": "Large spacer (1.5rem)" },
+    { "name": "xl", "description": "Extra large spacer (2rem)" },
+    { "name": "2xl", "description": "Double extra large spacer (3rem)" },
+    { "name": "3xl", "description": "Triple extra large spacer (4rem)" }
+  ],
+  "slots": [],
+  "examples": [
+    {
+      "name": "Medium vertical spacer",
+      "description": "Vertical spacing between sections",
+      "props": { "variant": "md", "axis": "vertical" }
+    },
+    {
+      "name": "Large horizontal spacer",
+      "description": "Horizontal spacing between inline elements",
+      "props": { "variant": "lg", "axis": "horizontal" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["divider", "stack"]
+}

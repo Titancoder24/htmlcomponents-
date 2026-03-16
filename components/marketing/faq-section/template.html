@@ -1,0 +1,66 @@
+<!--
+  FAQ Section Component
+  Purpose: Accordion-based FAQ with expandable questions. Supports search/filter,
+  categories, and is ready for FAQ schema markup (application/ld+json).
+  Variants: default, bordered, card, minimal, with-categories
+-->
+<section class="voltz-faq {{variant}}" data-component="faq-section"
+         role="region" aria-label="Frequently asked questions">
+  <div class="voltz-faq__container">
+    <div class="voltz-faq__header">
+      <h2 class="voltz-faq__title">{{slot:title}}</h2>
+      <p class="voltz-faq__subtitle">{{slot:subtitle}}</p>
+    </div>
+
+    {{#if showSearch}}
+    <div class="voltz-faq__search">
+      <label for="faq-search" class="voltz-faq__sr-only">Search questions</label>
+      <svg class="voltz-faq__search-icon" width="20" height="20" viewBox="0 0 20 20"
+           fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+        <path d="M14 14l4 4" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round"/>
+      </svg>
+      <input type="search" id="faq-search" class="voltz-faq__search-input"
+             placeholder="Search questions..." data-faq-search />
+    </div>
+    {{/if}}
+
+    {{#if showCategories}}
+    <div class="voltz-faq__categories" role="tablist" aria-label="FAQ categories">
+      <button class="voltz-faq__category voltz-faq__category--active"
+              data-faq-category="all" role="tab" aria-selected="true"
+              type="button">All</button>
+      {{slot:categories}}
+    </div>
+    {{/if}}
+
+    <div class="voltz-faq__list" itemscope
+         itemtype="https://schema.org/FAQPage">
+      <div class="voltz-faq__item" itemscope
+           itemprop="mainEntity" itemtype="https://schema.org/Question"
+           data-faq-item data-category="general">
+        <button class="voltz-faq__question" aria-expanded="false"
+                data-faq-toggle type="button">
+          <span itemprop="name">{{slot:question}}</span>
+          <svg class="voltz-faq__chevron" width="20" height="20"
+               viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="voltz-faq__answer" itemscope
+             itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"
+             role="region" hidden>
+          <div itemprop="text" class="voltz-faq__answer-text">
+            {{slot:answer}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="voltz-faq__no-results" data-faq-no-results hidden>
+      No questions match your search. Try different keywords.
+    </p>
+  </div>
+</section>

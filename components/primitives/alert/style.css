@@ -1,0 +1,188 @@
+/**
+ * Alert Component - style.css
+ * Purpose: Styles for alert messages including solid, soft, and outline
+ * variants across info, success, warning, and error types.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-alert {
+  --voltz-alert-radius: var(--voltz-radius-lg, 0.5rem);
+  --voltz-alert-padding: 0.875rem 1rem;
+  --voltz-alert-font-size: 0.875rem;
+  --voltz-alert-icon-size: 1.25rem;
+  --voltz-alert-transition: opacity 200ms ease;
+  --voltz-alert-gap: 0.75rem;
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--voltz-alert-gap);
+  padding: var(--voltz-alert-padding);
+  border-radius: var(--voltz-alert-radius);
+  font-size: var(--voltz-alert-font-size);
+  line-height: 1.5;
+  transition: var(--voltz-alert-transition);
+}
+
+/* ---- Type color tokens ---- */
+.voltz-alert--info {
+  --voltz-alert-hue-solid-bg: var(--voltz-color-primary-600, #2563eb);
+  --voltz-alert-hue-soft-bg: var(--voltz-color-primary-50, #eff6ff);
+  --voltz-alert-hue-soft-color: var(--voltz-color-primary-800, #1e40af);
+  --voltz-alert-hue-border: var(--voltz-color-primary-300, #93c5fd);
+  --voltz-alert-hue-icon: var(--voltz-color-primary-500, #3b82f6);
+}
+
+.voltz-alert--success {
+  --voltz-alert-hue-solid-bg: var(--voltz-color-success-600, #16a34a);
+  --voltz-alert-hue-soft-bg: var(--voltz-color-success-50, #f0fdf4);
+  --voltz-alert-hue-soft-color: var(--voltz-color-success-800, #166534);
+  --voltz-alert-hue-border: var(--voltz-color-success-300, #86efac);
+  --voltz-alert-hue-icon: var(--voltz-color-success-500, #22c55e);
+}
+
+.voltz-alert--warning {
+  --voltz-alert-hue-solid-bg: var(--voltz-color-warning-600, #d97706);
+  --voltz-alert-hue-soft-bg: var(--voltz-color-warning-50, #fffbeb);
+  --voltz-alert-hue-soft-color: var(--voltz-color-warning-800, #92400e);
+  --voltz-alert-hue-border: var(--voltz-color-warning-300, #fcd34d);
+  --voltz-alert-hue-icon: var(--voltz-color-warning-500, #f59e0b);
+}
+
+.voltz-alert--error {
+  --voltz-alert-hue-solid-bg: var(--voltz-color-error-600, #dc2626);
+  --voltz-alert-hue-soft-bg: var(--voltz-color-error-50, #fef2f2);
+  --voltz-alert-hue-soft-color: var(--voltz-color-error-800, #991b1b);
+  --voltz-alert-hue-border: var(--voltz-color-error-300, #fca5a5);
+  --voltz-alert-hue-icon: var(--voltz-color-error-500, #ef4444);
+}
+
+/* ---- Variant: solid ---- */
+.voltz-alert--solid {
+  background: var(--voltz-alert-hue-solid-bg);
+  color: #ffffff;
+}
+
+.voltz-alert--solid .voltz-alert__icon {
+  color: #ffffff;
+}
+
+/* ---- Variant: soft ---- */
+.voltz-alert--soft {
+  background: var(--voltz-alert-hue-soft-bg);
+  color: var(--voltz-alert-hue-soft-color);
+}
+
+.voltz-alert--soft .voltz-alert__icon {
+  color: var(--voltz-alert-hue-icon);
+}
+
+/* ---- Variant: outline ---- */
+.voltz-alert--outline {
+  background: transparent;
+  border: 1px solid var(--voltz-alert-hue-border);
+  color: var(--voltz-alert-hue-soft-color);
+}
+
+.voltz-alert--outline .voltz-alert__icon {
+  color: var(--voltz-alert-hue-icon);
+}
+
+/* ---- Icon ---- */
+.voltz-alert__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--voltz-alert-icon-size);
+  height: var(--voltz-alert-icon-size);
+  margin-top: 0.0625rem;
+}
+
+.voltz-alert__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Content ---- */
+.voltz-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---- Title ---- */
+.voltz-alert__title {
+  font-weight: 600;
+  margin-bottom: 0.125rem;
+}
+
+/* ---- Message ---- */
+.voltz-alert__message {
+  line-height: 1.5;
+}
+
+/* ---- Dismiss button ---- */
+.voltz-alert__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+  background: transparent;
+  color: currentColor;
+  opacity: 0.6;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.voltz-alert__dismiss:hover {
+  opacity: 1;
+}
+
+.voltz-alert__dismiss:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.voltz-alert__dismiss-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ---- Hidden state (after dismiss) ---- */
+.voltz-alert[hidden] {
+  display: none;
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-alert--info {
+  --voltz-alert-hue-soft-bg: rgba(59, 130, 246, 0.15);
+  --voltz-alert-hue-soft-color: var(--voltz-color-primary-200, #bfdbfe);
+  --voltz-alert-hue-border: var(--voltz-color-primary-700, #1d4ed8);
+}
+
+[data-theme="dark"] .voltz-alert--success {
+  --voltz-alert-hue-soft-bg: rgba(34, 197, 94, 0.15);
+  --voltz-alert-hue-soft-color: var(--voltz-color-success-200, #bbf7d0);
+  --voltz-alert-hue-border: var(--voltz-color-success-700, #15803d);
+}
+
+[data-theme="dark"] .voltz-alert--warning {
+  --voltz-alert-hue-soft-bg: rgba(245, 158, 11, 0.15);
+  --voltz-alert-hue-soft-color: var(--voltz-color-warning-200, #fde68a);
+  --voltz-alert-hue-border: var(--voltz-color-warning-700, #b45309);
+}
+
+[data-theme="dark"] .voltz-alert--error {
+  --voltz-alert-hue-soft-bg: rgba(239, 68, 68, 0.15);
+  --voltz-alert-hue-soft-color: var(--voltz-color-error-200, #fecaca);
+  --voltz-alert-hue-border: var(--voltz-color-error-700, #b91c1c);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-alert {
+    transition: none;
+  }
+}

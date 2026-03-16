@@ -1,0 +1,19 @@
+{
+  "name": "slide-in",
+  "description": "Slide-in animation from edge with configurable direction, distance, duration, and delay. Triggered by IntersectionObserver.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["left", "right", "top", "bottom"],
+  "tags": ["slide", "animation", "scroll", "reveal"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-slide-in-duration",
+    "--voltz-slide-in-delay",
+    "--voltz-slide-in-easing",
+    "--voltz-slide-in-distance"
+  ],
+  "slots": {
+    "default": "Content to slide in"
+  }
+}

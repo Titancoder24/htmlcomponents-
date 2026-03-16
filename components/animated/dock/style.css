@@ -1,0 +1,96 @@
+/*
+ * Dock Component Styles
+ * macOS-style dock with magnification on hover.
+ * Variants: horizontal, vertical
+ * Uses only transform (scale) for compositor-friendly animations.
+ */
+
+.voltz-dock {
+  --voltz-dock-item-size: 48px;
+  --voltz-dock-magnification: 1.8;
+  --voltz-dock-gap: 8px;
+  --voltz-dock-bg: rgba(255, 255, 255, 0.85);
+  --voltz-dock-radius: 16px;
+  --voltz-dock-padding: 8px;
+
+  display: inline-flex;
+}
+
+[data-theme="dark"] .voltz-dock {
+  --voltz-dock-bg: rgba(30, 30, 30, 0.85);
+}
+
+.voltz-dock__container {
+  display: flex;
+  align-items: end;
+  gap: var(--voltz-dock-gap);
+  padding: var(--voltz-dock-padding);
+  background: var(--voltz-dock-bg);
+  border-radius: var(--voltz-dock-radius);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.voltz-dock--vertical .voltz-dock__container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.voltz-dock__item {
+  width: var(--voltz-dock-item-size);
+  height: var(--voltz-dock-item-size);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transform-origin: bottom center;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  cursor: pointer;
+  background: rgba(128, 128, 128, 0.15);
+}
+
+.voltz-dock--vertical .voltz-dock__item {
+  transform-origin: center left;
+}
+
+.voltz-dock__item:hover {
+  transform: scale(var(--voltz-dock-magnification));
+}
+
+.voltz-dock__item-label {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.voltz-dock__item:hover .voltz-dock__item-label {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-dock__item {
+    transition: none !important;
+  }
+
+  .voltz-dock__item:hover {
+    transform: scale(1.1);
+  }
+
+  .voltz-dock__item-label {
+    transition: none !important;
+  }
+}

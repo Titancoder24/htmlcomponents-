@@ -1,0 +1,23 @@
+<!--
+  Radio Component - template.html
+  Purpose: Renders a radio button with a custom circular indicator
+  and optional label text.
+-->
+<label class="voltz-radio voltz-radio--{{size}} voltz-radio--{{color}} {{#if disabled}}voltz-radio--disabled{{/if}}">
+  <input
+    class="voltz-radio__input"
+    type="radio"
+    name="{{name}}"
+    value="{{value}}"
+    {{#if checked}}checked{{/if}}
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+    {{#if required}}required aria-required="true"{{/if}}
+  />
+  <span class="voltz-radio__control" aria-hidden="true">
+    <span class="voltz-radio__dot"></span>
+  </span>
+  {{#if label}}
+  <span class="voltz-radio__label">{{label}}</span>
+  {{/if}}
+  {{slot:default}}
+</label>

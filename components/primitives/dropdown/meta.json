@@ -1,0 +1,58 @@
+{
+  "id": "dropdown",
+  "name": "Dropdown",
+  "description": "A dropdown menu triggered by a button, with keyboard navigation, dividers, disabled items, and icon support. Fully accessible with ARIA menu roles.",
+  "category": "primitives",
+  "tags": ["dropdown", "menu", "select", "actions", "navigation"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "menu",
+    "keyboard": {
+      "ArrowDown": "Moves focus to the next menu item",
+      "ArrowUp": "Moves focus to the previous menu item",
+      "Enter": "Activates the focused menu item",
+      "Escape": "Closes the dropdown menu",
+      "Home": "Moves focus to the first menu item",
+      "End": "Moves focus to the last menu item"
+    },
+    "ariaAttributes": ["aria-expanded", "aria-haspopup", "aria-controls", "role"]
+  },
+  "props": {
+    "position": {
+      "type": "string",
+      "default": "bottom-start",
+      "options": ["bottom-start", "bottom-end", "top-start", "top-end"],
+      "description": "Position of the dropdown menu relative to the trigger"
+    }
+  },
+  "variants": [
+    {
+      "name": "position",
+      "options": ["bottom-start", "bottom-end", "top-start", "top-end"],
+      "default": "bottom-start"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "The trigger element (typically a button)"
+    },
+    "menu": {
+      "description": "Menu items, dividers, and grouped content"
+    }
+  },
+  "examples": [
+    {
+      "title": "Basic dropdown",
+      "props": { "position": "bottom-start" },
+      "slots": { "default": "<button>Actions</button>", "menu": "<div role=\"menuitem\">Edit</div><div role=\"menuitem\">Delete</div>" }
+    },
+    {
+      "title": "Dropdown with divider and disabled item",
+      "props": { "position": "bottom-end" },
+      "slots": { "default": "<button>More</button>", "menu": "<div role=\"menuitem\">Copy</div><hr /><div role=\"menuitem\" aria-disabled=\"true\">Paste</div>" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["popover", "select"]
+}

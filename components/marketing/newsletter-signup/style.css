@@ -1,0 +1,200 @@
+/*
+ * Newsletter Signup Component Styles
+ * Purpose: Styling for email signup with inline/stacked layouts,
+ * success state animation, and responsive behavior.
+ */
+
+.voltz-newsletter {
+  --voltz-newsletter-bg: #f8f9fc;
+  --voltz-newsletter-text: #1a1a2e;
+  --voltz-newsletter-text-muted: #6b7280;
+  --voltz-newsletter-primary: #6c5ce7;
+  --voltz-newsletter-primary-hover: #5a4bd1;
+  --voltz-newsletter-input-bg: #ffffff;
+  --voltz-newsletter-input-border: #d1d5db;
+  --voltz-newsletter-success: #10b981;
+  --voltz-newsletter-error: #ef4444;
+  --voltz-newsletter-padding: 5rem 1.5rem;
+  --voltz-newsletter-max-width: 640px;
+  --voltz-newsletter-radius: 12px;
+}
+
+[data-theme="dark"] .voltz-newsletter,
+.voltz-newsletter[data-theme="dark"] {
+  --voltz-newsletter-bg: #0f0f1a;
+  --voltz-newsletter-text: #f0f0f5;
+  --voltz-newsletter-text-muted: #9ca3af;
+  --voltz-newsletter-input-bg: #1a1a2e;
+  --voltz-newsletter-input-border: #2d2d44;
+}
+
+/* Base */
+.voltz-newsletter {
+  background: var(--voltz-newsletter-bg);
+  color: var(--voltz-newsletter-text);
+  padding: var(--voltz-newsletter-padding);
+  text-align: center;
+}
+
+.voltz-newsletter.card {
+  --voltz-newsletter-bg: #ffffff;
+}
+
+.voltz-newsletter.card .voltz-newsletter__container {
+  background: var(--voltz-newsletter-bg);
+  border: 1px solid var(--voltz-newsletter-input-border);
+  border-radius: var(--voltz-newsletter-radius);
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.voltz-newsletter__container {
+  max-width: var(--voltz-newsletter-max-width);
+  margin: 0 auto;
+}
+
+.voltz-newsletter__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Header */
+.voltz-newsletter__icon {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.voltz-newsletter__title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+}
+
+.voltz-newsletter__description {
+  font-size: 1.0625rem;
+  color: var(--voltz-newsletter-text-muted);
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+/* Form */
+.voltz-newsletter__form {
+  margin-bottom: 1rem;
+}
+
+.voltz-newsletter__input-group {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.voltz-newsletter.stacked .voltz-newsletter__input-group {
+  flex-direction: column;
+}
+
+.voltz-newsletter__input {
+  flex: 1;
+  padding: 0.875rem 1.25rem;
+  border: 1.5px solid var(--voltz-newsletter-input-border);
+  border-radius: 8px;
+  background: var(--voltz-newsletter-input-bg);
+  color: var(--voltz-newsletter-text);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.voltz-newsletter__input:focus {
+  outline: none;
+  border-color: var(--voltz-newsletter-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.voltz-newsletter__btn {
+  padding: 0.875rem 1.75rem;
+  background: var(--voltz-newsletter-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.voltz-newsletter__btn:hover {
+  background: var(--voltz-newsletter-primary-hover);
+  transform: translateY(-1px);
+}
+
+.voltz-newsletter__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error */
+.voltz-newsletter__error {
+  color: var(--voltz-newsletter-error);
+  font-size: 0.875rem;
+  margin: 0.5rem 0 0;
+  min-height: 1.25rem;
+}
+
+/* Success */
+.voltz-newsletter__success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--voltz-newsletter-success);
+  animation: voltz-newsletter-fadeIn 0.4s ease;
+}
+
+.voltz-newsletter__success[hidden] {
+  display: none;
+}
+
+.voltz-newsletter__success-text {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Privacy */
+.voltz-newsletter__privacy {
+  font-size: 0.8125rem;
+  color: var(--voltz-newsletter-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@keyframes voltz-newsletter-fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .voltz-newsletter {
+    --voltz-newsletter-padding: 3rem 1rem;
+  }
+
+  .voltz-newsletter__input-group {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1920px) {
+  .voltz-newsletter {
+    --voltz-newsletter-max-width: 720px;
+  }
+}

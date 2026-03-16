@@ -1,0 +1,19 @@
+{
+  "name": "CTA Banner",
+  "description": "Full-width banner call-to-action with inline text and button layout. Supports dismissible option and background color or gradient.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["cta", "banner", "conversion", "full-width"],
+  "variants": ["default", "gradient", "dark", "accent", "dismissible"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

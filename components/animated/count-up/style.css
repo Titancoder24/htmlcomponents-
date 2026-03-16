@@ -1,0 +1,39 @@
+/*
+ * Count Up Component Styles
+ * Number counting up animation.
+ * Variants: default, comma, decimal
+ * JS handles number interpolation; CSS handles visual presentation.
+ */
+
+.voltz-count-up {
+  --voltz-count-up-duration: 2s;
+  --voltz-count-up-color: #1f2937;
+  --voltz-count-up-font-size: 2rem;
+  --voltz-count-up-font-weight: 700;
+
+  display: inline-flex;
+  align-items: baseline;
+  color: var(--voltz-count-up-color);
+  font-size: var(--voltz-count-up-font-size);
+  font-weight: var(--voltz-count-up-font-weight);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-theme="dark"] .voltz-count-up {
+  --voltz-count-up-color: #f3f4f6;
+}
+
+.voltz-count-up__value {
+  display: inline-block;
+}
+
+.voltz-count-up__prefix,
+.voltz-count-up__suffix {
+  font-weight: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-count-up__value {
+    transition: none !important;
+  }
+}

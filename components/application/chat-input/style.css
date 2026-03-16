@@ -1,0 +1,142 @@
+/*
+ * Chat Input Styles
+ * Message input bar with auto-sizing textarea, action buttons,
+ * and character count indicator. Responsive and theme-aware.
+ */
+
+.voltz-chat-input {
+  --voltz-ci-bg: var(--voltz-surface, #ffffff);
+  --voltz-ci-border: var(--voltz-border, #e2e8f0);
+  --voltz-ci-text: var(--voltz-text-primary, #1a202c);
+  --voltz-ci-placeholder: var(--voltz-text-secondary, #a0aec0);
+  --voltz-ci-accent: var(--voltz-accent, #3b82f6);
+  --voltz-ci-btn-color: var(--voltz-text-secondary, #718096);
+  --voltz-ci-radius: var(--voltz-radius, 12px);
+
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--voltz-ci-bg);
+  border: 1px solid var(--voltz-ci-border);
+  border-radius: var(--voltz-ci-radius);
+  font-family: var(--voltz-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  position: relative;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+[data-theme="dark"] .voltz-chat-input {
+  --voltz-ci-bg: #1e1e2e;
+  --voltz-ci-border: #2d2d44;
+  --voltz-ci-text: #e2e8f0;
+  --voltz-ci-placeholder: #64748b;
+  --voltz-ci-btn-color: #a0aec0;
+}
+
+.voltz-chat-input:focus-within {
+  border-color: var(--voltz-ci-accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.voltz-chat-input__actions-left,
+.voltz-chat-input__actions-right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.voltz-chat-input__btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: var(--voltz-ci-btn-color);
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0;
+  transition: background 0.1s, color 0.1s;
+}
+
+.voltz-chat-input__btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--voltz-ci-text);
+}
+
+[data-theme="dark"] .voltz-chat-input__btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.voltz-chat-input__field-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.voltz-chat-input__textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+  color: var(--voltz-ci-text);
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  padding: 6px 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.voltz-chat-input__textarea::placeholder {
+  color: var(--voltz-ci-placeholder);
+}
+
+.voltz-chat-input__send {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--voltz-ci-accent);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.voltz-chat-input__send:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.voltz-chat-input__send:not(:disabled):hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.voltz-chat-input__char-count {
+  position: absolute;
+  bottom: -20px;
+  right: 12px;
+  font-size: 11px;
+  color: var(--voltz-ci-btn-color);
+}
+
+.voltz-chat-input__char-count--warn {
+  color: #d97706;
+}
+
+.voltz-chat-input__char-count--over {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .voltz-chat-input { padding: 6px 8px; }
+}

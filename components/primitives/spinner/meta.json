@@ -1,0 +1,53 @@
+{
+  "id": "spinner",
+  "name": "spinner",
+  "displayName": "Spinner",
+  "description": "Loading spinner component with SVG-based animation. Supports multiple sizes and colors with ARIA role='status' and a visually hidden loading label.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["loading", "spinner", "indicator", "progress", "wait"],
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["xs", "sm", "md", "lg", "xl"],
+      "description": "Size of the spinner"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "error", "current"],
+      "description": "Color of the spinner. 'current' uses currentColor."
+    },
+    "label": {
+      "type": "string",
+      "default": "Loading",
+      "description": "Accessible label for screen readers"
+    }
+  },
+  "slots": {},
+  "events": {},
+  "accessibility": {
+    "role": "status",
+    "keyboard": {},
+    "ariaAttributes": ["role=\"status\"", "aria-label"]
+  },
+  "variants": [],
+  "examples": [
+    {
+      "title": "Default spinner",
+      "props": { "size": "md", "color": "primary" }
+    },
+    {
+      "title": "Large success spinner",
+      "props": { "size": "lg", "color": "success" }
+    },
+    {
+      "title": "Extra small inline spinner",
+      "props": { "size": "xs", "color": "current" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["progress-bar", "progress-circle"]
+}

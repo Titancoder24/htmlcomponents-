@@ -1,0 +1,23 @@
+{
+  "name": "flip-card",
+  "description": "Card that flips to reveal back content with 3D perspective. Supports horizontal/vertical directions and hover/click triggers.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["horizontal", "vertical"],
+  "tags": ["card", "flip", "3d", "perspective", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-flip-card-duration",
+    "--voltz-flip-card-easing",
+    "--voltz-flip-card-perspective",
+    "--voltz-flip-card-width",
+    "--voltz-flip-card-height",
+    "--voltz-flip-card-front-bg",
+    "--voltz-flip-card-back-bg"
+  ],
+  "slots": {
+    "front": "Front face content",
+    "back": "Back face content"
+  }
+}

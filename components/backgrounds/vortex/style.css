@@ -1,0 +1,175 @@
+/**
+ * Voltz UI - Vortex Background Styles
+ * Rotating vortex/spiral pattern using CSS transforms
+ * @version 1.0.0
+ */
+
+.voltz-vortex {
+  --voltz-vortex-color: #6366f1;
+  --voltz-vortex-color-alt: #a78bfa;
+  --voltz-vortex-speed: 30s;
+  --voltz-vortex-size: 100%;
+  --voltz-vortex-bg: #0a0a1a;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--voltz-vortex-bg);
+}
+
+.voltz-vortex__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--voltz-vortex-size);
+  height: var(--voltz-vortex-size);
+  transform: translate(-50%, -50%);
+}
+
+.voltz-vortex__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  will-change: transform;
+}
+
+.voltz-vortex__ring--1 {
+  width: 90%;
+  height: 90%;
+  margin-top: -45%;
+  margin-left: -45%;
+  border-top-color: var(--voltz-vortex-color);
+  border-right-color: var(--voltz-vortex-color);
+  opacity: 0.8;
+  animation: voltz-vortex-spin var(--voltz-vortex-speed) linear infinite;
+}
+
+.voltz-vortex__ring--2 {
+  width: 75%;
+  height: 75%;
+  margin-top: -37.5%;
+  margin-left: -37.5%;
+  border-top-color: var(--voltz-vortex-color-alt);
+  border-left-color: var(--voltz-vortex-color-alt);
+  opacity: 0.7;
+  animation: voltz-vortex-spin-reverse calc(var(--voltz-vortex-speed) * 0.8) linear infinite;
+}
+
+.voltz-vortex__ring--3 {
+  width: 60%;
+  height: 60%;
+  margin-top: -30%;
+  margin-left: -30%;
+  border-bottom-color: var(--voltz-vortex-color);
+  border-right-color: var(--voltz-vortex-color);
+  opacity: 0.6;
+  animation: voltz-vortex-spin calc(var(--voltz-vortex-speed) * 0.6) linear infinite;
+}
+
+.voltz-vortex__ring--4 {
+  width: 45%;
+  height: 45%;
+  margin-top: -22.5%;
+  margin-left: -22.5%;
+  border-top-color: var(--voltz-vortex-color-alt);
+  border-bottom-color: var(--voltz-vortex-color-alt);
+  opacity: 0.5;
+  animation: voltz-vortex-spin-reverse calc(var(--voltz-vortex-speed) * 0.45) linear infinite;
+}
+
+.voltz-vortex__ring--5 {
+  width: 30%;
+  height: 30%;
+  margin-top: -15%;
+  margin-left: -15%;
+  border-left-color: var(--voltz-vortex-color);
+  border-top-color: var(--voltz-vortex-color);
+  opacity: 0.4;
+  animation: voltz-vortex-spin calc(var(--voltz-vortex-speed) * 0.3) linear infinite;
+}
+
+.voltz-vortex__ring--6 {
+  width: 15%;
+  height: 15%;
+  margin-top: -7.5%;
+  margin-left: -7.5%;
+  border-right-color: var(--voltz-vortex-color-alt);
+  border-bottom-color: var(--voltz-vortex-color-alt);
+  opacity: 0.6;
+  animation: voltz-vortex-spin-reverse calc(var(--voltz-vortex-speed) * 0.2) linear infinite;
+}
+
+@keyframes voltz-vortex-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes voltz-vortex-spin-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* Content */
+.voltz-vortex__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Speed */
+.voltz-vortex[data-speed="slow"] { --voltz-vortex-speed: 60s; }
+.voltz-vortex[data-speed="fast"] { --voltz-vortex-speed: 15s; }
+
+/* Variant: Tight */
+.voltz-vortex--tight {
+  --voltz-vortex-size: 60%;
+}
+
+.voltz-vortex--tight .voltz-vortex__ring {
+  border-width: 3px;
+}
+
+/* Variant: Wide */
+.voltz-vortex--wide {
+  --voltz-vortex-size: 150%;
+}
+
+.voltz-vortex--wide .voltz-vortex__ring {
+  border-width: 1px;
+  opacity: 0.3;
+}
+
+/* Variant: Neon */
+.voltz-vortex--neon {
+  --voltz-vortex-color: #ff00ff;
+  --voltz-vortex-color-alt: #00ffff;
+  --voltz-vortex-bg: #050510;
+}
+
+.voltz-vortex--neon .voltz-vortex__ring {
+  filter: drop-shadow(0 0 8px var(--voltz-vortex-color));
+}
+
+/* Variant: Monochrome */
+.voltz-vortex--monochrome {
+  --voltz-vortex-color: #ffffff;
+  --voltz-vortex-color-alt: #888888;
+  --voltz-vortex-bg: #111111;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .voltz-vortex {
+  --voltz-vortex-bg: #020208;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-vortex__ring {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,36 @@
+<!--
+  How It Works Component
+  Purpose: Step-by-step process section with numbered steps, icons, titles,
+  descriptions, and connector lines between steps. Horizontal and vertical layouts.
+  Variants: default, horizontal, vertical, minimal, card
+-->
+<section class="voltz-hiw {{variant}}" data-component="how-it-works"
+         role="region" aria-label="How it works">
+  <div class="voltz-hiw__container">
+    <div class="voltz-hiw__header">
+      <h2 class="voltz-hiw__title">{{slot:title}}</h2>
+      <p class="voltz-hiw__subtitle">{{slot:subtitle}}</p>
+    </div>
+    <div class="voltz-hiw__steps" role="list">
+      {{slot:default}}
+      <!-- Repeatable step -->
+      <div class="voltz-hiw__step" role="listitem" data-hiw-step>
+        <div class="voltz-hiw__step-indicator">
+          <div class="voltz-hiw__step-number">
+            {{#if showIcon}}
+            <span class="voltz-hiw__step-icon" aria-hidden="true">{{slot:stepIcon}}</span>
+            {{/if}}
+            {{#if showNumber}}
+            <span>{{slot:stepNumber}}</span>
+            {{/if}}
+          </div>
+          <div class="voltz-hiw__connector" aria-hidden="true"></div>
+        </div>
+        <div class="voltz-hiw__step-content">
+          <h3 class="voltz-hiw__step-title">{{slot:stepTitle}}</h3>
+          <p class="voltz-hiw__step-description">{{slot:stepDescription}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

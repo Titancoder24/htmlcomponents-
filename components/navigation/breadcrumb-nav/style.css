@@ -1,0 +1,167 @@
+/* Breadcrumb Navigation Component Styles */
+/* Enhanced breadcrumb with separators and collapsible paths */
+
+.voltz-breadcrumb-nav {
+  --voltz-bread-text: var(--voltz-color-text-muted, #64748b);
+  --voltz-bread-link: var(--voltz-color-text, #1a1a2e);
+  --voltz-bread-active: var(--voltz-color-primary, #6366f1);
+  --voltz-bread-hover: var(--voltz-color-primary, #6366f1);
+  --voltz-bread-separator: var(--voltz-color-text-muted, #94a3b8);
+  --voltz-bread-bg: var(--voltz-color-surface, #ffffff);
+  --voltz-bread-border: var(--voltz-color-border, #e2e8f0);
+  --voltz-bread-dropdown-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  font-size: var(--voltz-font-sm, 0.875rem);
+}
+
+.voltz-breadcrumb-nav__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--voltz-spacing-1, 4px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.voltz-breadcrumb-nav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--voltz-spacing-1, 4px);
+  position: relative;
+}
+
+.voltz-breadcrumb-nav__link {
+  color: var(--voltz-bread-link);
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: var(--voltz-radius-sm, 4px);
+  transition: color 0.15s ease;
+}
+
+.voltz-breadcrumb-nav__link:hover {
+  color: var(--voltz-bread-hover);
+  text-decoration: underline;
+}
+
+.voltz-breadcrumb-nav__link:focus-visible {
+  outline: 2px solid var(--voltz-bread-active);
+  outline-offset: 2px;
+}
+
+.voltz-breadcrumb-nav__current {
+  color: var(--voltz-bread-text);
+  font-weight: 500;
+  padding: 2px 4px;
+}
+
+/* Separators */
+.voltz-breadcrumb-nav__separator {
+  color: var(--voltz-bread-separator);
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+[data-separator="chevron"] .voltz-breadcrumb-nav__separator::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-right: 1.5px solid currentColor;
+  border-top: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+[data-separator="slash"] .voltz-breadcrumb-nav__separator::after {
+  content: '/';
+}
+
+[data-separator="dot"] .voltz-breadcrumb-nav__separator::after {
+  content: '\00B7';
+  font-size: 1.25rem;
+}
+
+[data-separator="arrow"] .voltz-breadcrumb-nav__separator::after {
+  content: '\2192';
+}
+
+/* Ellipsis / collapsed */
+.voltz-breadcrumb-nav__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: 1px solid var(--voltz-bread-border);
+  border-radius: var(--voltz-radius-md, 6px);
+  color: var(--voltz-bread-text);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.voltz-breadcrumb-nav__ellipsis:hover {
+  background: var(--voltz-bread-border);
+}
+
+.voltz-breadcrumb-nav__ellipsis:focus-visible {
+  outline: 2px solid var(--voltz-bread-active);
+  outline-offset: 2px;
+}
+
+/* Dropdown for collapsed items */
+.voltz-breadcrumb-nav__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: var(--voltz-bread-bg);
+  border: 1px solid var(--voltz-bread-border);
+  border-radius: var(--voltz-radius-md, 6px);
+  box-shadow: var(--voltz-bread-dropdown-shadow);
+  padding: var(--voltz-spacing-1, 4px);
+  z-index: var(--voltz-z-dropdown, 200);
+  margin-top: var(--voltz-spacing-1, 4px);
+}
+
+.voltz-breadcrumb-nav__collapsed[data-open="true"] .voltz-breadcrumb-nav__dropdown {
+  display: block;
+}
+
+.voltz-breadcrumb-nav__dropdown-item {
+  display: block;
+  padding: var(--voltz-spacing-2, 8px) var(--voltz-spacing-3, 12px);
+  color: var(--voltz-bread-link);
+  text-decoration: none;
+  border-radius: var(--voltz-radius-sm, 4px);
+  font-size: var(--voltz-font-sm, 0.875rem);
+}
+
+.voltz-breadcrumb-nav__dropdown-item:hover {
+  background: var(--voltz-bread-border);
+}
+
+.voltz-breadcrumb-nav__dropdown-item:focus-visible {
+  outline: 2px solid var(--voltz-bread-active);
+  outline-offset: -2px;
+}
+
+/* Dark mode */
+[data-theme="dark"] .voltz-breadcrumb-nav {
+  --voltz-bread-text: var(--voltz-color-text-muted-dark, #94a3b8);
+  --voltz-bread-link: var(--voltz-color-text-dark, #e2e8f0);
+  --voltz-bread-separator: var(--voltz-color-text-muted-dark, #64748b);
+  --voltz-bread-bg: var(--voltz-color-surface-dark, #1e1e2e);
+  --voltz-bread-border: var(--voltz-color-border-dark, #2d2d44);
+  --voltz-bread-dropdown-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-breadcrumb-nav__link {
+    transition: none;
+  }
+}

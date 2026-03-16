@@ -1,0 +1,47 @@
+{
+  "id": "annotation",
+  "name": "Annotation",
+  "description": "Inline annotation/footnote marker with tooltip on hover showing annotation text. Supports numbered markers.",
+  "category": "typography",
+  "tags": ["annotation", "footnote", "tooltip", "marker", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "note",
+    "aria": {
+      "aria-label": "Annotation marker with descriptive text",
+      "aria-describedby": "References the tooltip content"
+    },
+    "keyboard": {
+      "Tab": "Focus on annotation marker",
+      "Escape": "Dismiss tooltip"
+    },
+    "description": "Annotation markers are focusable. Tooltip content is accessible via aria-describedby for screen readers."
+  },
+  "variants": {
+    "number": {
+      "type": "number",
+      "default": 1,
+      "description": "The annotation number displayed in the marker"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The annotation/tooltip text content"
+    }
+  },
+  "examples": [
+    {
+      "name": "Simple Annotation",
+      "props": { "number": 1 },
+      "content": "This is the annotation text explaining the referenced content."
+    },
+    {
+      "name": "Second Annotation",
+      "props": { "number": 2 },
+      "content": "Additional context provided as a footnote."
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["paragraph", "callout"]
+}

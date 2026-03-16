@@ -1,0 +1,225 @@
+/*
+ * Notification List Styles
+ * Panel displaying notification items with read/unread states,
+ * type-based icons, timestamps, and empty state.
+ */
+
+.voltz-notification-list {
+  --voltz-nl-bg: var(--voltz-surface, #ffffff);
+  --voltz-nl-border: var(--voltz-border, #e2e8f0);
+  --voltz-nl-text: var(--voltz-text-primary, #1a202c);
+  --voltz-nl-text-sec: var(--voltz-text-secondary, #718096);
+  --voltz-nl-accent: var(--voltz-accent, #3b82f6);
+  --voltz-nl-hover: var(--voltz-hover, #f7fafc);
+  --voltz-nl-unread-bg: #eff6ff;
+  --voltz-nl-radius: var(--voltz-radius, 8px);
+
+  background: var(--voltz-nl-bg);
+  border: 1px solid var(--voltz-nl-border);
+  border-radius: var(--voltz-nl-radius);
+  font-family: var(--voltz-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  color: var(--voltz-nl-text);
+  width: 380px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .voltz-notification-list {
+  --voltz-nl-bg: #1e1e2e;
+  --voltz-nl-border: #2d2d44;
+  --voltz-nl-text: #e2e8f0;
+  --voltz-nl-text-sec: #a0aec0;
+  --voltz-nl-hover: #2d2d44;
+  --voltz-nl-unread-bg: #1e2a4a;
+}
+
+.voltz-notification-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--voltz-nl-border);
+}
+
+.voltz-notification-list__title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.voltz-notification-list__mark-all {
+  font-size: 13px;
+  color: var(--voltz-nl-accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+
+.voltz-notification-list__mark-all:hover {
+  text-decoration: underline;
+}
+
+.voltz-notification-list__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.voltz-notification-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  position: relative;
+  transition: background 0.1s;
+  cursor: pointer;
+  border-bottom: 1px solid var(--voltz-nl-border);
+}
+
+.voltz-notification-list__item:last-child {
+  border-bottom: none;
+}
+
+.voltz-notification-list__item:hover {
+  background: var(--voltz-nl-hover);
+}
+
+.voltz-notification-list__item--unread {
+  background: var(--voltz-nl-unread-bg);
+}
+
+.voltz-notification-list__item--unread:hover {
+  background: var(--voltz-nl-unread-bg);
+  filter: brightness(0.97);
+}
+
+.voltz-notification-list__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+  background: transparent;
+}
+
+.voltz-notification-list__item--unread .voltz-notification-list__dot {
+  background: var(--voltz-nl-accent);
+}
+
+.voltz-notification-list__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.voltz-notification-list__icon--info {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.voltz-notification-list__icon--success {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.voltz-notification-list__icon--warning {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+[data-theme="dark"] .voltz-notification-list__icon--info {
+  background: #1e3a5f;
+}
+[data-theme="dark"] .voltz-notification-list__icon--success {
+  background: #14532d;
+}
+[data-theme="dark"] .voltz-notification-list__icon--warning {
+  background: #451a03;
+}
+
+.voltz-notification-list__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.voltz-notification-list__item-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 2px;
+}
+
+.voltz-notification-list__item--unread .voltz-notification-list__item-title {
+  font-weight: 600;
+}
+
+.voltz-notification-list__item-desc {
+  font-size: 13px;
+  color: var(--voltz-nl-text-sec);
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.voltz-notification-list__time {
+  font-size: 12px;
+  color: var(--voltz-nl-text-sec);
+}
+
+.voltz-notification-list__dismiss {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: var(--voltz-nl-text-sec);
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.1s;
+  padding: 0;
+}
+
+.voltz-notification-list__item:hover .voltz-notification-list__dismiss {
+  opacity: 1;
+}
+
+.voltz-notification-list__dismiss:hover {
+  background: var(--voltz-nl-border);
+}
+
+.voltz-notification-list__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.voltz-notification-list__empty-icon {
+  color: var(--voltz-nl-text-sec);
+  margin-bottom: 12px;
+}
+
+.voltz-notification-list__empty-text {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.voltz-notification-list__empty-hint {
+  font-size: 13px;
+  color: var(--voltz-nl-text-sec);
+  margin: 0;
+}

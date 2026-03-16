@@ -1,0 +1,55 @@
+{
+  "id": "figure-caption",
+  "name": "Figure Caption",
+  "description": "Image with caption below. Supports caption alignment, bordered/borderless variants, and responsive image sizing.",
+  "category": "typography",
+  "tags": ["figure", "caption", "image", "figcaption", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "figure",
+    "aria": {
+      "aria-labelledby": "References the figcaption element for accessible labeling"
+    },
+    "keyboard": {},
+    "description": "Uses semantic <figure> and <figcaption> elements. Images should include alt text."
+  },
+  "variants": {
+    "variant": {
+      "type": "string",
+      "options": ["bordered", "borderless"],
+      "default": "borderless",
+      "description": "Border style variant"
+    },
+    "captionAlign": {
+      "type": "string",
+      "options": ["left", "center", "right"],
+      "default": "center",
+      "description": "Caption text alignment"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The image or media element"
+    },
+    "caption": {
+      "description": "The caption text"
+    }
+  },
+  "examples": [
+    {
+      "name": "Bordered Figure",
+      "props": { "variant": "bordered", "captionAlign": "center" },
+      "content": "<img src='photo.jpg' alt='A descriptive caption'>",
+      "slots": { "caption": "Figure 1: Example photograph" }
+    },
+    {
+      "name": "Borderless Left Caption",
+      "props": { "variant": "borderless", "captionAlign": "left" },
+      "content": "<img src='chart.png' alt='Chart description'>",
+      "slots": { "caption": "Data visualization" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["paragraph", "callout"]
+}

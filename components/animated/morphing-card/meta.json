@@ -1,0 +1,24 @@
+{
+  "name": "morphing-card",
+  "description": "Card that morphs shape and content on hover or click with smooth border-radius and scale transitions.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["hover", "click"],
+  "tags": ["card", "morph", "shape", "transition", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-morphing-card-bg",
+    "--voltz-morphing-card-color",
+    "--voltz-morphing-card-radius",
+    "--voltz-morphing-card-radius-morphed",
+    "--voltz-morphing-card-duration",
+    "--voltz-morphing-card-easing",
+    "--voltz-morphing-card-width",
+    "--voltz-morphing-card-height"
+  ],
+  "slots": {
+    "default": "Card front content",
+    "morphed": "Card morphed/expanded content"
+  }
+}

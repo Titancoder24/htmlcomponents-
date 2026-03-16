@@ -1,0 +1,19 @@
+{
+  "name": "Social Proof",
+  "description": "Compact social proof bar showing trusted user count, avatar stack, rating stars, and review count.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["social-proof", "trust", "ratings", "reviews", "avatars"],
+  "variants": ["default", "centered", "inline", "card", "minimal"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

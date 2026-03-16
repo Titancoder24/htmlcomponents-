@@ -26,6 +26,31 @@ const VoltzToast = (() => {
   }
 
   /**
+   * Creates the close button element with SVG icon using DOM APIs.
+   */
+  function createCloseButton() {
+    const btn = document.createElement('button');
+    btn.className = 'voltz-toast__close';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Dismiss notification');
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'voltz-toast__close-icon');
+    svg.setAttribute('viewBox', '0 0 20 20');
+    svg.setAttribute('fill', 'currentColor');
+    svg.setAttribute('aria-hidden', 'true');
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('fill-rule', 'evenodd');
+    path.setAttribute('d', 'M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z');
+    path.setAttribute('clip-rule', 'evenodd');
+
+    svg.appendChild(path);
+    btn.appendChild(svg);
+    return btn;
+  }
+
+  /**
    * Starts the auto-dismiss timer and animates the progress bar.
    */
   function startTimer(toastEl, duration, onComplete) {
@@ -168,18 +193,6 @@ const VoltzToast = (() => {
     toastEl.setAttribute('aria-atomic', 'true');
     toastEl.dataset.duration = String(duration);
 
-    const titleHtml = title
-      ? `<div class="voltz-toast__title">${document.createTextNode(title).textContent}</div>`
-      : '';
-
-    const closeHtml = dismissible
-      ? `<button class="voltz-toast__close" type="button" aria-label="Dismiss notification">
-          <svg class="voltz-toast__close-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-          </svg>
-        </button>`
-      : '';
-
     const contentEl = document.createElement('div');
     contentEl.className = 'voltz-toast__content';
 
@@ -198,9 +211,7 @@ const VoltzToast = (() => {
     toastEl.appendChild(contentEl);
 
     if (dismissible) {
-      const temp = document.createElement('div');
-      temp.insertAdjacentHTML('beforeend', closeHtml);
-      toastEl.appendChild(temp.firstElementChild);
+      toastEl.appendChild(createCloseButton());
     }
 
     const progress = document.createElement('div');

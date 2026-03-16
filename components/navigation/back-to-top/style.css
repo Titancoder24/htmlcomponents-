@@ -1,0 +1,104 @@
+/* Back to Top Component Styles */
+/* Floating scroll-to-top button */
+
+.voltz-back-to-top {
+  --voltz-btt-bg: var(--voltz-color-primary, #6366f1);
+  --voltz-btt-text: #ffffff;
+  --voltz-btt-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  --voltz-btt-size: 48px;
+  --voltz-btt-radius: 50%;
+  --voltz-btt-z: var(--voltz-z-fixed, 1000);
+
+  position: fixed;
+  z-index: var(--voltz-btt-z);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--voltz-spacing-1, 4px);
+  width: var(--voltz-btt-size);
+  height: var(--voltz-btt-size);
+  background: var(--voltz-btt-bg);
+  color: var(--voltz-btt-text);
+  border: none;
+  border-radius: var(--voltz-btt-radius);
+  box-shadow: var(--voltz-btt-shadow);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.voltz-back-to-top[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.voltz-back-to-top:hover {
+  filter: brightness(1.1);
+}
+
+.voltz-back-to-top:focus-visible {
+  outline: 2px solid var(--voltz-btt-bg);
+  outline-offset: 3px;
+}
+
+.voltz-back-to-top:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Variants */
+.voltz-back-to-top--circle {
+  --voltz-btt-radius: 50%;
+}
+
+.voltz-back-to-top--pill {
+  --voltz-btt-radius: 24px;
+  width: auto;
+  padding: 0 var(--voltz-spacing-4, 16px);
+}
+
+.voltz-back-to-top__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voltz-back-to-top__label {
+  font-size: var(--voltz-font-sm, 0.875rem);
+  font-weight: 500;
+}
+
+/* Positions */
+.voltz-back-to-top--bottom-right {
+  bottom: var(--voltz-spacing-6, 24px);
+  right: var(--voltz-spacing-6, 24px);
+}
+
+.voltz-back-to-top--bottom-left {
+  bottom: var(--voltz-spacing-6, 24px);
+  left: var(--voltz-spacing-6, 24px);
+}
+
+.voltz-back-to-top--bottom-center {
+  bottom: var(--voltz-spacing-6, 24px);
+  left: 50%;
+  margin-left: calc(var(--voltz-btt-size) / -2);
+}
+
+/* Dark mode */
+[data-theme="dark"] .voltz-back-to-top {
+  --voltz-btt-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-back-to-top {
+    transition: none;
+    transform: none;
+  }
+
+  .voltz-back-to-top:active {
+    transform: none;
+  }
+}

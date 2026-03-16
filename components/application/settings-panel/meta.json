@@ -1,0 +1,16 @@
+{
+  "name": "settings-panel",
+  "description": "Settings form panel with sections, labels, toggles, inputs, save/cancel buttons, and dividers between sections.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["settings", "form", "panel", "preferences"],
+  "variants": ["default", "compact"],
+  "slots": ["header", "footer"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "form",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "hover-card-3d",
+  "description": "Card with 3D hover effects including rotation, scale, and shadow changes with smooth spring-like transitions.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "subtle", "intense"],
+  "tags": ["card", "3d", "hover", "tilt", "interactive"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-hover-card-3d-rotation",
+    "--voltz-hover-card-3d-scale",
+    "--voltz-hover-card-3d-perspective",
+    "--voltz-hover-card-3d-bg",
+    "--voltz-hover-card-3d-radius",
+    "--voltz-hover-card-3d-shadow"
+  ],
+  "slots": {
+    "default": "Card content"
+  }
+}

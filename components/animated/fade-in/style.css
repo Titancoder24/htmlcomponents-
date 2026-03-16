@@ -1,0 +1,59 @@
+/*
+ * Fade In Component Styles
+ * Simple fade-in animation with directional options.
+ * Variants: none, up, down, left, right
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-fade-in {
+  --voltz-fade-in-duration: 0.6s;
+  --voltz-fade-in-delay: 0s;
+  --voltz-fade-in-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --voltz-fade-in-distance: 24px;
+
+  opacity: 0;
+  transition: opacity var(--voltz-fade-in-duration) var(--voltz-fade-in-easing)
+      var(--voltz-fade-in-delay),
+    transform var(--voltz-fade-in-duration) var(--voltz-fade-in-easing)
+      var(--voltz-fade-in-delay);
+  will-change: opacity, transform;
+}
+
+/* Direction transforms */
+.voltz-fade-in--up {
+  transform: translateY(var(--voltz-fade-in-distance));
+}
+
+.voltz-fade-in--down {
+  transform: translateY(calc(var(--voltz-fade-in-distance) * -1));
+}
+
+.voltz-fade-in--left {
+  transform: translateX(var(--voltz-fade-in-distance));
+}
+
+.voltz-fade-in--right {
+  transform: translateX(calc(var(--voltz-fade-in-distance) * -1));
+}
+
+.voltz-fade-in--none {
+  transform: none;
+}
+
+/* Visible state */
+.voltz-fade-in[data-visible] {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-fade-in {
+    opacity: 0;
+    transform: none !important;
+    transition: opacity 0.3s ease var(--voltz-fade-in-delay) !important;
+  }
+
+  .voltz-fade-in[data-visible] {
+    opacity: 1;
+  }
+}

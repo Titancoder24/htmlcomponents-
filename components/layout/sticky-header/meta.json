@@ -1,0 +1,34 @@
+{
+  "id": "sticky-header",
+  "name": "Sticky Header",
+  "description": "Header that sticks to the top of the viewport on scroll. Supports height options, scroll shadow, and transparent-to-solid transition.",
+  "category": "layout",
+  "tags": ["header", "sticky", "fixed", "scroll", "shadow", "transparent", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "banner",
+    "description": "Sticky header serves as site banner. Use appropriate navigation landmarks within."
+  },
+  "variants": [
+    { "name": "default", "description": "Solid background sticky header" },
+    { "name": "transparent", "description": "Transparent header that becomes solid on scroll" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Header content (logo, nav, actions)" }
+  ],
+  "examples": [
+    {
+      "name": "Default header",
+      "description": "Solid sticky header with shadow on scroll",
+      "props": { "variant": "default", "height": "md", "shadow": true }
+    },
+    {
+      "name": "Transparent header",
+      "description": "Transparent header that transitions to solid on scroll",
+      "props": { "variant": "transparent", "height": "lg" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["dashboard-shell", "holy-grail", "container"]
+}

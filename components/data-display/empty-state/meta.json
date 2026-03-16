@@ -1,0 +1,47 @@
+{
+  "name": "empty-state",
+  "description": "Empty state placeholder with icon/illustration slot, title, description, and action button. Sizes: sm/md/lg.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "card", "inline"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "card", "inline"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    },
+    "title": {
+      "type": "string",
+      "default": "Nothing here yet"
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "showAction": {
+      "type": "boolean",
+      "default": false
+    },
+    "actionLabel": {
+      "type": "string",
+      "default": "Get started"
+    }
+  },
+  "slots": {
+    "icon": "Icon or illustration",
+    "action": "Custom action content"
+  },
+  "accessibility": {
+    "role": "status",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["empty", "state", "placeholder", "no-data", "blank"]
+}

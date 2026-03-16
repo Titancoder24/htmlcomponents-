@@ -1,0 +1,51 @@
+/**
+ * Voltz UI - Wave Animation Background
+ * Animated wave/water effect
+ * @version 1.0.0
+ */
+{
+  "name": "wave-animation",
+  "displayName": "Wave Animation",
+  "description": "Animated wave/water effect at bottom or top of container. SVG-based CSS animation with configurable colors, height, speed, and layers.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "wave", "water", "animated", "svg"],
+  "variants": ["default", "ocean", "sunset", "minimal", "layered"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "ocean", "sunset", "minimal", "layered"],
+      "description": "Wave color theme"
+    },
+    "position": {
+      "type": "string",
+      "default": "bottom",
+      "options": ["bottom", "top"],
+      "description": "Wave position"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Wave animation speed"
+    },
+    "height": {
+      "type": "string",
+      "default": "200px",
+      "description": "Wave section height"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the wave background"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Waves rendered statically when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

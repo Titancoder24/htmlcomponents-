@@ -1,0 +1,32 @@
+{
+  "id": "dashboard-shell",
+  "name": "Dashboard Shell",
+  "description": "Full dashboard layout with header, sidebar navigation, and main content area. Responsive with collapsible sidebar on mobile.",
+  "category": "layout",
+  "tags": ["dashboard", "shell", "admin", "header", "sidebar", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Dashboard shell uses header, nav, and main landmarks. Sidebar toggle is keyboard accessible."
+  },
+  "variants": [
+    { "name": "default", "description": "Standard dashboard with left sidebar" },
+    { "name": "compact", "description": "Compact sidebar with icons only" },
+    { "name": "floating", "description": "Floating sidebar with overlay on mobile" }
+  ],
+  "slots": [
+    { "name": "header", "description": "Dashboard header/toolbar content" },
+    { "name": "sidebar", "description": "Sidebar navigation content" },
+    { "name": "main", "description": "Main content area" }
+  ],
+  "examples": [
+    {
+      "name": "Default dashboard",
+      "description": "Standard dashboard layout with all panels",
+      "props": { "variant": "default" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["sidebar-layout", "sticky-header", "holy-grail"]
+}

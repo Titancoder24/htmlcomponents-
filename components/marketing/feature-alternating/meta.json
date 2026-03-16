@@ -1,0 +1,29 @@
+/**
+ * Meta configuration for feature-alternating component.
+ * Features with alternating image/text layout per row.
+ */
+{
+  "name": "feature-alternating",
+  "displayName": "Feature Alternating",
+  "description": "Features displayed with alternating image left/right and text. Each row flips layout. Responsive stacking on mobile.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["features", "alternating", "zigzag", "image-text"],
+  "variants": {
+    "default": { "description": "Standard alternating layout" },
+    "compact": { "description": "Reduced spacing between rows" }
+  },
+  "slots": {
+    "default": { "description": "Feature rows area" }
+  },
+  "customProperties": {
+    "--voltz-feature-alt-bg": { "default": "#0a0a0a", "description": "Background color" },
+    "--voltz-feature-alt-text-color": { "default": "#ffffff", "description": "Title color" },
+    "--voltz-feature-alt-desc-color": { "default": "#888", "description": "Description color" },
+    "--voltz-feature-alt-accent": { "default": "#6366f1", "description": "Accent color" },
+    "--voltz-feature-alt-gap": { "default": "4rem", "description": "Gap between columns" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true
+}

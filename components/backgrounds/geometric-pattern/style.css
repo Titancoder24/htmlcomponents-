@@ -1,0 +1,200 @@
+/**
+ * Voltz UI - Geometric Pattern Background Styles
+ * Repeating geometric patterns using CSS gradients
+ * @version 1.0.0
+ */
+
+.voltz-geometric-pattern {
+  --voltz-geo-size: 60px;
+  --voltz-geo-color: #e5e7eb;
+  --voltz-geo-opacity: 0.5;
+  --voltz-geo-bg: #ffffff;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--voltz-geo-bg);
+}
+
+.voltz-geometric-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--voltz-geo-opacity);
+  pointer-events: none;
+}
+
+.voltz-geometric-pattern__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Default: Crosshatch */
+.voltz-geometric-pattern--default::before {
+  background-image:
+    linear-gradient(45deg, var(--voltz-geo-color) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--voltz-geo-color) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--voltz-geo-color) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--voltz-geo-color) 75%);
+  background-size: var(--voltz-geo-size) var(--voltz-geo-size);
+  background-position:
+    0 0,
+    0 calc(var(--voltz-geo-size) / 2),
+    calc(var(--voltz-geo-size) / 2) calc(var(--voltz-geo-size) / -2),
+    calc(var(--voltz-geo-size) / 2) 0;
+}
+
+/* Variant: Triangles */
+.voltz-geometric-pattern--triangles::before {
+  background-image:
+    linear-gradient(
+      60deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      var(--voltz-geo-color) 75%,
+      var(--voltz-geo-color)
+    ),
+    linear-gradient(
+      120deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      var(--voltz-geo-color) 75%,
+      var(--voltz-geo-color)
+    );
+  background-size: var(--voltz-geo-size) calc(var(--voltz-geo-size) * 1.732);
+}
+
+/* Variant: Hexagons */
+.voltz-geometric-pattern--hexagons::before {
+  background-image:
+    linear-gradient(
+      30deg,
+      var(--voltz-geo-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--voltz-geo-color) 87.5%,
+      var(--voltz-geo-color)
+    ),
+    linear-gradient(
+      150deg,
+      var(--voltz-geo-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--voltz-geo-color) 87.5%,
+      var(--voltz-geo-color)
+    ),
+    linear-gradient(
+      30deg,
+      var(--voltz-geo-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--voltz-geo-color) 87.5%,
+      var(--voltz-geo-color)
+    ),
+    linear-gradient(
+      150deg,
+      var(--voltz-geo-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--voltz-geo-color) 87.5%,
+      var(--voltz-geo-color)
+    ),
+    linear-gradient(
+      60deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      var(--voltz-geo-color) 75%,
+      var(--voltz-geo-color)
+    ),
+    linear-gradient(
+      60deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      var(--voltz-geo-color) 75%,
+      var(--voltz-geo-color)
+    );
+  background-size:
+    var(--voltz-geo-size) calc(var(--voltz-geo-size) * 1.732);
+  background-position:
+    0 0,
+    0 0,
+    calc(var(--voltz-geo-size) / 2) calc(var(--voltz-geo-size) * 0.866),
+    calc(var(--voltz-geo-size) / 2) calc(var(--voltz-geo-size) * 0.866),
+    0 0,
+    calc(var(--voltz-geo-size) / 2) calc(var(--voltz-geo-size) * 0.866);
+}
+
+/* Variant: Diamonds */
+.voltz-geometric-pattern--diamonds::before {
+  background-image:
+    linear-gradient(45deg, var(--voltz-geo-color) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--voltz-geo-color) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--voltz-geo-color) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--voltz-geo-color) 75%);
+  background-size: var(--voltz-geo-size) var(--voltz-geo-size);
+  background-position:
+    0 0,
+    0 calc(var(--voltz-geo-size) / 2),
+    calc(var(--voltz-geo-size) / 2) calc(var(--voltz-geo-size) / -2),
+    calc(var(--voltz-geo-size) / 2) 0;
+}
+
+/* Variant: Zigzag */
+.voltz-geometric-pattern--zigzag::before {
+  background-image:
+    linear-gradient(135deg, var(--voltz-geo-color) 25%, transparent 25%),
+    linear-gradient(225deg, var(--voltz-geo-color) 25%, transparent 25%),
+    linear-gradient(315deg, var(--voltz-geo-color) 25%, transparent 25%),
+    linear-gradient(45deg, var(--voltz-geo-color) 25%, transparent 25%);
+  background-size:
+    var(--voltz-geo-size) calc(var(--voltz-geo-size) / 2);
+  background-position:
+    0 0,
+    calc(var(--voltz-geo-size) / 2) 0,
+    calc(var(--voltz-geo-size) / 2) calc(var(--voltz-geo-size) / -2),
+    0 calc(var(--voltz-geo-size) / 2);
+}
+
+/* Variant: Chevron */
+.voltz-geometric-pattern--chevron::before {
+  background-image:
+    linear-gradient(
+      135deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      225deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      315deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      45deg,
+      var(--voltz-geo-color) 25%,
+      transparent 25%
+    );
+  background-size: var(--voltz-geo-size) var(--voltz-geo-size);
+  background-position:
+    calc(var(--voltz-geo-size) / -2) 0,
+    calc(var(--voltz-geo-size) / -2) 0,
+    calc(var(--voltz-geo-size) / 2) 0,
+    calc(var(--voltz-geo-size) / 2) 0;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .voltz-geometric-pattern {
+  --voltz-geo-bg: #0a0a0a;
+  --voltz-geo-color: #374151;
+}

@@ -1,0 +1,19 @@
+<!--
+  Voltz UI - Particle Field Background
+  Floating particles field with connection lines
+  @version 1.0.0
+-->
+<div class="voltz-particle-field voltz-particle-field--{{variant}}"
+     role="presentation"
+     aria-hidden="true"
+     data-count="{{count}}"
+     data-speed="{{speed}}"
+     data-size="{{size}}"
+     data-color="{{color}}"
+     {{#if connectionLines}}data-connections="true"{{/if}}
+     data-connection-distance="{{connectionDistance}}">
+  <canvas class="voltz-particle-field__canvas"></canvas>
+  <div class="voltz-particle-field__content">
+    {{slot:default}}
+  </div>
+</div>

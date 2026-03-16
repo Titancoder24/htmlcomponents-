@@ -1,0 +1,43 @@
+/*
+ * Particles Component Styles
+ * Container and canvas layout for floating particle background.
+ * Animation is handled in JS via canvas API.
+ * CSS manages layout and theming only.
+ */
+
+.voltz-particles {
+  --voltz-particles-color: 99, 102, 241;
+  --voltz-particles-size: 3px;
+  --voltz-particles-speed: 1;
+  --voltz-particles-opacity: 0.6;
+  --voltz-particles-bg: transparent;
+
+  position: relative;
+  overflow: hidden;
+  background: var(--voltz-particles-bg);
+}
+
+[data-theme="dark"] .voltz-particles {
+  --voltz-particles-color: 139, 92, 246;
+  --voltz-particles-bg: #0a0a1a;
+}
+
+.voltz-particles__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.voltz-particles__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reduced motion: static particles, no movement */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-particles__canvas {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,112 @@
+/**
+ * Voltz UI - System Theme (Auto Light/Dark)
+ *
+ * Automatically switches between light and dark themes based on
+ * the user's OS-level color scheme preference via prefers-color-scheme.
+ *
+ * Apply via: <html data-theme="system"> or class="voltz-theme-system"
+ * Falls back to light theme when no preference is detected.
+ */
+
+[data-theme="system"],
+.voltz-theme-system {
+  /* Light mode defaults (same as light.css) */
+  --voltz-bg-primary: #ffffff;
+  --voltz-bg-secondary: #fafafa;
+  --voltz-bg-tertiary: #f5f5f5;
+  --voltz-bg-inverse: #171717;
+
+  --voltz-fg-primary: #171717;
+  --voltz-fg-secondary: #525252;
+  --voltz-fg-tertiary: #a3a3a3;
+  --voltz-fg-inverse: #ffffff;
+  --voltz-fg-disabled: #d4d4d4;
+  --voltz-fg-link: #2563eb;
+  --voltz-fg-link-hover: #1d4ed8;
+
+  --voltz-border-primary: #e5e5e5;
+  --voltz-border-secondary: #f5f5f5;
+  --voltz-border-focus: #3b82f6;
+  --voltz-border-error: #ef4444;
+
+  --voltz-surface-primary: #ffffff;
+  --voltz-surface-secondary: #fafafa;
+  --voltz-surface-elevated: #ffffff;
+  --voltz-surface-overlay: rgb(0 0 0 / 0.5);
+
+  --voltz-interactive-hover: #f5f5f5;
+  --voltz-interactive-active: #e5e5e5;
+  --voltz-interactive-selected: #eff6ff;
+  --voltz-interactive-disabled: #f5f5f5;
+
+  --voltz-status-success-bg: #f0fdf4;
+  --voltz-status-success-fg: #15803d;
+  --voltz-status-success-border: #bbf7d0;
+  --voltz-status-warning-bg: #fffbeb;
+  --voltz-status-warning-fg: #b45309;
+  --voltz-status-warning-border: #fde68a;
+  --voltz-status-error-bg: #fef2f2;
+  --voltz-status-error-fg: #b91c1c;
+  --voltz-status-error-border: #fecaca;
+  --voltz-status-info-bg: #eff6ff;
+  --voltz-status-info-fg: #1d4ed8;
+  --voltz-status-info-border: #bfdbfe;
+
+  --voltz-theme-shadow-color: 0 0 0;
+  --voltz-theme-shadow-opacity: 0.1;
+
+  color-scheme: light dark;
+}
+
+/* ========================================================================
+ * Dark Mode Override via prefers-color-scheme
+ * ======================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"],
+  .voltz-theme-system {
+    --voltz-bg-primary: #0a0a0a;
+    --voltz-bg-secondary: #171717;
+    --voltz-bg-tertiary: #262626;
+    --voltz-bg-inverse: #fafafa;
+
+    --voltz-fg-primary: #fafafa;
+    --voltz-fg-secondary: #a3a3a3;
+    --voltz-fg-tertiary: #737373;
+    --voltz-fg-inverse: #171717;
+    --voltz-fg-disabled: #404040;
+    --voltz-fg-link: #60a5fa;
+    --voltz-fg-link-hover: #93c5fd;
+
+    --voltz-border-primary: #262626;
+    --voltz-border-secondary: #404040;
+    --voltz-border-focus: #3b82f6;
+    --voltz-border-error: #ef4444;
+
+    --voltz-surface-primary: #171717;
+    --voltz-surface-secondary: #262626;
+    --voltz-surface-elevated: #262626;
+    --voltz-surface-overlay: rgb(0 0 0 / 0.7);
+
+    --voltz-interactive-hover: #262626;
+    --voltz-interactive-active: #404040;
+    --voltz-interactive-selected: rgb(59 130 246 / 0.15);
+    --voltz-interactive-disabled: #262626;
+
+    --voltz-status-success-bg: rgb(34 197 94 / 0.1);
+    --voltz-status-success-fg: #4ade80;
+    --voltz-status-success-border: rgb(34 197 94 / 0.3);
+    --voltz-status-warning-bg: rgb(245 158 11 / 0.1);
+    --voltz-status-warning-fg: #fbbf24;
+    --voltz-status-warning-border: rgb(245 158 11 / 0.3);
+    --voltz-status-error-bg: rgb(239 68 68 / 0.1);
+    --voltz-status-error-fg: #f87171;
+    --voltz-status-error-border: rgb(239 68 68 / 0.3);
+    --voltz-status-info-bg: rgb(59 130 246 / 0.1);
+    --voltz-status-info-fg: #60a5fa;
+    --voltz-status-info-border: rgb(59 130 246 / 0.3);
+
+    --voltz-theme-shadow-color: 0 0 0;
+    --voltz-theme-shadow-opacity: 0.4;
+  }
+}

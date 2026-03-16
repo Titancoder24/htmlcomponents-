@@ -1,0 +1,16 @@
+<!--
+  Scroll Progress Component
+  Scroll progress indicator bar.
+  Variants: top, bottom
+  Uses transform scaleX for compositor-friendly animation.
+-->
+<div class="voltz-scroll-progress voltz-scroll-progress--{{variant}}"
+     data-voltz-scroll-progress
+     data-position="{{variant}}"
+     role="progressbar"
+     aria-valuemin="0"
+     aria-valuemax="100"
+     aria-valuenow="0"
+     aria-label="Page scroll progress">
+  <div class="voltz-scroll-progress__bar"></div>
+</div>

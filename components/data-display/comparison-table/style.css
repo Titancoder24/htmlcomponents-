@@ -1,0 +1,159 @@
+/*
+ * Comparison Table Component Styles
+ * Purpose: Feature comparison table with check/cross indicators,
+ * highlighted recommended column, responsive scroll, sticky header.
+ * Supports dark mode.
+ */
+
+/* === Custom Properties === */
+.voltz-comparison-table {
+  --voltz-comp-bg: #ffffff;
+  --voltz-comp-border: #e2e8f0;
+  --voltz-comp-header-bg: #f8fafc;
+  --voltz-comp-header-color: #334155;
+  --voltz-comp-cell-color: #1e293b;
+  --voltz-comp-feature-color: #475569;
+  --voltz-comp-row-hover: #f8fafc;
+  --voltz-comp-check-color: #16a34a;
+  --voltz-comp-cross-color: #dc2626;
+  --voltz-comp-recommended-bg: #eff6ff;
+  --voltz-comp-recommended-header-bg: #3b82f6;
+  --voltz-comp-recommended-header-color: #ffffff;
+  --voltz-comp-recommended-border: #3b82f6;
+  --voltz-comp-radius: 0.5rem;
+  --voltz-comp-cell-padding: 0.75rem 1rem;
+  --voltz-comp-empty-color: #94a3b8;
+}
+
+[data-theme="dark"] .voltz-comparison-table {
+  --voltz-comp-bg: #0f172a;
+  --voltz-comp-border: #334155;
+  --voltz-comp-header-bg: #1e293b;
+  --voltz-comp-header-color: #e2e8f0;
+  --voltz-comp-cell-color: #cbd5e1;
+  --voltz-comp-feature-color: #94a3b8;
+  --voltz-comp-row-hover: #1e293b;
+  --voltz-comp-check-color: #4ade80;
+  --voltz-comp-cross-color: #f87171;
+  --voltz-comp-recommended-bg: #172554;
+  --voltz-comp-recommended-header-bg: #2563eb;
+  --voltz-comp-recommended-border: #3b82f6;
+  --voltz-comp-empty-color: #64748b;
+}
+
+/* === Wrapper === */
+.voltz-comparison-table {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--voltz-comp-bg);
+  border: 1px solid var(--voltz-comp-border);
+  border-radius: var(--voltz-comp-radius);
+}
+
+/* === Table === */
+.voltz-comparison-table__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* === Header === */
+.voltz-comparison-table__head th {
+  padding: var(--voltz-comp-cell-padding);
+  background: var(--voltz-comp-header-bg);
+  color: var(--voltz-comp-header-color);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  border-bottom: 2px solid var(--voltz-comp-border);
+  white-space: nowrap;
+}
+
+.voltz-comparison-table__head--sticky th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.voltz-comparison-table__feature-header {
+  text-align: left !important;
+  min-width: 12rem;
+}
+
+/* === Recommended Column Header === */
+.voltz-comparison-table__head th[data-recommended="true"] {
+  background: var(--voltz-comp-recommended-header-bg);
+  color: var(--voltz-comp-recommended-header-color);
+  border-left: 2px solid var(--voltz-comp-recommended-border);
+  border-right: 2px solid var(--voltz-comp-recommended-border);
+  border-top: 2px solid var(--voltz-comp-recommended-border);
+}
+
+/* === Body === */
+.voltz-comparison-table__row td {
+  padding: var(--voltz-comp-cell-padding);
+  border-bottom: 1px solid var(--voltz-comp-border);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--voltz-comp-cell-color);
+}
+
+.voltz-comparison-table__row:last-child td {
+  border-bottom: none;
+}
+
+.voltz-comparison-table__row:hover td {
+  background: var(--voltz-comp-row-hover);
+}
+
+.voltz-comparison-table__feature-name {
+  text-align: left;
+  color: var(--voltz-comp-feature-color);
+  font-weight: 500;
+}
+
+/* === Recommended Column Cells === */
+.voltz-comparison-table__cell[data-recommended="true"] {
+  background: var(--voltz-comp-recommended-bg);
+  border-left: 2px solid var(--voltz-comp-recommended-border);
+  border-right: 2px solid var(--voltz-comp-recommended-border);
+}
+
+.voltz-comparison-table__row:last-child .voltz-comparison-table__cell[data-recommended="true"] {
+  border-bottom: 2px solid var(--voltz-comp-recommended-border);
+}
+
+/* === Check / Cross Icons === */
+.voltz-comparison-table__check {
+  color: var(--voltz-comp-check-color);
+  display: inline-flex;
+}
+
+.voltz-comparison-table__cross {
+  color: var(--voltz-comp-cross-color);
+  display: inline-flex;
+  opacity: 0.5;
+}
+
+/* === Variant: Compact === */
+.voltz-comparison-table--compact {
+  --voltz-comp-cell-padding: 0.5rem 0.75rem;
+}
+
+/* === Variant: Bordered === */
+.voltz-comparison-table--bordered .voltz-comparison-table__row td,
+.voltz-comparison-table--bordered .voltz-comparison-table__head th {
+  border: 1px solid var(--voltz-comp-border);
+}
+
+/* === Empty State === */
+.voltz-comparison-table__empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+.voltz-comparison-table__empty-text {
+  color: var(--voltz-comp-empty-color);
+  font-style: italic;
+  margin: 0;
+}

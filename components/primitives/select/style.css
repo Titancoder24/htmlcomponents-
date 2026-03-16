@@ -1,0 +1,172 @@
+/*
+ * Select Component - style.css
+ * Purpose: Styles for the native select dropdown including variants (outline,
+ * filled), sizes (sm/md/lg), states (disabled, error), custom chevron, label,
+ * and helper text. Supports dark mode and reduced motion.
+ */
+
+/* === Wrapper === */
+.voltz-select-wrapper {
+  --voltz-select-height: var(--voltz-size-10, 2.5rem);
+  --voltz-select-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-select-radius: var(--voltz-radius-md, 0.375rem);
+  --voltz-select-border-color: var(--voltz-color-neutral-300, #d1d5db);
+  --voltz-select-bg: var(--voltz-color-white, #fff);
+  --voltz-select-color: var(--voltz-color-neutral-900, #111827);
+  --voltz-select-placeholder: var(--voltz-color-neutral-400, #9ca3af);
+  --voltz-select-focus-ring: var(--voltz-color-primary-500, #3b82f6);
+  --voltz-select-error-color: var(--voltz-color-error-500, #ef4444);
+  --voltz-select-px: var(--voltz-space-3, 0.75rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--voltz-space-1, 0.25rem);
+  font-family: var(--voltz-font-family-sans, system-ui, sans-serif);
+  width: 100%;
+}
+
+/* === Label === */
+.voltz-select__label {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  color: var(--voltz-color-neutral-700, #374151);
+}
+
+.voltz-select__required {
+  color: var(--voltz-select-error-color);
+  margin-inline-start: 0.125rem;
+}
+
+/* === Select Group === */
+.voltz-select__group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* === Base Select === */
+.voltz-select {
+  width: 100%;
+  height: var(--voltz-select-height);
+  padding-inline-start: var(--voltz-select-px);
+  padding-inline-end: calc(var(--voltz-select-px) + 1.5rem);
+  font-family: inherit;
+  font-size: var(--voltz-select-font-size);
+  color: var(--voltz-select-color);
+  background-color: var(--voltz-select-bg);
+  border: 1px solid var(--voltz-select-border-color);
+  border-radius: var(--voltz-select-radius);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.voltz-select:focus-visible {
+  border-color: var(--voltz-select-focus-ring);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Placeholder style when no value selected */
+.voltz-select:invalid,
+.voltz-select option[value=""][disabled] {
+  color: var(--voltz-select-placeholder);
+}
+
+/* === Chevron === */
+.voltz-select__chevron {
+  position: absolute;
+  right: var(--voltz-select-px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: var(--voltz-color-neutral-500, #6b7280);
+}
+
+/* === Sizes === */
+.voltz-select-wrapper--sm {
+  --voltz-select-height: var(--voltz-size-8, 2rem);
+  --voltz-select-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-select-px: var(--voltz-space-2, 0.5rem);
+}
+
+.voltz-select-wrapper--lg {
+  --voltz-select-height: var(--voltz-size-12, 3rem);
+  --voltz-select-font-size: var(--voltz-font-size-md, 1rem);
+  --voltz-select-px: var(--voltz-space-4, 1rem);
+}
+
+/* === Variant: Filled === */
+.voltz-select-wrapper--filled .voltz-select {
+  background-color: var(--voltz-color-neutral-100, #f3f4f6);
+  border-color: transparent;
+}
+
+.voltz-select-wrapper--filled .voltz-select:focus-visible {
+  background-color: var(--voltz-select-bg);
+  border-color: var(--voltz-select-focus-ring);
+}
+
+/* === Error State === */
+.voltz-select-wrapper--error .voltz-select {
+  border-color: var(--voltz-select-error-color);
+}
+
+.voltz-select-wrapper--error .voltz-select:focus-visible {
+  border-color: var(--voltz-select-error-color);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* === Disabled State === */
+.voltz-select-wrapper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voltz-select-wrapper--disabled .voltz-select {
+  cursor: not-allowed;
+}
+
+/* === Helper Text === */
+.voltz-select__helper {
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  color: var(--voltz-color-neutral-500, #6b7280);
+  margin-top: var(--voltz-space-1, 0.25rem);
+}
+
+.voltz-select-wrapper--error .voltz-select__helper {
+  color: var(--voltz-select-error-color);
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] .voltz-select-wrapper {
+  --voltz-select-bg: var(--voltz-color-neutral-900, #111827);
+  --voltz-select-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-select-border-color: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-select-placeholder: var(--voltz-color-neutral-500, #6b7280);
+}
+
+[data-theme="dark"] .voltz-select__label {
+  color: var(--voltz-color-neutral-200, #e5e7eb);
+}
+
+[data-theme="dark"] .voltz-select__chevron {
+  color: var(--voltz-color-neutral-400, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-select-wrapper--filled .voltz-select {
+  background-color: var(--voltz-color-neutral-800, #1f2937);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-select {
+    transition: none;
+  }
+}

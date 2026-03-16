@@ -1,0 +1,23 @@
+{
+  "name": "tilt-card",
+  "description": "Card with 3D tilt effect following mouse position. Configurable max tilt angle with optional glare overlay effect.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "glare"],
+  "tags": ["card", "tilt", "3d", "parallax", "interactive", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-tilt-card-bg",
+    "--voltz-tilt-card-color",
+    "--voltz-tilt-card-max-tilt",
+    "--voltz-tilt-card-perspective",
+    "--voltz-tilt-card-transition",
+    "--voltz-tilt-card-width",
+    "--voltz-tilt-card-height",
+    "--voltz-tilt-card-glare-opacity"
+  ],
+  "slots": {
+    "default": "Card content"
+  }
+}

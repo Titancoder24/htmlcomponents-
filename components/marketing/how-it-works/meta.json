@@ -1,0 +1,19 @@
+{
+  "name": "How It Works",
+  "description": "Step-by-step process section with numbered steps, icons, titles, descriptions, and connector lines. Horizontal and vertical variants.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["process", "steps", "how-it-works", "workflow", "guide"],
+  "variants": ["default", "horizontal", "vertical", "minimal", "card"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

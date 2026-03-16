@@ -1,0 +1,18 @@
+{
+  "name": "ripple",
+  "description": "Material-design style ripple effect on click. Configurable color and duration. Works on any container element.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "tags": ["ripple", "click", "material", "feedback", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-ripple-color",
+    "--voltz-ripple-duration",
+    "--voltz-ripple-opacity"
+  ],
+  "slots": {
+    "default": "Content inside the ripple container"
+  }
+}

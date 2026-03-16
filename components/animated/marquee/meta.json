@@ -1,0 +1,19 @@
+{
+  "name": "marquee",
+  "description": "Horizontal scrolling text or content. CSS-only animation with speed control, direction, pause on hover, and gap options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["left", "right"],
+  "tags": ["marquee", "scroll", "ticker", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-marquee-duration",
+    "--voltz-marquee-gap",
+    "--voltz-marquee-direction",
+    "--voltz-marquee-pause-on-hover"
+  ],
+  "slots": {
+    "default": "Content to scroll in the marquee"
+  }
+}

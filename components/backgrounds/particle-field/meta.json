@@ -1,0 +1,70 @@
+/**
+ * Voltz UI - Particle Field Background
+ * Floating particles field with connection lines
+ * @version 1.0.0
+ */
+{
+  "name": "particle-field",
+  "displayName": "Particle Field",
+  "description": "Floating particles field with configurable count, speed, size, color, and connection lines. JavaScript canvas-based.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "particles", "animated", "canvas", "interactive"],
+  "variants": ["default", "dense", "sparse", "connected", "fireflies"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "dense", "sparse", "connected", "fireflies"],
+      "description": "Particle field preset"
+    },
+    "count": {
+      "type": "number",
+      "default": 80,
+      "min": 10,
+      "max": 300,
+      "description": "Number of particles"
+    },
+    "speed": {
+      "type": "number",
+      "default": 1,
+      "min": 0.1,
+      "max": 5,
+      "description": "Particle movement speed"
+    },
+    "size": {
+      "type": "number",
+      "default": 2,
+      "min": 0.5,
+      "max": 8,
+      "description": "Particle size in pixels"
+    },
+    "color": {
+      "type": "string",
+      "default": "#6366f1",
+      "description": "Particle color"
+    },
+    "connectionLines": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show connection lines between nearby particles"
+    },
+    "connectionDistance": {
+      "type": "number",
+      "default": 120,
+      "description": "Max distance for connection lines"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the particle field"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Particles rendered statically when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

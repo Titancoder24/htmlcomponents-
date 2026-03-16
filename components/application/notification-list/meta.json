@@ -1,0 +1,16 @@
+{
+  "name": "notification-list",
+  "description": "Notification list panel with items showing icon, title, description, timestamp, and read/unread state. Includes mark-all-read and empty state.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["notification", "list", "alerts", "panel"],
+  "variants": ["default", "empty"],
+  "slots": ["header", "empty-state"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "list",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

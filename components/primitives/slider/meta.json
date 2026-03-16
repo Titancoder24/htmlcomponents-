@@ -1,0 +1,84 @@
+{
+  "name": "slider",
+  "displayName": "Slider",
+  "description": "A range slider with ARIA role='slider', supporting min/max/step, sizes, color variants, and keyboard navigation.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the slider track and thumb"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Color scheme for the filled track"
+    },
+    "min": {
+      "type": "number",
+      "default": 0,
+      "description": "Minimum value"
+    },
+    "max": {
+      "type": "number",
+      "default": 100,
+      "description": "Maximum value"
+    },
+    "step": {
+      "type": "number",
+      "default": 1,
+      "description": "Step increment"
+    },
+    "value": {
+      "type": "number",
+      "default": 50,
+      "description": "Current value"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Accessible label for the slider"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the slider is disabled"
+    },
+    "showValue": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to display the current value"
+    }
+  },
+  "slots": {},
+  "events": {
+    "input": { "description": "Fired continuously as the slider value changes" },
+    "change": { "description": "Fired when the slider value is committed" }
+  },
+  "accessibility": {
+    "role": "slider",
+    "keyboard": {
+      "ArrowRight/ArrowUp": "Increase value by step",
+      "ArrowLeft/ArrowDown": "Decrease value by step",
+      "Home": "Set to minimum value",
+      "End": "Set to maximum value",
+      "PageUp": "Increase by large step",
+      "PageDown": "Decrease by large step"
+    },
+    "ariaAttributes": ["aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-disabled", "aria-label"]
+  },
+  "examples": [
+    {
+      "title": "Basic slider",
+      "props": { "min": 0, "max": 100, "value": 50 }
+    },
+    {
+      "title": "Slider with value display",
+      "props": { "min": 0, "max": 100, "value": 75, "showValue": true }
+    }
+  ]
+}

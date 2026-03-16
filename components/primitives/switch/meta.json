@@ -1,0 +1,64 @@
+{
+  "name": "switch",
+  "displayName": "Switch",
+  "description": "A toggle switch component with ARIA role='switch', supporting sizes, disabled state, and color variants.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the switch"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Color scheme when checked"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Label text displayed next to the switch"
+    },
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the switch is on"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the switch is disabled"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Custom label content"
+    }
+  },
+  "events": {
+    "change": { "description": "Fired when the switch is toggled" }
+  },
+  "accessibility": {
+    "role": "switch",
+    "keyboard": {
+      "Space": "Toggles the switch",
+      "Enter": "Toggles the switch",
+      "Tab": "Moves focus to/from the switch"
+    },
+    "ariaAttributes": ["aria-checked", "aria-disabled", "aria-label"]
+  },
+  "examples": [
+    {
+      "title": "Basic switch",
+      "props": { "label": "Enable notifications" }
+    },
+    {
+      "title": "Checked switch",
+      "props": { "label": "Dark mode", "checked": true }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<!--
+  Footer Simple Component
+  Purpose: Simple footer with logo, copyright, and horizontal link row.
+  Dark/light variants. Responsive center-stack on mobile.
+  Variants: default, dark, bordered, minimal
+-->
+<footer class="voltz-footer-simple {{variant}}" data-component="footer-simple"
+        role="contentinfo">
+  <div class="voltz-footer-simple__container">
+    <div class="voltz-footer-simple__brand">
+      {{#if showLogo}}
+      <a href="/" class="voltz-footer-simple__logo" aria-label="Home">
+        {{slot:logo}}
+      </a>
+      {{/if}}
+      <p class="voltz-footer-simple__copyright">{{slot:copyright}}</p>
+    </div>
+    <nav class="voltz-footer-simple__nav" aria-label="Footer navigation">
+      <ul class="voltz-footer-simple__links">
+        <li><a href="#" class="voltz-footer-simple__link">{{slot:link1}}</a></li>
+        <li><a href="#" class="voltz-footer-simple__link">{{slot:link2}}</a></li>
+        <li><a href="#" class="voltz-footer-simple__link">{{slot:link3}}</a></li>
+        <li><a href="#" class="voltz-footer-simple__link">{{slot:link4}}</a></li>
+        <li><a href="#" class="voltz-footer-simple__link">{{slot:link5}}</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>

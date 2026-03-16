@@ -1,0 +1,73 @@
+<!-- Command Palette Component Template -->
+<!-- Cmd+K style overlay with search and keyboard navigation -->
+<div class="voltz-command-palette"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Command palette"
+     data-open="false">
+
+  <div class="voltz-command-palette__backdrop"></div>
+
+  <div class="voltz-command-palette__dialog">
+    <div class="voltz-command-palette__header">
+      <label class="voltz-command-palette__search-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </label>
+      <input class="voltz-command-palette__input"
+             type="text"
+             role="combobox"
+             aria-expanded="true"
+             aria-controls="voltz-command-palette-list"
+             aria-activedescendant=""
+             aria-autocomplete="list"
+             placeholder="Type a command or search..."
+             autocomplete="off"
+             spellcheck="false" />
+      <kbd class="voltz-command-palette__shortcut">ESC</kbd>
+    </div>
+
+    <div class="voltz-command-palette__body">
+      <ul class="voltz-command-palette__list"
+          id="voltz-command-palette-list"
+          role="listbox"
+          aria-label="Commands">
+        {{slot:default}}
+
+        <!-- Example item structure -->
+        <!--
+        <li class="voltz-command-palette__group-label" role="presentation">
+          Group Name
+        </li>
+        <li class="voltz-command-palette__item"
+            role="option"
+            id="cmd-item-1"
+            data-keywords="search keywords"
+            aria-selected="false">
+          <span class="voltz-command-palette__item-icon">{{icon}}</span>
+          <span class="voltz-command-palette__item-label">Command Name</span>
+          <kbd class="voltz-command-palette__item-shortcut">Ctrl+S</kbd>
+        </li>
+        -->
+      </ul>
+
+      <div class="voltz-command-palette__empty" data-visible="false">
+        No results found.
+      </div>
+    </div>
+
+    <div class="voltz-command-palette__footer">
+      <span class="voltz-command-palette__hint">
+        <kbd>&uarr;</kbd><kbd>&darr;</kbd> navigate
+      </span>
+      <span class="voltz-command-palette__hint">
+        <kbd>&crarr;</kbd> select
+      </span>
+      <span class="voltz-command-palette__hint">
+        <kbd>esc</kbd> close
+      </span>
+    </div>
+  </div>
+</div>

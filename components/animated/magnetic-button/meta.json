@@ -1,0 +1,21 @@
+{
+  "name": "magnetic-button",
+  "description": "Button that follows cursor slightly within a configurable radius with smooth spring animation. Resets on mouse leave.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "tags": ["button", "magnetic", "cursor", "interactive", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-magnetic-btn-bg",
+    "--voltz-magnetic-btn-color",
+    "--voltz-magnetic-btn-radius",
+    "--voltz-magnetic-btn-padding",
+    "--voltz-magnetic-btn-strength",
+    "--voltz-magnetic-btn-transition"
+  ],
+  "slots": {
+    "default": "Button label text"
+  }
+}

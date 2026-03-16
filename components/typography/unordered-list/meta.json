@@ -1,0 +1,54 @@
+{
+  "id": "unordered-list",
+  "name": "Unordered List",
+  "description": "Styled unordered list with disc, circle, check, dash, and arrow marker variants. Supports nesting and spacing options.",
+  "category": "typography",
+  "tags": ["unordered-list", "ul", "bullet", "list", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "list",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses semantic <ul> and <li> elements. Custom markers are decorative and do not affect screen reader output."
+  },
+  "variants": {
+    "variant": {
+      "type": "string",
+      "options": ["disc", "circle", "check", "dash", "arrow"],
+      "default": "disc",
+      "description": "Marker style variant"
+    },
+    "size": {
+      "type": "string",
+      "options": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Font size"
+    },
+    "spacing": {
+      "type": "string",
+      "options": ["compact", "normal", "relaxed"],
+      "default": "normal",
+      "description": "Spacing between items"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Contains li elements"
+    }
+  },
+  "examples": [
+    {
+      "name": "Disc List",
+      "props": { "variant": "disc", "size": "md" },
+      "content": "<li>First item</li><li>Second item</li>"
+    },
+    {
+      "name": "Checkmark List",
+      "props": { "variant": "check", "spacing": "relaxed" },
+      "content": "<li>Completed task</li><li>Another task</li>"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["ordered-list", "description-list"]
+}

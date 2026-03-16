@@ -1,0 +1,48 @@
+<!-- Stepper Component Template -->
+<!-- Step-by-step progress indicator -->
+<nav class="voltz-stepper voltz-stepper--{{variant}}"
+     role="navigation"
+     aria-label="Progress steps"
+     {{#if clickable}}data-clickable="true"{{/if}}>
+  <ol class="voltz-stepper__list">
+    {{slot:default}}
+
+    <!-- Example step structure -->
+    <!--
+    <li class="voltz-stepper__step" data-state="completed">
+      <button class="voltz-stepper__button"
+              aria-current="false"
+              {{#if clickable}}tabindex="0"{{/if}}
+              {{#if !clickable}}tabindex="-1" aria-disabled="true"{{/if}}>
+        <span class="voltz-stepper__indicator">
+          <span class="voltz-stepper__number">1</span>
+          <span class="voltz-stepper__check" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </span>
+        </span>
+        <span class="voltz-stepper__content">
+          <span class="voltz-stepper__title">Step Title</span>
+          <span class="voltz-stepper__description">Optional description</span>
+        </span>
+      </button>
+      <span class="voltz-stepper__connector" aria-hidden="true"></span>
+    </li>
+
+    <li class="voltz-stepper__step" data-state="current">
+      <button class="voltz-stepper__button" aria-current="step">
+        ...
+      </button>
+      <span class="voltz-stepper__connector" aria-hidden="true"></span>
+    </li>
+
+    <li class="voltz-stepper__step" data-state="upcoming">
+      <button class="voltz-stepper__button" aria-disabled="true">
+        ...
+      </button>
+    </li>
+    -->
+  </ol>
+</nav>

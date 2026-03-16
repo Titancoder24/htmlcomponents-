@@ -1,0 +1,35 @@
+{
+  "id": "sidebar-layout",
+  "name": "Sidebar Layout",
+  "description": "Sidebar plus main content layout with configurable sidebar position, width, and mobile collapse behavior.",
+  "category": "layout",
+  "tags": ["sidebar", "aside", "main", "navigation", "responsive", "collapsible"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Use nav or aside landmark for sidebar content and main landmark for primary content."
+  },
+  "variants": [
+    { "name": "left", "description": "Sidebar on the left side" },
+    { "name": "right", "description": "Sidebar on the right side" }
+  ],
+  "slots": [
+    { "name": "sidebar", "description": "Sidebar content" },
+    { "name": "main", "description": "Main content area" }
+  ],
+  "examples": [
+    {
+      "name": "Left sidebar",
+      "description": "Left sidebar with 250px width",
+      "props": { "variant": "left", "sidebarWidth": "250px" }
+    },
+    {
+      "name": "Right sidebar narrow",
+      "description": "Right sidebar with 200px width",
+      "props": { "variant": "right", "sidebarWidth": "200px" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["split-pane", "dashboard-shell", "holy-grail"]
+}

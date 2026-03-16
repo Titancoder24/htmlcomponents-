@@ -1,0 +1,14 @@
+<!--
+  Scramble Text Component
+  Text that scrambles/unscrambles characters to reveal.
+  Variants: default, binary, symbols
+  JS drives the character scramble; uses opacity for compositor-friendly fade.
+-->
+<span class="voltz-scramble-text voltz-scramble-text--{{variant}}"
+      data-voltz-scramble-text
+      data-variant="{{variant}}"
+      {{#if trigger}}data-trigger="{{trigger}}"{{else}}data-trigger="visible"{{/if}}
+      role="text"
+      aria-label="{{slot:default}}">
+  <span class="voltz-scramble-text__content">{{slot:default}}</span>
+</span>

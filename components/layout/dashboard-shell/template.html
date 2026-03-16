@@ -1,0 +1,31 @@
+<!--
+  Dashboard Shell Component - template.html
+  Purpose: Full dashboard layout with header, sidebar, and main content area.
+  Variants: default, compact, floating. Responsive with mobile sidebar toggle.
+-->
+
+<div class="voltz-dashboard-shell voltz-dashboard-shell--{{variant}}"
+     data-sidebar-open="true">
+  <header class="voltz-dashboard-shell__header">
+    <button class="voltz-dashboard-shell__menu-btn"
+            type="button"
+            aria-expanded="true"
+            aria-label="Toggle navigation menu">
+      <span class="voltz-dashboard-shell__menu-icon"></span>
+    </button>
+    <div class="voltz-dashboard-shell__header-content">
+      {{slot:header}}
+    </div>
+  </header>
+  <div class="voltz-dashboard-shell__body">
+    <nav class="voltz-dashboard-shell__sidebar" aria-label="Dashboard navigation">
+      <div class="voltz-dashboard-shell__sidebar-content">
+        {{slot:sidebar}}
+      </div>
+    </nav>
+    <main class="voltz-dashboard-shell__main">
+      {{slot:main}}
+    </main>
+  </div>
+  <div class="voltz-dashboard-shell__overlay" aria-hidden="true"></div>
+</div>

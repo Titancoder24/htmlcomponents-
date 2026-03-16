@@ -1,0 +1,43 @@
+/**
+ * Voltz UI - Particle Field Background Styles
+ * Floating particles field canvas container
+ * @version 1.0.0
+ */
+
+.voltz-particle-field {
+  --voltz-particle-field-bg: #0a0a0a;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--voltz-particle-field-bg);
+}
+
+.voltz-particle-field__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.voltz-particle-field__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .voltz-particle-field {
+  --voltz-particle-field-bg: #020204;
+}
+
+/* Light backgrounds for some variants */
+.voltz-particle-field--fireflies {
+  --voltz-particle-field-bg: #0d1b2a;
+}
+
+/* Reduced Motion - canvas handles this via JS */

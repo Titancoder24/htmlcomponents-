@@ -1,0 +1,36 @@
+<!--
+  Timeline Component Template
+  Purpose: Vertical timeline with simple/detailed/alternating variants,
+  per-item icons, connector lines, and status-colored indicators.
+-->
+<div class="voltz-timeline voltz-timeline--{{variant}} voltz-timeline--{{size}}"
+     role="list"
+     aria-label="Timeline">
+
+  {{#if empty}}
+  <div class="voltz-timeline__empty">
+    <p class="voltz-timeline__empty-text">No timeline events.</p>
+  </div>
+  {{/if}}
+
+  <!-- Example item structure for slot content -->
+  <!--
+  <div class="voltz-timeline__item voltz-timeline__item--{{status}}" role="listitem">
+    <div class="voltz-timeline__marker">
+      <div class="voltz-timeline__icon" aria-hidden="true">
+        {{slot:icon}}
+      </div>
+      <div class="voltz-timeline__connector"></div>
+    </div>
+    <div class="voltz-timeline__content">
+      <div class="voltz-timeline__header">
+        <h3 class="voltz-timeline__title">{{title}}</h3>
+        <time class="voltz-timeline__time" datetime="{{datetime}}">{{time}}</time>
+      </div>
+      <p class="voltz-timeline__description">{{description}}</p>
+    </div>
+  </div>
+  -->
+
+  {{slot:default}}
+</div>

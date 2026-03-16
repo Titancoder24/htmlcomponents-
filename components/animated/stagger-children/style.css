@@ -1,0 +1,57 @@
+/*
+ * Stagger Children Component Styles
+ * Children animate in with stagger delay.
+ * Variants: fade, slide, scale
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-stagger {
+  --voltz-stagger-duration: 0.5s;
+  --voltz-stagger-delay: 100ms;
+  --voltz-stagger-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --voltz-stagger-distance: 20px;
+}
+
+/* Direct children get stagger animation */
+.voltz-stagger > * {
+  opacity: 0;
+  transition: opacity var(--voltz-stagger-duration) var(--voltz-stagger-easing),
+    transform var(--voltz-stagger-duration) var(--voltz-stagger-easing);
+  transition-delay: calc(var(--voltz-stagger-delay) * var(--voltz-stagger-index, 0));
+  will-change: opacity, transform;
+}
+
+/* Fade variant */
+.voltz-stagger--fade > * {
+  transform: none;
+}
+
+/* Slide variant */
+.voltz-stagger--slide > * {
+  transform: translateY(var(--voltz-stagger-distance));
+}
+
+/* Scale variant */
+.voltz-stagger--scale > * {
+  transform: scale(0.85);
+}
+
+/* Visible state */
+.voltz-stagger[data-visible] > * {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-stagger > * {
+    transform: none !important;
+    transition: opacity 0.2s ease !important;
+    transition-delay: calc(
+      var(--voltz-stagger-delay) * var(--voltz-stagger-index, 0)
+    ) !important;
+  }
+
+  .voltz-stagger[data-visible] > * {
+    opacity: 1;
+  }
+}

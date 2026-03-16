@@ -1,0 +1,18 @@
+<!--
+  Particles Component
+  Floating particle background effect.
+  JS creates particles and animates them with requestAnimationFrame.
+  Connected variant draws lines between nearby particles using canvas.
+-->
+<div class="voltz-particles voltz-particles--{{variant}}"
+     data-voltz-particles
+     data-count="{{#if count}}{{count}}{{else}}30{{/if}}"
+     data-connected="{{#if connected}}true{{else}}false{{/if}}"
+     data-speed="{{#if speed}}{{speed}}{{else}}1{{/if}}"
+     role="presentation"
+     aria-hidden="true">
+  <canvas class="voltz-particles__canvas"></canvas>
+  <div class="voltz-particles__content">
+    {{slot:default}}
+  </div>
+</div>

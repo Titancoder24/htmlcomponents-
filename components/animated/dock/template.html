@@ -1,0 +1,15 @@
+<!--
+  Dock Component
+  macOS-style dock with magnification on hover.
+  Variants: horizontal, vertical
+  Uses CSS transform scale with JS for proximity-based magnification.
+-->
+<nav class="voltz-dock voltz-dock--{{variant}}"
+     data-voltz-dock
+     data-variant="{{variant}}"
+     role="toolbar"
+     aria-label="Dock navigation">
+  <div class="voltz-dock__container">
+    {{slot:default}}
+  </div>
+</nav>

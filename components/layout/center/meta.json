@@ -1,0 +1,37 @@
+{
+  "id": "center",
+  "name": "Center",
+  "description": "Centers content horizontally and/or vertically within its container. Supports max-width, intrinsic centering, and text centering options.",
+  "category": "layout",
+  "tags": ["center", "alignment", "horizontal", "vertical", "max-width"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Structural centering container with no semantic meaning."
+  },
+  "variants": [
+    { "name": "horizontal", "description": "Center content horizontally only" },
+    { "name": "vertical", "description": "Center content vertically only" },
+    { "name": "both", "description": "Center content horizontally and vertically" },
+    { "name": "text", "description": "Center text alignment with horizontal centering" },
+    { "name": "intrinsic", "description": "Intrinsic centering (shrink-wraps to content width)" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Content to center" }
+  ],
+  "examples": [
+    {
+      "name": "Horizontal center",
+      "description": "Center content horizontally with max-width",
+      "props": { "variant": "horizontal", "maxWidth": "600px" }
+    },
+    {
+      "name": "Full center",
+      "description": "Center content both horizontally and vertically",
+      "props": { "variant": "both" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["container", "flex", "stack"]
+}

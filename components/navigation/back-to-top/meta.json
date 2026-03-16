@@ -1,0 +1,31 @@
+{
+  "name": "back-to-top",
+  "displayName": "Back to Top",
+  "description": "Scroll-to-top button that appears after scrolling down. Supports circle and pill variants with configurable position.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["circle", "pill"],
+  "slots": {},
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "circle",
+      "options": ["circle", "pill"]
+    },
+    "position": {
+      "type": "string",
+      "default": "bottom-right",
+      "options": ["bottom-right", "bottom-left", "bottom-center"]
+    },
+    "threshold": {
+      "type": "number",
+      "default": 300,
+      "description": "Scroll distance in pixels before button appears"
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "Space"],
+    "aria": ["aria-label", "role=button"]
+  }
+}

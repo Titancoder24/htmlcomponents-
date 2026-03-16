@@ -1,0 +1,14 @@
+<!--
+  Split Pane Component - template.html
+  Purpose: Two-panel split layout with configurable direction and ratio.
+  Ratios: 50-50, 33-67, 67-33, 25-75, 75-25. Stacks on mobile.
+-->
+
+<div class="voltz-split-pane voltz-split-pane--{{variant}}" data-ratio="{{ratio}}">
+  <div class="voltz-split-pane__primary">
+    {{slot:primary}}
+  </div>
+  <div class="voltz-split-pane__secondary">
+    {{slot:secondary}}
+  </div>
+</div>

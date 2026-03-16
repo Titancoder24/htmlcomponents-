@@ -1,0 +1,21 @@
+<!--
+  Flip Card Component
+  Card that flips to reveal back content with 3D perspective.
+  Variants: horizontal, vertical
+  Trigger: hover (CSS-only) or click (JS toggle).
+-->
+<div class="voltz-flip-card voltz-flip-card--{{variant}}"
+     data-voltz-flip-card
+     data-trigger="{{#if trigger}}{{trigger}}{{else}}hover{{/if}}"
+     tabindex="0"
+     role="article"
+     aria-label="Flip card">
+  <div class="voltz-flip-card__inner">
+    <div class="voltz-flip-card__front">
+      {{slot:front}}
+    </div>
+    <div class="voltz-flip-card__back">
+      {{slot:back}}
+    </div>
+  </div>
+</div>

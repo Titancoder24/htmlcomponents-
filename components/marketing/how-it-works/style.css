@@ -1,0 +1,224 @@
+/*
+ * How It Works Component Styles
+ * Purpose: Step-by-step process layout with numbered indicators,
+ * connector lines, horizontal/vertical variants, and responsive design.
+ */
+
+.voltz-hiw {
+  --voltz-hiw-bg: #ffffff;
+  --voltz-hiw-text: #1a1a2e;
+  --voltz-hiw-text-muted: #6b7280;
+  --voltz-hiw-primary: #6c5ce7;
+  --voltz-hiw-primary-light: rgba(108, 92, 231, 0.1);
+  --voltz-hiw-border: #e5e7eb;
+  --voltz-hiw-connector: #d1d5db;
+  --voltz-hiw-card-bg: #f9fafb;
+  --voltz-hiw-padding: 5rem 1.5rem;
+  --voltz-hiw-max-width: 1280px;
+  --voltz-hiw-indicator-size: 56px;
+  --voltz-hiw-radius: 12px;
+}
+
+[data-theme="dark"] .voltz-hiw,
+.voltz-hiw[data-theme="dark"] {
+  --voltz-hiw-bg: #0f0f1a;
+  --voltz-hiw-text: #f0f0f5;
+  --voltz-hiw-text-muted: #9ca3af;
+  --voltz-hiw-border: #2d2d44;
+  --voltz-hiw-connector: #2d2d44;
+  --voltz-hiw-card-bg: #1a1a2e;
+}
+
+/* Base */
+.voltz-hiw {
+  background: var(--voltz-hiw-bg);
+  color: var(--voltz-hiw-text);
+  padding: var(--voltz-hiw-padding);
+}
+
+.voltz-hiw__container {
+  max-width: var(--voltz-hiw-max-width);
+  margin: 0 auto;
+}
+
+/* Header */
+.voltz-hiw__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.voltz-hiw__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+}
+
+.voltz-hiw__subtitle {
+  font-size: 1.0625rem;
+  color: var(--voltz-hiw-text-muted);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Horizontal layout (default) */
+.voltz-hiw__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.voltz-hiw__step {
+  text-align: center;
+  position: relative;
+}
+
+/* Step Indicator */
+.voltz-hiw__step-indicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.voltz-hiw__step-number {
+  width: var(--voltz-hiw-indicator-size);
+  height: var(--voltz-hiw-indicator-size);
+  border-radius: 50%;
+  background: var(--voltz-hiw-primary-light);
+  color: var(--voltz-hiw-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* Connector line (horizontal) */
+.voltz-hiw__connector {
+  display: none;
+}
+
+.voltz-hiw__step:not(:last-child) .voltz-hiw__connector {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--voltz-hiw-indicator-size) / 2 + 8px);
+  right: calc(-50% + var(--voltz-hiw-indicator-size) / 2 + 8px);
+  height: 2px;
+  background: var(--voltz-hiw-connector);
+  transform: translateY(-50%);
+}
+
+/* Step Content */
+.voltz-hiw__step-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.voltz-hiw__step-description {
+  font-size: 0.9375rem;
+  color: var(--voltz-hiw-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Vertical variant */
+.voltz-hiw.vertical .voltz-hiw__steps {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.voltz-hiw.vertical .voltz-hiw__step {
+  display: flex;
+  gap: 1.5rem;
+  text-align: left;
+  padding-bottom: 2.5rem;
+}
+
+.voltz-hiw.vertical .voltz-hiw__step-indicator {
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.voltz-hiw.vertical .voltz-hiw__step:not(:last-child) .voltz-hiw__connector {
+  position: absolute;
+  top: calc(var(--voltz-hiw-indicator-size) + 8px);
+  left: calc(var(--voltz-hiw-indicator-size) / 2);
+  right: auto;
+  width: 2px;
+  height: calc(100% - var(--voltz-hiw-indicator-size) - 8px);
+  transform: none;
+}
+
+/* Card variant */
+.voltz-hiw.card .voltz-hiw__step {
+  background: var(--voltz-hiw-card-bg);
+  border-radius: var(--voltz-hiw-radius);
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--voltz-hiw-border);
+}
+
+.voltz-hiw.card .voltz-hiw__step:not(:last-child) .voltz-hiw__connector {
+  display: none;
+}
+
+/* Minimal variant */
+.voltz-hiw.minimal .voltz-hiw__step-number {
+  background: transparent;
+  border: 2px solid var(--voltz-hiw-primary);
+}
+
+/* Step icon */
+.voltz-hiw__step-icon {
+  font-size: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .voltz-hiw {
+    --voltz-hiw-padding: 3rem 1rem;
+  }
+
+  .voltz-hiw__steps {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+    gap: 0;
+  }
+
+  .voltz-hiw__step {
+    display: flex;
+    gap: 1.25rem;
+    text-align: left;
+    padding-bottom: 2rem;
+  }
+
+  .voltz-hiw__step-indicator {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .voltz-hiw__step:not(:last-child) .voltz-hiw__connector {
+    position: absolute;
+    top: calc(var(--voltz-hiw-indicator-size) + 8px);
+    left: calc(var(--voltz-hiw-indicator-size) / 2);
+    right: auto;
+    width: 2px;
+    height: calc(100% - var(--voltz-hiw-indicator-size) - 8px);
+    transform: none;
+  }
+}
+
+@media (min-width: 1920px) {
+  .voltz-hiw { --voltz-hiw-max-width: 1440px; }
+}

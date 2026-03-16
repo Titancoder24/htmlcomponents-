@@ -1,0 +1,11 @@
+<!--
+  Stagger Children Component
+  Children animate in with stagger delay.
+  Variants: fade, slide, scale
+  Uses IntersectionObserver and CSS custom properties for stagger timing.
+-->
+<div class="voltz-stagger voltz-stagger--{{variant}}"
+     data-voltz-stagger
+     data-variant="{{variant}}">
+  {{slot:default}}
+</div>

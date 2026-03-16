@@ -1,0 +1,33 @@
+{
+  "id": "divider",
+  "name": "Divider",
+  "description": "Visual separator element with configurable orientation, style variant, thickness, and color options.",
+  "category": "layout",
+  "tags": ["divider", "separator", "horizontal-rule", "line", "border"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "separator",
+    "description": "Uses role=separator for accessibility. Horizontal divider uses default orientation; vertical uses aria-orientation=vertical."
+  },
+  "variants": [
+    { "name": "solid", "description": "Solid line divider" },
+    { "name": "dashed", "description": "Dashed line divider" },
+    { "name": "dotted", "description": "Dotted line divider" }
+  ],
+  "slots": [],
+  "examples": [
+    {
+      "name": "Horizontal solid",
+      "description": "Default horizontal solid divider",
+      "props": { "variant": "solid", "orientation": "horizontal", "thickness": "sm" }
+    },
+    {
+      "name": "Vertical dashed",
+      "description": "Vertical dashed divider",
+      "props": { "variant": "dashed", "orientation": "vertical", "thickness": "md" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["spacer", "stack"]
+}

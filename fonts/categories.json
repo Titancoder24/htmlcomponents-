@@ -1,0 +1,94 @@
+{
+  "categories": [
+    {
+      "id": "clean",
+      "name": "Clean & Minimal",
+      "description": "Neutral, versatile fonts that work everywhere. No personality friction.",
+      "fonts": ["Inter", "Plus Jakarta Sans", "Albert Sans", "Figtree", "Geist", "Be Vietnam Pro", "Public Sans"]
+    },
+    {
+      "id": "geometric",
+      "name": "Geometric Sans-Serif",
+      "description": "Based on geometric shapes — circles, squares, triangles. Modern and precise.",
+      "fonts": ["Urbanist", "DM Sans", "Outfit", "Work Sans", "Nunito", "Poppins", "Montserrat"]
+    },
+    {
+      "id": "humanist",
+      "name": "Humanist Sans-Serif",
+      "description": "Calligraphic influence. Warm, organic, and highly readable.",
+      "fonts": ["Lato", "Open Sans", "Source Sans 3", "Mulish", "Nunito Sans", "Libre Franklin", "Karla"]
+    },
+    {
+      "id": "grotesque",
+      "name": "Neo-Grotesque",
+      "description": "Clean, neutral, Swiss-inspired. The workhorse of UI design.",
+      "fonts": ["Inter", "Roboto", "IBM Plex Sans", "Manrope", "Satoshi", "General Sans", "Instrument Sans"]
+    },
+    {
+      "id": "display",
+      "name": "Display & Impact",
+      "description": "High-impact fonts for headlines and hero sections. Not for body text.",
+      "fonts": ["Anton", "Oswald", "Archivo Black", "Clash Display", "Cabinet Grotesk", "Righteous", "Unbounded"]
+    },
+    {
+      "id": "serif-classic",
+      "name": "Classic Serif",
+      "description": "Timeless serif fonts for editorial and luxury contexts.",
+      "fonts": ["Playfair Display", "Cormorant Garamond", "Lora", "Merriweather", "Source Serif 4", "Libre Baskerville", "Vollkorn"]
+    },
+    {
+      "id": "serif-modern",
+      "name": "Modern Serif",
+      "description": "Contemporary serif fonts that bridge traditional and modern design.",
+      "fonts": ["DM Serif Display", "Fraunces", "Newsreader", "Bodoni Moda", "Abril Fatface", "Bitter", "Instrument Serif"]
+    },
+    {
+      "id": "monospace",
+      "name": "Monospace & Code",
+      "description": "Fixed-width fonts for code, data, and technical content.",
+      "fonts": ["JetBrains Mono", "Fira Code", "Space Mono", "IBM Plex Mono", "Geist Mono", "Source Code Pro", "Cascadia Code"]
+    },
+    {
+      "id": "rounded",
+      "name": "Rounded & Friendly",
+      "description": "Soft, rounded fonts that feel approachable and warm.",
+      "fonts": ["Nunito", "Quicksand", "Fredoka", "Rubik", "Lexend", "Varela Round", "Comfortaa"]
+    },
+    {
+      "id": "technical",
+      "name": "Technical & Data",
+      "description": "Fonts optimized for dashboards, data visualization, and technical interfaces.",
+      "fonts": ["Space Grotesk", "IBM Plex Sans", "JetBrains Mono", "Geist", "Fira Sans", "Exo 2", "Chakra Petch"]
+    },
+    {
+      "id": "handwritten",
+      "name": "Handwritten & Script",
+      "description": "Casual, personal fonts for creative and informal contexts.",
+      "fonts": ["Caveat", "Amatic SC", "Patrick Hand", "Kalam", "Shadows Into Light", "Indie Flower", "Dancing Script"]
+    },
+    {
+      "id": "futuristic",
+      "name": "Futuristic & Sci-Fi",
+      "description": "Forward-looking fonts for tech, gaming, and Web3 projects.",
+      "fonts": ["Orbitron", "Space Grotesk", "Sora", "Exo 2", "Chakra Petch", "Rajdhani", "Oxanium"]
+    },
+    {
+      "id": "accessible",
+      "name": "Accessibility Optimized",
+      "description": "Fonts designed with readability and accessibility as primary goals.",
+      "fonts": ["Atkinson Hyperlegible", "Lexend", "Public Sans", "Epilogue", "Figtree", "Inter", "Open Sans"]
+    },
+    {
+      "id": "editorial",
+      "name": "Editorial & Publishing",
+      "description": "Fonts for blogs, magazines, newsletters, and long-form content.",
+      "fonts": ["Newsreader", "Source Serif 4", "Lora", "Bitter", "Vollkorn", "Merriweather", "Crimson Text"]
+    },
+    {
+      "id": "luxury",
+      "name": "Luxury & Premium",
+      "description": "Elegant fonts for high-end branding, real estate, and fashion.",
+      "fonts": ["Cormorant Garamond", "Bodoni Moda", "Playfair Display", "Abril Fatface", "Poiret One", "Josefin Sans", "Cinzel"]
+    }
+  ]
+}

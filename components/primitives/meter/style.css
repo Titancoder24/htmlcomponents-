@@ -1,0 +1,115 @@
+/**
+ * Meter Component - style.css
+ * Purpose: Styles for the value meter/gauge including track, fill bar,
+ * size variants, and threshold-based color states (error/warning/success).
+ */
+
+/* -------------------------------------------------------
+   Custom Properties
+   ------------------------------------------------------- */
+.voltz-meter {
+  --voltz-meter-track-bg: var(--voltz-color-bg-subtle, #f1f5f9);
+  --voltz-meter-track-radius: var(--voltz-radius-full, 9999px);
+  --voltz-meter-fill-radius: var(--voltz-radius-full, 9999px);
+  --voltz-meter-fill-transition: width 400ms ease, background-color 300ms ease;
+  --voltz-meter-label-color: var(--voltz-color-text, #0f172a);
+  --voltz-meter-value-color: var(--voltz-color-text-muted, #64748b);
+  --voltz-meter-color-low: var(--voltz-color-error, #ef4444);
+  --voltz-meter-color-medium: var(--voltz-color-warning, #f59e0b);
+  --voltz-meter-color-high: var(--voltz-color-success, #22c55e);
+}
+
+/* -------------------------------------------------------
+   Base
+   ------------------------------------------------------- */
+.voltz-meter {
+  width: 100%;
+}
+
+/* -------------------------------------------------------
+   Header
+   ------------------------------------------------------- */
+.voltz-meter__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.375rem;
+}
+
+.voltz-meter__label {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  font-weight: 500;
+  color: var(--voltz-meter-label-color);
+}
+
+.voltz-meter__value-text {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  font-variant-numeric: tabular-nums;
+  color: var(--voltz-meter-value-color);
+}
+
+/* -------------------------------------------------------
+   Track
+   ------------------------------------------------------- */
+.voltz-meter__track {
+  width: 100%;
+  background: var(--voltz-meter-track-bg);
+  border-radius: var(--voltz-meter-track-radius);
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------
+   Fill
+   ------------------------------------------------------- */
+.voltz-meter__fill {
+  height: 100%;
+  border-radius: var(--voltz-meter-fill-radius);
+  transition: var(--voltz-meter-fill-transition);
+  min-width: 0;
+}
+
+/* Threshold color classes applied via JS */
+.voltz-meter__fill--low {
+  background: var(--voltz-meter-color-low);
+}
+
+.voltz-meter__fill--medium {
+  background: var(--voltz-meter-color-medium);
+}
+
+.voltz-meter__fill--high {
+  background: var(--voltz-meter-color-high);
+}
+
+/* -------------------------------------------------------
+   Size Variants
+   ------------------------------------------------------- */
+.voltz-meter--sm .voltz-meter__track {
+  height: 4px;
+}
+
+.voltz-meter--md .voltz-meter__track {
+  height: 8px;
+}
+
+.voltz-meter--lg .voltz-meter__track {
+  height: 12px;
+}
+
+/* -------------------------------------------------------
+   Dark Mode
+   ------------------------------------------------------- */
+[data-theme="dark"] .voltz-meter {
+  --voltz-meter-track-bg: var(--voltz-color-bg-subtle-dark, #1e293b);
+  --voltz-meter-label-color: var(--voltz-color-text-dark, #f1f5f9);
+  --voltz-meter-value-color: var(--voltz-color-text-muted-dark, #94a3b8);
+}
+
+/* -------------------------------------------------------
+   Reduced Motion
+   ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-meter__fill {
+    transition: none !important;
+  }
+}

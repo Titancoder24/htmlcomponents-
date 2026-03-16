@@ -1,0 +1,75 @@
+{
+  "name": "radio",
+  "displayName": "Radio",
+  "description": "A radio button with label, supporting sizes, disabled state, and color variants.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the radio button"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Color scheme when selected"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Label text displayed next to the radio"
+    },
+    "name": {
+      "type": "string",
+      "default": "",
+      "description": "Name attribute for grouping radio buttons"
+    },
+    "value": {
+      "type": "string",
+      "default": "",
+      "description": "Value of the radio for form submission"
+    },
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the radio is selected"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the radio is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether a selection in the group is required"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Custom label content"
+    }
+  },
+  "events": {
+    "change": { "description": "Fired when the radio selection changes" }
+  },
+  "accessibility": {
+    "role": "radio",
+    "keyboard": {
+      "ArrowUp/ArrowLeft": "Select previous radio in group",
+      "ArrowDown/ArrowRight": "Select next radio in group",
+      "Tab": "Moves focus to/from the radio group"
+    },
+    "ariaAttributes": ["aria-checked", "aria-disabled", "aria-required"]
+  },
+  "examples": [
+    {
+      "title": "Basic radio",
+      "props": { "label": "Option A", "name": "group1", "value": "a" }
+    }
+  ]
+}

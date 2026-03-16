@@ -1,0 +1,34 @@
+<!--
+  Hero Gradient Component
+  Hero section with animated gradient background.
+  Gradient presets: default (purple-blue), sunset, ocean, forest.
+  Dark overlay ensures text readability over any gradient.
+-->
+<section class="voltz-hero-gradient {{variant}}" data-component="hero-gradient">
+  <div class="voltz-hero-gradient__bg" aria-hidden="true"></div>
+  <div class="voltz-hero-gradient__overlay" aria-hidden="true"></div>
+
+  <div class="voltz-hero-gradient__container">
+    {{#if badge}}
+    <div class="voltz-hero-gradient__badge">{{badge}}</div>
+    {{/if}}
+
+    <h1 class="voltz-hero-gradient__headline">
+      The Future of <span class="voltz-hero-gradient__highlight">Web Development</span> Is Here
+    </h1>
+
+    <p class="voltz-hero-gradient__subheadline">
+      Build blazing-fast applications with our next-generation framework.
+      Zero configuration, maximum performance.
+    </p>
+
+    <div class="voltz-hero-gradient__actions">
+      <a href="#" class="voltz-hero-gradient__cta voltz-hero-gradient__cta--primary">
+        Get Early Access
+      </a>
+      <a href="#" class="voltz-hero-gradient__cta voltz-hero-gradient__cta--secondary">
+        Learn More
+      </a>
+    </div>
+  </div>
+</section>

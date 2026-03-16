@@ -1,0 +1,19 @@
+{
+  "name": "Newsletter Signup",
+  "description": "Email signup form with input and button. Supports inline or stacked layout, success state, and privacy text.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["newsletter", "signup", "email", "form", "conversion"],
+  "variants": ["default", "inline", "stacked", "minimal", "card"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

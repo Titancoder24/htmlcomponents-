@@ -1,0 +1,31 @@
+/**
+ * Meta configuration for feature-grid component.
+ * Grid layout of features with icons, titles, and descriptions.
+ */
+{
+  "name": "feature-grid",
+  "displayName": "Feature Grid",
+  "description": "Features displayed in a grid layout (2x2, 3x3, 2x3). Each feature includes an icon, title, and description. Supports centered or left-aligned content.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["features", "grid", "icons", "benefits"],
+  "variants": {
+    "default": { "description": "3-column grid, centered content" },
+    "two-column": { "description": "2-column grid layout" },
+    "left-aligned": { "description": "3-column grid, left-aligned content" }
+  },
+  "slots": {
+    "default": { "description": "Feature items area" }
+  },
+  "customProperties": {
+    "--voltz-feature-grid-bg": { "default": "#0a0a0a", "description": "Section background" },
+    "--voltz-feature-grid-card-bg": { "default": "#111111", "description": "Card background" },
+    "--voltz-feature-grid-text-color": { "default": "#ffffff", "description": "Title color" },
+    "--voltz-feature-grid-desc-color": { "default": "#888", "description": "Description color" },
+    "--voltz-feature-grid-icon-color": { "default": "#6366f1", "description": "Icon accent color" },
+    "--voltz-feature-grid-columns": { "default": "3", "description": "Number of columns" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true
+}

@@ -1,0 +1,12 @@
+<!--
+  Shimmer Button Component
+  Button with a traveling shimmer/shine effect.
+  Variants: continuous (always animating) or hover (only on hover).
+  CSS-only animation using pseudo-element gradient.
+-->
+<button class="voltz-shimmer-btn voltz-shimmer-btn--{{variant}}"
+        data-voltz-shimmer-btn
+        type="button">
+  <span class="voltz-shimmer-btn__label">{{slot:default}}</span>
+  <span class="voltz-shimmer-btn__shimmer" aria-hidden="true"></span>
+</button>

@@ -1,0 +1,178 @@
+/**
+ * Feature Alternating Styles
+ * Zigzag feature rows with alternating image/text positions.
+ * Responsive stacking on mobile. Dark mode supported.
+ */
+
+.voltz-feature-alt {
+  --voltz-feature-alt-bg: #0a0a0a;
+  --voltz-feature-alt-text-color: #ffffff;
+  --voltz-feature-alt-desc-color: #888;
+  --voltz-feature-alt-accent: #6366f1;
+  --voltz-feature-alt-badge-bg: rgba(99, 102, 241, 0.1);
+  --voltz-feature-alt-badge-text: #818cf8;
+  --voltz-feature-alt-list-bullet: #6366f1;
+  --voltz-feature-alt-gap: 4rem;
+  --voltz-feature-alt-padding: 5rem 1.5rem;
+  --voltz-feature-alt-row-gap: 5rem;
+}
+
+[data-theme="light"] .voltz-feature-alt,
+.voltz-feature-alt[data-theme="light"] {
+  --voltz-feature-alt-bg: #ffffff;
+  --voltz-feature-alt-text-color: #111827;
+  --voltz-feature-alt-desc-color: #6b7280;
+  --voltz-feature-alt-badge-bg: rgba(99, 102, 241, 0.08);
+}
+
+.voltz-feature-alt {
+  width: 100%;
+  background: var(--voltz-feature-alt-bg);
+  padding: var(--voltz-feature-alt-padding);
+}
+
+.voltz-feature-alt__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--voltz-feature-alt-row-gap);
+}
+
+.voltz-feature-alt.compact { --voltz-feature-alt-row-gap: 3rem; }
+
+/* Header */
+.voltz-feature-alt__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.voltz-feature-alt__title {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.75rem);
+  font-weight: 700;
+  color: var(--voltz-feature-alt-text-color);
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+}
+
+.voltz-feature-alt__subtitle {
+  font-size: clamp(1rem, 1.2vw + 0.25rem, 1.2rem);
+  line-height: 1.6;
+  color: var(--voltz-feature-alt-desc-color);
+  margin: 0;
+}
+
+/* Row */
+.voltz-feature-alt__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--voltz-feature-alt-gap);
+  align-items: center;
+}
+
+.voltz-feature-alt__row--reversed {
+  direction: rtl;
+}
+
+.voltz-feature-alt__row--reversed > * {
+  direction: ltr;
+}
+
+/* Content */
+.voltz-feature-alt__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.voltz-feature-alt__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  background: var(--voltz-feature-alt-badge-bg);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--voltz-feature-alt-badge-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.voltz-feature-alt__heading {
+  font-size: clamp(1.375rem, 2vw + 0.5rem, 2rem);
+  font-weight: 700;
+  color: var(--voltz-feature-alt-text-color);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.voltz-feature-alt__desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--voltz-feature-alt-desc-color);
+  margin: 0;
+}
+
+.voltz-feature-alt__list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.voltz-feature-alt__list-item {
+  font-size: 0.9375rem;
+  color: var(--voltz-feature-alt-desc-color);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.voltz-feature-alt__list-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--voltz-feature-alt-list-bullet);
+}
+
+/* Media */
+.voltz-feature-alt__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voltz-feature-alt__image-placeholder {
+  width: 100%;
+  color: var(--voltz-feature-alt-text-color);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 868px) {
+  .voltz-feature-alt__row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .voltz-feature-alt__row--reversed { direction: ltr; }
+  .voltz-feature-alt__media { order: -1; }
+  .voltz-feature-alt__content { align-items: center; text-align: center; }
+  .voltz-feature-alt__badge { align-self: center; }
+  .voltz-feature-alt__list { align-items: flex-start; max-width: 280px; margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 480px) {
+  .voltz-feature-alt { --voltz-feature-alt-padding: 3rem 1rem; --voltz-feature-alt-row-gap: 3.5rem; }
+}
+
+@media (min-width: 1920px) {
+  .voltz-feature-alt { --voltz-feature-alt-padding: 7rem 2rem; }
+  .voltz-feature-alt__container { max-width: 1400px; }
+}

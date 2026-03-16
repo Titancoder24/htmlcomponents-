@@ -1,0 +1,83 @@
+<!--
+  Data Table Component Template
+  Purpose: Enhanced data table with pagination, sortable columns,
+  selectable rows, column resize, fixed header, and empty state display.
+-->
+<div class="voltz-data-table voltz-data-table--{{variant}}"
+     role="grid"
+     aria-label="Data table"
+     data-page-size="{{pageSize}}">
+
+  <!-- Toolbar -->
+  <div class="voltz-data-table__toolbar">
+    {{#if selectable}}
+    <div class="voltz-data-table__selection-info" aria-live="polite">
+      <span class="voltz-data-table__selected-count">0</span> selected
+    </div>
+    {{/if}}
+    {{slot:toolbar}}
+  </div>
+
+  <!-- Scrollable Table Area -->
+  <div class="voltz-data-table__scroll-area {{#if fixedHeader}}voltz-data-table--fixed-header{{/if}}"
+       role="region"
+       aria-label="Scrollable table"
+       tabindex="0">
+    <table class="voltz-data-table__table" role="grid">
+      <thead class="voltz-data-table__head">
+        <tr>
+          {{#if selectable}}
+          <th class="voltz-data-table__select-all-cell" scope="col">
+            <input type="checkbox"
+                   class="voltz-data-table__select-all"
+                   aria-label="Select all rows" />
+          </th>
+          {{/if}}
+          {{slot:head}}
+        </tr>
+      </thead>
+      <tbody class="voltz-data-table__body">
+        {{#if empty}}
+        <tr class="voltz-data-table__empty-row">
+          <td colspan="100%">
+            <div class="voltz-data-table__empty-state">
+              <svg class="voltz-data-table__empty-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M3 10h18M3 6h18M3 14h18M3 18h18" />
+              </svg>
+              <p class="voltz-data-table__empty-title">No data found</p>
+              <p class="voltz-data-table__empty-desc">There are no records to display.</p>
+              {{slot:empty}}
+            </div>
+          </td>
+        </tr>
+        {{/if}}
+        {{slot:default}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  {{#if paginated}}
+  <div class="voltz-data-table__pagination" role="navigation" aria-label="Table pagination">
+    <span class="voltz-data-table__page-info" aria-live="polite">
+      Page <span class="voltz-data-table__current-page">1</span>
+      of <span class="voltz-data-table__total-pages">1</span>
+    </span>
+    <div class="voltz-data-table__page-controls">
+      <button class="voltz-data-table__page-btn voltz-data-table__page-btn--prev"
+              aria-label="Previous page"
+              disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button class="voltz-data-table__page-btn voltz-data-table__page-btn--next"
+              aria-label="Next page">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  {{/if}}
+</div>

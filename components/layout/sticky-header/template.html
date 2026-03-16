@@ -1,0 +1,15 @@
+<!--
+  Sticky Header Component - template.html
+  Purpose: Header that sticks to viewport top on scroll with optional effects.
+  Variants: default (solid), transparent (transitions to solid on scroll).
+-->
+
+<header class="voltz-sticky-header voltz-sticky-header--{{variant}}"
+        data-height="{{height}}"
+        data-shadow="{{shadow}}"
+        data-scrolled="false"
+        role="banner">
+  <div class="voltz-sticky-header__inner">
+    {{slot:default}}
+  </div>
+</header>

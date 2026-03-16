@@ -1,0 +1,148 @@
+/**
+ * Breadcrumb Component - style.css
+ * Purpose: Styles for breadcrumb navigation including separator variants,
+ * collapsible ellipsis, current page styling, and dark mode support.
+ */
+
+/* --- Base --- */
+.voltz-breadcrumb {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  line-height: 1.5;
+}
+
+.voltz-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--voltz-spacing-1, 0.25rem);
+}
+
+.voltz-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--voltz-spacing-1, 0.25rem);
+}
+
+/* --- Link --- */
+.voltz-breadcrumb__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--voltz-spacing-1, 0.25rem);
+  color: var(--voltz-breadcrumb-link-color, #6b7280);
+  text-decoration: none;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+  padding: 0.125rem 0.25rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.voltz-breadcrumb__link:hover {
+  color: var(--voltz-breadcrumb-link-hover, #111827);
+  text-decoration: underline;
+}
+
+.voltz-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 1px;
+}
+
+/* --- Icon --- */
+.voltz-breadcrumb__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+/* --- Separator --- */
+.voltz-breadcrumb__separator {
+  display: inline-flex;
+  align-items: center;
+  color: var(--voltz-breadcrumb-separator-color, #d1d5db);
+  margin: 0 var(--voltz-spacing-1, 0.25rem);
+  user-select: none;
+  font-size: 0.75rem;
+}
+
+.voltz-breadcrumb__separator-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* --- Current page --- */
+.voltz-breadcrumb__current {
+  color: var(--voltz-breadcrumb-current-color, #111827);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  padding: 0.125rem 0.25rem;
+}
+
+/* --- Expand (ellipsis) button --- */
+.voltz-breadcrumb__expand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--voltz-breadcrumb-link-color, #6b7280);
+  cursor: pointer;
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+  font-size: inherit;
+  line-height: 1;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.voltz-breadcrumb__expand:hover {
+  color: var(--voltz-breadcrumb-link-hover, #111827);
+  background: var(--voltz-breadcrumb-expand-hover-bg, rgba(0,0,0,0.05));
+}
+
+.voltz-breadcrumb__expand:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 1px;
+}
+
+/* --- Collapsed items hidden by default --- */
+.voltz-breadcrumb__item--collapsed {
+  display: none;
+}
+
+.voltz-breadcrumb__item--ellipsis[aria-hidden="true"] {
+  display: inline-flex;
+}
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-breadcrumb__link {
+  color: var(--voltz-breadcrumb-link-color-dark, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-breadcrumb__link:hover {
+  color: var(--voltz-breadcrumb-link-hover-dark, #f9fafb);
+}
+
+[data-theme="dark"] .voltz-breadcrumb__separator {
+  color: var(--voltz-breadcrumb-separator-color-dark, #4b5563);
+}
+
+[data-theme="dark"] .voltz-breadcrumb__current {
+  color: var(--voltz-breadcrumb-current-color-dark, #f9fafb);
+}
+
+[data-theme="dark"] .voltz-breadcrumb__expand {
+  color: var(--voltz-breadcrumb-link-color-dark, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-breadcrumb__expand:hover {
+  color: var(--voltz-breadcrumb-link-hover-dark, #f9fafb);
+  background: var(--voltz-breadcrumb-expand-hover-bg-dark, rgba(255,255,255,0.1));
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-breadcrumb__link,
+  .voltz-breadcrumb__expand {
+    transition: none;
+  }
+}

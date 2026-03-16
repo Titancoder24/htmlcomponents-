@@ -1,0 +1,20 @@
+{
+  "name": "count-up",
+  "description": "Number counting up animation triggered on scroll. Configurable start/end values, duration, and format options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "comma", "decimal"],
+  "tags": ["counter", "number", "animation", "scroll"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-count-up-duration",
+    "--voltz-count-up-color",
+    "--voltz-count-up-font-size",
+    "--voltz-count-up-font-weight"
+  ],
+  "slots": {
+    "prefix": "Text before the number",
+    "suffix": "Text after the number"
+  }
+}

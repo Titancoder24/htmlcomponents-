@@ -1,0 +1,204 @@
+/*
+ * Slider Component - style.css
+ * Purpose: Styles for the range slider including sizes (sm/md/lg), color
+ * variants, disabled state, custom track and thumb styling across browsers.
+ * Supports dark mode and reduced motion.
+ */
+
+/* === Base === */
+.voltz-slider {
+  --voltz-slider-track-h: 0.375rem;
+  --voltz-slider-thumb-size: 1.25rem;
+  --voltz-slider-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-slider-track-bg: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-slider-track-fill: var(--voltz-color-primary-600, #2563eb);
+  --voltz-slider-thumb-bg: var(--voltz-color-white, #fff);
+  --voltz-slider-thumb-border: var(--voltz-color-primary-600, #2563eb);
+  --voltz-slider-focus-ring: var(--voltz-color-primary-400, #60a5fa);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--voltz-space-2, 0.5rem);
+  width: 100%;
+  font-family: var(--voltz-font-family-sans, system-ui, sans-serif);
+}
+
+/* === Header === */
+.voltz-slider__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--voltz-space-2, 0.5rem);
+}
+
+.voltz-slider__label {
+  font-size: var(--voltz-slider-font-size);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  color: var(--voltz-color-neutral-700, #374151);
+}
+
+.voltz-slider__value {
+  font-size: var(--voltz-slider-font-size);
+  font-weight: var(--voltz-font-weight-semibold, 600);
+  color: var(--voltz-color-neutral-900, #111827);
+  min-width: 2.5ch;
+  text-align: end;
+}
+
+/* === Range Input === */
+.voltz-slider__input {
+  width: 100%;
+  height: var(--voltz-slider-thumb-size);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  margin: 0;
+}
+
+/* === Webkit Track === */
+.voltz-slider__input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--voltz-slider-track-h);
+  background-color: var(--voltz-slider-track-bg);
+  border-radius: calc(var(--voltz-slider-track-h) / 2);
+  border: none;
+}
+
+/* === Webkit Thumb === */
+.voltz-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: var(--voltz-slider-thumb-size);
+  height: var(--voltz-slider-thumb-size);
+  background-color: var(--voltz-slider-thumb-bg);
+  border: 2px solid var(--voltz-slider-thumb-border);
+  border-radius: 50%;
+  margin-top: calc(
+    (var(--voltz-slider-track-h) - var(--voltz-slider-thumb-size)) / 2
+  );
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.voltz-slider__input::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* === Firefox Track === */
+.voltz-slider__input::-moz-range-track {
+  width: 100%;
+  height: var(--voltz-slider-track-h);
+  background-color: var(--voltz-slider-track-bg);
+  border-radius: calc(var(--voltz-slider-track-h) / 2);
+  border: none;
+}
+
+/* === Firefox Progress (filled portion) === */
+.voltz-slider__input::-moz-range-progress {
+  height: var(--voltz-slider-track-h);
+  background-color: var(--voltz-slider-track-fill);
+  border-radius: calc(var(--voltz-slider-track-h) / 2);
+}
+
+/* === Firefox Thumb === */
+.voltz-slider__input::-moz-range-thumb {
+  width: var(--voltz-slider-thumb-size);
+  height: var(--voltz-slider-thumb-size);
+  background-color: var(--voltz-slider-thumb-bg);
+  border: 2px solid var(--voltz-slider-thumb-border);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+/* === Focus === */
+.voltz-slider__input:focus-visible {
+  outline: none;
+}
+
+.voltz-slider__input:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--voltz-slider-focus-ring);
+  outline-offset: 2px;
+}
+
+.voltz-slider__input:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--voltz-slider-focus-ring);
+  outline-offset: 2px;
+}
+
+/* === Sizes === */
+.voltz-slider--sm {
+  --voltz-slider-track-h: 0.25rem;
+  --voltz-slider-thumb-size: 1rem;
+  --voltz-slider-font-size: var(--voltz-font-size-xs, 0.75rem);
+}
+
+.voltz-slider--lg {
+  --voltz-slider-track-h: 0.5rem;
+  --voltz-slider-thumb-size: 1.5rem;
+  --voltz-slider-font-size: var(--voltz-font-size-md, 1rem);
+}
+
+/* === Colors === */
+.voltz-slider--primary {
+  --voltz-slider-track-fill: var(--voltz-color-primary-600, #2563eb);
+  --voltz-slider-thumb-border: var(--voltz-color-primary-600, #2563eb);
+  --voltz-slider-focus-ring: var(--voltz-color-primary-400, #60a5fa);
+}
+
+.voltz-slider--neutral {
+  --voltz-slider-track-fill: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-slider-thumb-border: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-slider-focus-ring: var(--voltz-color-neutral-400, #9ca3af);
+}
+
+.voltz-slider--success {
+  --voltz-slider-track-fill: var(--voltz-color-success-600, #16a34a);
+  --voltz-slider-thumb-border: var(--voltz-color-success-600, #16a34a);
+  --voltz-slider-focus-ring: var(--voltz-color-success-400, #4ade80);
+}
+
+.voltz-slider--warning {
+  --voltz-slider-track-fill: var(--voltz-color-warning-500, #f59e0b);
+  --voltz-slider-thumb-border: var(--voltz-color-warning-500, #f59e0b);
+  --voltz-slider-focus-ring: var(--voltz-color-warning-400, #fbbf24);
+}
+
+.voltz-slider--error {
+  --voltz-slider-track-fill: var(--voltz-color-error-600, #dc2626);
+  --voltz-slider-thumb-border: var(--voltz-color-error-600, #dc2626);
+  --voltz-slider-focus-ring: var(--voltz-color-error-400, #f87171);
+}
+
+/* === Disabled === */
+.voltz-slider--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voltz-slider--disabled .voltz-slider__input {
+  cursor: not-allowed;
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] .voltz-slider {
+  --voltz-slider-track-bg: var(--voltz-color-neutral-700, #374151);
+  --voltz-slider-thumb-bg: var(--voltz-color-neutral-100, #f3f4f6);
+}
+
+[data-theme="dark"] .voltz-slider__label {
+  color: var(--voltz-color-neutral-200, #e5e7eb);
+}
+
+[data-theme="dark"] .voltz-slider__value {
+  color: var(--voltz-color-neutral-100, #f3f4f6);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-slider__input::-webkit-slider-thumb,
+  .voltz-slider__input::-moz-range-thumb {
+    transition: none;
+  }
+}

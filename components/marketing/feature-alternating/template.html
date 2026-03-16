@@ -1,0 +1,99 @@
+<!--
+  Feature Alternating Component
+  Zigzag layout: each feature row alternates image position.
+  Responsive stacking on mobile.
+-->
+<section class="voltz-feature-alt {{variant}}" data-component="feature-alternating">
+  <div class="voltz-feature-alt__container">
+    <div class="voltz-feature-alt__header">
+      <h2 class="voltz-feature-alt__title">How It Works</h2>
+      <p class="voltz-feature-alt__subtitle">
+        A seamless workflow designed to get you from idea to production in record time.
+      </p>
+    </div>
+
+    {{slot:default}}
+
+    <div class="voltz-feature-alt__row">
+      <div class="voltz-feature-alt__content">
+        <span class="voltz-feature-alt__badge">Step 1</span>
+        <h3 class="voltz-feature-alt__heading">Design with Ease</h3>
+        <p class="voltz-feature-alt__desc">
+          Use our intuitive drag-and-drop interface to design beautiful
+          layouts without writing a single line of code. Start with
+          templates or build from scratch.
+        </p>
+        <ul class="voltz-feature-alt__list">
+          <li class="voltz-feature-alt__list-item">Visual drag-and-drop builder</li>
+          <li class="voltz-feature-alt__list-item">100+ pre-built templates</li>
+          <li class="voltz-feature-alt__list-item">Custom design tokens</li>
+        </ul>
+      </div>
+      <div class="voltz-feature-alt__media">
+        <div class="voltz-feature-alt__image-placeholder">
+          <svg width="100%" viewBox="0 0 500 350" fill="none" aria-hidden="true">
+            <rect width="500" height="350" rx="12" fill="currentColor" opacity="0.08"/>
+            <rect x="30" y="30" width="200" height="20" rx="4" fill="currentColor" opacity="0.1"/>
+            <rect x="30" y="70" width="440" height="120" rx="8" fill="currentColor" opacity="0.06"/>
+            <rect x="30" y="210" width="440" height="16" rx="4" fill="currentColor" opacity="0.06"/>
+            <rect x="30" y="240" width="300" height="16" rx="4" fill="currentColor" opacity="0.04"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="voltz-feature-alt__row voltz-feature-alt__row--reversed">
+      <div class="voltz-feature-alt__content">
+        <span class="voltz-feature-alt__badge">Step 2</span>
+        <h3 class="voltz-feature-alt__heading">Build and Iterate</h3>
+        <p class="voltz-feature-alt__desc">
+          Deploy your project with one click and iterate based on
+          real user feedback. Our platform handles all the infrastructure.
+        </p>
+        <ul class="voltz-feature-alt__list">
+          <li class="voltz-feature-alt__list-item">One-click deployment</li>
+          <li class="voltz-feature-alt__list-item">A/B testing built in</li>
+          <li class="voltz-feature-alt__list-item">Instant rollbacks</li>
+        </ul>
+      </div>
+      <div class="voltz-feature-alt__media">
+        <div class="voltz-feature-alt__image-placeholder">
+          <svg width="100%" viewBox="0 0 500 350" fill="none" aria-hidden="true">
+            <rect width="500" height="350" rx="12" fill="currentColor" opacity="0.08"/>
+            <circle cx="250" cy="140" r="60" fill="currentColor" opacity="0.08"/>
+            <rect x="150" y="230" width="200" height="16" rx="4" fill="currentColor" opacity="0.06"/>
+            <rect x="180" y="260" width="140" height="12" rx="4" fill="currentColor" opacity="0.04"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="voltz-feature-alt__row">
+      <div class="voltz-feature-alt__content">
+        <span class="voltz-feature-alt__badge">Step 3</span>
+        <h3 class="voltz-feature-alt__heading">Scale Globally</h3>
+        <p class="voltz-feature-alt__desc">
+          Reach users worldwide with edge deployment across 200+ locations.
+          Auto-scaling ensures peak performance at any traffic level.
+        </p>
+        <ul class="voltz-feature-alt__list">
+          <li class="voltz-feature-alt__list-item">Global CDN included</li>
+          <li class="voltz-feature-alt__list-item">Auto-scaling infrastructure</li>
+          <li class="voltz-feature-alt__list-item">99.99% uptime SLA</li>
+        </ul>
+      </div>
+      <div class="voltz-feature-alt__media">
+        <div class="voltz-feature-alt__image-placeholder">
+          <svg width="100%" viewBox="0 0 500 350" fill="none" aria-hidden="true">
+            <rect width="500" height="350" rx="12" fill="currentColor" opacity="0.08"/>
+            <rect x="40" y="100" width="60" height="180" rx="4" fill="currentColor" opacity="0.08"/>
+            <rect x="120" y="140" width="60" height="140" rx="4" fill="currentColor" opacity="0.1"/>
+            <rect x="200" y="80" width="60" height="200" rx="4" fill="currentColor" opacity="0.08"/>
+            <rect x="280" y="120" width="60" height="160" rx="4" fill="currentColor" opacity="0.06"/>
+            <rect x="360" y="60" width="60" height="220" rx="4" fill="currentColor" opacity="0.1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

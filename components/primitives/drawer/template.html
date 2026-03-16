@@ -1,0 +1,42 @@
+<!--
+  Drawer Component - template.html
+  Purpose: Renders a slide-in panel with backdrop overlay that appears
+  from any viewport edge. Includes header/body/footer layout slots.
+-->
+<div
+  class="voltz-drawer-overlay"
+  aria-hidden="true"
+  data-close-on-overlay="{{closeOnOverlay}}"
+  data-close-on-escape="{{closeOnEscape}}"
+>
+  <div class="voltz-drawer-backdrop"></div>
+  <div
+    class="voltz-drawer voltz-drawer--{{position}} voltz-drawer--{{size}}"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="{{drawerId}}-title"
+  >
+    {{#if header}}
+    <div class="voltz-drawer__header" id="{{drawerId}}-title">
+      {{slot:header}}
+      <button
+        class="voltz-drawer__close"
+        type="button"
+        aria-label="Close drawer"
+      >
+        <svg class="voltz-drawer__close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    {{/if}}
+    <div class="voltz-drawer__body">
+      {{slot:default}}
+    </div>
+    {{#if footer}}
+    <div class="voltz-drawer__footer">
+      {{slot:footer}}
+    </div>
+    {{/if}}
+  </div>
+</div>

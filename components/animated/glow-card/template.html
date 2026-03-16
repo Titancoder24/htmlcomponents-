@@ -1,0 +1,14 @@
+<!--
+  Glow Card Component
+  Card with animated glow border effect.
+  Variants: default, rainbow, subtle
+  CSS-only animation using rotating conic gradient for glow border.
+-->
+<div class="voltz-glow-card voltz-glow-card--{{variant}}"
+     data-voltz-glow-card
+     data-variant="{{variant}}">
+  <div class="voltz-glow-card__border"></div>
+  <div class="voltz-glow-card__content">
+    {{slot:default}}
+  </div>
+</div>

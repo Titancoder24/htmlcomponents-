@@ -1,0 +1,51 @@
+{
+  "name": "data-table",
+  "description": "Enhanced data table with pagination, sortable columns, selectable rows, column resize, fixed header, and empty state.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "compact", "comfortable"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "compact", "comfortable"]
+    },
+    "selectable": {
+      "type": "boolean",
+      "default": false
+    },
+    "sortable": {
+      "type": "boolean",
+      "default": true
+    },
+    "paginated": {
+      "type": "boolean",
+      "default": true
+    },
+    "pageSize": {
+      "type": "number",
+      "default": 10
+    },
+    "resizable": {
+      "type": "boolean",
+      "default": false
+    },
+    "fixedHeader": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "slots": {
+    "default": "Table body rows",
+    "head": "Table header cells",
+    "empty": "Custom empty state content"
+  },
+  "accessibility": {
+    "role": "grid",
+    "keyboard": true,
+    "screenReader": true
+  },
+  "tags": ["table", "data", "pagination", "sortable", "selectable"]
+}

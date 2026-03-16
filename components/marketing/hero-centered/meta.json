@@ -1,0 +1,48 @@
+/**
+ * Meta configuration for hero-centered component.
+ * Defines variants, slots, and theming options for a centered hero section.
+ */
+{
+  "name": "hero-centered",
+  "displayName": "Hero Centered",
+  "description": "Centered hero section with headline, subheadline, CTA buttons, and optional image/illustration. Full-width with gradient background option.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["hero", "landing", "centered", "cta"],
+  "variants": {
+    "default": {
+      "description": "Standard centered hero with solid background"
+    },
+    "gradient": {
+      "description": "Centered hero with gradient background"
+    },
+    "with-image": {
+      "description": "Centered hero with illustration below text"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Main content area for headline, subheadline, and CTAs"
+    },
+    "image": {
+      "description": "Optional image or illustration slot below content"
+    }
+  },
+  "customProperties": {
+    "--voltz-hero-centered-bg": { "default": "#0a0a0a", "description": "Background color" },
+    "--voltz-hero-centered-gradient-start": { "default": "#1a1a2e", "description": "Gradient start color" },
+    "--voltz-hero-centered-gradient-end": { "default": "#0a0a0a", "description": "Gradient end color" },
+    "--voltz-hero-centered-text-color": { "default": "#ffffff", "description": "Primary text color" },
+    "--voltz-hero-centered-subtext-color": { "default": "#a0a0a0", "description": "Subheadline text color" },
+    "--voltz-hero-centered-cta-bg": { "default": "#6366f1", "description": "Primary CTA background" },
+    "--voltz-hero-centered-cta-text": { "default": "#ffffff", "description": "Primary CTA text color" },
+    "--voltz-hero-centered-max-width": { "default": "800px", "description": "Max width for content" },
+    "--voltz-hero-centered-padding": { "default": "6rem 1.5rem", "description": "Section padding" }
+  },
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "darkMode": true
+}

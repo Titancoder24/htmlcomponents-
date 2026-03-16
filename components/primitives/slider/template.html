@@ -1,0 +1,30 @@
+<!--
+  Slider Component - template.html
+  Purpose: Renders a range slider with a native input[type=range], custom
+  track styling, and proper ARIA attributes for accessibility.
+-->
+<div class="voltz-slider voltz-slider--{{size}} voltz-slider--{{color}} {{#if disabled}}voltz-slider--disabled{{/if}}">
+  {{#if label}}
+  <div class="voltz-slider__header">
+    <label class="voltz-slider__label" for="{{id}}">{{label}}</label>
+    {{#if showValue}}
+    <output class="voltz-slider__value" for="{{id}}" aria-live="polite">{{value}}</output>
+    {{/if}}
+  </div>
+  {{/if}}
+  <input
+    class="voltz-slider__input"
+    id="{{id}}"
+    type="range"
+    min="{{min}}"
+    max="{{max}}"
+    step="{{step}}"
+    value="{{value}}"
+    role="slider"
+    aria-valuenow="{{value}}"
+    aria-valuemin="{{min}}"
+    aria-valuemax="{{max}}"
+    {{#if label}}aria-label="{{label}}"{{/if}}
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+  />
+</div>

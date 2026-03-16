@@ -1,0 +1,19 @@
+{
+  "name": "Stats Section",
+  "description": "Statistics and metrics row with large numbers, labels, optional icons, and animated count-up option. Supports 2-4 stats.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["stats", "metrics", "numbers", "counter", "social-proof"],
+  "variants": ["default", "centered", "with-icons", "card", "bordered"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

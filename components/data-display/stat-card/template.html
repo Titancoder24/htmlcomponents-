@@ -1,0 +1,42 @@
+<!--
+  Stat Card Component Template
+  Purpose: Displays a statistic with value, label, trend direction,
+  percentage change, and optional icon. Supports sm/md/lg sizes.
+-->
+<article class="voltz-stat-card voltz-stat-card--{{variant}} voltz-stat-card--{{size}}"
+         role="article"
+         aria-label="{{label}}: {{value}}">
+
+  {{#if showIcon}}
+  <div class="voltz-stat-card__icon" aria-hidden="true">
+    {{slot:icon}}
+  </div>
+  {{/if}}
+
+  <div class="voltz-stat-card__content">
+    <span class="voltz-stat-card__label">{{label}}</span>
+    <span class="voltz-stat-card__value">{{value}}</span>
+
+    {{#if change}}
+    <div class="voltz-stat-card__trend voltz-stat-card__trend--{{trend}}"
+         aria-label="Trend: {{trend}} {{change}}">
+      <svg class="voltz-stat-card__trend-icon" width="16" height="16"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" aria-hidden="true">
+        {{#if trendUp}}
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+        <polyline points="17 6 23 6 23 12" />
+        {{/if}}
+        {{#if trendDown}}
+        <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
+        <polyline points="17 18 23 18 23 12" />
+        {{/if}}
+        {{#if trendNeutral}}
+        <line x1="5" y1="12" x2="19" y2="12" />
+        {{/if}}
+      </svg>
+      <span class="voltz-stat-card__change">{{change}}</span>
+    </div>
+    {{/if}}
+  </div>
+</article>

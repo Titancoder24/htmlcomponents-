@@ -1,0 +1,19 @@
+{
+  "name": "Footer Columns",
+  "description": "Multi-column footer with logo, description, 3-5 link columns, social icons, and copyright bar. Responsive collapse.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["footer", "columns", "navigation", "social", "links"],
+  "variants": ["default", "dark", "bordered", "minimal"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

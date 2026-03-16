@@ -1,0 +1,24 @@
+/*
+ * Parallax Section Component Styles
+ * Content with parallax scrolling effect.
+ * Variants: vertical, horizontal
+ * Uses only transform for compositor-friendly animations.
+ */
+
+.voltz-parallax {
+  --voltz-parallax-speed: 0.5;
+  --voltz-parallax-overflow: hidden;
+
+  position: relative;
+  overflow: var(--voltz-parallax-overflow);
+}
+
+.voltz-parallax__content {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-parallax__content {
+    transform: none !important;
+  }
+}

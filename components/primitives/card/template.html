@@ -1,0 +1,23 @@
+<!--
+  Card Component - template.html
+  Purpose: Renders a content card container with optional header, body,
+  and footer sections. Supports variant and size modifiers.
+-->
+<div
+  class="voltz-card voltz-card--{{variant}} voltz-card--{{size}} {{#if hoverable}}voltz-card--hoverable{{/if}}"
+  {{#if ariaLabel}}aria-label="{{ariaLabel}}"{{/if}}
+>
+  {{#if header}}
+  <div class="voltz-card__header">
+    {{slot:header}}
+  </div>
+  {{/if}}
+  <div class="voltz-card__body">
+    {{slot:default}}
+  </div>
+  {{#if footer}}
+  <div class="voltz-card__footer">
+    {{slot:footer}}
+  </div>
+  {{/if}}
+</div>

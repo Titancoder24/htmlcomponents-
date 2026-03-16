@@ -1,0 +1,95 @@
+/*
+ * Aspect Ratio Component - style.css
+ * Purpose: Maintains aspect ratio for container content.
+ * Presets: 1:1, 4:3, 16:9, 21:9. Custom ratio via --voltz-aspect-ratio-custom.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-aspect-ratio-custom: 16 / 9;
+  --voltz-aspect-ratio-bg: transparent;
+  --voltz-aspect-ratio-radius: 0;
+}
+
+[data-theme="dark"] {
+  --voltz-aspect-ratio-bg: transparent;
+}
+
+/* === Base === */
+.voltz-aspect-ratio {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--voltz-aspect-ratio-bg);
+  border-radius: var(--voltz-aspect-ratio-radius);
+  box-sizing: border-box;
+}
+
+/* === Content (fills the ratio container) === */
+.voltz-aspect-ratio__content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.voltz-aspect-ratio__content > img,
+.voltz-aspect-ratio__content > video,
+.voltz-aspect-ratio__content > iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Preset Ratios === */
+.voltz-aspect-ratio--1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.voltz-aspect-ratio--4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.voltz-aspect-ratio--16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.voltz-aspect-ratio--21-9 {
+  aspect-ratio: 21 / 9;
+}
+
+/* === Custom Ratio === */
+.voltz-aspect-ratio--custom {
+  aspect-ratio: var(--voltz-aspect-ratio-custom);
+}
+
+/* === Fallback for browsers without aspect-ratio support === */
+@supports not (aspect-ratio: 1 / 1) {
+  .voltz-aspect-ratio--1-1::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  .voltz-aspect-ratio--4-3::before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+  }
+
+  .voltz-aspect-ratio--16-9::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .voltz-aspect-ratio--21-9::before {
+    content: "";
+    display: block;
+    padding-top: 42.857%;
+  }
+}

@@ -2,7 +2,7 @@
   "id": "progress-circle",
   "name": "progress-circle",
   "displayName": "Progress Circle",
-  "description": "Circular progress indicator using SVG with stroke-dasharray animation. Supports sizes, colors, center label, and indeterminate mode.",
+  "description": "Circular progress indicator using SVG with stroke-dasharray animation. Supports multiple sizes, colors, and an optional center label.",
   "category": "primitives",
   "version": "0.1.0",
   "status": "stable",
@@ -28,12 +28,12 @@
     "strokeWidth": {
       "type": "number",
       "default": 4,
-      "description": "Width of the progress stroke"
+      "description": "Width of the progress stroke in pixels"
     },
     "showLabel": {
       "type": "boolean",
       "default": true,
-      "description": "Whether to show the percentage label in center"
+      "description": "Whether to show percentage label in center"
     },
     "indeterminate": {
       "type": "boolean",
@@ -43,12 +43,12 @@
     "label": {
       "type": "string",
       "default": "",
-      "description": "Accessible label for the progress"
+      "description": "Accessible label for screen readers"
     }
   },
   "slots": {
     "default": {
-      "description": "Custom content to display in the center instead of percentage"
+      "description": "Custom center content (overrides percentage label)"
     }
   },
   "events": {},
@@ -58,13 +58,13 @@
     "ariaAttributes": ["aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-label"]
   },
   "variants": [
-    { "name": "default", "description": "Standard circular progress" },
-    { "name": "indeterminate", "description": "Spinning indeterminate loader" }
+    { "name": "default", "description": "Determinate circular progress" },
+    { "name": "indeterminate", "description": "Spinning indeterminate state" }
   ],
   "examples": [
     {
-      "title": "Progress at 75%",
-      "props": { "value": 75, "size": "md", "color": "primary" }
+      "title": "60% progress circle",
+      "props": { "value": 60, "size": "md", "color": "primary" }
     },
     {
       "title": "Large success circle",

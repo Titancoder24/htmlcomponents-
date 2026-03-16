@@ -1,0 +1,185 @@
+/**
+ * Drawer Component - style.css
+ * Purpose: Styles for the slide-in panel including position variants,
+ * size variants, overlay backdrop, and open/close slide transitions.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-drawer-overlay {
+  --voltz-drawer-bg: var(--voltz-color-bg-primary, #ffffff);
+  --voltz-drawer-color: var(--voltz-color-text-primary, #111827);
+  --voltz-drawer-border: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-drawer-backdrop: rgba(0, 0, 0, 0.5);
+  --voltz-drawer-shadow: var(--voltz-shadow-xl, 0 20px 25px -5px rgba(0,0,0,0.1));
+  --voltz-drawer-z: 10000;
+  --voltz-drawer-transition: transform 300ms ease;
+  --voltz-drawer-size-sm: 16rem;
+  --voltz-drawer-size-md: 24rem;
+  --voltz-drawer-size-lg: 36rem;
+  --voltz-drawer-header-padding: 1rem 1.5rem;
+  --voltz-drawer-body-padding: 1rem 1.5rem;
+  --voltz-drawer-footer-padding: 0.75rem 1.5rem;
+
+  position: fixed;
+  inset: 0;
+  z-index: var(--voltz-drawer-z);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.voltz-drawer-overlay[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- Backdrop ---- */
+.voltz-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--voltz-drawer-backdrop);
+}
+
+/* ---- Drawer panel base ---- */
+.voltz-drawer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--voltz-drawer-bg);
+  color: var(--voltz-drawer-color);
+  box-shadow: var(--voltz-drawer-shadow);
+  overflow: hidden;
+  transition: var(--voltz-drawer-transition);
+}
+
+/* ---- Position: left/right ---- */
+.voltz-drawer--left,
+.voltz-drawer--right {
+  top: 0;
+  bottom: 0;
+}
+
+.voltz-drawer--left { left: 0; transform: translateX(-100%); }
+.voltz-drawer--right { right: 0; transform: translateX(100%); }
+
+.voltz-drawer-overlay[aria-hidden="false"] .voltz-drawer--left,
+.voltz-drawer-overlay[aria-hidden="false"] .voltz-drawer--right {
+  transform: translateX(0);
+}
+
+/* ---- Position: top/bottom ---- */
+.voltz-drawer--top,
+.voltz-drawer--bottom {
+  left: 0;
+  right: 0;
+}
+
+.voltz-drawer--top { top: 0; transform: translateY(-100%); }
+.voltz-drawer--bottom { bottom: 0; transform: translateY(100%); }
+
+.voltz-drawer-overlay[aria-hidden="false"] .voltz-drawer--top,
+.voltz-drawer-overlay[aria-hidden="false"] .voltz-drawer--bottom {
+  transform: translateY(0);
+}
+
+/* ---- Size: left/right widths ---- */
+.voltz-drawer--left.voltz-drawer--sm,
+.voltz-drawer--right.voltz-drawer--sm { width: var(--voltz-drawer-size-sm); }
+
+.voltz-drawer--left.voltz-drawer--md,
+.voltz-drawer--right.voltz-drawer--md { width: var(--voltz-drawer-size-md); }
+
+.voltz-drawer--left.voltz-drawer--lg,
+.voltz-drawer--right.voltz-drawer--lg { width: var(--voltz-drawer-size-lg); }
+
+/* ---- Size: top/bottom heights ---- */
+.voltz-drawer--top.voltz-drawer--sm,
+.voltz-drawer--bottom.voltz-drawer--sm { height: var(--voltz-drawer-size-sm); }
+
+.voltz-drawer--top.voltz-drawer--md,
+.voltz-drawer--bottom.voltz-drawer--md { height: var(--voltz-drawer-size-md); }
+
+.voltz-drawer--top.voltz-drawer--lg,
+.voltz-drawer--bottom.voltz-drawer--lg { height: var(--voltz-drawer-size-lg); }
+
+/* ---- Header ---- */
+.voltz-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--voltz-drawer-header-padding);
+  border-bottom: 1px solid var(--voltz-drawer-border);
+  font-weight: 600;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+/* ---- Close button ---- */
+.voltz-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--voltz-radius-md, 0.375rem);
+  background: transparent;
+  color: var(--voltz-color-neutral-500, #6b7280);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.voltz-drawer__close:hover {
+  background: var(--voltz-color-neutral-100, #f3f4f6);
+  color: var(--voltz-color-neutral-900, #111827);
+}
+
+.voltz-drawer__close:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 2px;
+}
+
+.voltz-drawer__close-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---- Body ---- */
+.voltz-drawer__body {
+  padding: var(--voltz-drawer-body-padding);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ---- Footer ---- */
+.voltz-drawer__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: var(--voltz-drawer-footer-padding);
+  border-top: 1px solid var(--voltz-drawer-border);
+  flex-shrink: 0;
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-drawer-overlay {
+  --voltz-drawer-bg: var(--voltz-color-neutral-800, #1f2937);
+  --voltz-drawer-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-drawer-border: var(--voltz-color-neutral-700, #374151);
+  --voltz-drawer-backdrop: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .voltz-drawer__close:hover {
+  background: var(--voltz-color-neutral-700, #374151);
+  color: var(--voltz-color-neutral-100, #f3f4f6);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-drawer-overlay,
+  .voltz-drawer {
+    transition: none;
+  }
+}

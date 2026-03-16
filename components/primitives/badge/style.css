@@ -1,0 +1,161 @@
+/*
+ * Badge Component - style.css
+ * Purpose: Styles for the status badge including variants (solid, outline,
+ * soft), sizes (sm/md/lg), color schemes, and dot indicator.
+ * Supports dark mode and reduced motion.
+ */
+
+/* === Base === */
+.voltz-badge {
+  --voltz-badge-height: 1.5rem;
+  --voltz-badge-px: var(--voltz-space-2, 0.5rem);
+  --voltz-badge-font-size: var(--voltz-font-size-xs, 0.75rem);
+  --voltz-badge-radius: var(--voltz-radius-full, 9999px);
+  --voltz-badge-font-weight: var(--voltz-font-weight-medium, 500);
+  --voltz-badge-bg: var(--voltz-color-primary-100, #dbeafe);
+  --voltz-badge-color: var(--voltz-color-primary-700, #1d4ed8);
+  --voltz-badge-border-color: transparent;
+  --voltz-badge-dot-color: currentColor;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--voltz-space-1, 0.25rem);
+  height: var(--voltz-badge-height);
+  padding-inline: var(--voltz-badge-px);
+  font-family: var(--voltz-font-family-sans, system-ui, sans-serif);
+  font-size: var(--voltz-badge-font-size);
+  font-weight: var(--voltz-badge-font-weight);
+  line-height: 1;
+  color: var(--voltz-badge-color);
+  background-color: var(--voltz-badge-bg);
+  border: 1px solid var(--voltz-badge-border-color);
+  border-radius: var(--voltz-badge-radius);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* === Dot Indicator === */
+.voltz-badge__dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background-color: var(--voltz-badge-dot-color);
+  flex-shrink: 0;
+}
+
+/* === Sizes === */
+.voltz-badge--sm {
+  --voltz-badge-height: 1.25rem;
+  --voltz-badge-px: var(--voltz-space-1-5, 0.375rem);
+  --voltz-badge-font-size: 0.625rem;
+}
+
+.voltz-badge--lg {
+  --voltz-badge-height: 1.75rem;
+  --voltz-badge-px: var(--voltz-space-3, 0.75rem);
+  --voltz-badge-font-size: var(--voltz-font-size-sm, 0.875rem);
+}
+
+/* === Variant: Solid === */
+.voltz-badge--solid {
+  --voltz-badge-bg: var(--voltz-badge-solid-bg);
+  --voltz-badge-color: var(--voltz-color-white, #fff);
+  --voltz-badge-dot-color: var(--voltz-color-white, #fff);
+}
+
+/* === Variant: Outline === */
+.voltz-badge--outline {
+  --voltz-badge-bg: transparent;
+  --voltz-badge-color: var(--voltz-badge-outline-color);
+  --voltz-badge-border-color: var(--voltz-badge-outline-border);
+  --voltz-badge-dot-color: var(--voltz-badge-outline-color);
+}
+
+/* === Variant: Soft (default) === */
+.voltz-badge--soft {
+  --voltz-badge-bg: var(--voltz-badge-soft-bg);
+  --voltz-badge-color: var(--voltz-badge-soft-color);
+  --voltz-badge-dot-color: var(--voltz-badge-soft-color);
+}
+
+/* === Color: Primary === */
+.voltz-badge--primary {
+  --voltz-badge-solid-bg: var(--voltz-color-primary-600, #2563eb);
+  --voltz-badge-outline-color: var(--voltz-color-primary-600, #2563eb);
+  --voltz-badge-outline-border: var(--voltz-color-primary-300, #93c5fd);
+  --voltz-badge-soft-bg: var(--voltz-color-primary-100, #dbeafe);
+  --voltz-badge-soft-color: var(--voltz-color-primary-700, #1d4ed8);
+}
+
+/* === Color: Neutral === */
+.voltz-badge--neutral {
+  --voltz-badge-solid-bg: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-badge-outline-color: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-badge-outline-border: var(--voltz-color-neutral-300, #d1d5db);
+  --voltz-badge-soft-bg: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-badge-soft-color: var(--voltz-color-neutral-700, #374151);
+}
+
+/* === Color: Success === */
+.voltz-badge--success {
+  --voltz-badge-solid-bg: var(--voltz-color-success-600, #16a34a);
+  --voltz-badge-outline-color: var(--voltz-color-success-600, #16a34a);
+  --voltz-badge-outline-border: var(--voltz-color-success-300, #86efac);
+  --voltz-badge-soft-bg: var(--voltz-color-success-100, #dcfce7);
+  --voltz-badge-soft-color: var(--voltz-color-success-700, #15803d);
+}
+
+/* === Color: Warning === */
+.voltz-badge--warning {
+  --voltz-badge-solid-bg: var(--voltz-color-warning-500, #f59e0b);
+  --voltz-badge-outline-color: var(--voltz-color-warning-600, #d97706);
+  --voltz-badge-outline-border: var(--voltz-color-warning-300, #fcd34d);
+  --voltz-badge-soft-bg: var(--voltz-color-warning-100, #fef3c7);
+  --voltz-badge-soft-color: var(--voltz-color-warning-700, #b45309);
+}
+
+/* === Color: Error === */
+.voltz-badge--error {
+  --voltz-badge-solid-bg: var(--voltz-color-error-600, #dc2626);
+  --voltz-badge-outline-color: var(--voltz-color-error-600, #dc2626);
+  --voltz-badge-outline-border: var(--voltz-color-error-300, #fca5a5);
+  --voltz-badge-soft-bg: var(--voltz-color-error-100, #fee2e2);
+  --voltz-badge-soft-color: var(--voltz-color-error-700, #b91c1c);
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] .voltz-badge--primary.voltz-badge--soft {
+  --voltz-badge-soft-bg: rgba(37, 99, 235, 0.15);
+  --voltz-badge-soft-color: var(--voltz-color-primary-300, #93c5fd);
+}
+
+[data-theme="dark"] .voltz-badge--neutral.voltz-badge--soft {
+  --voltz-badge-soft-bg: var(--voltz-color-neutral-800, #1f2937);
+  --voltz-badge-soft-color: var(--voltz-color-neutral-300, #d1d5db);
+}
+
+[data-theme="dark"] .voltz-badge--success.voltz-badge--soft {
+  --voltz-badge-soft-bg: rgba(22, 163, 74, 0.15);
+  --voltz-badge-soft-color: var(--voltz-color-success-300, #86efac);
+}
+
+[data-theme="dark"] .voltz-badge--warning.voltz-badge--soft {
+  --voltz-badge-soft-bg: rgba(245, 158, 11, 0.15);
+  --voltz-badge-soft-color: var(--voltz-color-warning-300, #fcd34d);
+}
+
+[data-theme="dark"] .voltz-badge--error.voltz-badge--soft {
+  --voltz-badge-soft-bg: rgba(220, 38, 38, 0.15);
+  --voltz-badge-soft-color: var(--voltz-color-error-300, #fca5a5);
+}
+
+[data-theme="dark"] .voltz-badge--outline {
+  --voltz-badge-outline-border: currentColor;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-badge {
+    transition: none;
+  }
+}

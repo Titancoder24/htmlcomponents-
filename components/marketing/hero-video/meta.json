@@ -1,0 +1,34 @@
+/**
+ * Meta configuration for hero-video component.
+ * Hero with background video, text overlay, and play/pause control.
+ */
+{
+  "name": "hero-video",
+  "displayName": "Hero Video",
+  "description": "Hero section with background video placeholder, text overlay, play/pause control, fallback image, and gradient overlay.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["hero", "video", "background", "landing"],
+  "variants": {
+    "default": {
+      "description": "Video hero with centered text overlay"
+    },
+    "left-aligned": {
+      "description": "Video hero with left-aligned text"
+    }
+  },
+  "slots": {
+    "default": { "description": "Text overlay content" },
+    "video": { "description": "Video element slot" }
+  },
+  "customProperties": {
+    "--voltz-hero-video-overlay": { "default": "rgba(0,0,0,0.55)", "description": "Video overlay color" },
+    "--voltz-hero-video-text-color": { "default": "#ffffff", "description": "Text color" },
+    "--voltz-hero-video-cta-bg": { "default": "#6366f1", "description": "CTA background" },
+    "--voltz-hero-video-min-height": { "default": "90vh", "description": "Minimum section height" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true,
+  "interactive": true
+}

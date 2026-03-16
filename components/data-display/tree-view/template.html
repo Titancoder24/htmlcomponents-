@@ -1,0 +1,43 @@
+<!--
+  Tree View Component Template
+  Purpose: Expandable tree structure with indent levels, expand/collapse
+  icons, optional checkbox selection, keyboard nav, and ARIA tree role.
+-->
+<div class="voltz-tree-view voltz-tree-view--{{variant}}"
+     role="tree"
+     aria-label="Tree navigation"
+     {{#if multiSelect}}aria-multiselectable="true"{{/if}}>
+
+  {{#if empty}}
+  <div class="voltz-tree-view__empty">
+    <p class="voltz-tree-view__empty-text">No items to display.</p>
+  </div>
+  {{/if}}
+
+  <!-- Example node structure for slot content -->
+  <!--
+  <div class="voltz-tree-view__node" role="treeitem"
+       aria-expanded="false" aria-level="1" tabindex="0">
+    <div class="voltz-tree-view__node-content">
+      <button class="voltz-tree-view__toggle" aria-label="Expand">
+        <svg class="voltz-tree-view__chevron" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+      {{#if selectable}}
+      <input type="checkbox" class="voltz-tree-view__checkbox"
+             aria-label="Select item" />
+      {{/if}}
+      <span class="voltz-tree-view__icon" aria-hidden="true">{{slot:icon}}</span>
+      <span class="voltz-tree-view__label">{{label}}</span>
+    </div>
+    <div class="voltz-tree-view__children" role="group">
+      (child nodes)
+    </div>
+  </div>
+  -->
+
+  {{slot:default}}
+</div>

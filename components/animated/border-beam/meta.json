@@ -1,0 +1,20 @@
+{
+  "name": "border-beam",
+  "description": "Animated border beam that travels around the element perimeter. Configurable speed, color, and width using CSS gradient animation.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "rainbow"],
+  "tags": ["border", "beam", "glow", "animation", "decorative"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-border-beam-color",
+    "--voltz-border-beam-width",
+    "--voltz-border-beam-duration",
+    "--voltz-border-beam-radius",
+    "--voltz-border-beam-size"
+  ],
+  "slots": {
+    "default": "Content inside the border beam container"
+  }
+}

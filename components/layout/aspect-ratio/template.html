@@ -1,0 +1,11 @@
+<!--
+  Aspect Ratio Component - template.html
+  Purpose: Container that maintains a specific aspect ratio for its content.
+  Presets: 1:1, 4:3, 16:9, 21:9. Custom ratio via CSS custom property.
+-->
+
+<div class="voltz-aspect-ratio voltz-aspect-ratio--{{variant}}">
+  <div class="voltz-aspect-ratio__content">
+    {{slot:default}}
+  </div>
+</div>

@@ -1,0 +1,48 @@
+{
+  "id": "description-list",
+  "name": "Description List",
+  "description": "Definition list (dt/dd) with inline, stacked, and grid layout variants. Configurable sizes.",
+  "category": "typography",
+  "tags": ["description-list", "definition", "dl", "dt", "dd", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "definition list",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses semantic <dl>, <dt>, <dd> elements for proper screen reader announcement of term-description pairs."
+  },
+  "variants": {
+    "variant": {
+      "type": "string",
+      "options": ["inline", "stacked", "grid"],
+      "default": "stacked",
+      "description": "Layout variant"
+    },
+    "size": {
+      "type": "string",
+      "options": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Font size"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Contains dt and dd element pairs"
+    }
+  },
+  "examples": [
+    {
+      "name": "Stacked Description List",
+      "props": { "variant": "stacked", "size": "md" },
+      "content": "<dt>Term</dt><dd>Definition of the term</dd>"
+    },
+    {
+      "name": "Grid Layout",
+      "props": { "variant": "grid", "size": "sm" },
+      "content": "<dt>Name</dt><dd>Value</dd>"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["ordered-list", "unordered-list"]
+}

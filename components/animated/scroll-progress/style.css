@@ -1,0 +1,48 @@
+/*
+ * Scroll Progress Component Styles
+ * Scroll progress indicator bar.
+ * Variants: top, bottom
+ * Uses only transform (scaleX) for compositor-friendly animations.
+ */
+
+.voltz-scroll-progress {
+  --voltz-scroll-progress-color: #6366f1;
+  --voltz-scroll-progress-height: 3px;
+  --voltz-scroll-progress-bg: transparent;
+  --voltz-scroll-progress-z-index: 9999;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: var(--voltz-scroll-progress-height);
+  background: var(--voltz-scroll-progress-bg);
+  z-index: var(--voltz-scroll-progress-z-index);
+  pointer-events: none;
+}
+
+.voltz-scroll-progress--top {
+  top: 0;
+}
+
+.voltz-scroll-progress--bottom {
+  bottom: 0;
+}
+
+[data-theme="dark"] .voltz-scroll-progress {
+  --voltz-scroll-progress-color: #818cf8;
+}
+
+.voltz-scroll-progress__bar {
+  height: 100%;
+  width: 100%;
+  background: var(--voltz-scroll-progress-color);
+  transform-origin: left center;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-scroll-progress__bar {
+    transition: none !important;
+  }
+}

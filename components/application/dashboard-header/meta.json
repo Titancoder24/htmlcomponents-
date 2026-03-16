@@ -1,0 +1,16 @@
+{
+  "name": "dashboard-header",
+  "description": "Dashboard top bar with logo, search input, notifications bell, user avatar/menu, and optional breadcrumb navigation.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["dashboard", "header", "navigation", "topbar"],
+  "variants": ["default", "with-breadcrumb"],
+  "slots": ["logo", "actions"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "banner",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

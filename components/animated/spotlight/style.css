@@ -1,0 +1,55 @@
+/*
+ * Spotlight Component Styles
+ * Cursor-following spotlight effect using radial gradient.
+ * Position updated via CSS custom properties set by JS.
+ * Uses opacity for show/hide transitions.
+ */
+
+.voltz-spotlight {
+  --voltz-spotlight-color: rgba(99, 102, 241, 0.15);
+  --voltz-spotlight-radius: 200px;
+  --voltz-spotlight-intensity: 1;
+  --voltz-spotlight-bg: transparent;
+  --voltz-spotlight-x: 50%;
+  --voltz-spotlight-y: 50%;
+
+  position: relative;
+  overflow: hidden;
+  background: var(--voltz-spotlight-bg);
+}
+
+[data-theme="dark"] .voltz-spotlight {
+  --voltz-spotlight-color: rgba(99, 102, 241, 0.2);
+}
+
+.voltz-spotlight__content {
+  position: relative;
+  z-index: 1;
+}
+
+.voltz-spotlight__effect {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    circle var(--voltz-spotlight-radius) at var(--voltz-spotlight-x) var(--voltz-spotlight-y),
+    var(--voltz-spotlight-color),
+    transparent
+  );
+}
+
+.voltz-spotlight:hover .voltz-spotlight__effect {
+  opacity: var(--voltz-spotlight-intensity);
+}
+
+/* Reduced motion: static centered spotlight */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-spotlight__effect {
+    --voltz-spotlight-x: 50%;
+    --voltz-spotlight-y: 50%;
+    opacity: calc(var(--voltz-spotlight-intensity) * 0.5);
+    transition: none;
+  }
+}

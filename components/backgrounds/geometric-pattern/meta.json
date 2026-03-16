@@ -1,0 +1,51 @@
+/**
+ * Voltz UI - Geometric Pattern Background
+ * Repeating geometric pattern (triangles, hexagons, etc)
+ * @version 1.0.0
+ */
+{
+  "name": "geometric-pattern",
+  "displayName": "Geometric Pattern",
+  "description": "Repeating geometric pattern background with configurable pattern type, size, and color. CSS-only implementation.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "geometric", "pattern", "triangles", "hexagons", "css-only"],
+  "variants": ["default", "triangles", "hexagons", "diamonds", "zigzag", "chevron"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "triangles", "hexagons", "diamonds", "zigzag", "chevron"],
+      "description": "Geometric pattern type"
+    },
+    "size": {
+      "type": "string",
+      "default": "60px",
+      "description": "Pattern unit size"
+    },
+    "color": {
+      "type": "string",
+      "default": "#e5e7eb",
+      "description": "Pattern color"
+    },
+    "opacity": {
+      "type": "number",
+      "default": 0.5,
+      "min": 0,
+      "max": 1,
+      "description": "Pattern opacity"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the geometric pattern"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "No animations - inherently accessible",
+    "role": "presentation"
+  }
+}

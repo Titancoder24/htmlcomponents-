@@ -1,0 +1,111 @@
+/*
+ * Glow Card Component Styles
+ * Card with animated glow border effect.
+ * Variants: default, rainbow, subtle
+ * Uses transform rotate for compositor-friendly border animation.
+ */
+
+.voltz-glow-card {
+  --voltz-glow-card-color-1: #6366f1;
+  --voltz-glow-card-color-2: #ec4899;
+  --voltz-glow-card-duration: 3s;
+  --voltz-glow-card-intensity: 1;
+  --voltz-glow-card-radius: 16px;
+  --voltz-glow-card-bg: #ffffff;
+  --voltz-glow-card-border-width: 2px;
+
+  position: relative;
+  border-radius: var(--voltz-glow-card-radius);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .voltz-glow-card {
+  --voltz-glow-card-bg: #1f2937;
+  --voltz-glow-card-color-1: #818cf8;
+  --voltz-glow-card-color-2: #f472b6;
+}
+
+/* Rainbow variant */
+.voltz-glow-card--rainbow {
+  --voltz-glow-card-color-1: #ef4444;
+  --voltz-glow-card-color-2: #3b82f6;
+}
+
+/* Subtle variant */
+.voltz-glow-card--subtle {
+  --voltz-glow-card-intensity: 0.5;
+  --voltz-glow-card-border-width: 1px;
+}
+
+.voltz-glow-card__border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--voltz-glow-card-border-width);
+  background: conic-gradient(
+    from 0deg,
+    var(--voltz-glow-card-color-1),
+    var(--voltz-glow-card-color-2),
+    var(--voltz-glow-card-color-1)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: voltz-glow-card-spin var(--voltz-glow-card-duration) linear infinite;
+  opacity: var(--voltz-glow-card-intensity);
+}
+
+/* Outer glow effect */
+.voltz-glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: calc(var(--voltz-glow-card-radius) + 4px);
+  background: conic-gradient(
+    from 0deg,
+    var(--voltz-glow-card-color-1),
+    var(--voltz-glow-card-color-2),
+    var(--voltz-glow-card-color-1)
+  );
+  filter: blur(12px);
+  opacity: calc(var(--voltz-glow-card-intensity) * 0.3);
+  animation: voltz-glow-card-spin var(--voltz-glow-card-duration) linear infinite;
+  z-index: -1;
+}
+
+.voltz-glow-card__content {
+  position: relative;
+  background: var(--voltz-glow-card-bg);
+  border-radius: calc(var(--voltz-glow-card-radius) - var(--voltz-glow-card-border-width));
+  padding: 24px;
+  z-index: 1;
+}
+
+/* Rainbow variant uses more colors */
+.voltz-glow-card--rainbow .voltz-glow-card__border,
+.voltz-glow-card--rainbow::before {
+  background: conic-gradient(
+    from 0deg,
+    #ef4444, #f97316, #eab308, #22c55e,
+    #3b82f6, #8b5cf6, #ef4444
+  );
+}
+
+@keyframes voltz-glow-card-spin {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-glow-card__border,
+  .voltz-glow-card::before {
+    animation: none !important;
+  }
+}

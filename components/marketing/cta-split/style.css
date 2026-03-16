@@ -1,0 +1,221 @@
+/*
+ * CTA Split Component Styles
+ * Purpose: Layout and styling for the split CTA section with text + media sides.
+ * Supports responsive stacking, dark mode, and background variants.
+ */
+
+/* Custom Properties */
+.voltz-cta-split {
+  --voltz-cta-split-bg: #ffffff;
+  --voltz-cta-split-bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --voltz-cta-split-text: #1a1a2e;
+  --voltz-cta-split-text-muted: #6b7280;
+  --voltz-cta-split-primary: #6c5ce7;
+  --voltz-cta-split-primary-hover: #5a4bd1;
+  --voltz-cta-split-border: #e5e7eb;
+  --voltz-cta-split-input-bg: #f9fafb;
+  --voltz-cta-split-radius: 12px;
+  --voltz-cta-split-gap: 4rem;
+  --voltz-cta-split-padding: 5rem 1.5rem;
+  --voltz-cta-split-max-width: 1280px;
+}
+
+[data-theme="dark"] .voltz-cta-split,
+.voltz-cta-split[data-theme="dark"] {
+  --voltz-cta-split-bg: #0f0f1a;
+  --voltz-cta-split-text: #f0f0f5;
+  --voltz-cta-split-text-muted: #9ca3af;
+  --voltz-cta-split-border: #2d2d44;
+  --voltz-cta-split-input-bg: #1a1a2e;
+}
+
+/* Base */
+.voltz-cta-split {
+  background: var(--voltz-cta-split-bg);
+  color: var(--voltz-cta-split-text);
+  padding: var(--voltz-cta-split-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.voltz-cta-split.gradient-bg {
+  background: var(--voltz-cta-split-bg-gradient);
+  --voltz-cta-split-text: #ffffff;
+  --voltz-cta-split-text-muted: rgba(255, 255, 255, 0.8);
+}
+
+.voltz-cta-split__container {
+  max-width: var(--voltz-cta-split-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--voltz-cta-split-gap);
+  align-items: center;
+}
+
+.voltz-cta-split.image-left .voltz-cta-split__media {
+  order: -1;
+}
+
+/* Content Side */
+.voltz-cta-split__eyebrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--voltz-cta-split-primary);
+  margin-bottom: 0.75rem;
+}
+
+.voltz-cta-split__title {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.voltz-cta-split__description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--voltz-cta-split-text-muted);
+  margin: 0 0 2rem;
+}
+
+/* Actions */
+.voltz-cta-split__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.voltz-cta-split__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voltz-cta-split__btn--primary {
+  background: var(--voltz-cta-split-primary);
+  color: #ffffff;
+}
+
+.voltz-cta-split__btn--primary:hover {
+  background: var(--voltz-cta-split-primary-hover);
+  transform: translateY(-1px);
+}
+
+.voltz-cta-split__btn--secondary {
+  background: transparent;
+  color: var(--voltz-cta-split-text);
+  border: 2px solid var(--voltz-cta-split-border);
+}
+
+.voltz-cta-split__btn--secondary:hover {
+  border-color: var(--voltz-cta-split-primary);
+  color: var(--voltz-cta-split-primary);
+}
+
+.voltz-cta-split__btn--full {
+  width: 100%;
+}
+
+/* Form */
+.voltz-cta-split__form {
+  background: var(--voltz-cta-split-bg);
+  border: 1px solid var(--voltz-cta-split-border);
+  border-radius: var(--voltz-cta-split-radius);
+  padding: 2rem;
+}
+
+.gradient-bg .voltz-cta-split__form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.voltz-cta-split__form-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+.voltz-cta-split__field {
+  margin-bottom: 1rem;
+}
+
+.voltz-cta-split__label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+}
+
+.voltz-cta-split__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--voltz-cta-split-border);
+  border-radius: 8px;
+  background: var(--voltz-cta-split-input-bg);
+  color: var(--voltz-cta-split-text);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.voltz-cta-split__input:focus {
+  outline: none;
+  border-color: var(--voltz-cta-split-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.voltz-cta-split__privacy {
+  font-size: 0.75rem;
+  color: var(--voltz-cta-split-text-muted);
+  margin: 0.75rem 0 0;
+  text-align: center;
+}
+
+/* Image */
+.voltz-cta-split__image-wrap {
+  border-radius: var(--voltz-cta-split-radius);
+  overflow: hidden;
+}
+
+.voltz-cta-split__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .voltz-cta-split {
+    --voltz-cta-split-padding: 3rem 1rem;
+    --voltz-cta-split-gap: 2rem;
+  }
+
+  .voltz-cta-split__container {
+    grid-template-columns: 1fr;
+  }
+
+  .voltz-cta-split.image-left .voltz-cta-split__media {
+    order: 0;
+  }
+}
+
+@media (min-width: 1920px) {
+  .voltz-cta-split {
+    --voltz-cta-split-max-width: 1440px;
+  }
+}

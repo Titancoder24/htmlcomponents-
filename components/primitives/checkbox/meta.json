@@ -1,0 +1,78 @@
+{
+  "name": "checkbox",
+  "displayName": "Checkbox",
+  "description": "A checkbox input with label, supporting checked, indeterminate, and disabled states with color variants.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the checkbox"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Color scheme when checked"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Label text displayed next to the checkbox"
+    },
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the checkbox is checked"
+    },
+    "indeterminate": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the checkbox is in an indeterminate state"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the checkbox is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the checkbox is required"
+    },
+    "value": {
+      "type": "string",
+      "default": "",
+      "description": "Value of the checkbox for form submission"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Custom label content"
+    }
+  },
+  "events": {
+    "change": { "description": "Fired when the checked state changes" }
+  },
+  "accessibility": {
+    "role": "checkbox",
+    "keyboard": {
+      "Space": "Toggles the checkbox",
+      "Tab": "Moves focus to/from the checkbox"
+    },
+    "ariaAttributes": ["aria-checked", "aria-disabled", "aria-required"]
+  },
+  "examples": [
+    {
+      "title": "Basic checkbox",
+      "props": { "label": "Accept terms" }
+    },
+    {
+      "title": "Indeterminate checkbox",
+      "props": { "label": "Select all", "indeterminate": true }
+    }
+  ]
+}

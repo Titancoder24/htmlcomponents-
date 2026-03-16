@@ -1,0 +1,135 @@
+/**
+ * Voltz UI - Exit Animations
+ *
+ * Fade out, slide out, and scale out animations.
+ * All animations use only transform and opacity for GPU-accelerated
+ * performance. Each animation has directional variants.
+ * Includes prefers-reduced-motion fallbacks.
+ *
+ * Usage: Apply the class (e.g., .voltz-fade-out) to trigger the animation.
+ */
+
+/* ========================================================================
+ * Keyframes - Fade Out
+ * ======================================================================== */
+
+@keyframes voltz-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ========================================================================
+ * Keyframes - Slide Out
+ * ======================================================================== */
+
+@keyframes voltz-slide-out-up {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-16px); }
+}
+
+@keyframes voltz-slide-out-down {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(16px); }
+}
+
+@keyframes voltz-slide-out-left {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-16px); }
+}
+
+@keyframes voltz-slide-out-right {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(16px); }
+}
+
+/* ========================================================================
+ * Keyframes - Scale Out
+ * ======================================================================== */
+
+@keyframes voltz-scale-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.9); }
+}
+
+@keyframes voltz-scale-out-down {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.9) translateY(8px); }
+}
+
+@keyframes voltz-scale-out-center {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.5); }
+}
+
+/* ========================================================================
+ * Utility Classes - Fade Out
+ * ======================================================================== */
+
+.voltz-fade-out {
+  animation: voltz-fade-out var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+.voltz-fade-out-fast {
+  animation: voltz-fade-out var(--voltz-duration-fast, 100ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+.voltz-fade-out-slow {
+  animation: voltz-fade-out var(--voltz-duration-slow, 300ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+/* ========================================================================
+ * Utility Classes - Slide Out
+ * ======================================================================== */
+
+.voltz-slide-out-up {
+  animation: voltz-slide-out-up var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+.voltz-slide-out-down {
+  animation: voltz-slide-out-down var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+.voltz-slide-out-left {
+  animation: voltz-slide-out-left var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+.voltz-slide-out-right {
+  animation: voltz-slide-out-right var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+/* ========================================================================
+ * Utility Classes - Scale Out
+ * ======================================================================== */
+
+.voltz-scale-out {
+  animation: voltz-scale-out var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+.voltz-scale-out-down {
+  animation: voltz-scale-out-down var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+.voltz-scale-out-center {
+  animation: voltz-scale-out-center var(--voltz-duration-slow, 300ms) var(--voltz-easing-ease-in, cubic-bezier(0.4, 0, 1, 1)) both;
+}
+
+/* ========================================================================
+ * Reduced Motion Fallback
+ * ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-fade-out,
+  .voltz-fade-out-fast,
+  .voltz-fade-out-slow,
+  .voltz-slide-out-up,
+  .voltz-slide-out-down,
+  .voltz-slide-out-left,
+  .voltz-slide-out-right,
+  .voltz-scale-out,
+  .voltz-scale-out-down,
+  .voltz-scale-out-center {
+    animation: none !important;
+    opacity: 0 !important;
+    transform: none !important;
+  }
+}

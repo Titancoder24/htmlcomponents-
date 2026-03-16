@@ -1,0 +1,17 @@
+<!--
+  Tilt Card Component
+  3D tilt effect following mouse position.
+  Optional glare overlay effect.
+  JS tracks mouse; CSS transform applies tilt.
+-->
+<div class="voltz-tilt-card {{#if glare}}voltz-tilt-card--glare{{/if}}"
+     data-voltz-tilt-card
+     data-max-tilt="{{#if maxTilt}}{{maxTilt}}{{else}}15{{/if}}"
+     data-glare="{{#if glare}}true{{else}}false{{/if}}"
+     tabindex="0"
+     role="article">
+  <div class="voltz-tilt-card__content">
+    {{slot:default}}
+  </div>
+  <div class="voltz-tilt-card__glare" aria-hidden="true"></div>
+</div>

@@ -1,0 +1,54 @@
+{
+  "id": "drop-cap",
+  "name": "Drop Cap",
+  "description": "First letter large drop cap style for paragraphs. Configurable sizes, fonts, and color variants.",
+  "category": "typography",
+  "tags": ["drop-cap", "initial", "decorative", "article", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "aria": {},
+    "keyboard": {},
+    "description": "Purely decorative styling. Screen readers read the full text normally."
+  },
+  "variants": {
+    "size": {
+      "type": "string",
+      "options": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Size of the drop cap letter"
+    },
+    "color": {
+      "type": "string",
+      "options": ["default", "primary", "accent", "muted"],
+      "default": "default",
+      "description": "Color variant of the drop cap"
+    },
+    "font": {
+      "type": "string",
+      "options": ["serif", "sans", "decorative"],
+      "default": "serif",
+      "description": "Font style for the drop cap"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The paragraph text content. The first letter becomes the drop cap."
+    }
+  },
+  "examples": [
+    {
+      "name": "Default Drop Cap",
+      "props": { "size": "md", "color": "default", "font": "serif" },
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "name": "Large Primary Drop Cap",
+      "props": { "size": "lg", "color": "primary", "font": "decorative" },
+      "content": "Once upon a time, in a land far away..."
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["paragraph", "heading"]
+}

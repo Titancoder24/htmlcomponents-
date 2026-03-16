@@ -1,0 +1,109 @@
+/*
+ * Drop Cap Component Styles
+ * Purpose: Provides large decorative first-letter styling
+ * with configurable sizes, colors, and font variants.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-drop-cap {
+  --voltz-drop-cap-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-drop-cap-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+  --voltz-drop-cap-line-height: var(--voltz-line-height-normal, 1.6);
+
+  color: var(--voltz-drop-cap-color);
+  font-family: var(--voltz-drop-cap-font-family);
+  line-height: var(--voltz-drop-cap-line-height);
+  margin-top: 0;
+  margin-bottom: var(--voltz-spacing-4, 1rem);
+}
+
+.voltz-drop-cap::first-letter {
+  float: left;
+  font-weight: 700;
+  line-height: 0.8;
+  margin-right: var(--voltz-spacing-2, 0.5rem);
+  margin-top: var(--voltz-spacing-1, 0.25rem);
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-drop-cap--size-sm::first-letter {
+  font-size: var(--voltz-drop-cap-size-sm, 2.5rem);
+}
+
+.voltz-drop-cap--size-md::first-letter {
+  font-size: var(--voltz-drop-cap-size-md, 3.5rem);
+}
+
+.voltz-drop-cap--size-lg::first-letter {
+  font-size: var(--voltz-drop-cap-size-lg, 4.5rem);
+}
+
+/* ========================================
+   Colors
+   ======================================== */
+.voltz-drop-cap--color-default::first-letter {
+  color: var(--voltz-color-text-primary, #1a1a2e);
+}
+
+.voltz-drop-cap--color-primary::first-letter {
+  color: var(--voltz-color-primary, #6366f1);
+}
+
+.voltz-drop-cap--color-accent::first-letter {
+  color: var(--voltz-color-accent, #ec4899);
+}
+
+.voltz-drop-cap--color-muted::first-letter {
+  color: var(--voltz-color-text-muted, #6b7280);
+}
+
+/* ========================================
+   Font Variants
+   ======================================== */
+.voltz-drop-cap--font-serif::first-letter {
+  font-family: var(--voltz-font-family-serif, Georgia, 'Times New Roman', serif);
+}
+
+.voltz-drop-cap--font-sans::first-letter {
+  font-family: var(--voltz-font-family-sans, system-ui, -apple-system, sans-serif);
+}
+
+.voltz-drop-cap--font-decorative::first-letter {
+  font-family: var(--voltz-font-family-decorative, 'Playfair Display', Georgia, serif);
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-drop-cap {
+  --voltz-drop-cap-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+}
+
+[data-theme="dark"] .voltz-drop-cap--color-default::first-letter {
+  color: var(--voltz-color-text-primary-dark, #e0e0e0);
+}
+
+[data-theme="dark"] .voltz-drop-cap--color-primary::first-letter {
+  color: var(--voltz-color-primary-400, #818cf8);
+}
+
+[data-theme="dark"] .voltz-drop-cap--color-accent::first-letter {
+  color: var(--voltz-color-accent-400, #f472b6);
+}
+
+[data-theme="dark"] .voltz-drop-cap--color-muted::first-letter {
+  color: var(--voltz-color-text-muted-dark, #9ca3af);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-drop-cap {
+    transition: none;
+  }
+}

@@ -1,0 +1,102 @@
+/*
+ * Highlight Text Component Styles
+ * Purpose: Provides colored highlight backgrounds for text
+ * with multiple color presets and animated reveal option.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-highlight-text {
+  --voltz-highlight-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-highlight-bg: var(--voltz-color-primary-100, #e0e7ff);
+  --voltz-highlight-padding-x: var(--voltz-spacing-1, 0.25rem);
+  --voltz-highlight-padding-y: var(--voltz-spacing-0-5, 0.125rem);
+  --voltz-highlight-radius: var(--voltz-radius-sm, 0.25rem);
+
+  color: var(--voltz-highlight-color);
+  background-color: var(--voltz-highlight-bg);
+  padding: var(--voltz-highlight-padding-y) var(--voltz-highlight-padding-x);
+  border-radius: var(--voltz-highlight-radius);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ========================================
+   Color Variants
+   ======================================== */
+.voltz-highlight-text--primary {
+  --voltz-highlight-bg: var(--voltz-color-primary-100, #e0e7ff);
+  --voltz-highlight-color: var(--voltz-color-primary-900, #312e81);
+}
+
+.voltz-highlight-text--success {
+  --voltz-highlight-bg: var(--voltz-color-success-100, #dcfce7);
+  --voltz-highlight-color: var(--voltz-color-success-900, #14532d);
+}
+
+.voltz-highlight-text--warning {
+  --voltz-highlight-bg: var(--voltz-color-warning-100, #fef9c3);
+  --voltz-highlight-color: var(--voltz-color-warning-900, #713f12);
+}
+
+.voltz-highlight-text--error {
+  --voltz-highlight-bg: var(--voltz-color-error-100, #fee2e2);
+  --voltz-highlight-color: var(--voltz-color-error-900, #7f1d1d);
+}
+
+.voltz-highlight-text--custom {
+  --voltz-highlight-bg: var(--voltz-highlight-custom-bg, #fef08a);
+  --voltz-highlight-color: var(--voltz-highlight-custom-color, #1a1a2e);
+}
+
+/* ========================================
+   Animated Reveal
+   ======================================== */
+.voltz-highlight-text--animated {
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    var(--voltz-highlight-bg),
+    var(--voltz-highlight-bg)
+  );
+  background-color: transparent;
+  transition: background-size 0.6s ease-out;
+}
+
+.voltz-highlight-text--animated.voltz-highlight-text--revealed {
+  background-size: 100% 100%;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-highlight-text--primary {
+  --voltz-highlight-bg: var(--voltz-color-primary-800, #3730a3);
+  --voltz-highlight-color: var(--voltz-color-primary-100, #e0e7ff);
+}
+
+[data-theme="dark"] .voltz-highlight-text--success {
+  --voltz-highlight-bg: var(--voltz-color-success-800, #166534);
+  --voltz-highlight-color: var(--voltz-color-success-100, #dcfce7);
+}
+
+[data-theme="dark"] .voltz-highlight-text--warning {
+  --voltz-highlight-bg: var(--voltz-color-warning-800, #854d0e);
+  --voltz-highlight-color: var(--voltz-color-warning-100, #fef9c3);
+}
+
+[data-theme="dark"] .voltz-highlight-text--error {
+  --voltz-highlight-bg: var(--voltz-color-error-800, #991b1b);
+  --voltz-highlight-color: var(--voltz-color-error-100, #fee2e2);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-highlight-text--animated {
+    transition: none;
+    background-size: 100% 100%;
+  }
+}

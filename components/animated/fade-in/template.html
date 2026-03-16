@@ -1,0 +1,12 @@
+<!--
+  Fade In Component
+  Simple fade-in animation with directional options.
+  Variants: none, up, down, left, right
+  Uses IntersectionObserver for scroll-triggered activation.
+-->
+<div class="voltz-fade-in voltz-fade-in--{{variant}}"
+     data-voltz-fade-in
+     data-variant="{{variant}}"
+     {{#if delay}}style="--voltz-fade-in-delay: {{delay}}"{{/if}}>
+  {{slot:default}}
+</div>

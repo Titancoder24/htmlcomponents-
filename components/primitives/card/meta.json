@@ -1,0 +1,75 @@
+{
+  "id": "card",
+  "name": "Card",
+  "description": "A versatile content container with header, body, and footer slots. Supports elevated, outline, and filled variants with optional hover effect.",
+  "category": "primitives",
+  "tags": ["card", "container", "content", "panel", "surface"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "article",
+    "keyboard": {},
+    "ariaAttributes": ["aria-label"]
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "elevated",
+      "options": ["elevated", "outline", "filled"],
+      "description": "Visual style variant of the card"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Padding size of the card"
+    },
+    "hoverable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the card has a hover lift effect"
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "options": ["elevated", "outline", "filled"],
+      "default": "elevated"
+    },
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Main body content of the card"
+    },
+    "header": {
+      "description": "Card header area"
+    },
+    "footer": {
+      "description": "Card footer area"
+    }
+  },
+  "examples": [
+    {
+      "title": "Elevated card",
+      "props": { "variant": "elevated", "size": "md" },
+      "slots": { "header": "Card Title", "default": "Card content here", "footer": "Footer" }
+    },
+    {
+      "title": "Outline card hoverable",
+      "props": { "variant": "outline", "hoverable": true },
+      "slots": { "default": "Hoverable card content" }
+    },
+    {
+      "title": "Filled card small",
+      "props": { "variant": "filled", "size": "sm" },
+      "slots": { "default": "Compact content" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["alert"]
+}

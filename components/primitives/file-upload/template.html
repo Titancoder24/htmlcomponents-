@@ -1,0 +1,62 @@
+<!--
+  FileUpload Component - template.html
+  Purpose: Renders a drag-and-drop file upload zone with click-to-browse,
+  file type and size info, and a preview list of selected files.
+-->
+<div
+  class="voltz-file-upload {{#if disabled}}voltz-file-upload--disabled{{/if}}"
+  data-voltz-file-upload
+  data-accept="{{accept}}"
+  data-max-size="{{maxSize}}"
+  {{#if multiple}}data-multiple="true"{{/if}}
+>
+  <div
+    class="voltz-file-upload__dropzone"
+    tabindex="0"
+    role="button"
+    aria-label="Upload files. Drag and drop or click to browse."
+    aria-describedby="voltz-file-upload-info-{{id}}"
+    {{#if disabled}}aria-disabled="true"{{/if}}
+    data-voltz-file-upload-dropzone
+  >
+    <div class="voltz-file-upload__icon" aria-hidden="true">
+      {{#if slotIcon}}
+      {{slot:icon}}
+      {{/if}}
+      {{#unless slotIcon}}
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      {{/unless}}
+    </div>
+    <div class="voltz-file-upload__text">
+      <span class="voltz-file-upload__title">
+        {{#if slotTitle}}{{slot:title}}{{/if}}
+        {{#unless slotTitle}}Drop files here or click to browse{{/unless}}
+      </span>
+      <span class="voltz-file-upload__description" id="voltz-file-upload-info-{{id}}">
+        {{#if slotDescription}}{{slot:description}}{{/if}}
+        {{#unless slotDescription}}
+        {{#if accept}}Accepted: {{accept}}{{/if}}
+        {{#if maxSizeLabel}} &middot; Max: {{maxSizeLabel}}{{/if}}
+        {{/unless}}
+      </span>
+    </div>
+  </div>
+
+  <input
+    class="voltz-file-upload__input"
+    type="file"
+    {{#if accept}}accept="{{accept}}"{{/if}}
+    {{#if multiple}}multiple{{/if}}
+    {{#if disabled}}disabled{{/if}}
+    tabindex="-1"
+    aria-hidden="true"
+    data-voltz-file-upload-input
+  />
+
+  <ul class="voltz-file-upload__preview-list" data-voltz-file-upload-preview role="list" aria-label="Selected files">
+  </ul>
+</div>

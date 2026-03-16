@@ -1,0 +1,51 @@
+{
+  "name": "stat-card",
+  "description": "Statistics display card with value, label, trend indicator (up/down/neutral), change percentage, icon option, and multiple sizes.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "outlined", "filled"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "outlined", "filled"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    },
+    "value": {
+      "type": "string",
+      "default": "0"
+    },
+    "label": {
+      "type": "string",
+      "default": "Statistic"
+    },
+    "trend": {
+      "type": "string",
+      "default": "neutral",
+      "options": ["up", "down", "neutral"]
+    },
+    "change": {
+      "type": "string",
+      "default": ""
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "slots": {
+    "icon": "Custom icon content"
+  },
+  "accessibility": {
+    "role": "article",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["stat", "statistics", "card", "metric", "kpi"]
+}

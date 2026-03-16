@@ -1,0 +1,60 @@
+{
+  "id": "accordion",
+  "name": "Accordion",
+  "description": "Expandable content sections that can operate in single or multiple open modes. Features animated icon rotation and full keyboard accessibility.",
+  "category": "primitives",
+  "tags": ["accordion", "collapse", "expand", "sections", "faq"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "region",
+    "keyboard": {
+      "Enter": "Toggles the focused accordion section",
+      "Space": "Toggles the focused accordion section",
+      "ArrowDown": "Moves focus to the next accordion header",
+      "ArrowUp": "Moves focus to the previous accordion header",
+      "Home": "Moves focus to the first accordion header",
+      "End": "Moves focus to the last accordion header"
+    },
+    "ariaAttributes": ["aria-expanded", "aria-controls", "aria-labelledby"]
+  },
+  "props": {
+    "mode": {
+      "type": "string",
+      "default": "single",
+      "options": ["single", "multiple"],
+      "description": "Whether one or multiple sections can be open simultaneously"
+    },
+    "defaultOpen": {
+      "type": "number",
+      "default": -1,
+      "description": "Index of the section to open by default (-1 for none)"
+    }
+  },
+  "variants": [
+    {
+      "name": "mode",
+      "options": ["single", "multiple"],
+      "default": "single"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Accordion item sections"
+    }
+  },
+  "examples": [
+    {
+      "title": "Single mode accordion",
+      "props": { "mode": "single" },
+      "slots": { "default": "Accordion items" }
+    },
+    {
+      "title": "Multiple mode with first open",
+      "props": { "mode": "multiple", "defaultOpen": 0 },
+      "slots": { "default": "Accordion items" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["tabs"]
+}

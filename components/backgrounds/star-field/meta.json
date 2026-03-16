@@ -1,0 +1,46 @@
+/**
+ * Voltz UI - Star Field Background
+ * Animated star field / space effect
+ * @version 1.0.0
+ */
+{
+  "name": "star-field",
+  "displayName": "Star Field",
+  "description": "Animated star field space effect with configurable star density, speed, and colors. CSS animation with multiple layers.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "stars", "space", "animated", "css-only"],
+  "variants": ["default", "warp", "gentle", "colorful", "deep-space"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "warp", "gentle", "colorful", "deep-space"],
+      "description": "Star field preset"
+    },
+    "density": {
+      "type": "string",
+      "default": "normal",
+      "options": ["sparse", "normal", "dense"],
+      "description": "Star density"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Star movement speed"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the star field"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Stars rendered statically when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

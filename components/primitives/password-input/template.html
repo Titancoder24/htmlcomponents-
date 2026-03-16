@@ -1,0 +1,74 @@
+<!--
+  PasswordInput Component - template.html
+  Purpose: Renders a password input with a visibility toggle button,
+  optional strength indicator bar, and requirements checklist.
+-->
+<div
+  class="voltz-password-input voltz-password-input--{{size}} {{#if disabled}}voltz-password-input--disabled{{/if}}"
+  data-voltz-password-input
+  data-min-length="{{minLength}}"
+>
+  <div class="voltz-password-input__field-wrapper">
+    <input
+      class="voltz-password-input__input"
+      type="password"
+      placeholder="{{placeholder}}"
+      {{#if disabled}}disabled aria-disabled="true"{{/if}}
+      aria-label="{{placeholder}}"
+      {{#if showRequirements}}aria-describedby="voltz-password-reqs-{{id}}"{{/if}}
+      autocomplete="new-password"
+      data-voltz-password-input-field
+    />
+    <button
+      class="voltz-password-input__toggle"
+      type="button"
+      aria-label="Show password"
+      aria-pressed="false"
+      data-voltz-password-toggle
+    >
+      <svg class="voltz-password-input__icon-show" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      <svg class="voltz-password-input__icon-hide" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+        <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/>
+        <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/>
+        <line x1="1" y1="1" x2="23" y2="23"/>
+      </svg>
+    </button>
+  </div>
+
+  {{#if showStrength}}
+  <div class="voltz-password-input__strength" data-voltz-password-strength aria-live="polite">
+    <div class="voltz-password-input__strength-track">
+      <div class="voltz-password-input__strength-fill" data-voltz-password-strength-fill></div>
+    </div>
+    <span class="voltz-password-input__strength-label" data-voltz-password-strength-label></span>
+  </div>
+  {{/if}}
+
+  {{#if showRequirements}}
+  <ul class="voltz-password-input__requirements" id="voltz-password-reqs-{{id}}" data-voltz-password-requirements role="list">
+    <li class="voltz-password-input__req" data-req="length">
+      <span class="voltz-password-input__req-icon" aria-hidden="true"></span>
+      At least {{minLength}} characters
+    </li>
+    <li class="voltz-password-input__req" data-req="uppercase">
+      <span class="voltz-password-input__req-icon" aria-hidden="true"></span>
+      One uppercase letter
+    </li>
+    <li class="voltz-password-input__req" data-req="lowercase">
+      <span class="voltz-password-input__req-icon" aria-hidden="true"></span>
+      One lowercase letter
+    </li>
+    <li class="voltz-password-input__req" data-req="number">
+      <span class="voltz-password-input__req-icon" aria-hidden="true"></span>
+      One number
+    </li>
+    <li class="voltz-password-input__req" data-req="special">
+      <span class="voltz-password-input__req-icon" aria-hidden="true"></span>
+      One special character
+    </li>
+  </ul>
+  {{/if}}
+</div>

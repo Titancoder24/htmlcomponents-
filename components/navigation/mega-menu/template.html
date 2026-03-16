@@ -1,0 +1,42 @@
+<!-- Mega Menu Component Template -->
+<!-- Multi-column dropdown navigation with keyboard support -->
+<div class="voltz-mega-menu">
+  <button class="voltz-mega-menu__trigger"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="voltz-mega-menu-panel">
+    {{slot:trigger}}
+    <span class="voltz-mega-menu__caret" aria-hidden="true"></span>
+  </button>
+
+  <div class="voltz-mega-menu__panel"
+       id="voltz-mega-menu-panel"
+       role="menu"
+       aria-label="Submenu">
+
+    <div class="voltz-mega-menu__columns">
+      {{slot:default}}
+
+      <!-- Example column structure -->
+      <!--
+      <div class="voltz-mega-menu__column">
+        <h3 class="voltz-mega-menu__column-title">Category</h3>
+        <ul class="voltz-mega-menu__list" role="none">
+          <li role="none">
+            <a href="#" class="voltz-mega-menu__link" role="menuitem">
+              <span class="voltz-mega-menu__link-title">Link Title</span>
+              <span class="voltz-mega-menu__link-desc">Description text</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      -->
+    </div>
+
+    {{#if featured}}
+    <div class="voltz-mega-menu__featured">
+      {{slot:featured}}
+    </div>
+    {{/if}}
+  </div>
+</div>

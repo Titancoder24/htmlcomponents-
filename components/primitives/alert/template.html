@@ -1,0 +1,57 @@
+<!--
+  Alert Component - template.html
+  Purpose: Renders an alert message with type-specific icon, optional title,
+  and dismiss button. Uses ARIA role="alert" for screen reader announcements.
+-->
+<div
+  class="voltz-alert voltz-alert--{{variant}} voltz-alert--{{type}}"
+  role="alert"
+  aria-live="polite"
+>
+  {{#if icon}}
+  <span class="voltz-alert__icon" aria-hidden="true">
+    {{#if type === "info"}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {{/if}}
+    {{#if type === "success"}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 4L12 14.01l-3-3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {{/if}}
+    {{#if type === "warning"}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {{/if}}
+    {{#if type === "error"}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10" /><path d="M15 9l-6 6M9 9l6 6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {{/if}}
+    {{slot:icon}}
+  </span>
+  {{/if}}
+  <div class="voltz-alert__content">
+    {{#if title}}
+    <div class="voltz-alert__title">
+      {{slot:title}}
+    </div>
+    {{/if}}
+    <div class="voltz-alert__message">
+      {{slot:default}}
+    </div>
+  </div>
+  {{#if dismissible}}
+  <button
+    class="voltz-alert__dismiss"
+    type="button"
+    aria-label="Dismiss alert"
+  >
+    <svg class="voltz-alert__dismiss-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  {{/if}}
+</div>

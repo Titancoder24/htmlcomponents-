@@ -1,0 +1,27 @@
+<!--
+  Checkbox Component - template.html
+  Purpose: Renders a checkbox with a custom visual indicator, supporting
+  checked, indeterminate, and disabled states with a label.
+-->
+<label class="voltz-checkbox voltz-checkbox--{{size}} voltz-checkbox--{{color}} {{#if disabled}}voltz-checkbox--disabled{{/if}}">
+  <input
+    class="voltz-checkbox__input"
+    type="checkbox"
+    {{#if checked}}checked{{/if}}
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+    {{#if required}}required aria-required="true"{{/if}}
+    {{#if value}}value="{{value}}"{{/if}}
+  />
+  <span class="voltz-checkbox__control" aria-hidden="true">
+    <svg class="voltz-checkbox__icon voltz-checkbox__icon--check" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.5 8L6.5 11L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="voltz-checkbox__icon voltz-checkbox__icon--indeterminate" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 8H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </span>
+  {{#if label}}
+  <span class="voltz-checkbox__label">{{label}}</span>
+  {{/if}}
+  {{slot:default}}
+</label>

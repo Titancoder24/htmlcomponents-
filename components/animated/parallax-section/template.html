@@ -1,0 +1,14 @@
+<!--
+  Parallax Section Component
+  Content with parallax scrolling effect.
+  Variants: vertical, horizontal
+  Uses transform translateY/X for compositor-friendly animation.
+-->
+<div class="voltz-parallax voltz-parallax--{{variant}}"
+     data-voltz-parallax
+     data-variant="{{variant}}"
+     {{#if speed}}data-speed="{{speed}}"{{else}}data-speed="0.5"{{/if}}>
+  <div class="voltz-parallax__content">
+    {{slot:default}}
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "id": "masonry",
+  "name": "Masonry",
+  "description": "CSS columns-based masonry layout with configurable column counts (2-5), responsive column changes, and gap sizing.",
+  "category": "layout",
+  "tags": ["masonry", "columns", "pinterest", "waterfall", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Visual masonry layout. Reading order follows DOM order. Ensure content is logically structured."
+  },
+  "variants": [
+    { "name": "2-col", "description": "2-column masonry layout" },
+    { "name": "3-col", "description": "3-column masonry layout" },
+    { "name": "4-col", "description": "4-column masonry layout" },
+    { "name": "5-col", "description": "5-column masonry layout" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Masonry items" }
+  ],
+  "examples": [
+    {
+      "name": "3-column masonry",
+      "description": "Three-column masonry with medium gap",
+      "props": { "variant": "3-col", "gap": "md" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["grid", "bento-grid"]
+}

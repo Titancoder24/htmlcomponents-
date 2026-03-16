@@ -1,0 +1,97 @@
+/*
+ * Marquee Component Styles
+ * CSS-only horizontal scrolling animation.
+ * Uses translateX for compositor-friendly animation.
+ * Duplicated content creates seamless infinite loop.
+ */
+
+.voltz-marquee {
+  --voltz-marquee-duration: 20s;
+  --voltz-marquee-gap: 2rem;
+
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.voltz-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: voltz-marquee-scroll var(--voltz-marquee-duration) linear infinite;
+  gap: var(--voltz-marquee-gap);
+}
+
+.voltz-marquee__content {
+  display: flex;
+  align-items: center;
+  gap: var(--voltz-marquee-gap);
+  flex-shrink: 0;
+  min-width: 100%;
+}
+
+/* Left direction (default) */
+@keyframes voltz-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Right direction */
+.voltz-marquee--right .voltz-marquee__track {
+  animation-name: voltz-marquee-scroll-right;
+}
+
+@keyframes voltz-marquee-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Pause on hover */
+.voltz-marquee:hover .voltz-marquee__track {
+  animation-play-state: paused;
+}
+
+/* Edge fade masks */
+.voltz-marquee::before,
+.voltz-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.voltz-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.voltz-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+/* Dark mode edge fades */
+[data-theme="dark"] .voltz-marquee::before {
+  background: linear-gradient(to right, #1a1a1a, transparent);
+}
+
+[data-theme="dark"] .voltz-marquee::after {
+  background: linear-gradient(to left, #1a1a1a, transparent);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-marquee__track {
+    animation: none !important;
+  }
+}

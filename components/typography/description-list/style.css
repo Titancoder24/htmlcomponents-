@@ -1,0 +1,126 @@
+/*
+ * Description List Component Styles
+ * Purpose: Provides styling for definition lists with
+ * inline, stacked, and grid layout variants.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-description-list {
+  --voltz-dl-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-dl-term-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-dl-desc-color: var(--voltz-color-text-muted, #6b7280);
+  --voltz-dl-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+  --voltz-dl-border-color: var(--voltz-color-border, #e5e7eb);
+  --voltz-dl-gap: var(--voltz-spacing-3, 0.75rem);
+
+  color: var(--voltz-dl-color);
+  font-family: var(--voltz-dl-font-family);
+  margin: 0 0 var(--voltz-spacing-4, 1rem);
+  padding: 0;
+}
+
+.voltz-description-list dt {
+  color: var(--voltz-dl-term-color);
+  font-weight: 600;
+}
+
+.voltz-description-list dd {
+  color: var(--voltz-dl-desc-color);
+  margin-left: 0;
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-description-list--size-sm {
+  font-size: var(--voltz-dl-size-sm, 0.875rem);
+}
+
+.voltz-description-list--size-md {
+  font-size: var(--voltz-dl-size-md, 1rem);
+}
+
+.voltz-description-list--size-lg {
+  font-size: var(--voltz-dl-size-lg, 1.125rem);
+}
+
+/* ========================================
+   Variant: Stacked
+   ======================================== */
+.voltz-description-list--stacked dt {
+  margin-top: var(--voltz-dl-gap);
+}
+
+.voltz-description-list--stacked dt:first-child {
+  margin-top: 0;
+}
+
+.voltz-description-list--stacked dd {
+  margin-top: var(--voltz-spacing-1, 0.25rem);
+}
+
+/* ========================================
+   Variant: Inline
+   ======================================== */
+.voltz-description-list--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--voltz-spacing-1, 0.25rem) var(--voltz-spacing-2, 0.5rem);
+}
+
+.voltz-description-list--inline dt {
+  flex-basis: auto;
+}
+
+.voltz-description-list--inline dt::after {
+  content: ":";
+}
+
+.voltz-description-list--inline dd {
+  flex-basis: auto;
+  margin-right: var(--voltz-spacing-4, 1rem);
+}
+
+/* ========================================
+   Variant: Grid
+   ======================================== */
+.voltz-description-list--grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--voltz-spacing-2, 0.5rem) var(--voltz-spacing-4, 1rem);
+  align-items: baseline;
+}
+
+.voltz-description-list--grid dt {
+  grid-column: 1;
+}
+
+.voltz-description-list--grid dd {
+  grid-column: 2;
+  padding-bottom: var(--voltz-spacing-2, 0.5rem);
+  border-bottom: 1px solid var(--voltz-dl-border-color);
+}
+
+.voltz-description-list--grid dd:last-child {
+  border-bottom: none;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-description-list {
+  --voltz-dl-term-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+  --voltz-dl-desc-color: var(--voltz-color-text-muted-dark, #9ca3af);
+  --voltz-dl-border-color: var(--voltz-color-border-dark, #374151);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-description-list {
+    transition: none;
+  }
+}

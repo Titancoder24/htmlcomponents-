@@ -1,0 +1,75 @@
+{
+  "id": "code-block",
+  "name": "code-block",
+  "displayName": "Code Block",
+  "description": "Code display block with CSS-based syntax highlighting classes, optional line numbers, a copy-to-clipboard button, language badge, and horizontal scrolling.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["code", "syntax", "pre", "snippet", "highlight", "display"],
+  "props": {
+    "language": {
+      "type": "string",
+      "default": "text",
+      "description": "Programming language for syntax highlighting classes and badge"
+    },
+    "showLineNumbers": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to display line numbers"
+    },
+    "showCopyButton": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to show the copy-to-clipboard button"
+    },
+    "showLanguageBadge": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to show the language badge in the header"
+    },
+    "maxHeight": {
+      "type": "string",
+      "default": "",
+      "description": "Optional max-height for scrollable code blocks (CSS value)"
+    },
+    "highlightLines": {
+      "type": "string",
+      "default": "",
+      "description": "Comma-separated line numbers to highlight"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Code content (pre-formatted text)"
+    }
+  },
+  "events": {
+    "copy": {
+      "description": "Fired when code is copied to clipboard"
+    }
+  },
+  "accessibility": {
+    "role": "region",
+    "keyboard": {
+      "Tab": "Focuses the copy button",
+      "Enter": "Activates copy when focused"
+    },
+    "ariaAttributes": ["aria-label=\"Code block\"", "tabindex=\"0\""]
+  },
+  "variants": [],
+  "examples": [
+    {
+      "title": "JavaScript code block",
+      "props": { "language": "javascript", "showLineNumbers": true },
+      "slots": { "default": "const greeting = 'Hello, World!';\nconsole.log(greeting);" }
+    },
+    {
+      "title": "HTML code block",
+      "props": { "language": "html", "showCopyButton": true },
+      "slots": { "default": "<div class=\"container\">\n  <p>Hello</p>\n</div>" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["kbd"]
+}

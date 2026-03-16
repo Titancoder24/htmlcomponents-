@@ -1,0 +1,199 @@
+/**
+ * Code Block Component - style.css
+ * Purpose: Styles for code display blocks including header, line numbers,
+ * copy button, CSS-based syntax token colors, scrolling, and dark mode.
+ */
+
+/* --- Base --- */
+.voltz-code-block {
+  border-radius: var(--voltz-radius-lg, 0.5rem);
+  border: 1px solid var(--voltz-code-block-border, #e5e7eb);
+  background: var(--voltz-code-block-bg, #f9fafb);
+  overflow: hidden;
+  font-family: var(--voltz-font-family-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace);
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  line-height: 1.6;
+}
+
+/* --- Header --- */
+.voltz-code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--voltz-spacing-2, 0.5rem) var(--voltz-spacing-4, 1rem);
+  border-bottom: 1px solid var(--voltz-code-block-border, #e5e7eb);
+  background: var(--voltz-code-block-header-bg, #f3f4f6);
+}
+
+.voltz-code-block__language {
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  color: var(--voltz-code-block-lang-color, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- Copy button --- */
+.voltz-code-block__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--voltz-spacing-1, 0.25rem);
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--voltz-code-block-copy-color, #6b7280);
+  cursor: pointer;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  font-family: inherit;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.voltz-code-block__copy:hover {
+  color: var(--voltz-code-block-copy-hover, #374151);
+  background: var(--voltz-code-block-copy-hover-bg, rgba(0,0,0,0.05));
+}
+
+.voltz-code-block__copy:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 1px;
+}
+
+.voltz-code-block__copy--success {
+  color: var(--voltz-color-success, #22c55e);
+}
+
+.voltz-code-block__copy-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+/* --- Body --- */
+.voltz-code-block__body {
+  display: flex;
+  max-height: var(--voltz-code-block-max-height, none);
+  overflow: auto;
+}
+
+/* --- Line numbers --- */
+.voltz-code-block__lines {
+  display: flex;
+  flex-direction: column;
+  padding: var(--voltz-spacing-3, 0.75rem) 0;
+  padding-left: var(--voltz-spacing-3, 0.75rem);
+  padding-right: var(--voltz-spacing-3, 0.75rem);
+  border-right: 1px solid var(--voltz-code-block-border, #e5e7eb);
+  background: var(--voltz-code-block-lines-bg, #f3f4f6);
+  text-align: right;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.voltz-code-block__line-number {
+  color: var(--voltz-code-block-line-color, #9ca3af);
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  line-height: 1.6;
+  min-width: 1.5rem;
+}
+
+/* --- Pre/Code --- */
+.voltz-code-block__pre {
+  margin: 0;
+  padding: var(--voltz-spacing-3, 0.75rem) var(--voltz-spacing-4, 1rem);
+  overflow-x: auto;
+  flex: 1;
+  min-width: 0;
+}
+
+.voltz-code-block__pre:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: -2px;
+}
+
+.voltz-code-block__code {
+  color: var(--voltz-code-block-color, #1f2937);
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+/* --- Highlighted line --- */
+.voltz-code-block__line--highlighted {
+  background: var(--voltz-code-block-highlight-bg, rgba(59,130,246,0.1));
+  display: block;
+  margin: 0 calc(var(--voltz-spacing-4, 1rem) * -1);
+  padding: 0 var(--voltz-spacing-4, 1rem);
+}
+
+/* --- Syntax token classes --- */
+.voltz-token--keyword { color: var(--voltz-syntax-keyword, #8b5cf6); }
+.voltz-token--string { color: var(--voltz-syntax-string, #059669); }
+.voltz-token--number { color: var(--voltz-syntax-number, #d97706); }
+.voltz-token--comment { color: var(--voltz-syntax-comment, #9ca3af); font-style: italic; }
+.voltz-token--function { color: var(--voltz-syntax-function, #3b82f6); }
+.voltz-token--variable { color: var(--voltz-syntax-variable, #1f2937); }
+.voltz-token--operator { color: var(--voltz-syntax-operator, #be185d); }
+.voltz-token--tag { color: var(--voltz-syntax-tag, #dc2626); }
+.voltz-token--attribute { color: var(--voltz-syntax-attribute, #d97706); }
+.voltz-token--selector { color: var(--voltz-syntax-selector, #8b5cf6); }
+.voltz-token--property { color: var(--voltz-syntax-property, #059669); }
+.voltz-token--punctuation { color: var(--voltz-syntax-punctuation, #6b7280); }
+.voltz-token--builtin { color: var(--voltz-syntax-builtin, #0891b2); }
+.voltz-token--class { color: var(--voltz-syntax-class, #d97706); }
+.voltz-token--regex { color: var(--voltz-syntax-regex, #dc2626); }
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-code-block {
+  background: var(--voltz-code-block-bg-dark, #111827);
+  border-color: var(--voltz-code-block-border-dark, #374151);
+}
+
+[data-theme="dark"] .voltz-code-block__header {
+  background: var(--voltz-code-block-header-bg-dark, #1f2937);
+  border-color: var(--voltz-code-block-border-dark, #374151);
+}
+
+[data-theme="dark"] .voltz-code-block__language {
+  color: var(--voltz-code-block-lang-color-dark, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-code-block__copy {
+  color: var(--voltz-code-block-copy-color-dark, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-code-block__copy:hover {
+  color: var(--voltz-code-block-copy-hover-dark, #e5e7eb);
+  background: rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .voltz-code-block__lines {
+  background: var(--voltz-code-block-lines-bg-dark, #1f2937);
+  border-color: var(--voltz-code-block-border-dark, #374151);
+}
+
+[data-theme="dark"] .voltz-code-block__line-number {
+  color: var(--voltz-code-block-line-color-dark, #4b5563);
+}
+
+[data-theme="dark"] .voltz-code-block__code {
+  color: var(--voltz-code-block-color-dark, #e5e7eb);
+}
+
+[data-theme="dark"] .voltz-token--keyword { color: var(--voltz-syntax-keyword-dark, #a78bfa); }
+[data-theme="dark"] .voltz-token--string { color: var(--voltz-syntax-string-dark, #34d399); }
+[data-theme="dark"] .voltz-token--number { color: var(--voltz-syntax-number-dark, #fbbf24); }
+[data-theme="dark"] .voltz-token--comment { color: var(--voltz-syntax-comment-dark, #6b7280); }
+[data-theme="dark"] .voltz-token--function { color: var(--voltz-syntax-function-dark, #60a5fa); }
+[data-theme="dark"] .voltz-token--variable { color: var(--voltz-syntax-variable-dark, #e5e7eb); }
+[data-theme="dark"] .voltz-token--operator { color: var(--voltz-syntax-operator-dark, #f472b6); }
+[data-theme="dark"] .voltz-token--tag { color: var(--voltz-syntax-tag-dark, #f87171); }
+[data-theme="dark"] .voltz-token--attribute { color: var(--voltz-syntax-attribute-dark, #fbbf24); }
+
+[data-theme="dark"] .voltz-code-block__line--highlighted {
+  background: var(--voltz-code-block-highlight-bg-dark, rgba(59,130,246,0.2));
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-code-block__copy { transition: none; }
+}

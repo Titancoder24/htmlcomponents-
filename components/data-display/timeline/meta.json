@@ -1,0 +1,30 @@
+{
+  "name": "timeline",
+  "description": "Vertical timeline with simple/detailed/alternating variants, per-item icons, connector line, and status colors.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["simple", "detailed", "alternating"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "simple",
+      "options": ["simple", "detailed", "alternating"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    }
+  },
+  "slots": {
+    "default": "Timeline items content"
+  },
+  "accessibility": {
+    "role": "list",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["timeline", "history", "events", "chronological"]
+}

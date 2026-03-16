@@ -1,0 +1,29 @@
+{
+  "name": "activity-feed",
+  "description": "Activity/event feed list with avatar, action text, timestamp. Compact and detailed variants with load more option.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["compact", "detailed"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "detailed",
+      "options": ["compact", "detailed"]
+    },
+    "showLoadMore": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "slots": {
+    "default": "Activity feed items"
+  },
+  "accessibility": {
+    "role": "feed",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["activity", "feed", "events", "log", "timeline"]
+}

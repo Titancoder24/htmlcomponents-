@@ -1,0 +1,13 @@
+<!--
+  Border Beam Component
+  Animated border that travels around the element.
+  CSS-only animation using conic-gradient rotation.
+  Variants: default (single color), rainbow (multi-color).
+-->
+<div class="voltz-border-beam voltz-border-beam--{{variant}}"
+     data-voltz-border-beam>
+  <div class="voltz-border-beam__border" aria-hidden="true"></div>
+  <div class="voltz-border-beam__content">
+    {{slot:default}}
+  </div>
+</div>

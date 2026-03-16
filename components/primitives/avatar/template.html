@@ -1,0 +1,33 @@
+<!--
+  Avatar Component - template.html
+  Purpose: Renders a user avatar with image, initials fallback, or icon
+  fallback. Supports circle/square shapes and status indicator.
+-->
+<div class="voltz-avatar voltz-avatar--{{size}} voltz-avatar--{{shape}} voltz-avatar--{{color}} {{#if status}}voltz-avatar--has-status{{/if}}" role="img" aria-label="{{alt}}">
+  {{#if src}}
+  <img
+    class="voltz-avatar__image"
+    src="{{src}}"
+    alt="{{alt}}"
+    loading="lazy"
+  />
+  {{/if}}
+  {{#if initials}}
+  <span class="voltz-avatar__initials" aria-hidden="true">
+    {{initials}}
+  </span>
+  {{/if}}
+  {{#if icon}}
+  <span class="voltz-avatar__icon" aria-hidden="true">
+    {{slot:icon}}
+  </span>
+  {{/if}}
+  <span class="voltz-avatar__fallback" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+    </svg>
+  </span>
+  {{#if status}}
+  <span class="voltz-avatar__status voltz-avatar__status--{{status}}" aria-label="{{status}}"></span>
+  {{/if}}
+</div>

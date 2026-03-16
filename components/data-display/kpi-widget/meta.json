@@ -1,0 +1,51 @@
+{
+  "name": "kpi-widget",
+  "description": "KPI display widget with sparkline area, value, label, target, progress bar, and performance color coding.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "compact", "detailed"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "compact", "detailed"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    },
+    "value": {
+      "type": "string",
+      "default": "0"
+    },
+    "label": {
+      "type": "string",
+      "default": "KPI"
+    },
+    "target": {
+      "type": "string",
+      "default": ""
+    },
+    "progress": {
+      "type": "number",
+      "default": 0
+    },
+    "performance": {
+      "type": "string",
+      "default": "neutral",
+      "options": ["excellent", "good", "neutral", "warning", "critical"]
+    }
+  },
+  "slots": {
+    "sparkline": "Sparkline chart or mini visualization"
+  },
+  "accessibility": {
+    "role": "article",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["kpi", "metric", "widget", "sparkline", "progress"]
+}

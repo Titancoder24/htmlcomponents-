@@ -1,0 +1,21 @@
+<!--
+  Divider Component - template.html
+  Purpose: Visual separator with orientation, style, thickness, and color options.
+  Orientations: horizontal, vertical. Styles: solid, dashed, dotted.
+-->
+
+{{#if orientation === "vertical"}}
+<div class="voltz-divider voltz-divider--{{variant}} voltz-divider--vertical"
+     data-thickness="{{thickness}}"
+     data-color="{{color}}"
+     role="separator"
+     aria-orientation="vertical"></div>
+{{/if}}
+
+{{#if orientation === "horizontal"}}
+<div class="voltz-divider voltz-divider--{{variant}} voltz-divider--horizontal"
+     data-thickness="{{thickness}}"
+     data-color="{{color}}"
+     role="separator"
+     aria-orientation="horizontal"></div>
+{{/if}}

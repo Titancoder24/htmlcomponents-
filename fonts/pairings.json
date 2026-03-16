@@ -1,0 +1,404 @@
+{
+  "pairings": [
+    {
+      "id": "modern-clean",
+      "name": "Modern Clean",
+      "heading": "Inter",
+      "body": "Inter",
+      "mood": "clean",
+      "description": "Versatile geometric sans-serif for both heading and body. Excellent readability at all sizes."
+    },
+    {
+      "id": "editorial-classic",
+      "name": "Editorial Classic",
+      "heading": "Playfair Display",
+      "body": "Source Serif 4",
+      "mood": "elegant",
+      "description": "Classic serif pairing. Playfair Display for dramatic headlines, Source Serif for comfortable reading."
+    },
+    {
+      "id": "tech-forward",
+      "name": "Tech Forward",
+      "heading": "Space Grotesk",
+      "body": "Inter",
+      "mood": "technical",
+      "description": "Space Grotesk's geometric personality with Inter's neutral readability."
+    },
+    {
+      "id": "startup-bold",
+      "name": "Startup Bold",
+      "heading": "Cabinet Grotesk",
+      "body": "Inter",
+      "mood": "bold",
+      "description": "Cabinet Grotesk headlines command attention. Inter body keeps content accessible."
+    },
+    {
+      "id": "premium-minimal",
+      "name": "Premium Minimal",
+      "heading": "Outfit",
+      "body": "Plus Jakarta Sans",
+      "mood": "minimal",
+      "description": "Outfit's geometric clarity with Plus Jakarta Sans's friendly warmth."
+    },
+    {
+      "id": "creative-expressive",
+      "name": "Creative Expressive",
+      "heading": "Sora",
+      "body": "DM Sans",
+      "mood": "creative",
+      "description": "Sora's futuristic feel with DM Sans's clean geometric body text."
+    },
+    {
+      "id": "editorial-modern",
+      "name": "Editorial Modern",
+      "heading": "Fraunces",
+      "body": "Outfit",
+      "mood": "editorial",
+      "description": "Fraunces brings old-style charm to headlines. Outfit provides modern, clean body text."
+    },
+    {
+      "id": "corporate-trust",
+      "name": "Corporate Trust",
+      "heading": "Manrope",
+      "body": "Source Sans 3",
+      "mood": "professional",
+      "description": "Manrope's rounded geometry conveys approachability. Source Sans 3 is reliable and professional."
+    },
+    {
+      "id": "luxury-serif",
+      "name": "Luxury Serif",
+      "heading": "Cormorant Garamond",
+      "body": "Lora",
+      "mood": "luxury",
+      "description": "Cormorant Garamond's elegance with Lora's contemporary serif readability."
+    },
+    {
+      "id": "developer-mono",
+      "name": "Developer Mono",
+      "heading": "JetBrains Mono",
+      "body": "IBM Plex Sans",
+      "mood": "technical",
+      "description": "Monospace headings for developer-focused products. IBM Plex Sans for clean body text."
+    },
+    {
+      "id": "friendly-rounded",
+      "name": "Friendly Rounded",
+      "heading": "Nunito",
+      "body": "Nunito Sans",
+      "mood": "friendly",
+      "description": "Rounded letterforms create a warm, approachable feel throughout."
+    },
+    {
+      "id": "geometric-precision",
+      "name": "Geometric Precision",
+      "heading": "Urbanist",
+      "body": "Work Sans",
+      "mood": "geometric",
+      "description": "Urbanist's sharp geometry with Work Sans's optimized screen readability."
+    },
+    {
+      "id": "magazine-style",
+      "name": "Magazine Style",
+      "heading": "DM Serif Display",
+      "body": "DM Sans",
+      "mood": "editorial",
+      "description": "DM Serif Display for dramatic headlines paired with its sans-serif sibling."
+    },
+    {
+      "id": "saas-standard",
+      "name": "SaaS Standard",
+      "heading": "Plus Jakarta Sans",
+      "body": "Plus Jakarta Sans",
+      "mood": "clean",
+      "description": "Single-font system that works beautifully for SaaS dashboards and marketing."
+    },
+    {
+      "id": "bold-contrast",
+      "name": "Bold Contrast",
+      "heading": "Clash Display",
+      "body": "Satoshi",
+      "mood": "bold",
+      "description": "High-contrast pairing. Clash Display grabs attention, Satoshi keeps reading smooth."
+    },
+    {
+      "id": "humanist-warm",
+      "name": "Humanist Warm",
+      "heading": "Bricolage Grotesque",
+      "body": "Lato",
+      "mood": "warm",
+      "description": "Bricolage Grotesque's quirky charm with Lato's humanist readability."
+    },
+    {
+      "id": "swiss-neutral",
+      "name": "Swiss Neutral",
+      "heading": "Instrument Sans",
+      "body": "Inter",
+      "mood": "neutral",
+      "description": "Swiss-inspired neutral pairing. Clean, professional, universally readable."
+    },
+    {
+      "id": "playful-modern",
+      "name": "Playful Modern",
+      "heading": "Rubik",
+      "body": "Karla",
+      "mood": "playful",
+      "description": "Rubik's soft corners with Karla's grotesque friendliness."
+    },
+    {
+      "id": "news-editorial",
+      "name": "News Editorial",
+      "heading": "Newsreader",
+      "body": "Source Serif 4",
+      "mood": "editorial",
+      "description": "Newsreader for authoritative headlines. Source Serif for long-form reading comfort."
+    },
+    {
+      "id": "futuristic-tech",
+      "name": "Futuristic Tech",
+      "heading": "Orbitron",
+      "body": "Exo 2",
+      "mood": "futuristic",
+      "description": "Sci-fi inspired heading font with a highly readable geometric body font."
+    },
+    {
+      "id": "elegant-sans",
+      "name": "Elegant Sans",
+      "heading": "Montserrat",
+      "body": "Open Sans",
+      "mood": "elegant",
+      "description": "Montserrat's geometric elegance with Open Sans's excellent readability."
+    },
+    {
+      "id": "documentation",
+      "name": "Documentation",
+      "heading": "Geist",
+      "body": "Geist",
+      "mood": "technical",
+      "description": "Vercel's Geist font for clean technical documentation and developer tools."
+    },
+    {
+      "id": "display-impact",
+      "name": "Display Impact",
+      "heading": "Oswald",
+      "body": "Merriweather",
+      "mood": "bold",
+      "description": "Oswald's condensed impact with Merriweather's comfortable serif reading."
+    },
+    {
+      "id": "art-deco",
+      "name": "Art Deco",
+      "heading": "Poiret One",
+      "body": "Raleway",
+      "mood": "artistic",
+      "description": "Art deco inspired heading with Raleway's thin elegance for body text."
+    },
+    {
+      "id": "handwritten-personal",
+      "name": "Handwritten Personal",
+      "heading": "Caveat",
+      "body": "Quicksand",
+      "mood": "personal",
+      "description": "Caveat's handwritten headings add personality. Quicksand keeps body text readable."
+    },
+    {
+      "id": "monospace-hacker",
+      "name": "Monospace Hacker",
+      "heading": "Fira Code",
+      "body": "Fira Sans",
+      "mood": "technical",
+      "description": "Fira Code with ligatures for code-heavy headings. Fira Sans for body content."
+    },
+    {
+      "id": "brutalist-raw",
+      "name": "Brutalist Raw",
+      "heading": "Anton",
+      "body": "Roboto",
+      "mood": "brutalist",
+      "description": "Anton's bold impact for brutalist design. Roboto for functional body text."
+    },
+    {
+      "id": "minimal-japanese",
+      "name": "Minimal Japanese-Inspired",
+      "heading": "Zen Kaku Gothic New",
+      "body": "Noto Sans",
+      "mood": "minimal",
+      "description": "Japanese-inspired minimalism with universal Noto Sans for body text."
+    },
+    {
+      "id": "retro-vintage",
+      "name": "Retro Vintage",
+      "heading": "Abril Fatface",
+      "body": "Poppins",
+      "mood": "retro",
+      "description": "Abril Fatface's vintage display with Poppins's modern geometric body."
+    },
+    {
+      "id": "fintech-trust",
+      "name": "Fintech Trust",
+      "heading": "General Sans",
+      "body": "IBM Plex Sans",
+      "mood": "professional",
+      "description": "Trust-building fonts for financial technology. Clean, authoritative, professional."
+    },
+    {
+      "id": "health-wellness",
+      "name": "Health & Wellness",
+      "heading": "Josefin Sans",
+      "body": "Mulish",
+      "mood": "soft",
+      "description": "Josefin Sans's gentle geometry with Mulish's soft, calming readability."
+    },
+    {
+      "id": "education-friendly",
+      "name": "Education Friendly",
+      "heading": "Lexend",
+      "body": "Atkinson Hyperlegible",
+      "mood": "accessible",
+      "description": "Fonts designed for maximum readability and accessibility in educational contexts."
+    },
+    {
+      "id": "crypto-web3",
+      "name": "Crypto Web3",
+      "heading": "Space Mono",
+      "body": "Space Grotesk",
+      "mood": "futuristic",
+      "description": "Space family fonts for Web3 and crypto projects. Technical yet approachable."
+    },
+    {
+      "id": "gaming-bold",
+      "name": "Gaming Bold",
+      "heading": "Righteous",
+      "body": "Chakra Petch",
+      "mood": "gaming",
+      "description": "Bold, gaming-inspired heading with a tech-forward body font."
+    },
+    {
+      "id": "agency-creative",
+      "name": "Agency Creative",
+      "heading": "Archivo Black",
+      "body": "Archivo",
+      "mood": "creative",
+      "description": "Archivo Black for bold agency headlines with regular Archivo for readable body."
+    },
+    {
+      "id": "newsletter-readable",
+      "name": "Newsletter Readable",
+      "heading": "Bitter",
+      "body": "Libre Franklin",
+      "mood": "editorial",
+      "description": "Bitter's slab-serif headings with Libre Franklin's optimized screen readability."
+    },
+    {
+      "id": "ecommerce-clean",
+      "name": "E-commerce Clean",
+      "heading": "Albert Sans",
+      "body": "Albert Sans",
+      "mood": "clean",
+      "description": "Single modern geometric sans-serif optimized for e-commerce interfaces."
+    },
+    {
+      "id": "blog-cozy",
+      "name": "Blog Cozy",
+      "heading": "Vollkorn",
+      "body": "Nunito Sans",
+      "mood": "warm",
+      "description": "Vollkorn's warm serif headings with Nunito Sans's friendly body text."
+    },
+    {
+      "id": "portfolio-minimal",
+      "name": "Portfolio Minimal",
+      "heading": "Be Vietnam Pro",
+      "body": "Be Vietnam Pro",
+      "mood": "minimal",
+      "description": "Clean Vietnamese-designed font that works beautifully for portfolio sites."
+    },
+    {
+      "id": "government-accessible",
+      "name": "Government Accessible",
+      "heading": "Public Sans",
+      "body": "Public Sans",
+      "mood": "accessible",
+      "description": "USWDS-inspired font designed for maximum clarity in government and public sector."
+    },
+    {
+      "id": "real-estate-luxury",
+      "name": "Real Estate Luxury",
+      "heading": "Bodoni Moda",
+      "body": "Libre Baskerville",
+      "mood": "luxury",
+      "description": "Bodoni Moda's high-contrast elegance with Libre Baskerville's readable serif body."
+    },
+    {
+      "id": "music-creative",
+      "name": "Music Creative",
+      "heading": "Unbounded",
+      "body": "Outfit",
+      "mood": "creative",
+      "description": "Unbounded's rounded display personality with Outfit's clean readability."
+    },
+    {
+      "id": "travel-adventure",
+      "name": "Travel Adventure",
+      "heading": "Amatic SC",
+      "body": "Josefin Sans",
+      "mood": "adventurous",
+      "description": "Amatic SC's hand-drawn adventure feel with Josefin Sans's elegant simplicity."
+    },
+    {
+      "id": "food-restaurant",
+      "name": "Food & Restaurant",
+      "heading": "Playfair Display",
+      "body": "Poppins",
+      "mood": "elegant",
+      "description": "Playfair Display's culinary elegance with Poppins's modern accessibility."
+    },
+    {
+      "id": "kids-education",
+      "name": "Kids Education",
+      "heading": "Fredoka",
+      "body": "Quicksand",
+      "mood": "playful",
+      "description": "Fredoka's rounded playfulness with Quicksand's friendly readability for children."
+    },
+    {
+      "id": "dark-mode-optimized",
+      "name": "Dark Mode Optimized",
+      "heading": "Satoshi",
+      "body": "Inter",
+      "mood": "neutral",
+      "description": "Fonts with excellent rendering in dark mode contexts. Optimized x-height and spacing."
+    },
+    {
+      "id": "variable-weight",
+      "name": "Variable Weight",
+      "heading": "Instrument Serif",
+      "body": "Instrument Sans",
+      "mood": "elegant",
+      "description": "Instrument family with variable font support for smooth weight transitions."
+    },
+    {
+      "id": "small-screen",
+      "name": "Small Screen Optimized",
+      "heading": "Figtree",
+      "body": "Figtree",
+      "mood": "clean",
+      "description": "Figtree is optimized for small screens and mobile-first designs."
+    },
+    {
+      "id": "dashboard-data",
+      "name": "Dashboard Data",
+      "heading": "Geist",
+      "body": "Geist Mono",
+      "mood": "technical",
+      "description": "Geist for interface text, Geist Mono for data and code in dashboard contexts."
+    },
+    {
+      "id": "high-contrast",
+      "name": "High Contrast",
+      "heading": "Epilogue",
+      "body": "Epilogue",
+      "mood": "professional",
+      "description": "Epilogue's high x-height and open forms maximize readability in high-contrast modes."
+    }
+  ]
+}

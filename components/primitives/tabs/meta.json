@@ -1,0 +1,76 @@
+{
+  "id": "tabs",
+  "name": "Tabs",
+  "description": "A tabbed interface with tab list and tab panels. Supports line, enclosed, and soft variants with multiple sizes and full keyboard navigation.",
+  "category": "primitives",
+  "tags": ["tabs", "tablist", "panels", "navigation", "sections"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "tablist",
+    "keyboard": {
+      "ArrowLeft": "Moves focus to the previous tab",
+      "ArrowRight": "Moves focus to the next tab",
+      "Home": "Moves focus to the first tab",
+      "End": "Moves focus to the last tab",
+      "Enter": "Activates the focused tab",
+      "Space": "Activates the focused tab"
+    },
+    "ariaAttributes": ["role", "aria-selected", "aria-controls", "aria-labelledby"]
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "line",
+      "options": ["line", "enclosed", "soft"],
+      "description": "Visual style variant of the tabs"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the tab elements"
+    },
+    "defaultTab": {
+      "type": "number",
+      "default": 0,
+      "description": "Index of the initially active tab"
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "options": ["line", "enclosed", "soft"],
+      "default": "line"
+    },
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Tab items and their associated panel content"
+    }
+  },
+  "examples": [
+    {
+      "title": "Line tabs",
+      "props": { "variant": "line", "size": "md" },
+      "slots": { "default": "Tab items and panels" }
+    },
+    {
+      "title": "Enclosed tabs small",
+      "props": { "variant": "enclosed", "size": "sm" },
+      "slots": { "default": "Tab items and panels" }
+    },
+    {
+      "title": "Soft tabs large",
+      "props": { "variant": "soft", "size": "lg" },
+      "slots": { "default": "Tab items and panels" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["accordion"]
+}

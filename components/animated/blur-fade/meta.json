@@ -1,0 +1,19 @@
+{
+  "name": "blur-fade",
+  "description": "Content fades in from blur when scrolled into view. Configurable blur amount, duration, and delay. IntersectionObserver triggered.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "up", "down", "left", "right"],
+  "tags": ["blur", "fade", "scroll", "animation", "reveal"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-blur-fade-duration",
+    "--voltz-blur-fade-delay",
+    "--voltz-blur-fade-easing",
+    "--voltz-blur-fade-distance"
+  ],
+  "slots": {
+    "default": "Content to reveal with blur-fade effect"
+  }
+}

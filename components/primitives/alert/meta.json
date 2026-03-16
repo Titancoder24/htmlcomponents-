@@ -1,0 +1,87 @@
+{
+  "id": "alert",
+  "name": "Alert",
+  "description": "An alert message component for displaying contextual feedback. Supports solid, soft, and outline variants with info, success, warning, and error types. Optionally dismissible with icon support.",
+  "category": "primitives",
+  "tags": ["alert", "message", "notification", "feedback", "status"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "alert",
+    "keyboard": {
+      "Escape": "Dismisses the alert (if dismissible)"
+    },
+    "ariaAttributes": ["role", "aria-live", "aria-label"]
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "soft",
+      "options": ["solid", "soft", "outline"],
+      "description": "Visual style variant of the alert"
+    },
+    "type": {
+      "type": "string",
+      "default": "info",
+      "options": ["info", "success", "warning", "error"],
+      "description": "Semantic type that determines color scheme"
+    },
+    "dismissible": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the alert can be dismissed"
+    },
+    "icon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to show the type-specific icon"
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "options": ["solid", "soft", "outline"],
+      "default": "soft"
+    },
+    {
+      "name": "type",
+      "options": ["info", "success", "warning", "error"],
+      "default": "info"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Alert message content"
+    },
+    "title": {
+      "description": "Optional alert title"
+    },
+    "icon": {
+      "description": "Custom icon to override the default type icon"
+    }
+  },
+  "examples": [
+    {
+      "title": "Info soft alert",
+      "props": { "variant": "soft", "type": "info" },
+      "slots": { "default": "This is an informational message." }
+    },
+    {
+      "title": "Success solid alert with title",
+      "props": { "variant": "solid", "type": "success" },
+      "slots": { "title": "Success!", "default": "Your changes have been saved." }
+    },
+    {
+      "title": "Error dismissible alert",
+      "props": { "variant": "outline", "type": "error", "dismissible": true },
+      "slots": { "default": "Something went wrong. Please try again." }
+    },
+    {
+      "title": "Warning alert",
+      "props": { "variant": "soft", "type": "warning" },
+      "slots": { "title": "Warning", "default": "This action cannot be undone." }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["card", "badge"]
+}

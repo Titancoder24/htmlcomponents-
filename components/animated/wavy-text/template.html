@@ -1,0 +1,13 @@
+<!--
+  Wavy Text Component
+  Text with wave animation on characters.
+  Variants: continuous, hover
+  Uses CSS transform translateY with staggered delays.
+-->
+<span class="voltz-wavy-text voltz-wavy-text--{{variant}}"
+      data-voltz-wavy-text
+      data-variant="{{variant}}"
+      role="text"
+      aria-label="{{slot:default}}">
+  <span class="voltz-wavy-text__content">{{slot:default}}</span>
+</span>

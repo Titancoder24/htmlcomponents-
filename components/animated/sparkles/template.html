@@ -1,0 +1,13 @@
+<!--
+  Sparkles Component
+  Sparkle particles appearing randomly around content.
+  JS generates sparkle elements with randomized positions.
+  CSS handles the sparkle animation (scale + opacity).
+-->
+<span class="voltz-sparkles voltz-sparkles--{{variant}}"
+      data-voltz-sparkles
+      data-count="{{#if count}}{{count}}{{else}}6{{/if}}"
+      role="presentation">
+  <span class="voltz-sparkles__content">{{slot:default}}</span>
+  <span class="voltz-sparkles__container" aria-hidden="true"></span>
+</span>

@@ -1,0 +1,36 @@
+<!--
+  Tabs Component - template.html
+  Purpose: Renders a tabbed interface with a tab list containing tab
+  triggers and corresponding tab panels with proper ARIA roles.
+-->
+<div
+  class="voltz-tabs voltz-tabs--{{variant}} voltz-tabs--{{size}}"
+  data-default-tab="{{defaultTab}}"
+>
+  <div class="voltz-tabs__list" role="tablist" aria-label="{{ariaLabel}}">
+    {{#each tabs}}
+    <button
+      class="voltz-tabs__tab"
+      role="tab"
+      id="{{tabId}}"
+      aria-selected="false"
+      aria-controls="{{panelId}}"
+      tabindex="-1"
+      type="button"
+    >
+      {{label}}
+    </button>
+    {{/each}}
+  </div>
+  {{#each tabs}}
+  <div
+    class="voltz-tabs__panel"
+    role="tabpanel"
+    id="{{panelId}}"
+    aria-labelledby="{{tabId}}"
+    hidden
+  >
+    {{slot:default}}
+  </div>
+  {{/each}}
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "tab-nav",
+  "displayName": "Tab Navigation",
+  "description": "URL-based navigation tabs with line, pill, and enclosed variants. Supports sizes and overflow scrolling.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["line", "pill", "enclosed"],
+  "slots": {
+    "default": "Tab items"
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "line",
+      "options": ["line", "pill", "enclosed"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "ArrowLeft", "ArrowRight", "Home", "End"],
+    "aria": ["role=navigation", "aria-label", "aria-current"]
+  }
+}

@@ -1,0 +1,43 @@
+<!--
+  Activity Feed Component Template
+  Purpose: Activity/event feed list with avatar, action text, timestamp.
+  Supports compact and detailed variants with load more option.
+-->
+<div class="voltz-activity-feed voltz-activity-feed--{{variant}}"
+     role="feed"
+     aria-label="Activity feed">
+
+  {{#if empty}}
+  <div class="voltz-activity-feed__empty">
+    <p class="voltz-activity-feed__empty-text">No recent activity.</p>
+  </div>
+  {{/if}}
+
+  <div class="voltz-activity-feed__list">
+    <!-- Example item structure for slot content -->
+    <!--
+    <article class="voltz-activity-feed__item" role="article" aria-label="Activity item">
+      <div class="voltz-activity-feed__avatar">
+        <img class="voltz-activity-feed__avatar-img" src="{{avatarUrl}}" alt="{{userName}}" />
+      </div>
+      <div class="voltz-activity-feed__content">
+        <p class="voltz-activity-feed__action">
+          <strong class="voltz-activity-feed__user">{{userName}}</strong>
+          {{actionText}}
+        </p>
+        <time class="voltz-activity-feed__time" datetime="{{datetime}}">{{timeAgo}}</time>
+        <p class="voltz-activity-feed__detail">{{detail}}</p>
+      </div>
+    </article>
+    -->
+    {{slot:default}}
+  </div>
+
+  {{#if showLoadMore}}
+  <div class="voltz-activity-feed__load-more">
+    <button class="voltz-activity-feed__load-more-btn" type="button">
+      Load more activities
+    </button>
+  </div>
+  {{/if}}
+</div>

@@ -1,0 +1,156 @@
+/*
+ * Social Proof Component Styles
+ * Purpose: Compact social proof bar with avatar stack, star ratings,
+ * and trust text. Multiple layout variants.
+ */
+
+.voltz-social-proof {
+  --voltz-sp-bg: transparent;
+  --voltz-sp-text: #1a1a2e;
+  --voltz-sp-text-muted: #6b7280;
+  --voltz-sp-primary: #6c5ce7;
+  --voltz-sp-star: #f59e0b;
+  --voltz-sp-avatar-border: #ffffff;
+  --voltz-sp-avatar-bg: #e5e7eb;
+  --voltz-sp-card-bg: #f9fafb;
+  --voltz-sp-border: #e5e7eb;
+  --voltz-sp-padding: 1.5rem;
+  --voltz-sp-avatar-size: 36px;
+  --voltz-sp-radius: 12px;
+}
+
+[data-theme="dark"] .voltz-social-proof,
+.voltz-social-proof[data-theme="dark"] {
+  --voltz-sp-bg: transparent;
+  --voltz-sp-text: #f0f0f5;
+  --voltz-sp-text-muted: #9ca3af;
+  --voltz-sp-avatar-border: #1a1a2e;
+  --voltz-sp-avatar-bg: #2d2d44;
+  --voltz-sp-card-bg: #1a1a2e;
+  --voltz-sp-border: #2d2d44;
+}
+
+/* Base */
+.voltz-social-proof {
+  background: var(--voltz-sp-bg);
+  color: var(--voltz-sp-text);
+  padding: var(--voltz-sp-padding);
+}
+
+.voltz-social-proof.card {
+  background: var(--voltz-sp-card-bg);
+  border: 1px solid var(--voltz-sp-border);
+  border-radius: var(--voltz-sp-radius);
+  display: inline-block;
+}
+
+.voltz-social-proof__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.voltz-social-proof.centered .voltz-social-proof__container {
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Avatars */
+.voltz-social-proof__avatars {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.voltz-social-proof__avatar {
+  width: var(--voltz-sp-avatar-size);
+  height: var(--voltz-sp-avatar-size);
+  border-radius: 50%;
+  border: 2px solid var(--voltz-sp-avatar-border);
+  overflow: hidden;
+  background: var(--voltz-sp-avatar-bg);
+  margin-right: -10px;
+  position: relative;
+}
+
+.voltz-social-proof__avatar:last-child {
+  margin-right: 0;
+}
+
+.voltz-social-proof__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.voltz-social-proof__avatar--more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--voltz-sp-primary);
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+/* Content */
+.voltz-social-proof__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.voltz-social-proof.inline .voltz-social-proof__content {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Rating */
+.voltz-social-proof__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.voltz-social-proof.centered .voltz-social-proof__rating {
+  justify-content: center;
+}
+
+.voltz-social-proof__stars {
+  display: flex;
+  gap: 1px;
+  color: var(--voltz-sp-star);
+}
+
+.voltz-social-proof__rating-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--voltz-sp-text);
+}
+
+/* Text */
+.voltz-social-proof__text {
+  font-size: 0.875rem;
+  color: var(--voltz-sp-text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .voltz-social-proof__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .voltz-social-proof.centered .voltz-social-proof__container,
+  .voltz-social-proof.inline .voltz-social-proof__content {
+    flex-direction: column;
+  }
+
+  .voltz-social-proof__avatars {
+    justify-content: center;
+  }
+}

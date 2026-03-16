@@ -1,0 +1,50 @@
+/*
+ * Ripple Component Styles
+ * Material-design style ripple on click.
+ * Uses transform: scale() and opacity for compositor-only animation.
+ * Ripple spans are created by JS at the click position.
+ */
+
+.voltz-ripple {
+  --voltz-ripple-color: rgba(99, 102, 241, 0.35);
+  --voltz-ripple-duration: 0.6s;
+  --voltz-ripple-opacity: 0.35;
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .voltz-ripple {
+  --voltz-ripple-color: rgba(139, 92, 246, 0.35);
+}
+
+.voltz-ripple__wave {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--voltz-ripple-color);
+  pointer-events: none;
+  transform: scale(0);
+  opacity: var(--voltz-ripple-opacity);
+  animation: voltz-ripple-expand var(--voltz-ripple-duration) ease-out forwards;
+}
+
+@keyframes voltz-ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: var(--voltz-ripple-opacity);
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-ripple__wave {
+    animation: none !important;
+    transform: none !important;
+    opacity: 0 !important;
+  }
+}

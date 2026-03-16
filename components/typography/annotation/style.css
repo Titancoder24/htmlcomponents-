@@ -1,0 +1,112 @@
+/*
+ * Annotation Component Styles
+ * Purpose: Provides styling for inline annotation markers
+ * with tooltip popups on hover/focus.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-annotation {
+  --voltz-annotation-color: var(--voltz-color-primary, #6366f1);
+  --voltz-annotation-bg: var(--voltz-color-primary-50, #eef2ff);
+  --voltz-annotation-tooltip-bg: var(--voltz-color-surface, #ffffff);
+  --voltz-annotation-tooltip-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-annotation-tooltip-border: var(--voltz-color-border, #e5e7eb);
+  --voltz-annotation-tooltip-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --voltz-annotation-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+
+  position: relative;
+  display: inline;
+  font-family: var(--voltz-annotation-font-family);
+  cursor: help;
+}
+
+.voltz-annotation__marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--voltz-annotation-color);
+  background: var(--voltz-annotation-bg);
+  border-radius: 50%;
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: super;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.voltz-annotation__tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--voltz-annotation-tooltip-bg);
+  color: var(--voltz-annotation-tooltip-color);
+  border: 1px solid var(--voltz-annotation-tooltip-border);
+  border-radius: var(--voltz-radius-md, 0.5rem);
+  box-shadow: var(--voltz-annotation-tooltip-shadow);
+  padding: var(--voltz-spacing-2, 0.5rem) var(--voltz-spacing-3, 0.75rem);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  white-space: normal;
+  width: max-content;
+  max-width: 280px;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  pointer-events: none;
+}
+
+.voltz-annotation__tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--voltz-annotation-tooltip-bg);
+}
+
+/* ========================================
+   Show on Hover / Focus
+   ======================================== */
+.voltz-annotation:hover .voltz-annotation__tooltip,
+.voltz-annotation:focus-within .voltz-annotation__tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.voltz-annotation:focus-visible {
+  outline: 2px solid var(--voltz-annotation-color);
+  outline-offset: 2px;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-annotation {
+  --voltz-annotation-color: var(--voltz-color-primary-400, #818cf8);
+  --voltz-annotation-bg: var(--voltz-color-primary-900, #1e1b4b);
+  --voltz-annotation-tooltip-bg: var(--voltz-color-surface-dark, #1f2937);
+  --voltz-annotation-tooltip-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+  --voltz-annotation-tooltip-border: var(--voltz-color-border-dark, #374151);
+  --voltz-annotation-tooltip-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .voltz-annotation__tooltip::after {
+  border-top-color: var(--voltz-color-surface-dark, #1f2937);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-annotation__tooltip {
+    transition: none;
+  }
+}

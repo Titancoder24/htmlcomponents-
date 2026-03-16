@@ -1,0 +1,121 @@
+/*
+ * Divider Component - style.css
+ * Purpose: Visual separator with orientation, style variant, thickness, and color.
+ * Orientations: horizontal, vertical. Styles: solid, dashed, dotted.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-divider-color: #e5e7eb;
+  --voltz-divider-color-subtle: #f3f4f6;
+  --voltz-divider-color-strong: #9ca3af;
+  --voltz-divider-color-accent: #3b82f6;
+  --voltz-divider-thickness-sm: 1px;
+  --voltz-divider-thickness-md: 2px;
+  --voltz-divider-thickness-lg: 4px;
+  --voltz-divider-spacing: 0;
+}
+
+[data-theme="dark"] {
+  --voltz-divider-color: #374151;
+  --voltz-divider-color-subtle: #1f2937;
+  --voltz-divider-color-strong: #6b7280;
+  --voltz-divider-color-accent: #60a5fa;
+}
+
+/* === Base === */
+.voltz-divider {
+  border: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* === Horizontal === */
+.voltz-divider--horizontal {
+  width: 100%;
+  border-top-width: var(--voltz-divider-thickness-sm);
+  border-top-color: var(--voltz-divider-color);
+}
+
+/* === Vertical === */
+.voltz-divider--vertical {
+  height: 100%;
+  align-self: stretch;
+  border-left-width: var(--voltz-divider-thickness-sm);
+  border-left-color: var(--voltz-divider-color);
+}
+
+/* === Style Variants === */
+.voltz-divider--solid.voltz-divider--horizontal {
+  border-top-style: solid;
+}
+.voltz-divider--solid.voltz-divider--vertical {
+  border-left-style: solid;
+}
+
+.voltz-divider--dashed.voltz-divider--horizontal {
+  border-top-style: dashed;
+}
+.voltz-divider--dashed.voltz-divider--vertical {
+  border-left-style: dashed;
+}
+
+.voltz-divider--dotted.voltz-divider--horizontal {
+  border-top-style: dotted;
+}
+.voltz-divider--dotted.voltz-divider--vertical {
+  border-left-style: dotted;
+}
+
+/* === Thickness === */
+.voltz-divider[data-thickness="sm"].voltz-divider--horizontal {
+  border-top-width: var(--voltz-divider-thickness-sm);
+}
+.voltz-divider[data-thickness="sm"].voltz-divider--vertical {
+  border-left-width: var(--voltz-divider-thickness-sm);
+}
+
+.voltz-divider[data-thickness="md"].voltz-divider--horizontal {
+  border-top-width: var(--voltz-divider-thickness-md);
+}
+.voltz-divider[data-thickness="md"].voltz-divider--vertical {
+  border-left-width: var(--voltz-divider-thickness-md);
+}
+
+.voltz-divider[data-thickness="lg"].voltz-divider--horizontal {
+  border-top-width: var(--voltz-divider-thickness-lg);
+}
+.voltz-divider[data-thickness="lg"].voltz-divider--vertical {
+  border-left-width: var(--voltz-divider-thickness-lg);
+}
+
+/* === Color Options === */
+.voltz-divider[data-color="subtle"].voltz-divider--horizontal {
+  border-top-color: var(--voltz-divider-color-subtle);
+}
+.voltz-divider[data-color="subtle"].voltz-divider--vertical {
+  border-left-color: var(--voltz-divider-color-subtle);
+}
+
+.voltz-divider[data-color="default"].voltz-divider--horizontal {
+  border-top-color: var(--voltz-divider-color);
+}
+.voltz-divider[data-color="default"].voltz-divider--vertical {
+  border-left-color: var(--voltz-divider-color);
+}
+
+.voltz-divider[data-color="strong"].voltz-divider--horizontal {
+  border-top-color: var(--voltz-divider-color-strong);
+}
+.voltz-divider[data-color="strong"].voltz-divider--vertical {
+  border-left-color: var(--voltz-divider-color-strong);
+}
+
+.voltz-divider[data-color="accent"].voltz-divider--horizontal {
+  border-top-color: var(--voltz-divider-color-accent);
+}
+.voltz-divider[data-color="accent"].voltz-divider--vertical {
+  border-left-color: var(--voltz-divider-color-accent);
+}

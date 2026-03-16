@@ -1,0 +1,28 @@
+{
+  "name": "breadcrumb-nav",
+  "displayName": "Breadcrumb Navigation",
+  "description": "Enhanced breadcrumb navigation with separator options, collapsible long paths, and dropdown for collapsed items.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "slots": {
+    "default": "Breadcrumb items"
+  },
+  "props": {
+    "separator": {
+      "type": "string",
+      "default": "chevron",
+      "options": ["chevron", "slash", "dot", "arrow"]
+    },
+    "maxVisible": {
+      "type": "number",
+      "default": 4,
+      "description": "Max visible items before collapsing"
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "Escape"],
+    "aria": ["role=navigation", "aria-label=Breadcrumb", "aria-current=page"]
+  }
+}

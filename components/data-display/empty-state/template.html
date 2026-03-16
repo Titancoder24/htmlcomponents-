@@ -1,0 +1,35 @@
+<!--
+  Empty State Component Template
+  Purpose: Empty state placeholder with icon/illustration slot,
+  title, description, and action button. Supports sm/md/lg sizes.
+-->
+<div class="voltz-empty-state voltz-empty-state--{{variant}} voltz-empty-state--{{size}}"
+     role="status"
+     aria-label="{{title}}">
+
+  <div class="voltz-empty-state__icon" aria-hidden="true">
+    {{slot:icon}}
+    <!-- Default icon if no slot content provided -->
+    <svg class="voltz-empty-state__default-icon" width="64" height="64"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="1" aria-hidden="true">
+      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+      <polyline points="13 2 13 9 20 9" />
+    </svg>
+  </div>
+
+  <h3 class="voltz-empty-state__title">{{title}}</h3>
+
+  {{#if description}}
+  <p class="voltz-empty-state__description">{{description}}</p>
+  {{/if}}
+
+  {{#if showAction}}
+  <div class="voltz-empty-state__action">
+    {{slot:action}}
+    <button class="voltz-empty-state__btn" type="button">
+      {{actionLabel}}
+    </button>
+  </div>
+  {{/if}}
+</div>

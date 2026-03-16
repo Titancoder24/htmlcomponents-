@@ -1,0 +1,45 @@
+/**
+ * Voltz UI - Gradient Animated Background
+ * Simple animated gradient that shifts colors
+ * @version 1.0.0
+ */
+{
+  "name": "gradient-animated",
+  "displayName": "Gradient Animated",
+  "description": "Simple animated gradient that shifts colors via background-position animation. Configurable direction, speed, and colors.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "gradient", "animated", "shifting", "css-only"],
+  "variants": ["default", "horizontal", "vertical", "diagonal", "radial", "conic"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "horizontal", "vertical", "diagonal", "radial", "conic"],
+      "description": "Gradient direction and type"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Animation speed"
+    },
+    "colors": {
+      "type": "string",
+      "default": "#667eea, #764ba2, #f093fb, #667eea",
+      "description": "Comma-separated gradient color stops"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the animated gradient"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Gradient rendered statically when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

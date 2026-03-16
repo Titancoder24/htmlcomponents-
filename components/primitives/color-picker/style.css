@@ -1,0 +1,229 @@
+/**
+ * ColorPicker Component - style.css
+ * Purpose: Styles for the color picker including preview swatch, hex input,
+ * native color input, preset swatch grid, size variants, and states.
+ */
+
+/* -------------------------------------------------------
+   Custom Properties
+   ------------------------------------------------------- */
+.voltz-color-picker {
+  --voltz-color-picker-bg: var(--voltz-color-bg, #ffffff);
+  --voltz-color-picker-border: var(--voltz-color-border, #cbd5e1);
+  --voltz-color-picker-focus-border: var(--voltz-color-primary, #3b82f6);
+  --voltz-color-picker-text: var(--voltz-color-text, #0f172a);
+  --voltz-color-picker-radius: var(--voltz-radius-md, 0.375rem);
+  --voltz-color-picker-swatch-radius: var(--voltz-radius-sm, 0.25rem);
+  --voltz-color-picker-swatch-border: var(--voltz-color-border, #e2e8f0);
+}
+
+/* -------------------------------------------------------
+   Base
+   ------------------------------------------------------- */
+.voltz-color-picker {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+/* -------------------------------------------------------
+   Input Row
+   ------------------------------------------------------- */
+.voltz-color-picker__input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--voltz-color-picker-border);
+  border-radius: var(--voltz-color-picker-radius);
+  background: var(--voltz-color-picker-bg);
+  overflow: hidden;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.voltz-color-picker__input-row:focus-within {
+  border-color: var(--voltz-color-picker-focus-border);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* -------------------------------------------------------
+   Preview Swatch
+   ------------------------------------------------------- */
+.voltz-color-picker__preview {
+  flex-shrink: 0;
+  border-radius: var(--voltz-color-picker-swatch-radius);
+  border: 1px solid var(--voltz-color-picker-swatch-border);
+}
+
+/* -------------------------------------------------------
+   Hex Input
+   ------------------------------------------------------- */
+.voltz-color-picker__hex-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: var(--voltz-color-picker-text);
+  font: inherit;
+  font-family: monospace;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.voltz-color-picker__hex-input::placeholder {
+  color: var(--voltz-color-text-muted, #94a3b8);
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------
+   Native Color Input (hidden, acts as picker trigger)
+   ------------------------------------------------------- */
+.voltz-color-picker__native-input {
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: none;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------
+   Swatches Grid
+   ------------------------------------------------------- */
+.voltz-color-picker__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.voltz-color-picker__swatch {
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  transition: border-color 150ms ease, transform 100ms ease;
+  position: relative;
+}
+
+.voltz-color-picker__swatch-color {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: 1px solid var(--voltz-color-picker-swatch-border);
+}
+
+.voltz-color-picker__swatch:hover {
+  transform: scale(1.1);
+}
+
+.voltz-color-picker__swatch:focus-visible {
+  outline: 2px solid var(--voltz-color-picker-focus-border);
+  outline-offset: 2px;
+}
+
+.voltz-color-picker__swatch--selected {
+  border-color: var(--voltz-color-picker-focus-border);
+}
+
+/* Checkmark overlay for selected swatch */
+.voltz-color-picker__swatch--selected::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: inherit;
+}
+
+/* -------------------------------------------------------
+   Size: sm
+   ------------------------------------------------------- */
+.voltz-color-picker--sm .voltz-color-picker__input-row {
+  height: 2rem;
+  padding: 0 0.375rem;
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+}
+
+.voltz-color-picker--sm .voltz-color-picker__preview {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.voltz-color-picker--sm .voltz-color-picker__swatch {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--voltz-color-picker-swatch-radius);
+}
+
+/* -------------------------------------------------------
+   Size: md
+   ------------------------------------------------------- */
+.voltz-color-picker--md .voltz-color-picker__input-row {
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+}
+
+.voltz-color-picker--md .voltz-color-picker__preview {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.voltz-color-picker--md .voltz-color-picker__swatch {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--voltz-color-picker-swatch-radius);
+}
+
+/* -------------------------------------------------------
+   Size: lg
+   ------------------------------------------------------- */
+.voltz-color-picker--lg .voltz-color-picker__input-row {
+  height: 3rem;
+  padding: 0 0.75rem;
+  font-size: var(--voltz-font-size-md, 1rem);
+}
+
+.voltz-color-picker--lg .voltz-color-picker__preview {
+  width: 2rem;
+  height: 2rem;
+}
+
+.voltz-color-picker--lg .voltz-color-picker__swatch {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--voltz-color-picker-swatch-radius);
+}
+
+/* -------------------------------------------------------
+   Disabled
+   ------------------------------------------------------- */
+.voltz-color-picker--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------
+   Dark Mode
+   ------------------------------------------------------- */
+[data-theme="dark"] .voltz-color-picker {
+  --voltz-color-picker-bg: var(--voltz-color-bg-dark, #0f172a);
+  --voltz-color-picker-border: var(--voltz-color-border-dark, #334155);
+  --voltz-color-picker-text: var(--voltz-color-text-dark, #f1f5f9);
+  --voltz-color-picker-swatch-border: var(--voltz-color-border-dark, #475569);
+}
+
+/* -------------------------------------------------------
+   Reduced Motion
+   ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-color-picker__input-row,
+  .voltz-color-picker__swatch {
+    transition: none !important;
+    transform: none !important;
+  }
+}

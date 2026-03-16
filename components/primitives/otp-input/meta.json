@@ -1,0 +1,76 @@
+{
+  "id": "otp-input",
+  "name": "OTPInput",
+  "description": "A one-time password input with configurable length (4/6/8), auto-focus next field, paste support, and multiple sizes. Each digit occupies its own input field.",
+  "category": "primitives",
+  "tags": ["otp", "pin", "code", "verification", "two-factor"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "keyboard": {
+      "ArrowRight": "Moves focus to the next input",
+      "ArrowLeft": "Moves focus to the previous input",
+      "Backspace": "Clears current and moves focus to previous input"
+    },
+    "ariaAttributes": ["aria-label", "aria-describedby"]
+  },
+  "props": {
+    "length": {
+      "type": "number",
+      "default": 6,
+      "options": [4, 6, 8],
+      "description": "Number of OTP digit inputs"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of each digit input"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the OTP input is disabled"
+    }
+  },
+  "variants": [
+    {
+      "name": "length",
+      "options": [4, 6, 8],
+      "default": 6
+    },
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {},
+  "events": {
+    "complete": {
+      "description": "Fired when all OTP digits are filled",
+      "payload": { "value": "string" }
+    },
+    "change": {
+      "description": "Fired when any digit changes",
+      "payload": { "value": "string" }
+    }
+  },
+  "examples": [
+    {
+      "title": "6-digit OTP input",
+      "props": { "length": 6, "size": "md" }
+    },
+    {
+      "title": "4-digit PIN input",
+      "props": { "length": 4, "size": "lg" }
+    },
+    {
+      "title": "8-digit code small",
+      "props": { "length": 8, "size": "sm" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["input"]
+}

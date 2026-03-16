@@ -1,0 +1,17 @@
+<!--
+  Figure Caption Component Template
+  Purpose: Renders an image/media element with a caption below.
+  Supports bordered/borderless variants and caption alignment.
+-->
+<figure
+  class="voltz-figure-caption voltz-figure-caption--{{variant:variant}} voltz-figure-caption--caption-{{variant:captionAlign}}"
+>
+  <div class="voltz-figure-caption__media">
+    {{slot:default}}
+  </div>
+  {{#if caption}}
+  <figcaption class="voltz-figure-caption__caption">
+    {{slot:caption}}
+  </figcaption>
+  {{/if}}
+</figure>

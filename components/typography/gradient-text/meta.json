@@ -1,0 +1,47 @@
+{
+  "id": "gradient-text",
+  "name": "Gradient Text",
+  "description": "Text with gradient fill. Includes preset gradients and custom gradient support with optional animation.",
+  "category": "typography",
+  "tags": ["gradient", "text", "colorful", "animated", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "aria": {},
+    "keyboard": {},
+    "description": "Gradient is decorative only. Ensures text remains readable in all modes including high contrast."
+  },
+  "variants": {
+    "gradient": {
+      "type": "string",
+      "options": ["primary", "sunset", "ocean", "forest", "custom"],
+      "default": "primary",
+      "description": "Preset gradient or custom"
+    },
+    "animated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to animate the gradient"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The text content to apply gradient to"
+    }
+  },
+  "examples": [
+    {
+      "name": "Primary Gradient",
+      "props": { "gradient": "primary" },
+      "content": "Beautiful Gradient"
+    },
+    {
+      "name": "Animated Sunset",
+      "props": { "gradient": "sunset", "animated": true },
+      "content": "Animated Sunset Text"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["heading", "highlight-text"]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "confetti",
+  "description": "Confetti burst animation with configurable trigger, colors, count, and spread options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["on-load", "on-click", "manual"],
+  "tags": ["confetti", "celebration", "burst", "particles", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-confetti-duration",
+    "--voltz-confetti-spread",
+    "--voltz-confetti-size"
+  ],
+  "slots": {
+    "default": "Content or trigger element for confetti"
+  }
+}

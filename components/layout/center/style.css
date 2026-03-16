@@ -1,0 +1,92 @@
+/*
+ * Center Component - style.css
+ * Purpose: Centers content horizontally and/or vertically.
+ * Variants: horizontal, vertical, both, text, intrinsic. Supports max-width option.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-center-max-width: none;
+  --voltz-center-padding: 0;
+  --voltz-center-min-height: auto;
+}
+
+/* === Base === */
+.voltz-center {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* === Horizontal Centering === */
+.voltz-center--horizontal {
+  display: block;
+  margin-inline: auto;
+  max-width: var(--voltz-center-max-width);
+}
+
+/* === Vertical Centering === */
+.voltz-center--vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--voltz-center-min-height, 100%);
+}
+
+/* === Both Axes === */
+.voltz-center--both {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--voltz-center-min-height, 100%);
+  max-width: var(--voltz-center-max-width);
+  margin-inline: auto;
+}
+
+/* === Text Centering === */
+.voltz-center--text {
+  display: block;
+  margin-inline: auto;
+  text-align: center;
+  max-width: var(--voltz-center-max-width);
+}
+
+/* === Intrinsic Centering (shrink-wrap to content) === */
+.voltz-center--intrinsic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === Max-Width Options via Data Attribute === */
+.voltz-center[data-max-width="sm"] {
+  --voltz-center-max-width: 24rem;
+}
+
+.voltz-center[data-max-width="md"] {
+  --voltz-center-max-width: 32rem;
+}
+
+.voltz-center[data-max-width="lg"] {
+  --voltz-center-max-width: 48rem;
+}
+
+.voltz-center[data-max-width="xl"] {
+  --voltz-center-max-width: 64rem;
+}
+
+.voltz-center[data-max-width="2xl"] {
+  --voltz-center-max-width: 80rem;
+}
+
+.voltz-center[data-max-width="full"] {
+  --voltz-center-max-width: 100%;
+}
+
+/* === Responsive: add padding on small screens === */
+@media (max-width: 639px) {
+  .voltz-center--horizontal,
+  .voltz-center--both,
+  .voltz-center--text {
+    padding-inline: 1rem;
+  }
+}

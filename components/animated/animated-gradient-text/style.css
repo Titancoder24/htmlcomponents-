@@ -1,0 +1,100 @@
+/*
+ * Animated Gradient Text Component Styles
+ * Text with moving gradient fill.
+ * Variants: rainbow, sunset, ocean, custom
+ * Uses background-clip text with animated background-position.
+ */
+
+.voltz-gradient-text {
+  --voltz-gradient-text-duration: 4s;
+  --voltz-gradient-text-direction: to right;
+  --voltz-gradient-text-colors: #6366f1, #8b5cf6, #d946ef, #6366f1;
+  --voltz-gradient-text-font-size: inherit;
+  --voltz-gradient-text-font-weight: 700;
+
+  display: inline-block;
+  font-size: var(--voltz-gradient-text-font-size);
+  font-weight: var(--voltz-gradient-text-font-weight);
+}
+
+.voltz-gradient-text__inner {
+  display: inline-block;
+  background: linear-gradient(
+    var(--voltz-gradient-text-direction),
+    var(--voltz-gradient-text-colors)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: voltz-gradient-text-flow var(--voltz-gradient-text-duration)
+    linear infinite;
+}
+
+/* Rainbow preset */
+.voltz-gradient-text--rainbow {
+  --voltz-gradient-text-colors: #ef4444, #f97316, #eab308, #22c55e,
+    #3b82f6, #8b5cf6, #ef4444;
+}
+
+/* Sunset preset */
+.voltz-gradient-text--sunset {
+  --voltz-gradient-text-colors: #f97316, #ef4444, #ec4899, #f97316;
+}
+
+/* Ocean preset */
+.voltz-gradient-text--ocean {
+  --voltz-gradient-text-colors: #06b6d4, #3b82f6, #8b5cf6, #06b6d4;
+}
+
+[data-theme="dark"] .voltz-gradient-text--rainbow {
+  --voltz-gradient-text-colors: #fca5a5, #fdba74, #fde047, #86efac,
+    #93c5fd, #c4b5fd, #fca5a5;
+}
+
+[data-theme="dark"] .voltz-gradient-text--sunset {
+  --voltz-gradient-text-colors: #fdba74, #fca5a5, #f9a8d4, #fdba74;
+}
+
+[data-theme="dark"] .voltz-gradient-text--ocean {
+  --voltz-gradient-text-colors: #67e8f9, #93c5fd, #c4b5fd, #67e8f9;
+}
+
+/* Direction variants */
+[data-direction="left"] .voltz-gradient-text__inner {
+  animation-direction: reverse;
+}
+
+[data-direction="down"] .voltz-gradient-text__inner {
+  animation-name: voltz-gradient-text-flow-vertical;
+}
+
+[data-direction="up"] .voltz-gradient-text__inner {
+  animation-name: voltz-gradient-text-flow-vertical;
+  animation-direction: reverse;
+}
+
+@keyframes voltz-gradient-text-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes voltz-gradient-text-flow-vertical {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 200%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-gradient-text__inner {
+    animation: none !important;
+    background-position: 0% 50%;
+  }
+}

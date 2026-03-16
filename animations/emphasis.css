@@ -1,0 +1,176 @@
+/**
+ * Voltz UI - Emphasis Animations
+ *
+ * Pulse, bounce, shake, and wiggle animations for drawing attention.
+ * All animations use only transform and opacity for GPU-accelerated
+ * performance. Includes prefers-reduced-motion fallbacks.
+ *
+ * Usage: Apply the class (e.g., .voltz-pulse) to trigger the animation.
+ */
+
+/* ========================================================================
+ * Keyframes - Pulse
+ * ======================================================================== */
+
+@keyframes voltz-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+}
+
+@keyframes voltz-pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes voltz-pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ========================================================================
+ * Keyframes - Bounce
+ * ======================================================================== */
+
+@keyframes voltz-bounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-8px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-4px); }
+}
+
+@keyframes voltz-bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes voltz-bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ========================================================================
+ * Keyframes - Shake
+ * ======================================================================== */
+
+@keyframes voltz-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+@keyframes voltz-shake-subtle {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+}
+
+/* ========================================================================
+ * Keyframes - Wiggle
+ * ======================================================================== */
+
+@keyframes voltz-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-6deg); }
+  30% { transform: rotate(6deg); }
+  45% { transform: rotate(-4deg); }
+  60% { transform: rotate(4deg); }
+  75% { transform: rotate(-2deg); }
+  90% { transform: rotate(2deg); }
+}
+
+@keyframes voltz-wiggle-subtle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+/* ========================================================================
+ * Utility Classes - Pulse
+ * ======================================================================== */
+
+.voltz-pulse {
+  animation: voltz-pulse 1.5s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) infinite;
+}
+
+.voltz-pulse-subtle {
+  animation: voltz-pulse-subtle 2s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) infinite;
+}
+
+.voltz-pulse-once {
+  animation: voltz-pulse 0.6s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) both;
+}
+
+/* ========================================================================
+ * Utility Classes - Bounce
+ * ======================================================================== */
+
+.voltz-bounce {
+  animation: voltz-bounce 0.8s var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) infinite;
+}
+
+.voltz-bounce-in {
+  animation: voltz-bounce-in 0.6s var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+.voltz-bounce-subtle {
+  animation: voltz-bounce-subtle 1s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) infinite;
+}
+
+/* ========================================================================
+ * Utility Classes - Shake
+ * ======================================================================== */
+
+.voltz-shake {
+  animation: voltz-shake 0.5s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) both;
+}
+
+.voltz-shake-subtle {
+  animation: voltz-shake-subtle 0.4s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) both;
+}
+
+.voltz-shake-loop {
+  animation: voltz-shake 0.5s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) infinite;
+}
+
+/* ========================================================================
+ * Utility Classes - Wiggle
+ * ======================================================================== */
+
+.voltz-wiggle {
+  animation: voltz-wiggle 0.6s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) both;
+}
+
+.voltz-wiggle-subtle {
+  animation: voltz-wiggle-subtle 0.5s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) both;
+}
+
+.voltz-wiggle-loop {
+  animation: voltz-wiggle 0.8s var(--voltz-easing-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1)) infinite;
+}
+
+/* ========================================================================
+ * Reduced Motion Fallback
+ * ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-pulse,
+  .voltz-pulse-subtle,
+  .voltz-pulse-once,
+  .voltz-bounce,
+  .voltz-bounce-in,
+  .voltz-bounce-subtle,
+  .voltz-shake,
+  .voltz-shake-subtle,
+  .voltz-shake-loop,
+  .voltz-wiggle,
+  .voltz-wiggle-subtle,
+  .voltz-wiggle-loop {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,12 @@
+<!--
+  Magnetic Button Component
+  Button that follows cursor within a radius with spring animation.
+  Uses JS for mouse tracking, CSS transform for movement.
+  Resets smoothly on mouse leave.
+-->
+<button class="voltz-magnetic-btn"
+        data-voltz-magnetic-btn
+        data-strength="{{#if strength}}{{strength}}{{else}}0.3{{/if}}"
+        type="button">
+  <span class="voltz-magnetic-btn__label">{{slot:default}}</span>
+</button>

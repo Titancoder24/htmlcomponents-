@@ -1,0 +1,48 @@
+/*
+ * Scramble Text Component Styles
+ * Text that scrambles/unscrambles characters to reveal.
+ * Variants: default, binary, symbols
+ * Uses opacity for compositor-friendly transitions.
+ */
+
+.voltz-scramble-text {
+  --voltz-scramble-text-duration: 1.5s;
+  --voltz-scramble-text-speed: 50ms;
+  --voltz-scramble-text-color: #1f2937;
+  --voltz-scramble-text-scramble-color: #6366f1;
+  --voltz-scramble-text-font-size: inherit;
+
+  display: inline-block;
+  font-size: var(--voltz-scramble-text-font-size);
+  color: var(--voltz-scramble-text-color);
+  font-family: monospace;
+}
+
+[data-theme="dark"] .voltz-scramble-text {
+  --voltz-scramble-text-color: #f3f4f6;
+  --voltz-scramble-text-scramble-color: #a5b4fc;
+}
+
+.voltz-scramble-text__content {
+  display: inline;
+}
+
+.voltz-scramble-text__char {
+  display: inline-block;
+  white-space: pre;
+  transition: opacity 0.1s ease;
+}
+
+.voltz-scramble-text__char--scrambling {
+  color: var(--voltz-scramble-text-scramble-color);
+}
+
+.voltz-scramble-text__char--resolved {
+  color: var(--voltz-scramble-text-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-scramble-text__char {
+    transition: none !important;
+  }
+}

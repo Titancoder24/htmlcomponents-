@@ -1,0 +1,227 @@
+/*
+ * Timeline Component Styles
+ * Purpose: Vertical timeline with simple/detailed/alternating variants,
+ * per-item icons, connector line, and status colors.
+ * Supports dark mode and reduced motion.
+ */
+
+/* === Custom Properties === */
+.voltz-timeline {
+  --voltz-timeline-line-color: #e2e8f0;
+  --voltz-timeline-marker-bg: #ffffff;
+  --voltz-timeline-marker-border: #cbd5e1;
+  --voltz-timeline-marker-size: 2.5rem;
+  --voltz-timeline-title-color: #0f172a;
+  --voltz-timeline-desc-color: #475569;
+  --voltz-timeline-time-color: #94a3b8;
+  --voltz-timeline-content-bg: #ffffff;
+  --voltz-timeline-content-border: #e2e8f0;
+  --voltz-timeline-gap: 1.5rem;
+  --voltz-timeline-status-success: #16a34a;
+  --voltz-timeline-status-warning: #f59e0b;
+  --voltz-timeline-status-error: #dc2626;
+  --voltz-timeline-status-info: #3b82f6;
+  --voltz-timeline-status-default: #64748b;
+}
+
+[data-theme="dark"] .voltz-timeline {
+  --voltz-timeline-line-color: #334155;
+  --voltz-timeline-marker-bg: #1e293b;
+  --voltz-timeline-marker-border: #475569;
+  --voltz-timeline-title-color: #f1f5f9;
+  --voltz-timeline-desc-color: #94a3b8;
+  --voltz-timeline-time-color: #64748b;
+  --voltz-timeline-content-bg: #1e293b;
+  --voltz-timeline-content-border: #334155;
+}
+
+/* === Base === */
+.voltz-timeline {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+/* === Item === */
+.voltz-timeline__item {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  padding-bottom: var(--voltz-timeline-gap);
+}
+
+.voltz-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+/* === Marker === */
+.voltz-timeline__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.voltz-timeline__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--voltz-timeline-marker-size);
+  height: var(--voltz-timeline-marker-size);
+  border-radius: 50%;
+  background: var(--voltz-timeline-marker-bg);
+  border: 2px solid var(--voltz-timeline-marker-border);
+  z-index: 1;
+  color: var(--voltz-timeline-status-default);
+}
+
+/* === Connector === */
+.voltz-timeline__connector {
+  width: 2px;
+  flex: 1;
+  background: var(--voltz-timeline-line-color);
+  margin-top: 0.25rem;
+}
+
+.voltz-timeline__item:last-child .voltz-timeline__connector {
+  display: none;
+}
+
+/* === Content === */
+.voltz-timeline__content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.25rem;
+}
+
+.voltz-timeline__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.voltz-timeline__title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--voltz-timeline-title-color);
+  margin: 0;
+}
+
+.voltz-timeline__time {
+  font-size: 0.75rem;
+  color: var(--voltz-timeline-time-color);
+  white-space: nowrap;
+}
+
+.voltz-timeline__description {
+  font-size: 0.8125rem;
+  color: var(--voltz-timeline-desc-color);
+  margin: 0.25rem 0 0;
+  line-height: 1.5;
+}
+
+/* === Status Colors === */
+.voltz-timeline__item--success .voltz-timeline__icon {
+  border-color: var(--voltz-timeline-status-success);
+  color: var(--voltz-timeline-status-success);
+}
+.voltz-timeline__item--warning .voltz-timeline__icon {
+  border-color: var(--voltz-timeline-status-warning);
+  color: var(--voltz-timeline-status-warning);
+}
+.voltz-timeline__item--error .voltz-timeline__icon {
+  border-color: var(--voltz-timeline-status-error);
+  color: var(--voltz-timeline-status-error);
+}
+.voltz-timeline__item--info .voltz-timeline__icon {
+  border-color: var(--voltz-timeline-status-info);
+  color: var(--voltz-timeline-status-info);
+}
+
+/* === Variant: Detailed === */
+.voltz-timeline--detailed .voltz-timeline__content {
+  background: var(--voltz-timeline-content-bg);
+  border: 1px solid var(--voltz-timeline-content-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/* === Variant: Alternating === */
+.voltz-timeline--alternating {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.voltz-timeline--alternating .voltz-timeline__item {
+  width: 50%;
+  margin-left: 50%;
+}
+
+.voltz-timeline--alternating .voltz-timeline__item:nth-child(even) {
+  flex-direction: row-reverse;
+  margin-left: 0;
+  margin-right: 50%;
+  text-align: right;
+}
+
+.voltz-timeline--alternating .voltz-timeline__item:nth-child(even)
+  .voltz-timeline__header {
+  flex-direction: row-reverse;
+}
+
+.voltz-timeline--alternating .voltz-timeline__marker {
+  position: absolute;
+  left: calc(-1 * var(--voltz-timeline-marker-size) / 2);
+}
+
+.voltz-timeline--alternating .voltz-timeline__item:nth-child(even)
+  .voltz-timeline__marker {
+  left: auto;
+  right: calc(-1 * var(--voltz-timeline-marker-size) / 2);
+}
+
+/* === Size: sm === */
+.voltz-timeline--sm {
+  --voltz-timeline-marker-size: 1.75rem;
+  --voltz-timeline-gap: 1rem;
+}
+
+.voltz-timeline--sm .voltz-timeline__title {
+  font-size: 0.8125rem;
+}
+
+.voltz-timeline--sm .voltz-timeline__description {
+  font-size: 0.75rem;
+}
+
+/* === Size: lg === */
+.voltz-timeline--lg {
+  --voltz-timeline-marker-size: 3rem;
+  --voltz-timeline-gap: 2rem;
+}
+
+.voltz-timeline--lg .voltz-timeline__title {
+  font-size: 1.125rem;
+}
+
+/* === Empty State === */
+.voltz-timeline__empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+.voltz-timeline__empty-text {
+  color: var(--voltz-timeline-time-color);
+  font-style: italic;
+  margin: 0;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-timeline__item {
+    animation: none;
+  }
+}

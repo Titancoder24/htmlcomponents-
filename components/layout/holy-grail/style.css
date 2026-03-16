@@ -1,0 +1,146 @@
+/*
+ * Holy Grail Component - style.css
+ * Purpose: Classic holy grail layout (header, footer, main, left sidebar, right sidebar).
+ * Responsive collapse: sidebars stack below main on mobile.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-holy-grail-header-height: 3.5rem;
+  --voltz-holy-grail-footer-height: auto;
+  --voltz-holy-grail-left-width: 220px;
+  --voltz-holy-grail-right-width: 220px;
+  --voltz-holy-grail-header-bg: #ffffff;
+  --voltz-holy-grail-footer-bg: #ffffff;
+  --voltz-holy-grail-sidebar-bg: #f9fafb;
+  --voltz-holy-grail-main-bg: #ffffff;
+  --voltz-holy-grail-border: #e5e7eb;
+  --voltz-holy-grail-color: #111827;
+}
+
+[data-theme="dark"] {
+  --voltz-holy-grail-header-bg: #1f2937;
+  --voltz-holy-grail-footer-bg: #1f2937;
+  --voltz-holy-grail-sidebar-bg: #111827;
+  --voltz-holy-grail-main-bg: #1f2937;
+  --voltz-holy-grail-border: #374151;
+  --voltz-holy-grail-color: #f9fafb;
+}
+
+/* === Base === */
+.voltz-holy-grail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  color: var(--voltz-holy-grail-color);
+  box-sizing: border-box;
+}
+
+/* === Header === */
+.voltz-holy-grail__header {
+  flex: 0 0 auto;
+  min-height: var(--voltz-holy-grail-header-height);
+  background: var(--voltz-holy-grail-header-bg);
+  border-bottom: 1px solid var(--voltz-holy-grail-border);
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+  box-sizing: border-box;
+}
+
+/* === Body (3-column area) === */
+.voltz-holy-grail__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* === Left Sidebar === */
+.voltz-holy-grail__left {
+  flex: 0 0 var(--voltz-holy-grail-left-width);
+  width: var(--voltz-holy-grail-left-width);
+  background: var(--voltz-holy-grail-sidebar-bg);
+  border-right: 1px solid var(--voltz-holy-grail-border);
+  padding: 1rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* === Main === */
+.voltz-holy-grail__main {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--voltz-holy-grail-main-bg);
+  padding: 1.5rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* === Right Sidebar === */
+.voltz-holy-grail__right {
+  flex: 0 0 var(--voltz-holy-grail-right-width);
+  width: var(--voltz-holy-grail-right-width);
+  background: var(--voltz-holy-grail-sidebar-bg);
+  border-left: 1px solid var(--voltz-holy-grail-border);
+  padding: 1rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* === Footer === */
+.voltz-holy-grail__footer {
+  flex: 0 0 auto;
+  min-height: var(--voltz-holy-grail-footer-height);
+  background: var(--voltz-holy-grail-footer-bg);
+  border-top: 1px solid var(--voltz-holy-grail-border);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* === Variant: no-left === */
+.voltz-holy-grail--no-left .voltz-holy-grail__left {
+  display: none;
+}
+
+/* === Variant: no-right === */
+.voltz-holy-grail--no-right .voltz-holy-grail__right {
+  display: none;
+}
+
+/* === Responsive === */
+@media (max-width: 767px) {
+  .voltz-holy-grail__body {
+    flex-direction: column;
+  }
+
+  .voltz-holy-grail__left,
+  .voltz-holy-grail__right {
+    flex: 0 0 auto;
+    width: 100%;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--voltz-holy-grail-border);
+  }
+
+  .voltz-holy-grail__right {
+    border-bottom: none;
+    border-top: 1px solid var(--voltz-holy-grail-border);
+  }
+
+  .voltz-holy-grail__body {
+    order: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .voltz-holy-grail__left {
+    --voltz-holy-grail-left-width: 180px;
+  }
+
+  .voltz-holy-grail__right {
+    --voltz-holy-grail-right-width: 180px;
+  }
+}

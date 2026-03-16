@@ -1,0 +1,20 @@
+{
+  "name": "bento-reveal",
+  "description": "Bento grid items that reveal with staggered animations on scroll. Supports scale, fade, and slide variants.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["fade", "scale", "slide"],
+  "tags": ["bento", "grid", "reveal", "stagger", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-bento-reveal-duration",
+    "--voltz-bento-reveal-delay",
+    "--voltz-bento-reveal-easing",
+    "--voltz-bento-reveal-columns",
+    "--voltz-bento-reveal-gap"
+  ],
+  "slots": {
+    "default": "Bento grid items"
+  }
+}

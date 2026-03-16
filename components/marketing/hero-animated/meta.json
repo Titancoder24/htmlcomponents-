@@ -1,0 +1,29 @@
+/**
+ * Meta configuration for hero-animated component.
+ * Hero with animated floating shapes, text reveal, and staggered CTAs.
+ */
+{
+  "name": "hero-animated",
+  "displayName": "Hero Animated",
+  "description": "Hero section with animated floating shapes, headline text reveal animation, and staggered CTA appearance.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["hero", "animated", "particles", "motion", "landing"],
+  "variants": {
+    "default": { "description": "Dark background with floating shapes" },
+    "minimal": { "description": "Fewer shapes, subtle animation" }
+  },
+  "slots": {
+    "default": { "description": "Main text content area" }
+  },
+  "customProperties": {
+    "--voltz-hero-animated-bg": { "default": "#050510", "description": "Background color" },
+    "--voltz-hero-animated-text-color": { "default": "#ffffff", "description": "Text color" },
+    "--voltz-hero-animated-accent": { "default": "#6366f1", "description": "Accent color for shapes" },
+    "--voltz-hero-animated-cta-bg": { "default": "#6366f1", "description": "CTA background" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true,
+  "interactive": true
+}

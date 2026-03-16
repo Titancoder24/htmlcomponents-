@@ -1,0 +1,66 @@
+/*
+ * Blur Fade Component Styles
+ * Fades content in from a blurred/translated state.
+ * Uses transform and opacity for compositor-friendly animations.
+ * Direction variants control translate origin.
+ */
+
+.voltz-blur-fade {
+  --voltz-blur-fade-duration: 0.6s;
+  --voltz-blur-fade-delay: 0s;
+  --voltz-blur-fade-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --voltz-blur-fade-distance: 24px;
+}
+
+.voltz-blur-fade__content {
+  opacity: 0;
+  transform: translateY(var(--voltz-blur-fade-distance)) scale(0.98);
+  transition: opacity var(--voltz-blur-fade-duration) var(--voltz-blur-fade-easing),
+              transform var(--voltz-blur-fade-duration) var(--voltz-blur-fade-easing);
+  transition-delay: var(--voltz-blur-fade-delay);
+  will-change: transform, opacity;
+}
+
+/* Direction variants */
+.voltz-blur-fade--up .voltz-blur-fade__content {
+  transform: translateY(var(--voltz-blur-fade-distance)) scale(0.98);
+}
+
+.voltz-blur-fade--down .voltz-blur-fade__content {
+  transform: translateY(calc(-1 * var(--voltz-blur-fade-distance))) scale(0.98);
+}
+
+.voltz-blur-fade--left .voltz-blur-fade__content {
+  transform: translateX(var(--voltz-blur-fade-distance)) scale(0.98);
+}
+
+.voltz-blur-fade--right .voltz-blur-fade__content {
+  transform: translateX(calc(-1 * var(--voltz-blur-fade-distance))) scale(0.98);
+}
+
+.voltz-blur-fade--default .voltz-blur-fade__content {
+  transform: scale(0.95);
+}
+
+/* Active state when in viewport */
+.voltz-blur-fade--visible .voltz-blur-fade__content {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Dark mode */
+[data-theme="dark"] .voltz-blur-fade {
+  color: #f0f0f0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-blur-fade__content {
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+  }
+
+  .voltz-blur-fade--visible .voltz-blur-fade__content {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "particles",
+  "description": "Floating particle background with configurable count, speed, color, size, and connection line options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "connected"],
+  "tags": ["particles", "background", "floating", "animation", "ambient"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-particles-color",
+    "--voltz-particles-size",
+    "--voltz-particles-speed",
+    "--voltz-particles-opacity",
+    "--voltz-particles-bg"
+  ],
+  "slots": {
+    "default": "Content overlaid on particle background"
+  }
+}

@@ -1,0 +1,23 @@
+<!-- Tab Navigation Component Template -->
+<!-- URL-based navigation tabs with multiple variants -->
+<nav class="voltz-tab-nav voltz-tab-nav--{{variant}} voltz-tab-nav--{{size}}"
+     role="navigation"
+     aria-label="Tab navigation">
+  <div class="voltz-tab-nav__scroll-container">
+    <ul class="voltz-tab-nav__list" role="menubar">
+      {{slot:default}}
+
+      <!-- Example tab structure -->
+      <!--
+      <li class="voltz-tab-nav__item" role="none">
+        <a href="/page"
+           class="voltz-tab-nav__link"
+           role="menuitem"
+           aria-current="page">
+          Tab Label
+        </a>
+      </li>
+      -->
+    </ul>
+  </div>
+</nav>

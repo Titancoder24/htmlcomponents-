@@ -1,0 +1,16 @@
+<!--
+  Hover Card 3D Component
+  Card with 3D hover effects.
+  Variants: default, subtle, intense
+  Uses CSS 3D transforms with JS for mouse tracking.
+-->
+<div class="voltz-hover-card-3d voltz-hover-card-3d--{{variant}}"
+     data-voltz-hover-card-3d
+     data-variant="{{variant}}">
+  <div class="voltz-hover-card-3d__inner">
+    <div class="voltz-hover-card-3d__content">
+      {{slot:default}}
+    </div>
+    <div class="voltz-hover-card-3d__shine"></div>
+  </div>
+</div>

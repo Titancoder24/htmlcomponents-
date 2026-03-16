@@ -1,0 +1,102 @@
+/*
+ * Shimmer Button Component Styles
+ * Traveling shimmer/shine effect on a button.
+ * Uses translateX on a gradient pseudo-element for compositor-only animation.
+ * Variants: continuous or hover-triggered.
+ */
+
+.voltz-shimmer-btn {
+  --voltz-shimmer-btn-bg: #1a1a2e;
+  --voltz-shimmer-btn-color: #ffffff;
+  --voltz-shimmer-btn-shimmer-color: rgba(255, 255, 255, 0.3);
+  --voltz-shimmer-btn-duration: 2s;
+  --voltz-shimmer-btn-radius: 8px;
+  --voltz-shimmer-btn-padding: 0.75rem 1.5rem;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--voltz-shimmer-btn-padding);
+  background: var(--voltz-shimmer-btn-bg);
+  color: var(--voltz-shimmer-btn-color);
+  border: none;
+  border-radius: var(--voltz-shimmer-btn-radius);
+  cursor: pointer;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  isolation: isolate;
+}
+
+[data-theme="dark"] .voltz-shimmer-btn {
+  --voltz-shimmer-btn-bg: #2a2a4a;
+  --voltz-shimmer-btn-shimmer-color: rgba(255, 255, 255, 0.2);
+}
+
+.voltz-shimmer-btn__label {
+  position: relative;
+  z-index: 1;
+}
+
+.voltz-shimmer-btn__shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    var(--voltz-shimmer-btn-shimmer-color) 45%,
+    var(--voltz-shimmer-btn-shimmer-color) 55%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+/* Continuous variant */
+.voltz-shimmer-btn--continuous .voltz-shimmer-btn__shimmer {
+  animation: voltz-shimmer-slide var(--voltz-shimmer-btn-duration) ease-in-out infinite;
+}
+
+/* Hover variant */
+.voltz-shimmer-btn--hover .voltz-shimmer-btn__shimmer {
+  animation: none;
+}
+
+.voltz-shimmer-btn--hover:hover .voltz-shimmer-btn__shimmer {
+  animation: voltz-shimmer-slide var(--voltz-shimmer-btn-duration) ease-in-out;
+}
+
+@keyframes voltz-shimmer-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Focus styles */
+.voltz-shimmer-btn:focus-visible {
+  outline: 2px solid var(--voltz-shimmer-btn-shimmer-color);
+  outline-offset: 2px;
+}
+
+/* Active press */
+.voltz-shimmer-btn:active {
+  transform: scale(0.98);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-shimmer-btn__shimmer {
+    animation: none !important;
+  }
+
+  .voltz-shimmer-btn:active {
+    transform: none;
+  }
+}

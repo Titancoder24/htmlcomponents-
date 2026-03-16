@@ -1,0 +1,128 @@
+/*
+ * Pull Quote Component Styles
+ * Purpose: Large decorative quote styling for articles with
+ * centered, left-aligned, and bordered variants.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-pull-quote {
+  --voltz-pull-quote-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-pull-quote-font-family: var(--voltz-font-family-serif, Georgia, 'Times New Roman', serif);
+  --voltz-pull-quote-mark-color: var(--voltz-color-primary-200, #c7d2fe);
+  --voltz-pull-quote-border-color: var(--voltz-color-primary, #6366f1);
+  --voltz-pull-quote-attribution-color: var(--voltz-color-text-muted, #6b7280);
+
+  margin: var(--voltz-spacing-8, 2rem) 0;
+  padding: var(--voltz-spacing-6, 1.5rem);
+  position: relative;
+}
+
+.voltz-pull-quote__blockquote {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.voltz-pull-quote__text {
+  color: var(--voltz-pull-quote-color);
+  font-family: var(--voltz-pull-quote-font-family);
+  font-size: var(--voltz-pull-quote-font-size, 1.5rem);
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.voltz-pull-quote__mark {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--voltz-pull-quote-mark-color);
+  font-family: Georgia, serif;
+  display: inline-block;
+}
+
+.voltz-pull-quote__mark--open::before {
+  content: "\201C";
+}
+
+.voltz-pull-quote__mark--close::before {
+  content: "\201D";
+}
+
+.voltz-pull-quote__attribution {
+  color: var(--voltz-pull-quote-attribution-color);
+  font-size: 0.875rem;
+  font-style: normal;
+  margin-top: var(--voltz-spacing-3, 0.75rem);
+}
+
+.voltz-pull-quote__attribution::before {
+  content: "\2014\00A0";
+}
+
+/* ========================================
+   Variant: Centered
+   ======================================== */
+.voltz-pull-quote--centered {
+  text-align: center;
+}
+
+.voltz-pull-quote--centered .voltz-pull-quote__mark {
+  display: block;
+  font-size: 4rem;
+}
+
+.voltz-pull-quote--centered .voltz-pull-quote__mark--close {
+  display: none;
+}
+
+/* ========================================
+   Variant: Left Aligned
+   ======================================== */
+.voltz-pull-quote--left-aligned {
+  text-align: left;
+  padding-left: var(--voltz-spacing-8, 2rem);
+}
+
+.voltz-pull-quote--left-aligned .voltz-pull-quote__mark--open {
+  position: absolute;
+  left: 0;
+  top: var(--voltz-spacing-4, 1rem);
+}
+
+.voltz-pull-quote--left-aligned .voltz-pull-quote__mark--close {
+  display: none;
+}
+
+/* ========================================
+   Variant: Bordered
+   ======================================== */
+.voltz-pull-quote--bordered {
+  border-top: 3px solid var(--voltz-pull-quote-border-color);
+  border-bottom: 3px solid var(--voltz-pull-quote-border-color);
+  padding: var(--voltz-spacing-6, 1.5rem) 0;
+  text-align: center;
+}
+
+.voltz-pull-quote--bordered .voltz-pull-quote__mark {
+  display: none;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-pull-quote {
+  --voltz-pull-quote-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+  --voltz-pull-quote-mark-color: var(--voltz-color-primary-700, #4338ca);
+  --voltz-pull-quote-attribution-color: var(--voltz-color-text-muted-dark, #9ca3af);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-pull-quote {
+    transition: none;
+  }
+}

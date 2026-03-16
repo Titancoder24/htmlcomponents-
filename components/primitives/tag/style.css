@@ -1,0 +1,123 @@
+/**
+ * Tag Component - style.css
+ * Purpose: Styles for tag/chip elements including variant colors (solid,
+ * outline, soft), sizes, close button, disabled state, and dark mode.
+ */
+
+/* --- Base --- */
+.voltz-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--voltz-spacing-1, 0.25rem);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  border-radius: var(--voltz-radius-full, 9999px);
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: opacity 0.15s ease;
+  max-width: 100%;
+}
+
+.voltz-tag__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- Sizes --- */
+.voltz-tag--sm {
+  padding: 0.0625rem 0.5rem;
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  line-height: 1.5;
+}
+
+.voltz-tag--md {
+  padding: 0.125rem 0.625rem;
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  line-height: 1.5;
+}
+
+.voltz-tag--lg {
+  padding: 0.25rem 0.75rem;
+  font-size: var(--voltz-font-size-base, 1rem);
+  line-height: 1.5;
+}
+
+/* --- Icon --- */
+.voltz-tag__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.voltz-tag--sm .voltz-tag__icon { width: 0.75rem; height: 0.75rem; }
+.voltz-tag--md .voltz-tag__icon { width: 0.875rem; height: 0.875rem; }
+.voltz-tag--lg .voltz-tag__icon { width: 1rem; height: 1rem; }
+
+/* --- Close button --- */
+.voltz-tag__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+  padding: 0;
+  margin-left: var(--voltz-spacing-1, 0.25rem);
+  border-radius: var(--voltz-radius-full, 9999px);
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.voltz-tag__close:hover { opacity: 1; }
+.voltz-tag__close:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 1px;
+  opacity: 1;
+}
+
+.voltz-tag--sm .voltz-tag__close-icon { width: 0.625rem; height: 0.625rem; }
+.voltz-tag--md .voltz-tag__close-icon { width: 0.75rem; height: 0.75rem; }
+.voltz-tag--lg .voltz-tag__close-icon { width: 0.875rem; height: 0.875rem; }
+
+/* --- Solid variant --- */
+.voltz-tag--solid.voltz-tag--primary { background: var(--voltz-color-primary, #3b82f6); color: #fff; }
+.voltz-tag--solid.voltz-tag--neutral { background: var(--voltz-color-neutral-600, #4b5563); color: #fff; }
+.voltz-tag--solid.voltz-tag--success { background: var(--voltz-color-success, #22c55e); color: #fff; }
+.voltz-tag--solid.voltz-tag--warning { background: var(--voltz-color-warning, #f59e0b); color: #fff; }
+.voltz-tag--solid.voltz-tag--error { background: var(--voltz-color-error, #ef4444); color: #fff; }
+
+/* --- Outline variant --- */
+.voltz-tag--outline { background: transparent; }
+.voltz-tag--outline.voltz-tag--primary { border: 1px solid var(--voltz-color-primary, #3b82f6); color: var(--voltz-color-primary, #3b82f6); }
+.voltz-tag--outline.voltz-tag--neutral { border: 1px solid var(--voltz-color-neutral-300, #d1d5db); color: var(--voltz-color-neutral-600, #4b5563); }
+.voltz-tag--outline.voltz-tag--success { border: 1px solid var(--voltz-color-success, #22c55e); color: var(--voltz-color-success, #22c55e); }
+.voltz-tag--outline.voltz-tag--warning { border: 1px solid var(--voltz-color-warning, #f59e0b); color: var(--voltz-color-warning, #f59e0b); }
+.voltz-tag--outline.voltz-tag--error { border: 1px solid var(--voltz-color-error, #ef4444); color: var(--voltz-color-error, #ef4444); }
+
+/* --- Soft variant --- */
+.voltz-tag--soft.voltz-tag--primary { background: var(--voltz-color-primary-50, #eff6ff); color: var(--voltz-color-primary-700, #1d4ed8); }
+.voltz-tag--soft.voltz-tag--neutral { background: var(--voltz-color-neutral-100, #f3f4f6); color: var(--voltz-color-neutral-700, #374151); }
+.voltz-tag--soft.voltz-tag--success { background: var(--voltz-color-success-50, #f0fdf4); color: var(--voltz-color-success-700, #15803d); }
+.voltz-tag--soft.voltz-tag--warning { background: var(--voltz-color-warning-50, #fffbeb); color: var(--voltz-color-warning-700, #b45309); }
+.voltz-tag--soft.voltz-tag--error { background: var(--voltz-color-error-50, #fef2f2); color: var(--voltz-color-error-700, #b91c1c); }
+
+/* --- Disabled --- */
+.voltz-tag--disabled { opacity: 0.5; pointer-events: none; }
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-tag--soft.voltz-tag--primary { background: rgba(59,130,246,0.15); color: #93c5fd; }
+[data-theme="dark"] .voltz-tag--soft.voltz-tag--neutral { background: rgba(107,114,128,0.15); color: #d1d5db; }
+[data-theme="dark"] .voltz-tag--soft.voltz-tag--success { background: rgba(34,197,94,0.15); color: #86efac; }
+[data-theme="dark"] .voltz-tag--soft.voltz-tag--warning { background: rgba(245,158,11,0.15); color: #fcd34d; }
+[data-theme="dark"] .voltz-tag--soft.voltz-tag--error { background: rgba(239,68,68,0.15); color: #fca5a5; }
+
+[data-theme="dark"] .voltz-tag--outline.voltz-tag--neutral {
+  border-color: var(--voltz-color-neutral-500-dark, #6b7280);
+  color: var(--voltz-color-neutral-300-dark, #d1d5db);
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-tag, .voltz-tag__close { transition: none; }
+}

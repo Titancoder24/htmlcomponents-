@@ -1,0 +1,29 @@
+{
+  "name": "changelog",
+  "description": "Version changelog display with version headers, date, change type badges (added/changed/fixed/removed), and collapsible versions.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "compact", "detailed"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "compact", "detailed"]
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "slots": {
+    "default": "Changelog version entries"
+  },
+  "accessibility": {
+    "role": "list",
+    "keyboard": true,
+    "screenReader": true
+  },
+  "tags": ["changelog", "versions", "release", "updates", "history"]
+}

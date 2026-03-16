@@ -1,0 +1,46 @@
+{
+  "id": "pull-quote",
+  "name": "Pull Quote",
+  "description": "Large decorative quote for articles. Features centered, left-aligned, and bordered variants with decorative quote marks.",
+  "category": "typography",
+  "tags": ["pull-quote", "quote", "decorative", "article", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "blockquote",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses semantic <blockquote> with <figure> wrapper. Decorative quote marks are hidden from screen readers."
+  },
+  "variants": {
+    "variant": {
+      "type": "string",
+      "options": ["centered", "left-aligned", "bordered"],
+      "default": "centered",
+      "description": "Layout and style variant"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The quote text content"
+    },
+    "attribution": {
+      "description": "Attribution or source"
+    }
+  },
+  "examples": [
+    {
+      "name": "Centered Pull Quote",
+      "props": { "variant": "centered" },
+      "content": "Design is not just what it looks like. Design is how it works.",
+      "slots": { "attribution": "Steve Jobs" }
+    },
+    {
+      "name": "Bordered Pull Quote",
+      "props": { "variant": "bordered" },
+      "content": "Simplicity is the ultimate sophistication."
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["blockquote", "paragraph"]
+}

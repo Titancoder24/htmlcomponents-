@@ -1,0 +1,83 @@
+{
+  "id": "password-input",
+  "name": "PasswordInput",
+  "description": "A password input with show/hide toggle button, strength indicator bar, and requirements checklist display. Supports multiple sizes.",
+  "category": "primitives",
+  "tags": ["password", "input", "security", "strength", "toggle"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "textbox",
+    "keyboard": {
+      "Enter": "Submits form if within a form context"
+    },
+    "ariaAttributes": ["aria-label", "aria-describedby", "aria-invalid"]
+  },
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the password input"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Enter password",
+      "description": "Placeholder text for the input"
+    },
+    "showStrength": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show the password strength indicator"
+    },
+    "showRequirements": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show the requirements checklist"
+    },
+    "minLength": {
+      "type": "number",
+      "default": 8,
+      "description": "Minimum required password length"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is disabled"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {},
+  "events": {
+    "input": {
+      "description": "Fired when the password value changes",
+      "payload": { "value": "string" }
+    },
+    "strengthChange": {
+      "description": "Fired when the password strength level changes",
+      "payload": { "strength": "string", "score": "number" }
+    }
+  },
+  "examples": [
+    {
+      "title": "Default password input",
+      "props": { "size": "md" }
+    },
+    {
+      "title": "With strength indicator",
+      "props": { "size": "md", "showStrength": true }
+    },
+    {
+      "title": "With requirements checklist",
+      "props": { "size": "lg", "showStrength": true, "showRequirements": true }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["input"]
+}

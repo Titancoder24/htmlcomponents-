@@ -1,0 +1,24 @@
+<!--
+  Dropdown Component - template.html
+  Purpose: Renders a trigger button paired with a dropdown menu panel
+  containing menu items with full keyboard navigation support.
+-->
+<div class="voltz-dropdown">
+  <div
+    class="voltz-dropdown__trigger"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    aria-controls="{{dropdownId}}"
+    tabindex="0"
+  >
+    {{slot:default}}
+  </div>
+  <div
+    id="{{dropdownId}}"
+    class="voltz-dropdown__menu voltz-dropdown__menu--{{position}}"
+    role="menu"
+    aria-hidden="true"
+  >
+    {{slot:menu}}
+  </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "dock",
+  "description": "macOS-style dock with magnification on hover. Configurable icon size, magnification factor, and orientation.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["horizontal", "vertical"],
+  "tags": ["dock", "magnify", "hover", "navigation", "macos"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-dock-item-size",
+    "--voltz-dock-magnification",
+    "--voltz-dock-gap",
+    "--voltz-dock-bg",
+    "--voltz-dock-radius",
+    "--voltz-dock-padding"
+  ],
+  "slots": {
+    "default": "Dock items"
+  }
+}

@@ -1,0 +1,129 @@
+/**
+ * Card Component - style.css
+ * Purpose: Styles for the content card container including elevated,
+ * outline, and filled variants, size options, and hover effects.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-card {
+  --voltz-card-bg: var(--voltz-color-bg-primary, #ffffff);
+  --voltz-card-color: var(--voltz-color-text-primary, #111827);
+  --voltz-card-border: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-card-radius: var(--voltz-radius-xl, 0.75rem);
+  --voltz-card-shadow: var(--voltz-shadow-md, 0 4px 6px -1px rgba(0,0,0,0.1));
+  --voltz-card-shadow-hover: var(--voltz-shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1));
+  --voltz-card-filled-bg: var(--voltz-color-neutral-50, #f9fafb);
+  --voltz-card-padding-sm: 0.75rem;
+  --voltz-card-padding-md: 1.25rem;
+  --voltz-card-padding-lg: 1.75rem;
+  --voltz-card-transition: box-shadow 200ms ease, transform 200ms ease;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--voltz-card-radius);
+  color: var(--voltz-card-color);
+  overflow: hidden;
+}
+
+/* ---- Variant: elevated ---- */
+.voltz-card--elevated {
+  background: var(--voltz-card-bg);
+  box-shadow: var(--voltz-card-shadow);
+}
+
+/* ---- Variant: outline ---- */
+.voltz-card--outline {
+  background: var(--voltz-card-bg);
+  border: 1px solid var(--voltz-card-border);
+}
+
+/* ---- Variant: filled ---- */
+.voltz-card--filled {
+  background: var(--voltz-card-filled-bg);
+}
+
+/* ---- Hoverable ---- */
+.voltz-card--hoverable {
+  transition: var(--voltz-card-transition);
+  cursor: pointer;
+}
+
+.voltz-card--hoverable:hover {
+  box-shadow: var(--voltz-card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* ---- Size: header padding ---- */
+.voltz-card--sm .voltz-card__header {
+  padding: var(--voltz-card-padding-sm);
+}
+
+.voltz-card--md .voltz-card__header {
+  padding: var(--voltz-card-padding-md);
+  padding-bottom: 0;
+}
+
+.voltz-card--lg .voltz-card__header {
+  padding: var(--voltz-card-padding-lg);
+  padding-bottom: 0;
+}
+
+/* ---- Header ---- */
+.voltz-card__header {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+}
+
+/* ---- Body ---- */
+.voltz-card__body {
+  flex: 1;
+}
+
+.voltz-card--sm .voltz-card__body {
+  padding: var(--voltz-card-padding-sm);
+}
+
+.voltz-card--md .voltz-card__body {
+  padding: var(--voltz-card-padding-md);
+}
+
+.voltz-card--lg .voltz-card__body {
+  padding: var(--voltz-card-padding-lg);
+}
+
+/* ---- Footer ---- */
+.voltz-card__footer {
+  border-top: 1px solid var(--voltz-card-border);
+}
+
+.voltz-card--sm .voltz-card__footer {
+  padding: var(--voltz-card-padding-sm);
+}
+
+.voltz-card--md .voltz-card__footer {
+  padding: var(--voltz-card-padding-md);
+}
+
+.voltz-card--lg .voltz-card__footer {
+  padding: var(--voltz-card-padding-lg);
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-card {
+  --voltz-card-bg: var(--voltz-color-neutral-800, #1f2937);
+  --voltz-card-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-card-border: var(--voltz-color-neutral-700, #374151);
+  --voltz-card-filled-bg: var(--voltz-color-neutral-900, #111827);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-card--hoverable {
+    transition: none;
+  }
+
+  .voltz-card--hoverable:hover {
+    transform: none;
+  }
+}

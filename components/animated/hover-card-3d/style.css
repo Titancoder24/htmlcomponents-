@@ -1,0 +1,90 @@
+/*
+ * Hover Card 3D Component Styles
+ * Card with 3D hover effects.
+ * Variants: default, subtle, intense
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-hover-card-3d {
+  --voltz-hover-card-3d-rotation: 15deg;
+  --voltz-hover-card-3d-scale: 1.02;
+  --voltz-hover-card-3d-perspective: 800px;
+  --voltz-hover-card-3d-bg: #ffffff;
+  --voltz-hover-card-3d-radius: 16px;
+  --voltz-hover-card-3d-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  perspective: var(--voltz-hover-card-3d-perspective);
+}
+
+[data-theme="dark"] .voltz-hover-card-3d {
+  --voltz-hover-card-3d-bg: #1f2937;
+  --voltz-hover-card-3d-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtle variant */
+.voltz-hover-card-3d--subtle {
+  --voltz-hover-card-3d-rotation: 8deg;
+  --voltz-hover-card-3d-scale: 1.01;
+}
+
+/* Intense variant */
+.voltz-hover-card-3d--intense {
+  --voltz-hover-card-3d-rotation: 25deg;
+  --voltz-hover-card-3d-scale: 1.05;
+}
+
+.voltz-hover-card-3d__inner {
+  position: relative;
+  background: var(--voltz-hover-card-3d-bg);
+  border-radius: var(--voltz-hover-card-3d-radius);
+  box-shadow: var(--voltz-hover-card-3d-shadow);
+  overflow: hidden;
+  transform: rotateX(0) rotateY(0) scale(1);
+  transition: transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+    box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.voltz-hover-card-3d__content {
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+}
+
+.voltz-hover-card-3d__shine {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--voltz-hover-card-3d-mouse-x, 50%)
+      var(--voltz-hover-card-3d-mouse-y, 50%),
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.voltz-hover-card-3d:hover .voltz-hover-card-3d__shine {
+  opacity: 1;
+}
+
+.voltz-hover-card-3d:hover .voltz-hover-card-3d__inner {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .voltz-hover-card-3d:hover .voltz-hover-card-3d__inner {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-hover-card-3d__inner {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .voltz-hover-card-3d__shine {
+    display: none;
+  }
+}

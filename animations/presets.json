@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Voltz UI - Named animation preset configurations. Each preset defines a reusable animation with its keyframe, duration, easing, and iteration settings.",
+
+  "presets": {
+    "fade-in": {
+      "keyframes": "voltz-fade-in",
+      "duration": "200ms",
+      "easing": "ease-out",
+      "fillMode": "both",
+      "class": "voltz-fade-in",
+      "category": "entrance"
+    },
+    "fade-out": {
+      "keyframes": "voltz-fade-out",
+      "duration": "200ms",
+      "easing": "ease-in",
+      "fillMode": "both",
+      "class": "voltz-fade-out",
+      "category": "exit"
+    },
+    "slide-in-up": {
+      "keyframes": "voltz-slide-in-up",
+      "duration": "200ms",
+      "easing": "ease-out",
+      "fillMode": "both",
+      "class": "voltz-slide-in-up",
+      "category": "entrance"
+    },
+    "slide-in-down": {
+      "keyframes": "voltz-slide-in-down",
+      "duration": "200ms",
+      "easing": "ease-out",
+      "fillMode": "both",
+      "class": "voltz-slide-in-down",
+      "category": "entrance"
+    },
+    "slide-in-left": {
+      "keyframes": "voltz-slide-in-left",
+      "duration": "200ms",
+      "easing": "ease-out",
+      "fillMode": "both",
+      "class": "voltz-slide-in-left",
+      "category": "entrance"
+    },
+    "slide-in-right": {
+      "keyframes": "voltz-slide-in-right",
+      "duration": "200ms",
+      "easing": "ease-out",
+      "fillMode": "both",
+      "class": "voltz-slide-in-right",
+      "category": "entrance"
+    },
+    "slide-out-up": {
+      "keyframes": "voltz-slide-out-up",
+      "duration": "200ms",
+      "easing": "ease-in",
+      "fillMode": "both",
+      "class": "voltz-slide-out-up",
+      "category": "exit"
+    },
+    "slide-out-down": {
+      "keyframes": "voltz-slide-out-down",
+      "duration": "200ms",
+      "easing": "ease-in",
+      "fillMode": "both",
+      "class": "voltz-slide-out-down",
+      "category": "exit"
+    },
+    "slide-out-left": {
+      "keyframes": "voltz-slide-out-left",
+      "duration": "200ms",
+      "easing": "ease-in",
+      "fillMode": "both",
+      "class": "voltz-slide-out-left",
+      "category": "exit"
+    },
+    "slide-out-right": {
+      "keyframes": "voltz-slide-out-right",
+      "duration": "200ms",
+      "easing": "ease-in",
+      "fillMode": "both",
+      "class": "voltz-slide-out-right",
+      "category": "exit"
+    },
+    "scale-in": {
+      "keyframes": "voltz-scale-in",
+      "duration": "200ms",
+      "easing": "spring",
+      "fillMode": "both",
+      "class": "voltz-scale-in",
+      "category": "entrance"
+    },
+    "scale-out": {
+      "keyframes": "voltz-scale-out",
+      "duration": "200ms",
+      "easing": "ease-in",
+      "fillMode": "both",
+      "class": "voltz-scale-out",
+      "category": "exit"
+    },
+    "blur-in": {
+      "keyframes": "voltz-blur-in",
+      "duration": "300ms",
+      "easing": "ease-out",
+      "fillMode": "both",
+      "class": "voltz-blur-in",
+      "category": "entrance"
+    },
+    "pulse": {
+      "keyframes": "voltz-pulse",
+      "duration": "1500ms",
+      "easing": "ease-in-out",
+      "iterationCount": "infinite",
+      "class": "voltz-pulse",
+      "category": "emphasis"
+    },
+    "pulse-once": {
+      "keyframes": "voltz-pulse",
+      "duration": "600ms",
+      "easing": "ease-in-out",
+      "fillMode": "both",
+      "class": "voltz-pulse-once",
+      "category": "emphasis"
+    },
+    "bounce": {
+      "keyframes": "voltz-bounce",
+      "duration": "800ms",
+      "easing": "ease-out",
+      "iterationCount": "infinite",
+      "class": "voltz-bounce",
+      "category": "emphasis"
+    },
+    "bounce-in": {
+      "keyframes": "voltz-bounce-in",
+      "duration": "600ms",
+      "easing": "ease-out",
+      "fillMode": "both",
+      "class": "voltz-bounce-in",
+      "category": "emphasis"
+    },
+    "shake": {
+      "keyframes": "voltz-shake",
+      "duration": "500ms",
+      "easing": "ease-in-out",
+      "fillMode": "both",
+      "class": "voltz-shake",
+      "category": "emphasis"
+    },
+    "wiggle": {
+      "keyframes": "voltz-wiggle",
+      "duration": "600ms",
+      "easing": "ease-in-out",
+      "fillMode": "both",
+      "class": "voltz-wiggle",
+      "category": "emphasis"
+    }
+  },
+
+  "easings": {
+    "linear": "linear",
+    "ease-in": "cubic-bezier(0.4, 0, 1, 1)",
+    "ease-out": "cubic-bezier(0, 0, 0.2, 1)",
+    "ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "spring": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+    "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+  },
+
+  "durations": {
+    "instant": "50ms",
+    "fast": "100ms",
+    "normal": "200ms",
+    "slow": "300ms",
+    "slower": "500ms",
+    "slowest": "700ms"
+  }
+}

@@ -1,0 +1,62 @@
+<!--
+  Hero Split Component
+  Split-layout hero with text on one side and image on the other.
+  Supports reversed layout and responsive mobile stacking.
+-->
+<section class="voltz-hero-split {{variant}}" data-component="hero-split">
+  <div class="voltz-hero-split__container">
+    <div class="voltz-hero-split__content">
+      {{#if badge}}
+      <div class="voltz-hero-split__badge">{{badge}}</div>
+      {{/if}}
+
+      <h1 class="voltz-hero-split__headline">
+        Ship Products <span class="voltz-hero-split__highlight">10x Faster</span> Than Before
+      </h1>
+
+      <p class="voltz-hero-split__subheadline">
+        Our platform gives your team the tools to design, build, and
+        launch world-class products without the complexity.
+      </p>
+
+      <div class="voltz-hero-split__actions">
+        <a href="#" class="voltz-hero-split__cta voltz-hero-split__cta--primary">
+          Start Building
+        </a>
+        <a href="#" class="voltz-hero-split__cta voltz-hero-split__cta--secondary">
+          Watch Video
+        </a>
+      </div>
+
+      {{#if showStats}}
+      <div class="voltz-hero-split__stats">
+        <div class="voltz-hero-split__stat">
+          <span class="voltz-hero-split__stat-value">10K+</span>
+          <span class="voltz-hero-split__stat-label">Developers</span>
+        </div>
+        <div class="voltz-hero-split__stat">
+          <span class="voltz-hero-split__stat-value">99.9%</span>
+          <span class="voltz-hero-split__stat-label">Uptime</span>
+        </div>
+        <div class="voltz-hero-split__stat">
+          <span class="voltz-hero-split__stat-value">50M+</span>
+          <span class="voltz-hero-split__stat-label">Requests/day</span>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="voltz-hero-split__media">
+      {{slot:media}}
+      <div class="voltz-hero-split__image-placeholder">
+        <svg width="100%" height="100%" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="600" height="500" rx="16" fill="currentColor" opacity="0.08"/>
+          <rect x="40" y="40" width="520" height="300" rx="8" fill="currentColor" opacity="0.06"/>
+          <circle cx="300" cy="350" r="40" fill="currentColor" opacity="0.08"/>
+          <rect x="200" y="420" width="200" height="16" rx="8" fill="currentColor" opacity="0.06"/>
+          <rect x="240" y="450" width="120" height="12" rx="6" fill="currentColor" opacity="0.04"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

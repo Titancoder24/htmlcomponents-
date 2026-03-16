@@ -1,0 +1,100 @@
+/*
+ * Border Beam Component Styles
+ * Animated border beam traveling around the element perimeter.
+ * Uses a rotating conic-gradient with mask to create beam effect.
+ * CSS-only animation using transform: rotate().
+ */
+
+.voltz-border-beam {
+  --voltz-border-beam-color: #6366f1;
+  --voltz-border-beam-width: 2px;
+  --voltz-border-beam-duration: 3s;
+  --voltz-border-beam-radius: 12px;
+  --voltz-border-beam-size: 30%;
+
+  position: relative;
+  border-radius: var(--voltz-border-beam-radius);
+  padding: var(--voltz-border-beam-width);
+}
+
+.voltz-border-beam__border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.voltz-border-beam__border::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--voltz-border-beam-color) var(--voltz-border-beam-size),
+    transparent calc(var(--voltz-border-beam-size) + 5%)
+  );
+  animation: voltz-border-beam-rotate var(--voltz-border-beam-duration) linear infinite;
+  transform-origin: center center;
+}
+
+/* Rainbow variant */
+.voltz-border-beam--rainbow .voltz-border-beam__border::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    #6366f1 10%,
+    #8b5cf6 15%,
+    #a855f7 20%,
+    #ec4899 25%,
+    transparent 35%
+  );
+}
+
+.voltz-border-beam__border::after {
+  content: "";
+  position: absolute;
+  inset: var(--voltz-border-beam-width);
+  border-radius: calc(var(--voltz-border-beam-radius) - var(--voltz-border-beam-width));
+  background: var(--voltz-border-beam-bg, #ffffff);
+}
+
+[data-theme="dark"] .voltz-border-beam__border::after {
+  background: var(--voltz-border-beam-bg, #1a1a2e);
+}
+
+@keyframes voltz-border-beam-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.voltz-border-beam__content {
+  position: relative;
+  z-index: 1;
+  background: var(--voltz-border-beam-bg, #ffffff);
+  border-radius: calc(var(--voltz-border-beam-radius) - var(--voltz-border-beam-width));
+  padding: 1.5rem;
+}
+
+[data-theme="dark"] .voltz-border-beam__content {
+  background: var(--voltz-border-beam-bg, #1a1a2e);
+  color: #f0f0f0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-border-beam__border::before {
+    animation: none !important;
+    background: var(--voltz-border-beam-color);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+  }
+}

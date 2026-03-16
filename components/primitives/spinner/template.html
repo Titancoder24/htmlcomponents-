@@ -1,0 +1,38 @@
+<!--
+  Spinner Component - template.html
+  Purpose: Renders an SVG-based loading spinner with a visually hidden
+  label for accessibility. Uses role="status" for live region announcements.
+-->
+<div
+  class="voltz-spinner voltz-spinner--{{size}} voltz-spinner--{{color}}"
+  role="status"
+  aria-label="{{label}}"
+>
+  <svg
+    class="voltz-spinner__svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <circle
+      class="voltz-spinner__track"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      stroke-width="3"
+    />
+    <circle
+      class="voltz-spinner__arc"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-dasharray="31.4 31.4"
+    />
+  </svg>
+  <span class="voltz-spinner__label">{{label}}</span>
+</div>

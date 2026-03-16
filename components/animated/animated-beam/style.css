@@ -1,0 +1,136 @@
+/*
+ * Animated Beam Component Styles
+ * Animated beam/laser connecting two points.
+ * Variants: default, dashed, pulse
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-beam {
+  --voltz-beam-color: #6366f1;
+  --voltz-beam-width: 2px;
+  --voltz-beam-duration: 2s;
+  --voltz-beam-glow: 8px;
+  --voltz-beam-length: 100%;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+[data-theme="dark"] .voltz-beam {
+  --voltz-beam-color: #818cf8;
+}
+
+.voltz-beam__line {
+  position: relative;
+  width: var(--voltz-beam-length);
+  height: var(--voltz-beam-width);
+  overflow: hidden;
+}
+
+/* Vertical direction */
+[data-direction="vertical"] .voltz-beam__line {
+  width: var(--voltz-beam-width);
+  height: var(--voltz-beam-length);
+}
+
+.voltz-beam__core {
+  position: absolute;
+  inset: 0;
+  background: var(--voltz-beam-color);
+  opacity: 0.4;
+}
+
+.voltz-beam__glow {
+  position: absolute;
+  inset: calc(var(--voltz-beam-glow) * -1);
+  background: var(--voltz-beam-color);
+  opacity: 0.15;
+  filter: blur(var(--voltz-beam-glow));
+}
+
+.voltz-beam__particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--voltz-beam-color),
+    transparent
+  );
+  opacity: 0.8;
+  animation: voltz-beam-travel var(--voltz-beam-duration) linear infinite;
+}
+
+[data-direction="vertical"] .voltz-beam__particle {
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--voltz-beam-color),
+    transparent
+  );
+  animation-name: voltz-beam-travel-vertical;
+}
+
+/* Dashed variant */
+.voltz-beam--dashed .voltz-beam__core {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--voltz-beam-color) 0px,
+    var(--voltz-beam-color) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  opacity: 0.3;
+}
+
+/* Pulse variant */
+.voltz-beam--pulse .voltz-beam__core {
+  animation: voltz-beam-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes voltz-beam-travel {
+  0% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(calc(var(--voltz-beam-length, 100%) + 40px));
+  }
+}
+
+@keyframes voltz-beam-travel-vertical {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(calc(var(--voltz-beam-length, 100%) + 40px));
+  }
+}
+
+@keyframes voltz-beam-pulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-beam__particle {
+    animation: none !important;
+    opacity: 0.6;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .voltz-beam--pulse .voltz-beam__core {
+    animation: none !important;
+    opacity: 0.4;
+  }
+}

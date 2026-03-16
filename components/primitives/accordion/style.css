@@ -1,0 +1,129 @@
+/**
+ * Accordion Component - style.css
+ * Purpose: Styles for the accordion sections including header triggers,
+ * animated chevron icon rotation, and expand/collapse transitions.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-accordion {
+  --voltz-accordion-bg: var(--voltz-color-bg-primary, #ffffff);
+  --voltz-accordion-color: var(--voltz-color-text-primary, #111827);
+  --voltz-accordion-border: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-accordion-radius: var(--voltz-radius-lg, 0.5rem);
+  --voltz-accordion-header-padding: 1rem;
+  --voltz-accordion-content-padding: 0 1rem 1rem;
+  --voltz-accordion-hover-bg: var(--voltz-color-neutral-50, #f9fafb);
+  --voltz-accordion-icon-size: 1.25rem;
+  --voltz-accordion-transition: 200ms ease;
+
+  width: 100%;
+  border: 1px solid var(--voltz-accordion-border);
+  border-radius: var(--voltz-accordion-radius);
+  overflow: hidden;
+}
+
+/* ---- Item ---- */
+.voltz-accordion__item {
+  border-bottom: 1px solid var(--voltz-accordion-border);
+}
+
+.voltz-accordion__item:last-child {
+  border-bottom: none;
+}
+
+/* ---- Header (trigger button) ---- */
+.voltz-accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--voltz-accordion-header-padding);
+  border: none;
+  background: var(--voltz-accordion-bg);
+  color: var(--voltz-accordion-color);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.5;
+  transition: background var(--voltz-accordion-transition);
+}
+
+.voltz-accordion__header:hover {
+  background: var(--voltz-accordion-hover-bg);
+}
+
+.voltz-accordion__header:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: -2px;
+}
+
+/* ---- Title ---- */
+.voltz-accordion__title {
+  flex: 1;
+}
+
+/* ---- Chevron icon ---- */
+.voltz-accordion__icon {
+  display: inline-flex;
+  width: var(--voltz-accordion-icon-size);
+  height: var(--voltz-accordion-icon-size);
+  flex-shrink: 0;
+  transition: transform var(--voltz-accordion-transition);
+}
+
+.voltz-accordion__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.voltz-accordion__header[aria-expanded="true"] .voltz-accordion__icon {
+  transform: rotate(180deg);
+}
+
+/* ---- Panel ---- */
+.voltz-accordion__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--voltz-accordion-transition);
+}
+
+.voltz-accordion__panel[hidden] {
+  display: block;
+  max-height: 0;
+  visibility: hidden;
+}
+
+.voltz-accordion__panel:not([hidden]) {
+  max-height: 500px;
+  visibility: visible;
+}
+
+/* ---- Content ---- */
+.voltz-accordion__content {
+  padding: var(--voltz-accordion-content-padding);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--voltz-color-neutral-600, #4b5563);
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-accordion {
+  --voltz-accordion-bg: var(--voltz-color-neutral-800, #1f2937);
+  --voltz-accordion-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-accordion-border: var(--voltz-color-neutral-700, #374151);
+  --voltz-accordion-hover-bg: var(--voltz-color-neutral-700, #374151);
+}
+
+[data-theme="dark"] .voltz-accordion__content {
+  color: var(--voltz-color-neutral-300, #d1d5db);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-accordion__icon,
+  .voltz-accordion__panel,
+  .voltz-accordion__header {
+    transition: none;
+  }
+}

@@ -1,0 +1,17 @@
+<!--
+  Voltz UI - Star Field Background
+  Animated star field / space effect
+  @version 1.0.0
+-->
+<div class="voltz-star-field voltz-star-field--{{variant}}"
+     role="presentation"
+     aria-hidden="true"
+     data-density="{{density}}"
+     data-speed="{{speed}}">
+  <div class="voltz-star-field__layer voltz-star-field__layer--small"></div>
+  <div class="voltz-star-field__layer voltz-star-field__layer--medium"></div>
+  <div class="voltz-star-field__layer voltz-star-field__layer--large"></div>
+  <div class="voltz-star-field__content">
+    {{slot:default}}
+  </div>
+</div>

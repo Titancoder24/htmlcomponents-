@@ -1,0 +1,216 @@
+/*
+ * KPI Widget Component Styles
+ * Purpose: Styles for KPI display with sparkline area, value, label,
+ * target, progress bar, and performance color coding.
+ * Supports dark mode and reduced motion.
+ */
+
+/* === Custom Properties === */
+.voltz-kpi-widget {
+  --voltz-kpi-bg: #ffffff;
+  --voltz-kpi-border: #e2e8f0;
+  --voltz-kpi-radius: 0.75rem;
+  --voltz-kpi-padding: 1.25rem;
+  --voltz-kpi-label-color: #64748b;
+  --voltz-kpi-value-color: #0f172a;
+  --voltz-kpi-value-size: 1.875rem;
+  --voltz-kpi-target-color: #94a3b8;
+  --voltz-kpi-progress-bg: #e2e8f0;
+  --voltz-kpi-progress-fill: #3b82f6;
+  --voltz-kpi-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --voltz-kpi-badge-bg: #f1f5f9;
+  --voltz-kpi-badge-color: #64748b;
+}
+
+[data-theme="dark"] .voltz-kpi-widget {
+  --voltz-kpi-bg: #1e293b;
+  --voltz-kpi-border: #334155;
+  --voltz-kpi-label-color: #94a3b8;
+  --voltz-kpi-value-color: #f1f5f9;
+  --voltz-kpi-target-color: #64748b;
+  --voltz-kpi-progress-bg: #334155;
+  --voltz-kpi-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --voltz-kpi-badge-bg: #0f172a;
+  --voltz-kpi-badge-color: #94a3b8;
+}
+
+/* === Base === */
+.voltz-kpi-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: var(--voltz-kpi-padding);
+  background: var(--voltz-kpi-bg);
+  border: 1px solid var(--voltz-kpi-border);
+  border-radius: var(--voltz-kpi-radius);
+  box-shadow: var(--voltz-kpi-shadow);
+}
+
+/* === Header === */
+.voltz-kpi-widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.voltz-kpi-widget__label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--voltz-kpi-label-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.voltz-kpi-widget__performance-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  background: var(--voltz-kpi-badge-bg);
+  color: var(--voltz-kpi-badge-color);
+}
+
+/* === Body === */
+.voltz-kpi-widget__body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.voltz-kpi-widget__value-section {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.voltz-kpi-widget__value {
+  font-size: var(--voltz-kpi-value-size);
+  font-weight: 700;
+  color: var(--voltz-kpi-value-color);
+  line-height: 1.2;
+}
+
+.voltz-kpi-widget__target {
+  font-size: 0.75rem;
+  color: var(--voltz-kpi-target-color);
+  margin-top: 0.125rem;
+}
+
+.voltz-kpi-widget__sparkline {
+  flex-shrink: 0;
+  width: 5rem;
+  height: 2rem;
+  overflow: hidden;
+}
+
+/* === Progress === */
+.voltz-kpi-widget__progress-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.voltz-kpi-widget__progress-bar {
+  flex: 1;
+  height: 0.375rem;
+  background: var(--voltz-kpi-progress-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.voltz-kpi-widget__progress-fill {
+  height: 100%;
+  background: var(--voltz-kpi-progress-fill);
+  border-radius: 1rem;
+  transition: width 0.4s ease;
+}
+
+.voltz-kpi-widget__progress-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--voltz-kpi-label-color);
+  flex-shrink: 0;
+}
+
+/* === Performance Colors === */
+.voltz-kpi-widget--excellent {
+  --voltz-kpi-progress-fill: #16a34a;
+  --voltz-kpi-badge-bg: #dcfce7;
+  --voltz-kpi-badge-color: #16a34a;
+}
+
+.voltz-kpi-widget--good {
+  --voltz-kpi-progress-fill: #3b82f6;
+  --voltz-kpi-badge-bg: #dbeafe;
+  --voltz-kpi-badge-color: #2563eb;
+}
+
+.voltz-kpi-widget--neutral {
+  --voltz-kpi-progress-fill: #64748b;
+  --voltz-kpi-badge-bg: #f1f5f9;
+  --voltz-kpi-badge-color: #64748b;
+}
+
+.voltz-kpi-widget--warning {
+  --voltz-kpi-progress-fill: #f59e0b;
+  --voltz-kpi-badge-bg: #fef3c7;
+  --voltz-kpi-badge-color: #d97706;
+}
+
+.voltz-kpi-widget--critical {
+  --voltz-kpi-progress-fill: #dc2626;
+  --voltz-kpi-badge-bg: #fee2e2;
+  --voltz-kpi-badge-color: #dc2626;
+}
+
+[data-theme="dark"] .voltz-kpi-widget--excellent {
+  --voltz-kpi-badge-bg: #052e16;
+  --voltz-kpi-badge-color: #4ade80;
+}
+[data-theme="dark"] .voltz-kpi-widget--good {
+  --voltz-kpi-badge-bg: #172554;
+  --voltz-kpi-badge-color: #60a5fa;
+}
+[data-theme="dark"] .voltz-kpi-widget--warning {
+  --voltz-kpi-badge-bg: #451a03;
+  --voltz-kpi-badge-color: #fbbf24;
+}
+[data-theme="dark"] .voltz-kpi-widget--critical {
+  --voltz-kpi-badge-bg: #450a0a;
+  --voltz-kpi-badge-color: #f87171;
+}
+
+/* === Size: sm === */
+.voltz-kpi-widget--sm {
+  --voltz-kpi-padding: 0.875rem;
+  --voltz-kpi-value-size: 1.375rem;
+}
+
+/* === Size: lg === */
+.voltz-kpi-widget--lg {
+  --voltz-kpi-padding: 1.5rem;
+  --voltz-kpi-value-size: 2.5rem;
+}
+
+/* === Variant: Compact === */
+.voltz-kpi-widget--compact .voltz-kpi-widget__body {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.voltz-kpi-widget--compact .voltz-kpi-widget__sparkline {
+  width: 100%;
+  height: 1.5rem;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-kpi-widget__progress-fill {
+    transition: none;
+  }
+}

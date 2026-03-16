@@ -1,0 +1,72 @@
+{
+  "id": "color-picker",
+  "name": "ColorPicker",
+  "description": "A color picker input with preset color swatches, hex input field, live preview swatch, and multiple sizes.",
+  "category": "primitives",
+  "tags": ["color", "picker", "swatch", "hex", "palette"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "keyboard": {
+      "ArrowRight": "Moves to the next swatch",
+      "ArrowLeft": "Moves to the previous swatch",
+      "Enter": "Selects the focused swatch",
+      "Space": "Selects the focused swatch"
+    },
+    "ariaAttributes": ["aria-label", "aria-selected"]
+  },
+  "props": {
+    "value": {
+      "type": "string",
+      "default": "#3b82f6",
+      "description": "Current hex color value"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the color picker"
+    },
+    "presets": {
+      "type": "array",
+      "default": ["#ef4444", "#f59e0b", "#22c55e", "#3b82f6", "#8b5cf6", "#ec4899", "#06b6d4", "#64748b", "#0f172a", "#ffffff"],
+      "description": "Array of preset hex color values for the swatch palette"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the color picker is disabled"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {},
+  "events": {
+    "change": {
+      "description": "Fired when the selected color changes",
+      "payload": { "value": "string" }
+    }
+  },
+  "examples": [
+    {
+      "title": "Default color picker",
+      "props": { "value": "#3b82f6", "size": "md" }
+    },
+    {
+      "title": "Large with custom presets",
+      "props": {
+        "value": "#ef4444",
+        "size": "lg",
+        "presets": ["#ef4444", "#22c55e", "#3b82f6"]
+      }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["input"]
+}

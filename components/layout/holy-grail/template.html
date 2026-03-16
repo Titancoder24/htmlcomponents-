@@ -1,0 +1,29 @@
+<!--
+  Holy Grail Component - template.html
+  Purpose: Classic holy grail layout with header, footer, main, and two sidebars.
+  Variants: default (both sidebars), no-left, no-right. Responsive collapse.
+-->
+
+<div class="voltz-holy-grail voltz-holy-grail--{{variant}}">
+  <header class="voltz-holy-grail__header">
+    {{slot:header}}
+  </header>
+  <div class="voltz-holy-grail__body">
+    {{#if variant !== "no-left"}}
+    <aside class="voltz-holy-grail__left" aria-label="Left sidebar">
+      {{slot:left-sidebar}}
+    </aside>
+    {{/if}}
+    <main class="voltz-holy-grail__main">
+      {{slot:main}}
+    </main>
+    {{#if variant !== "no-right"}}
+    <aside class="voltz-holy-grail__right" aria-label="Right sidebar">
+      {{slot:right-sidebar}}
+    </aside>
+    {{/if}}
+  </div>
+  <footer class="voltz-holy-grail__footer">
+    {{slot:footer}}
+  </footer>
+</div>

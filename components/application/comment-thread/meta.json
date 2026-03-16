@@ -1,0 +1,16 @@
+{
+  "name": "comment-thread",
+  "description": "Threaded comment display with avatar, author, timestamp, content, reply button, nested replies with indentation, and like/upvote support.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["comment", "thread", "discussion", "reply"],
+  "variants": ["default"],
+  "slots": ["content"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "article",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

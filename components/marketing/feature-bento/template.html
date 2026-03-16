@@ -1,0 +1,85 @@
+<!--
+  Feature Bento Component
+  Bento grid with mixed large/small cells.
+  Each cell: icon, title, description. Hover effects.
+-->
+<section class="voltz-feature-bento {{variant}}" data-component="feature-bento">
+  <div class="voltz-feature-bento__container">
+    <div class="voltz-feature-bento__header">
+      <h2 class="voltz-feature-bento__title">Platform Features</h2>
+      <p class="voltz-feature-bento__subtitle">
+        Everything you need to build modern applications, all in one place.
+      </p>
+    </div>
+
+    <div class="voltz-feature-bento__grid">
+      {{slot:default}}
+
+      <div class="voltz-feature-bento__cell voltz-feature-bento__cell--lg">
+        <div class="voltz-feature-bento__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/>
+          </svg>
+        </div>
+        <h3 class="voltz-feature-bento__cell-title">Visual Dashboard</h3>
+        <p class="voltz-feature-bento__cell-desc">
+          Monitor all your metrics in a beautiful, real-time dashboard with customizable widgets and data views.
+        </p>
+      </div>
+
+      <div class="voltz-feature-bento__cell voltz-feature-bento__cell--sm">
+        <div class="voltz-feature-bento__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="voltz-feature-bento__cell-title">Secure by Default</h3>
+        <p class="voltz-feature-bento__cell-desc">End-to-end encryption and zero-trust architecture.</p>
+      </div>
+
+      <div class="voltz-feature-bento__cell voltz-feature-bento__cell--sm">
+        <div class="voltz-feature-bento__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/>
+          </svg>
+        </div>
+        <h3 class="voltz-feature-bento__cell-title">Global Edge</h3>
+        <p class="voltz-feature-bento__cell-desc">Deploy to 200+ edge locations worldwide.</p>
+      </div>
+
+      <div class="voltz-feature-bento__cell voltz-feature-bento__cell--md">
+        <div class="voltz-feature-bento__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3 class="voltz-feature-bento__cell-title">Developer Experience</h3>
+        <p class="voltz-feature-bento__cell-desc">
+          First-class CLI, SDKs for every language, and comprehensive API documentation.
+        </p>
+      </div>
+
+      <div class="voltz-feature-bento__cell voltz-feature-bento__cell--md">
+        <div class="voltz-feature-bento__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3 class="voltz-feature-bento__cell-title">One-Click Deploy</h3>
+        <p class="voltz-feature-bento__cell-desc">
+          Push to production in seconds with automated builds, previews, and instant rollbacks.
+        </p>
+      </div>
+
+      <div class="voltz-feature-bento__cell voltz-feature-bento__cell--sm">
+        <div class="voltz-feature-bento__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3 class="voltz-feature-bento__cell-title">Team Tools</h3>
+        <p class="voltz-feature-bento__cell-desc">Collaborate with role-based access and audit logs.</p>
+      </div>
+    </div>
+  </div>
+</section>

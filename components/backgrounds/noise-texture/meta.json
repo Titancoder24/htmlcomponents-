@@ -1,0 +1,47 @@
+/**
+ * Voltz UI - Noise Texture Background
+ * Subtle noise/grain texture overlay
+ * @version 1.0.0
+ */
+{
+  "name": "noise-texture",
+  "displayName": "Noise Texture",
+  "description": "Subtle noise/grain texture overlay with configurable opacity and blend mode. CSS-only using SVG filter in base64 data URI.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "noise", "grain", "texture", "overlay", "css-only"],
+  "variants": ["default", "fine", "coarse", "film", "subtle"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "fine", "coarse", "film", "subtle"],
+      "description": "Noise texture preset"
+    },
+    "opacity": {
+      "type": "number",
+      "default": 0.15,
+      "min": 0,
+      "max": 1,
+      "description": "Noise overlay opacity"
+    },
+    "blendMode": {
+      "type": "string",
+      "default": "overlay",
+      "options": ["overlay", "multiply", "soft-light", "hard-light"],
+      "description": "CSS blend mode for noise layer"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the noise texture background"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "No animations - inherently accessible",
+    "role": "presentation"
+  }
+}

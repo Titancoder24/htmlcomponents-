@@ -1,0 +1,137 @@
+/**
+ * Voltz UI - Wave Animation Background Styles
+ * Animated wave/water effect using SVG paths
+ * @version 1.0.0
+ */
+
+.voltz-wave-animation {
+  --voltz-wave-color-1: rgba(99, 102, 241, 0.4);
+  --voltz-wave-color-2: rgba(99, 102, 241, 0.6);
+  --voltz-wave-color-3: rgba(99, 102, 241, 0.8);
+  --voltz-wave-speed: 12s;
+  --voltz-wave-height: 200px;
+  --voltz-wave-bg: #ffffff;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--voltz-wave-bg);
+}
+
+.voltz-wave-animation__waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--voltz-wave-height);
+  overflow: hidden;
+}
+
+/* Top position */
+.voltz-wave-animation[data-position="top"] .voltz-wave-animation__waves {
+  top: 0;
+  bottom: auto;
+  transform: rotate(180deg);
+}
+
+.voltz-wave-animation__svg {
+  display: block;
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Wave paths */
+.voltz-wave-animation__path--1 {
+  fill: var(--voltz-wave-color-1);
+  animation: voltz-wave-move var(--voltz-wave-speed) ease-in-out infinite;
+}
+
+.voltz-wave-animation__path--2 {
+  fill: var(--voltz-wave-color-2);
+  animation: voltz-wave-move var(--voltz-wave-speed) ease-in-out infinite;
+  animation-delay: calc(var(--voltz-wave-speed) * -0.33);
+}
+
+.voltz-wave-animation__path--3 {
+  fill: var(--voltz-wave-color-3);
+  animation: voltz-wave-move var(--voltz-wave-speed) ease-in-out infinite;
+  animation-delay: calc(var(--voltz-wave-speed) * -0.66);
+}
+
+@keyframes voltz-wave-move {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-25%); }
+}
+
+/* Content */
+.voltz-wave-animation__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Speed Variants */
+.voltz-wave-animation[data-speed="slow"] { --voltz-wave-speed: 24s; }
+.voltz-wave-animation[data-speed="fast"] { --voltz-wave-speed: 6s; }
+
+/* Variant: Ocean */
+.voltz-wave-animation--ocean {
+  --voltz-wave-color-1: rgba(0, 119, 182, 0.3);
+  --voltz-wave-color-2: rgba(0, 150, 199, 0.5);
+  --voltz-wave-color-3: rgba(0, 180, 216, 0.7);
+  --voltz-wave-bg: #caf0f8;
+}
+
+/* Variant: Sunset */
+.voltz-wave-animation--sunset {
+  --voltz-wave-color-1: rgba(255, 107, 53, 0.3);
+  --voltz-wave-color-2: rgba(255, 159, 28, 0.5);
+  --voltz-wave-color-3: rgba(255, 195, 113, 0.7);
+  --voltz-wave-bg: #2b2d42;
+}
+
+/* Variant: Minimal */
+.voltz-wave-animation--minimal {
+  --voltz-wave-color-1: rgba(0, 0, 0, 0.03);
+  --voltz-wave-color-2: rgba(0, 0, 0, 0.05);
+  --voltz-wave-color-3: rgba(0, 0, 0, 0.08);
+  --voltz-wave-height: 120px;
+}
+
+/* Variant: Layered */
+.voltz-wave-animation--layered {
+  --voltz-wave-color-1: rgba(139, 92, 246, 0.2);
+  --voltz-wave-color-2: rgba(99, 102, 241, 0.4);
+  --voltz-wave-color-3: rgba(59, 130, 246, 0.6);
+  --voltz-wave-height: 280px;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .voltz-wave-animation {
+  --voltz-wave-bg: #0a0a0a;
+}
+
+[data-theme="dark"] .voltz-wave-animation--ocean {
+  --voltz-wave-bg: #0a1628;
+}
+
+[data-theme="dark"] .voltz-wave-animation--minimal {
+  --voltz-wave-color-1: rgba(255, 255, 255, 0.03);
+  --voltz-wave-color-2: rgba(255, 255, 255, 0.05);
+  --voltz-wave-color-3: rgba(255, 255, 255, 0.08);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-wave-animation__path {
+    animation: none !important;
+  }
+
+  .voltz-wave-animation__svg {
+    width: 100%;
+  }
+}

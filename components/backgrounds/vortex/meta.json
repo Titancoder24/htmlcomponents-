@@ -1,0 +1,50 @@
+/**
+ * Voltz UI - Vortex Background
+ * Rotating vortex/spiral pattern
+ * @version 1.0.0
+ */
+{
+  "name": "vortex",
+  "displayName": "Vortex",
+  "description": "Rotating vortex/spiral pattern with configurable speed, color, and size. CSS animation with transforms.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "vortex", "spiral", "animated", "css-only"],
+  "variants": ["default", "tight", "wide", "neon", "monochrome"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "tight", "wide", "neon", "monochrome"],
+      "description": "Vortex style preset"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Rotation speed"
+    },
+    "color": {
+      "type": "string",
+      "default": "#6366f1",
+      "description": "Primary vortex color"
+    },
+    "size": {
+      "type": "string",
+      "default": "100%",
+      "description": "Vortex size relative to container"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the vortex background"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Vortex rendered statically when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

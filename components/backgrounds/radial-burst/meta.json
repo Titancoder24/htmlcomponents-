@@ -1,0 +1,50 @@
+/**
+ * Voltz UI - Radial Burst Background
+ * Radial burst/sunburst pattern
+ * @version 1.0.0
+ */
+{
+  "name": "radial-burst",
+  "displayName": "Radial Burst",
+  "description": "Radial burst/sunburst pattern using CSS conic-gradient with configurable ray count, color, and optional rotation animation.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "radial", "burst", "sunburst", "conic-gradient", "css-only"],
+  "variants": ["default", "subtle", "bold", "bicolor", "rainbow"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "subtle", "bold", "bicolor", "rainbow"],
+      "description": "Burst style preset"
+    },
+    "animated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable rotation animation"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Rotation animation speed"
+    },
+    "color": {
+      "type": "string",
+      "default": "#6366f1",
+      "description": "Primary ray color"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the radial burst"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Burst rendered statically when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

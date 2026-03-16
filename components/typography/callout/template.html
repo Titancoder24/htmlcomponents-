@@ -1,0 +1,23 @@
+<!--
+  Callout Component Template
+  Purpose: Renders an informational callout box with type-based
+  styling, optional icon, and collapsible content support.
+-->
+<div
+  class="voltz-callout voltz-callout--{{variant:type}} {{#if collapsible}}voltz-callout--collapsible{{/if}}"
+  role="note"
+  data-voltz-callout
+>
+  <div class="voltz-callout__header" {{#if collapsible}}data-voltz-callout-toggle tabindex="0" role="button" aria-expanded="true"{{/if}}>
+    {{#if icon}}
+    <span class="voltz-callout__icon" aria-hidden="true"></span>
+    {{/if}}
+    <span class="voltz-callout__title">{{slot:title}}</span>
+    {{#if collapsible}}
+    <span class="voltz-callout__chevron" aria-hidden="true"></span>
+    {{/if}}
+  </div>
+  <div class="voltz-callout__content" data-voltz-callout-content>
+    {{slot:default}}
+  </div>
+</div>

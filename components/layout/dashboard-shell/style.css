@@ -1,0 +1,181 @@
+/*
+ * Dashboard Shell Component - style.css
+ * Purpose: Full dashboard layout with header, sidebar, and main content.
+ * Responsive with collapsible sidebar and overlay on mobile.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-dashboard-header-height: 3.5rem;
+  --voltz-dashboard-sidebar-width: 260px;
+  --voltz-dashboard-sidebar-compact-width: 4rem;
+  --voltz-dashboard-header-bg: #ffffff;
+  --voltz-dashboard-header-border: #e5e7eb;
+  --voltz-dashboard-sidebar-bg: #f9fafb;
+  --voltz-dashboard-sidebar-border: #e5e7eb;
+  --voltz-dashboard-main-bg: #f3f4f6;
+  --voltz-dashboard-overlay-bg: rgba(0, 0, 0, 0.4);
+  --voltz-dashboard-transition: 300ms ease;
+  --voltz-dashboard-header-color: #111827;
+}
+
+[data-theme="dark"] {
+  --voltz-dashboard-header-bg: #1f2937;
+  --voltz-dashboard-header-border: #374151;
+  --voltz-dashboard-sidebar-bg: #111827;
+  --voltz-dashboard-sidebar-border: #374151;
+  --voltz-dashboard-main-bg: #0f172a;
+  --voltz-dashboard-overlay-bg: rgba(0, 0, 0, 0.6);
+  --voltz-dashboard-header-color: #f9fafb;
+}
+
+/* === Base === */
+.voltz-dashboard-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* === Header === */
+.voltz-dashboard-shell__header {
+  display: flex;
+  align-items: center;
+  height: var(--voltz-dashboard-header-height);
+  padding-inline: 1rem;
+  background: var(--voltz-dashboard-header-bg);
+  border-bottom: 1px solid var(--voltz-dashboard-header-border);
+  color: var(--voltz-dashboard-header-color);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  gap: 0.75rem;
+}
+
+.voltz-dashboard-shell__header-content {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+/* === Menu Button (mobile) === */
+.voltz-dashboard-shell__menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.voltz-dashboard-shell__menu-icon {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: currentColor;
+  position: relative;
+}
+
+.voltz-dashboard-shell__menu-icon::before,
+.voltz-dashboard-shell__menu-icon::after {
+  content: "";
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  left: 0;
+}
+
+.voltz-dashboard-shell__menu-icon::before { top: -6px; }
+.voltz-dashboard-shell__menu-icon::after { top: 6px; }
+
+/* === Body === */
+.voltz-dashboard-shell__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* === Sidebar === */
+.voltz-dashboard-shell__sidebar {
+  flex: 0 0 var(--voltz-dashboard-sidebar-width);
+  width: var(--voltz-dashboard-sidebar-width);
+  background: var(--voltz-dashboard-sidebar-bg);
+  border-right: 1px solid var(--voltz-dashboard-sidebar-border);
+  overflow-y: auto;
+  transition: width var(--voltz-dashboard-transition),
+              flex-basis var(--voltz-dashboard-transition);
+  box-sizing: border-box;
+}
+
+.voltz-dashboard-shell__sidebar-content {
+  padding: 1rem;
+}
+
+/* === Main === */
+.voltz-dashboard-shell__main {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--voltz-dashboard-main-bg);
+  padding: 1.5rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* === Overlay (mobile) === */
+.voltz-dashboard-shell__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--voltz-dashboard-overlay-bg);
+  z-index: 25;
+}
+
+/* === Compact Variant === */
+.voltz-dashboard-shell--compact .voltz-dashboard-shell__sidebar {
+  flex-basis: var(--voltz-dashboard-sidebar-compact-width);
+  width: var(--voltz-dashboard-sidebar-compact-width);
+}
+
+/* === Responsive === */
+@media (max-width: 767px) {
+  .voltz-dashboard-shell__menu-btn {
+    display: flex;
+  }
+
+  .voltz-dashboard-shell__sidebar {
+    position: fixed;
+    top: var(--voltz-dashboard-header-height);
+    left: 0;
+    bottom: 0;
+    z-index: 30;
+    transform: translateX(0);
+    transition: transform var(--voltz-dashboard-transition);
+  }
+
+  .voltz-dashboard-shell[data-sidebar-open="false"]
+    .voltz-dashboard-shell__sidebar {
+    transform: translateX(-100%);
+  }
+
+  .voltz-dashboard-shell[data-sidebar-open="true"]
+    .voltz-dashboard-shell__overlay {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .voltz-dashboard-shell__sidebar {
+    --voltz-dashboard-sidebar-width: 220px;
+  }
+}

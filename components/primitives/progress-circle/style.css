@@ -1,0 +1,106 @@
+/**
+ * Progress Circle Component - style.css
+ * Purpose: Styles for circular SVG progress indicator including sizes,
+ * colors, stroke-dasharray animation, indeterminate mode, and dark mode.
+ */
+
+/* --- Base --- */
+.voltz-progress-circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voltz-progress-circle__svg {
+  display: block;
+  transform: rotate(0deg);
+}
+
+/* --- Track --- */
+.voltz-progress-circle__track {
+  stroke: var(--voltz-progress-circle-track, #e5e7eb);
+}
+
+/* --- Fill --- */
+.voltz-progress-circle__fill {
+  transition: stroke-dashoffset 0.4s ease;
+}
+
+/* --- Sizes --- */
+.voltz-progress-circle--sm { width: 2rem; height: 2rem; }
+.voltz-progress-circle--md { width: 3rem; height: 3rem; }
+.voltz-progress-circle--lg { width: 4.5rem; height: 4.5rem; }
+.voltz-progress-circle--xl { width: 6rem; height: 6rem; }
+
+/* --- Colors --- */
+.voltz-progress-circle--primary .voltz-progress-circle__fill {
+  stroke: var(--voltz-color-primary, #3b82f6);
+}
+.voltz-progress-circle--success .voltz-progress-circle__fill {
+  stroke: var(--voltz-color-success, #22c55e);
+}
+.voltz-progress-circle--warning .voltz-progress-circle__fill {
+  stroke: var(--voltz-color-warning, #f59e0b);
+}
+.voltz-progress-circle--error .voltz-progress-circle__fill {
+  stroke: var(--voltz-color-error, #ef4444);
+}
+
+/* --- Label --- */
+.voltz-progress-circle__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voltz-progress-circle__value {
+  font-weight: var(--voltz-font-weight-semibold, 600);
+  color: var(--voltz-progress-circle-label-color, #374151);
+  line-height: 1;
+}
+
+.voltz-progress-circle--sm .voltz-progress-circle__value { font-size: 0.5rem; }
+.voltz-progress-circle--md .voltz-progress-circle__value { font-size: 0.625rem; }
+.voltz-progress-circle--lg .voltz-progress-circle__value { font-size: 0.875rem; }
+.voltz-progress-circle--xl .voltz-progress-circle__value { font-size: 1rem; }
+
+/* --- Indeterminate --- */
+.voltz-progress-circle--indeterminate .voltz-progress-circle__svg {
+  animation: voltz-progress-circle-spin 1.4s linear infinite;
+}
+
+.voltz-progress-circle--indeterminate .voltz-progress-circle__fill {
+  stroke-dashoffset: 75;
+  animation: voltz-progress-circle-dash 1.4s ease-in-out infinite;
+}
+
+@keyframes voltz-progress-circle-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes voltz-progress-circle-dash {
+  0% { stroke-dashoffset: 90; }
+  50% { stroke-dashoffset: 25; }
+  100% { stroke-dashoffset: 90; }
+}
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-progress-circle__track {
+  stroke: var(--voltz-progress-circle-track-dark, #374151);
+}
+
+[data-theme="dark"] .voltz-progress-circle__value {
+  color: var(--voltz-progress-circle-label-color-dark, #e5e7eb);
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-progress-circle__fill { transition: none; }
+  .voltz-progress-circle--indeterminate .voltz-progress-circle__svg { animation: none; }
+  .voltz-progress-circle--indeterminate .voltz-progress-circle__fill { animation: none; }
+}

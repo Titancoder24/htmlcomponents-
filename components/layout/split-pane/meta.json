@@ -1,0 +1,35 @@
+{
+  "id": "split-pane",
+  "name": "Split Pane",
+  "description": "Two-panel split layout with configurable direction and ratio. Stacks responsively on mobile viewports.",
+  "category": "layout",
+  "tags": ["split", "pane", "two-column", "ratio", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Two-panel structural layout. Use landmarks (nav, main, aside) within panels for accessibility."
+  },
+  "variants": [
+    { "name": "horizontal", "description": "Side-by-side split (left/right)" },
+    { "name": "vertical", "description": "Stacked split (top/bottom)" }
+  ],
+  "slots": [
+    { "name": "primary", "description": "Primary panel content" },
+    { "name": "secondary", "description": "Secondary panel content" }
+  ],
+  "examples": [
+    {
+      "name": "50-50 split",
+      "description": "Equal horizontal split",
+      "props": { "variant": "horizontal", "ratio": "50-50" }
+    },
+    {
+      "name": "Sidebar split",
+      "description": "33-67 split with narrow left panel",
+      "props": { "variant": "horizontal", "ratio": "33-67" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["sidebar-layout", "holy-grail", "grid"]
+}

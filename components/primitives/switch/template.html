@@ -1,0 +1,22 @@
+<!--
+  Switch Component - template.html
+  Purpose: Renders a toggle switch with ARIA role="switch" for proper
+  accessibility. Uses a hidden checkbox for form compatibility.
+-->
+<label class="voltz-switch voltz-switch--{{size}} voltz-switch--{{color}} {{#if disabled}}voltz-switch--disabled{{/if}}">
+  <input
+    class="voltz-switch__input"
+    type="checkbox"
+    role="switch"
+    {{#if checked}}checked aria-checked="true"{{/if}}
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+    {{#if label}}aria-label="{{label}}"{{/if}}
+  />
+  <span class="voltz-switch__track" aria-hidden="true">
+    <span class="voltz-switch__thumb"></span>
+  </span>
+  {{#if label}}
+  <span class="voltz-switch__label">{{label}}</span>
+  {{/if}}
+  {{slot:default}}
+</label>

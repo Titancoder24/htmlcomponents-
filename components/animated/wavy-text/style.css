@@ -1,0 +1,66 @@
+/*
+ * Wavy Text Component Styles
+ * Text with wave animation on characters.
+ * Variants: continuous, hover
+ * Uses only transform (translateY) for compositor-friendly animations.
+ */
+
+.voltz-wavy-text {
+  --voltz-wavy-text-duration: 1.5s;
+  --voltz-wavy-text-amplitude: 12px;
+  --voltz-wavy-text-delay: 60ms;
+  --voltz-wavy-text-color: inherit;
+  --voltz-wavy-text-font-size: inherit;
+
+  display: inline-block;
+  font-size: var(--voltz-wavy-text-font-size);
+  color: var(--voltz-wavy-text-color);
+}
+
+[data-theme="dark"] .voltz-wavy-text {
+  --voltz-wavy-text-color: #f3f4f6;
+}
+
+/* Hide original content after JS splits */
+.voltz-wavy-text[data-initialized] > .voltz-wavy-text__content {
+  display: none;
+}
+
+.voltz-wavy-text__char {
+  display: inline-block;
+  white-space: pre;
+}
+
+/* Continuous variant */
+.voltz-wavy-text--continuous .voltz-wavy-text__char {
+  animation: voltz-wavy-text-bounce var(--voltz-wavy-text-duration) ease-in-out
+    infinite;
+  animation-delay: calc(var(--voltz-wavy-text-delay) * var(--voltz-wavy-char-index, 0));
+}
+
+/* Hover variant - only animate on parent hover */
+.voltz-wavy-text--hover .voltz-wavy-text__char {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.voltz-wavy-text--hover:hover .voltz-wavy-text__char {
+  animation: voltz-wavy-text-bounce var(--voltz-wavy-text-duration) ease-in-out;
+  animation-delay: calc(var(--voltz-wavy-text-delay) * var(--voltz-wavy-char-index, 0));
+}
+
+@keyframes voltz-wavy-text-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--voltz-wavy-text-amplitude) * -1));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-wavy-text__char {
+    animation: none !important;
+    transform: none !important;
+  }
+}

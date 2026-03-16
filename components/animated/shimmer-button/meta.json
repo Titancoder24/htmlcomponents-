@@ -1,0 +1,21 @@
+{
+  "name": "shimmer-button",
+  "description": "Button with a traveling shimmer/shine effect. Supports continuous or hover-only animation with configurable colors.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["continuous", "hover"],
+  "tags": ["button", "shimmer", "shine", "animation", "cta"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-shimmer-btn-bg",
+    "--voltz-shimmer-btn-color",
+    "--voltz-shimmer-btn-shimmer-color",
+    "--voltz-shimmer-btn-duration",
+    "--voltz-shimmer-btn-radius",
+    "--voltz-shimmer-btn-padding"
+  ],
+  "slots": {
+    "default": "Button label text"
+  }
+}

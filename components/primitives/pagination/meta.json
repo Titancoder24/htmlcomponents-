@@ -1,0 +1,76 @@
+{
+  "id": "pagination",
+  "name": "pagination",
+  "displayName": "Pagination",
+  "description": "Page navigation component with sizes, simple/full variants, boundary controls, ellipsis for large page ranges, and keyboard navigation.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["pagination", "navigation", "paging", "pages", "list"],
+  "props": {
+    "totalPages": {
+      "type": "number",
+      "default": 1,
+      "description": "Total number of pages"
+    },
+    "currentPage": {
+      "type": "number",
+      "default": 1,
+      "description": "Currently active page (1-indexed)"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the pagination controls"
+    },
+    "variant": {
+      "type": "string",
+      "default": "full",
+      "options": ["simple", "full"],
+      "description": "Simple shows prev/next only, full shows page numbers"
+    },
+    "showBoundaries": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to show first/last page buttons"
+    },
+    "siblingCount": {
+      "type": "number",
+      "default": 1,
+      "description": "Number of page numbers visible on each side of current"
+    }
+  },
+  "slots": {},
+  "events": {
+    "change": {
+      "description": "Fired when a page is selected, detail: { page: number }"
+    }
+  },
+  "accessibility": {
+    "role": "navigation",
+    "keyboard": {
+      "Tab": "Moves focus between pagination buttons",
+      "Enter": "Activates focused page button",
+      "ArrowLeft": "Moves to previous page",
+      "ArrowRight": "Moves to next page"
+    },
+    "ariaAttributes": ["aria-label=\"Pagination\"", "aria-current=\"page\""]
+  },
+  "variants": [
+    { "name": "simple", "description": "Previous and next buttons only" },
+    { "name": "full", "description": "Full page number display" }
+  ],
+  "examples": [
+    {
+      "title": "Full pagination",
+      "props": { "totalPages": 20, "currentPage": 5, "variant": "full" }
+    },
+    {
+      "title": "Simple pagination",
+      "props": { "totalPages": 10, "currentPage": 3, "variant": "simple" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["breadcrumb", "button"]
+}

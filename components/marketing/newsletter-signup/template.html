@@ -1,0 +1,48 @@
+<!--
+  Newsletter Signup Component
+  Purpose: Email signup form with input + button, supporting inline or stacked
+  layout. Includes success state and privacy text.
+  Variants: default, inline, stacked, minimal, card
+-->
+<section class="voltz-newsletter {{variant}}" data-component="newsletter-signup"
+         role="region" aria-label="Newsletter signup">
+  <div class="voltz-newsletter__container">
+    <div class="voltz-newsletter__header">
+      {{#if showIcon}}
+      <span class="voltz-newsletter__icon" aria-hidden="true">{{slot:icon}}</span>
+      {{/if}}
+      <h2 class="voltz-newsletter__title">{{slot:title}}</h2>
+      <p class="voltz-newsletter__description">{{slot:description}}</p>
+    </div>
+    <form class="voltz-newsletter__form" data-newsletter-form>
+      <div class="voltz-newsletter__input-group">
+        <label for="newsletter-email" class="voltz-newsletter__sr-only">
+          Email address
+        </label>
+        <input type="email" id="newsletter-email"
+               class="voltz-newsletter__input"
+               placeholder="Enter your email address"
+               required
+               aria-describedby="newsletter-privacy" />
+        <button type="submit" class="voltz-newsletter__btn">
+          {{slot:buttonText}}
+        </button>
+      </div>
+      <p class="voltz-newsletter__error" data-newsletter-error
+         role="alert" aria-live="polite"></p>
+    </form>
+    <div class="voltz-newsletter__success" data-newsletter-success
+         aria-live="polite" hidden>
+      <svg class="voltz-newsletter__success-icon" width="24" height="24"
+           viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p class="voltz-newsletter__success-text">{{slot:successMessage}}</p>
+    </div>
+    <p class="voltz-newsletter__privacy" id="newsletter-privacy">
+      {{slot:privacyText}}
+    </p>
+  </div>
+</section>

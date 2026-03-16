@@ -1,0 +1,51 @@
+/**
+ * Voltz UI - Frosted Glass Background
+ * Frosted/blurred glass background effect
+ * @version 1.0.0
+ */
+{
+  "name": "frosted-glass",
+  "displayName": "Frosted Glass",
+  "description": "Frosted/blurred glass background effect using backdrop-filter. Configurable blur amount, tint color, and opacity.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "frosted", "glass", "blur", "backdrop-filter", "css-only"],
+  "variants": ["default", "light", "dark", "tinted", "heavy", "subtle"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "light", "dark", "tinted", "heavy", "subtle"],
+      "description": "Frosted glass style preset"
+    },
+    "blur": {
+      "type": "string",
+      "default": "12px",
+      "description": "Blur amount"
+    },
+    "tintColor": {
+      "type": "string",
+      "default": "rgba(255, 255, 255, 0.25)",
+      "description": "Background tint color with alpha"
+    },
+    "opacity": {
+      "type": "number",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "description": "Overall opacity of the frosted layer"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content inside the frosted glass container"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "No animations - inherently accessible",
+    "role": "presentation"
+  }
+}

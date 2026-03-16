@@ -1,0 +1,22 @@
+{
+  "name": "glow-card",
+  "description": "Card with animated glow border effect. Configurable colors, glow intensity, and speed options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "rainbow", "subtle"],
+  "tags": ["card", "glow", "border", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-glow-card-color-1",
+    "--voltz-glow-card-color-2",
+    "--voltz-glow-card-duration",
+    "--voltz-glow-card-intensity",
+    "--voltz-glow-card-radius",
+    "--voltz-glow-card-bg",
+    "--voltz-glow-card-border-width"
+  ],
+  "slots": {
+    "default": "Card content"
+  }
+}

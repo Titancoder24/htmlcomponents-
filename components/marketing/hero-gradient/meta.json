@@ -1,0 +1,42 @@
+/**
+ * Meta configuration for hero-gradient component.
+ * Hero section with animated gradient background and text overlay.
+ */
+{
+  "name": "hero-gradient",
+  "displayName": "Hero Gradient",
+  "description": "Hero section with animated gradient background, headline, subheadline, and CTA buttons. Includes gradient presets and dark overlay for text readability.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["hero", "gradient", "animated", "landing"],
+  "variants": {
+    "default": {
+      "description": "Purple-blue animated gradient"
+    },
+    "sunset": {
+      "description": "Orange-pink gradient"
+    },
+    "ocean": {
+      "description": "Blue-teal gradient"
+    },
+    "forest": {
+      "description": "Green-emerald gradient"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Main content overlay area"
+    }
+  },
+  "customProperties": {
+    "--voltz-hero-gradient-color-1": { "default": "#4f46e5", "description": "Gradient color 1" },
+    "--voltz-hero-gradient-color-2": { "default": "#7c3aed", "description": "Gradient color 2" },
+    "--voltz-hero-gradient-color-3": { "default": "#2563eb", "description": "Gradient color 3" },
+    "--voltz-hero-gradient-overlay": { "default": "rgba(0,0,0,0.4)", "description": "Dark overlay" },
+    "--voltz-hero-gradient-text-color": { "default": "#ffffff", "description": "Text color" },
+    "--voltz-hero-gradient-animation-duration": { "default": "8s", "description": "Gradient cycle time" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true
+}

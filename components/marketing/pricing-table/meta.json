@@ -1,0 +1,30 @@
+/**
+ * Meta configuration for pricing-table component.
+ * Side-by-side pricing plans with feature lists and CTAs.
+ */
+{
+  "name": "pricing-table",
+  "displayName": "Pricing Table",
+  "description": "Pricing plans displayed side by side (2-4 plans) with feature lists, highlighted/recommended plan, CTA buttons, and currency display.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["pricing", "plans", "table", "features", "cta"],
+  "variants": {
+    "default": { "description": "3 plans side by side" },
+    "compact": { "description": "Compact layout with less padding" }
+  },
+  "slots": {
+    "default": { "description": "Pricing plan cards" }
+  },
+  "customProperties": {
+    "--voltz-pricing-table-bg": { "default": "#0a0a0a", "description": "Section background" },
+    "--voltz-pricing-table-card-bg": { "default": "#111", "description": "Card background" },
+    "--voltz-pricing-table-featured-bg": { "default": "#111", "description": "Featured card background" },
+    "--voltz-pricing-table-featured-border": { "default": "#6366f1", "description": "Featured card border" },
+    "--voltz-pricing-table-text-color": { "default": "#ffffff", "description": "Text color" },
+    "--voltz-pricing-table-cta-bg": { "default": "#6366f1", "description": "CTA background" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true
+}

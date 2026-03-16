@@ -1,0 +1,42 @@
+<!--
+  KPI Widget Component Template
+  Purpose: Displays a KPI with value, label, target, progress bar,
+  performance color coding, and sparkline area slot.
+-->
+<article class="voltz-kpi-widget voltz-kpi-widget--{{variant}} voltz-kpi-widget--{{size}} voltz-kpi-widget--{{performance}}"
+         role="article"
+         aria-label="{{label}}: {{value}}">
+
+  <div class="voltz-kpi-widget__header">
+    <span class="voltz-kpi-widget__label">{{label}}</span>
+    <span class="voltz-kpi-widget__performance-badge">{{performance}}</span>
+  </div>
+
+  <div class="voltz-kpi-widget__body">
+    <div class="voltz-kpi-widget__value-section">
+      <span class="voltz-kpi-widget__value">{{value}}</span>
+      {{#if target}}
+      <span class="voltz-kpi-widget__target">Target: {{target}}</span>
+      {{/if}}
+    </div>
+
+    <div class="voltz-kpi-widget__sparkline" aria-hidden="true">
+      {{slot:sparkline}}
+    </div>
+  </div>
+
+  {{#if progress}}
+  <div class="voltz-kpi-widget__progress-section">
+    <div class="voltz-kpi-widget__progress-bar"
+         role="progressbar"
+         aria-valuenow="{{progress}}"
+         aria-valuemin="0"
+         aria-valuemax="100"
+         aria-label="{{label}} progress">
+      <div class="voltz-kpi-widget__progress-fill"
+           style="width: {{progress}}%"></div>
+    </div>
+    <span class="voltz-kpi-widget__progress-label">{{progress}}%</span>
+  </div>
+  {{/if}}
+</article>

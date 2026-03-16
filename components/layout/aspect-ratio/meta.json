@@ -1,0 +1,37 @@
+{
+  "id": "aspect-ratio",
+  "name": "Aspect Ratio",
+  "description": "Container that maintains a specific aspect ratio. Includes presets (1:1, 4:3, 16:9, 21:9) and custom ratio support.",
+  "category": "layout",
+  "tags": ["aspect-ratio", "ratio", "video", "image", "responsive", "proportional"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Decorative layout container. Content within should have appropriate alt text and labels."
+  },
+  "variants": [
+    { "name": "1-1", "description": "Square 1:1 aspect ratio" },
+    { "name": "4-3", "description": "Standard 4:3 aspect ratio" },
+    { "name": "16-9", "description": "Widescreen 16:9 aspect ratio" },
+    { "name": "21-9", "description": "Ultra-wide 21:9 aspect ratio" },
+    { "name": "custom", "description": "Custom aspect ratio via CSS custom property" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Content to display within the aspect ratio container" }
+  ],
+  "examples": [
+    {
+      "name": "Video container",
+      "description": "16:9 container for video embeds",
+      "props": { "variant": "16-9" }
+    },
+    {
+      "name": "Square thumbnail",
+      "description": "1:1 square container for avatars or thumbnails",
+      "props": { "variant": "1-1" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["container", "center"]
+}

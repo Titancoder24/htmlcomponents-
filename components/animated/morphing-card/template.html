@@ -1,0 +1,18 @@
+<!--
+  Morphing Card Component
+  Card that morphs shape on hover/click.
+  Smooth border-radius and scale transitions.
+  Variants: hover (CSS only) or click (JS toggle).
+-->
+<div class="voltz-morphing-card voltz-morphing-card--{{variant}}"
+     data-voltz-morphing-card
+     data-variant="{{variant}}"
+     tabindex="0"
+     role="article">
+  <div class="voltz-morphing-card__default">
+    {{slot:default}}
+  </div>
+  <div class="voltz-morphing-card__morphed">
+    {{slot:morphed}}
+  </div>
+</div>

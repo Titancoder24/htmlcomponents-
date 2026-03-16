@@ -1,0 +1,24 @@
+<!--
+  Sidebar Layout Component - template.html
+  Purpose: Sidebar + main content layout with position and width options.
+  Sidebar position: left/right. Collapsible on mobile via toggle button.
+-->
+
+<div class="voltz-sidebar-layout voltz-sidebar-layout--{{variant}}"
+     data-sidebar-width="{{sidebarWidth}}"
+     data-collapsed="false">
+  <aside class="voltz-sidebar-layout__sidebar" aria-label="Sidebar">
+    <button class="voltz-sidebar-layout__toggle"
+            type="button"
+            aria-expanded="true"
+            aria-label="Toggle sidebar">
+      <span class="voltz-sidebar-layout__toggle-icon"></span>
+    </button>
+    <div class="voltz-sidebar-layout__sidebar-content">
+      {{slot:sidebar}}
+    </div>
+  </aside>
+  <main class="voltz-sidebar-layout__main">
+    {{slot:main}}
+  </main>
+</div>

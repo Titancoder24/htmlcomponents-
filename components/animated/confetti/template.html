@@ -1,0 +1,17 @@
+<!--
+  Confetti Component
+  Confetti burst animation with multiple triggers.
+  Variants: on-load, on-click, manual (triggered via JS API).
+  Creates particles with randomized colors, positions, and rotations.
+-->
+<div class="voltz-confetti"
+     data-voltz-confetti
+     data-trigger="{{variant}}"
+     data-count="{{#if count}}{{count}}{{else}}30{{/if}}"
+     data-colors='{{#if colors}}{{colors}}{{else}}["#6366f1","#ec4899","#fbbf24","#34d399","#f97316"]{{/if}}'
+     role="presentation">
+  <div class="voltz-confetti__trigger">
+    {{slot:default}}
+  </div>
+  <div class="voltz-confetti__canvas" aria-hidden="true"></div>
+</div>

@@ -1,0 +1,41 @@
+/*
+ * Number Counter Component Styles
+ * Styling for the animated number counter.
+ * Animation is JS-driven; CSS handles appearance only.
+ */
+
+.voltz-number-counter {
+  --voltz-counter-duration: 2s;
+  --voltz-counter-color: inherit;
+  --voltz-counter-font-size: 2rem;
+  --voltz-counter-font-weight: 700;
+
+  display: inline-flex;
+  align-items: baseline;
+  color: var(--voltz-counter-color);
+  font-size: var(--voltz-counter-font-size);
+  font-weight: var(--voltz-counter-font-weight);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-theme="dark"] .voltz-number-counter {
+  --voltz-counter-color: #f0f0f0;
+}
+
+.voltz-number-counter__prefix,
+.voltz-number-counter__suffix {
+  font-weight: inherit;
+}
+
+.voltz-number-counter__prefix {
+  margin-right: 0.05em;
+}
+
+.voltz-number-counter__suffix {
+  margin-left: 0.05em;
+}
+
+.voltz-number-counter__value {
+  display: inline-block;
+  min-width: 1ch;
+}

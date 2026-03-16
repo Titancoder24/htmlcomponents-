@@ -1,0 +1,17 @@
+{
+  "name": "number-counter",
+  "description": "Animates a number counting up from 0 to a target value. Supports decimals, custom easing, and IntersectionObserver trigger.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "tags": ["number", "counter", "count-up", "animation", "stats"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-counter-duration",
+    "--voltz-counter-color",
+    "--voltz-counter-font-size",
+    "--voltz-counter-font-weight"
+  ],
+  "slots": {}
+}

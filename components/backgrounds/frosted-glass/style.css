@@ -1,0 +1,109 @@
+/**
+ * Voltz UI - Frosted Glass Background Styles
+ * Frosted/blurred glass effect using backdrop-filter
+ * @version 1.0.0
+ */
+
+.voltz-frosted-glass {
+  --voltz-frost-blur: 12px;
+  --voltz-frost-tint: rgba(255, 255, 255, 0.25);
+  --voltz-frost-opacity: 1;
+  --voltz-frost-border: rgba(255, 255, 255, 0.18);
+  --voltz-frost-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.voltz-frosted-glass__surface {
+  position: absolute;
+  inset: 0;
+  background: var(--voltz-frost-tint);
+  backdrop-filter: blur(var(--voltz-frost-blur));
+  -webkit-backdrop-filter: blur(var(--voltz-frost-blur));
+  border: 1px solid var(--voltz-frost-border);
+  box-shadow: var(--voltz-frost-shadow);
+  opacity: var(--voltz-frost-opacity);
+  pointer-events: none;
+}
+
+.voltz-frosted-glass__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Variant: Light */
+.voltz-frosted-glass--light {
+  --voltz-frost-tint: rgba(255, 255, 255, 0.45);
+  --voltz-frost-border: rgba(255, 255, 255, 0.3);
+  --voltz-frost-blur: 16px;
+}
+
+/* Variant: Dark */
+.voltz-frosted-glass--dark {
+  --voltz-frost-tint: rgba(0, 0, 0, 0.35);
+  --voltz-frost-border: rgba(255, 255, 255, 0.08);
+  --voltz-frost-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Variant: Tinted */
+.voltz-frosted-glass--tinted {
+  --voltz-frost-tint: rgba(99, 102, 241, 0.15);
+  --voltz-frost-border: rgba(99, 102, 241, 0.2);
+}
+
+/* Variant: Heavy */
+.voltz-frosted-glass--heavy {
+  --voltz-frost-blur: 24px;
+  --voltz-frost-tint: rgba(255, 255, 255, 0.4);
+  --voltz-frost-border: rgba(255, 255, 255, 0.25);
+  --voltz-frost-shadow: 0 8px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* Variant: Subtle */
+.voltz-frosted-glass--subtle {
+  --voltz-frost-blur: 6px;
+  --voltz-frost-tint: rgba(255, 255, 255, 0.1);
+  --voltz-frost-border: rgba(255, 255, 255, 0.1);
+  --voltz-frost-shadow: none;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .voltz-frosted-glass {
+  --voltz-frost-tint: rgba(20, 20, 30, 0.6);
+  --voltz-frost-border: rgba(255, 255, 255, 0.06);
+  --voltz-frost-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .voltz-frosted-glass--light {
+  --voltz-frost-tint: rgba(30, 30, 45, 0.5);
+  --voltz-frost-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .voltz-frosted-glass--tinted {
+  --voltz-frost-tint: rgba(99, 102, 241, 0.2);
+  --voltz-frost-border: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="dark"] .voltz-frosted-glass--heavy {
+  --voltz-frost-tint: rgba(10, 10, 20, 0.7);
+}
+
+[data-theme="dark"] .voltz-frosted-glass--subtle {
+  --voltz-frost-tint: rgba(20, 20, 30, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .voltz-frosted-glass__surface {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  [data-theme="dark"] .voltz-frosted-glass__surface {
+    background: rgba(20, 20, 30, 0.9);
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "comparison-table",
+  "description": "Feature comparison table with check/cross indicators, highlighted recommended column, responsive scroll, and sticky header.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "compact", "bordered"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "compact", "bordered"]
+    },
+    "stickyHeader": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "slots": {
+    "default": "Comparison table rows",
+    "head": "Column headers"
+  },
+  "accessibility": {
+    "role": "table",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["comparison", "table", "features", "plans", "versus"]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "CTA Split",
+  "description": "Split call-to-action section with text on one side and form or image on the other. Supports background options and responsive stacking.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["cta", "split", "conversion", "form"],
+  "variants": ["default", "image-right", "image-left", "form-right", "gradient-bg"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

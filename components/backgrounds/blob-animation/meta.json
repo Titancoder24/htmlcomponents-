@@ -1,0 +1,45 @@
+/**
+ * Voltz UI - Blob Animation Background
+ * Animated morphing blob shapes
+ * @version 1.0.0
+ */
+{
+  "name": "blob-animation",
+  "displayName": "Blob Animation",
+  "description": "Animated morphing blob shapes with configurable colors, size, and speed. CSS animation with border-radius morphing.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "blob", "morph", "animated", "css-only"],
+  "variants": ["default", "dual", "triple", "gradient", "neon"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "dual", "triple", "gradient", "neon"],
+      "description": "Blob style preset"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Morph animation speed"
+    },
+    "size": {
+      "type": "string",
+      "default": "400px",
+      "description": "Blob size"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the blob background"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Blobs rendered as static circles when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

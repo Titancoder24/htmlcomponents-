@@ -1,0 +1,21 @@
+{
+  "name": "meteors",
+  "description": "Falling meteor/shooting star trails. CSS-only animation with configurable speed, count, angle, and color.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "tags": ["meteors", "shooting-star", "trails", "animation", "background"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-meteors-color",
+    "--voltz-meteors-speed",
+    "--voltz-meteors-count",
+    "--voltz-meteors-angle",
+    "--voltz-meteors-trail-length",
+    "--voltz-meteors-size"
+  ],
+  "slots": {
+    "default": "Content overlaid on meteor background"
+  }
+}

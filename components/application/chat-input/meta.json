@@ -1,0 +1,16 @@
+{
+  "name": "chat-input",
+  "description": "Chat message input with auto-resizing text area, send button, attachment button, emoji button placeholder, and optional character limit.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["chat", "input", "message", "textarea"],
+  "variants": ["default", "with-limit"],
+  "slots": ["actions"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "textbox",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

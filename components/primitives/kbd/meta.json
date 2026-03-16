@@ -1,0 +1,49 @@
+{
+  "id": "kbd",
+  "name": "kbd",
+  "displayName": "Kbd",
+  "description": "Keyboard key indicator component styled to resemble a physical key with a 3D effect. Supports multiple sizes for inline use in documentation and UI hints.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["keyboard", "key", "shortcut", "hotkey", "keybinding"],
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the keyboard key indicator"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Key label text (e.g., 'Ctrl', 'A', 'Enter')"
+    }
+  },
+  "events": {},
+  "accessibility": {
+    "role": "none",
+    "keyboard": {},
+    "ariaAttributes": []
+  },
+  "variants": [],
+  "examples": [
+    {
+      "title": "Single key",
+      "props": { "size": "md" },
+      "slots": { "default": "Ctrl" }
+    },
+    {
+      "title": "Key combination",
+      "description": "Displayed as multiple kbd elements with a separator",
+      "props": { "size": "md" }
+    },
+    {
+      "title": "Small key",
+      "props": { "size": "sm" },
+      "slots": { "default": "Esc" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["code-block"]
+}

@@ -1,0 +1,83 @@
+/**
+ * Spinner Component - style.css
+ * Purpose: Styles for the SVG loading spinner including sizes, colors,
+ * rotation animation, visually hidden label, and dark mode support.
+ */
+
+/* --- Base --- */
+.voltz-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.voltz-spinner__svg {
+  animation: voltz-spinner-rotate 0.75s linear infinite;
+}
+
+.voltz-spinner__track {
+  opacity: 0.2;
+}
+
+.voltz-spinner__arc {
+  opacity: 1;
+}
+
+/* --- Visually hidden label --- */
+.voltz-spinner__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Sizes --- */
+.voltz-spinner--xs { width: 0.75rem; height: 0.75rem; }
+.voltz-spinner--sm { width: 1rem; height: 1rem; }
+.voltz-spinner--md { width: 1.5rem; height: 1.5rem; }
+.voltz-spinner--lg { width: 2rem; height: 2rem; }
+.voltz-spinner--xl { width: 3rem; height: 3rem; }
+
+.voltz-spinner--xs .voltz-spinner__svg { width: 0.75rem; height: 0.75rem; }
+.voltz-spinner--sm .voltz-spinner__svg { width: 1rem; height: 1rem; }
+.voltz-spinner--md .voltz-spinner__svg { width: 1.5rem; height: 1.5rem; }
+.voltz-spinner--lg .voltz-spinner__svg { width: 2rem; height: 2rem; }
+.voltz-spinner--xl .voltz-spinner__svg { width: 3rem; height: 3rem; }
+
+/* --- Colors --- */
+.voltz-spinner--primary { color: var(--voltz-color-primary, #3b82f6); }
+.voltz-spinner--neutral { color: var(--voltz-color-neutral, #6b7280); }
+.voltz-spinner--success { color: var(--voltz-color-success, #22c55e); }
+.voltz-spinner--warning { color: var(--voltz-color-warning, #f59e0b); }
+.voltz-spinner--error { color: var(--voltz-color-error, #ef4444); }
+.voltz-spinner--current { color: currentColor; }
+
+/* --- Animation --- */
+@keyframes voltz-spinner-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-spinner--primary { color: var(--voltz-color-primary-dark, #60a5fa); }
+[data-theme="dark"] .voltz-spinner--neutral { color: var(--voltz-color-neutral-dark, #9ca3af); }
+[data-theme="dark"] .voltz-spinner--success { color: var(--voltz-color-success-dark, #4ade80); }
+[data-theme="dark"] .voltz-spinner--warning { color: var(--voltz-color-warning-dark, #fbbf24); }
+[data-theme="dark"] .voltz-spinner--error { color: var(--voltz-color-error-dark, #f87171); }
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-spinner__svg {
+    animation: none;
+  }
+  .voltz-spinner__arc {
+    stroke-dasharray: none;
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,17 @@
+<!-- Back to Top Component Template -->
+<!-- Scroll-to-top button with smooth scroll -->
+<button class="voltz-back-to-top voltz-back-to-top--{{variant}} voltz-back-to-top--{{position}}"
+        type="button"
+        aria-label="Scroll to top"
+        data-threshold="300"
+        data-visible="false">
+  <span class="voltz-back-to-top__icon" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </span>
+  {{#if variant === "pill"}}
+  <span class="voltz-back-to-top__label">Top</span>
+  {{/if}}
+</button>

@@ -1,0 +1,18 @@
+<!--
+  Animated Beam Component
+  Animated beam/laser connecting two points.
+  Variants: default, dashed, pulse
+  CSS gradient animation for the beam effect.
+-->
+<div class="voltz-beam voltz-beam--{{variant}}"
+     data-voltz-beam
+     data-variant="{{variant}}"
+     {{#if direction}}data-direction="{{direction}}"{{else}}data-direction="horizontal"{{/if}}
+     role="presentation"
+     aria-hidden="true">
+  <div class="voltz-beam__line">
+    <div class="voltz-beam__glow"></div>
+    <div class="voltz-beam__core"></div>
+    <div class="voltz-beam__particle"></div>
+  </div>
+</div>

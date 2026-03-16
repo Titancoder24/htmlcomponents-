@@ -1,0 +1,99 @@
+/*
+ * Spacer Component - style.css
+ * Purpose: Empty space element using a consistent spacing scale.
+ * Sizes: xs(0.25rem), sm(0.5rem), md(1rem), lg(1.5rem), xl(2rem), 2xl(3rem), 3xl(4rem).
+ * Axis: vertical (height), horizontal (width).
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-spacer-xs: 0.25rem;
+  --voltz-spacer-sm: 0.5rem;
+  --voltz-spacer-md: 1rem;
+  --voltz-spacer-lg: 1.5rem;
+  --voltz-spacer-xl: 2rem;
+  --voltz-spacer-2xl: 3rem;
+  --voltz-spacer-3xl: 4rem;
+}
+
+/* === Base === */
+.voltz-spacer {
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* === Vertical Axis (height-based spacing) === */
+.voltz-spacer[data-axis="vertical"],
+.voltz-spacer:not([data-axis]) {
+  width: 100%;
+}
+
+.voltz-spacer--xs[data-axis="vertical"],
+.voltz-spacer--xs:not([data-axis]) {
+  height: var(--voltz-spacer-xs);
+}
+
+.voltz-spacer--sm[data-axis="vertical"],
+.voltz-spacer--sm:not([data-axis]) {
+  height: var(--voltz-spacer-sm);
+}
+
+.voltz-spacer--md[data-axis="vertical"],
+.voltz-spacer--md:not([data-axis]) {
+  height: var(--voltz-spacer-md);
+}
+
+.voltz-spacer--lg[data-axis="vertical"],
+.voltz-spacer--lg:not([data-axis]) {
+  height: var(--voltz-spacer-lg);
+}
+
+.voltz-spacer--xl[data-axis="vertical"],
+.voltz-spacer--xl:not([data-axis]) {
+  height: var(--voltz-spacer-xl);
+}
+
+.voltz-spacer--2xl[data-axis="vertical"],
+.voltz-spacer--2xl:not([data-axis]) {
+  height: var(--voltz-spacer-2xl);
+}
+
+.voltz-spacer--3xl[data-axis="vertical"],
+.voltz-spacer--3xl:not([data-axis]) {
+  height: var(--voltz-spacer-3xl);
+}
+
+/* === Horizontal Axis (width-based spacing) === */
+.voltz-spacer[data-axis="horizontal"] {
+  display: inline-block;
+  height: auto;
+}
+
+.voltz-spacer--xs[data-axis="horizontal"] { width: var(--voltz-spacer-xs); }
+.voltz-spacer--sm[data-axis="horizontal"] { width: var(--voltz-spacer-sm); }
+.voltz-spacer--md[data-axis="horizontal"] { width: var(--voltz-spacer-md); }
+.voltz-spacer--lg[data-axis="horizontal"] { width: var(--voltz-spacer-lg); }
+.voltz-spacer--xl[data-axis="horizontal"] { width: var(--voltz-spacer-xl); }
+.voltz-spacer--2xl[data-axis="horizontal"] { width: var(--voltz-spacer-2xl); }
+.voltz-spacer--3xl[data-axis="horizontal"] { width: var(--voltz-spacer-3xl); }
+
+/* === Responsive: reduce spacing on mobile === */
+@media (max-width: 639px) {
+  .voltz-spacer--2xl[data-axis="vertical"],
+  .voltz-spacer--2xl:not([data-axis]) {
+    height: var(--voltz-spacer-xl);
+  }
+
+  .voltz-spacer--3xl[data-axis="vertical"],
+  .voltz-spacer--3xl:not([data-axis]) {
+    height: var(--voltz-spacer-2xl);
+  }
+
+  .voltz-spacer--2xl[data-axis="horizontal"] {
+    width: var(--voltz-spacer-xl);
+  }
+
+  .voltz-spacer--3xl[data-axis="horizontal"] {
+    width: var(--voltz-spacer-2xl);
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "name": "select",
+  "displayName": "Select",
+  "description": "A native select dropdown with variants, sizes, states, label, and helper text support.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "outline",
+      "options": ["outline", "filled"],
+      "description": "Visual style variant"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the select"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "",
+      "description": "Placeholder text shown as first disabled option"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Label text displayed above the select"
+    },
+    "helperText": {
+      "type": "string",
+      "default": "",
+      "description": "Helper or error text below the select"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the select is disabled"
+    },
+    "error": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the select is in an error state"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the select is required"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Option elements for the select"
+    }
+  },
+  "events": {
+    "change": { "description": "Fired when the selected option changes" }
+  },
+  "accessibility": {
+    "role": "listbox",
+    "keyboard": {
+      "ArrowUp/ArrowDown": "Navigate options",
+      "Enter/Space": "Select option",
+      "Tab": "Moves focus to/from the select"
+    },
+    "ariaAttributes": ["aria-invalid", "aria-disabled", "aria-required", "aria-describedby"]
+  },
+  "examples": [
+    {
+      "title": "Basic select",
+      "props": { "variant": "outline", "placeholder": "Choose an option..." }
+    }
+  ]
+}

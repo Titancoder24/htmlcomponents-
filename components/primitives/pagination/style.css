@@ -1,0 +1,139 @@
+/**
+ * Pagination Component - style.css
+ * Purpose: Styles for page navigation including button sizes, active state,
+ * ellipsis, simple/full variants, and dark mode support.
+ */
+
+/* --- Base --- */
+.voltz-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--voltz-spacing-1, 0.25rem);
+}
+
+.voltz-pagination__pages {
+  display: flex;
+  align-items: center;
+  gap: var(--voltz-spacing-1, 0.25rem);
+}
+
+/* --- Buttons --- */
+.voltz-pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--voltz-pagination-border, #e5e7eb);
+  background: var(--voltz-pagination-bg, #ffffff);
+  color: var(--voltz-pagination-color, #374151);
+  cursor: pointer;
+  font-weight: var(--voltz-font-weight-medium, 500);
+  border-radius: var(--voltz-radius-md, 0.375rem);
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+  padding: 0;
+}
+
+.voltz-pagination__btn:hover:not(:disabled) {
+  background: var(--voltz-pagination-hover-bg, #f9fafb);
+  border-color: var(--voltz-pagination-hover-border, #d1d5db);
+}
+
+.voltz-pagination__btn:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 1px;
+}
+
+.voltz-pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- Active page --- */
+.voltz-pagination__btn--active {
+  background: var(--voltz-color-primary, #3b82f6);
+  color: var(--voltz-pagination-active-color, #ffffff);
+  border-color: var(--voltz-color-primary, #3b82f6);
+}
+
+.voltz-pagination__btn--active:hover:not(:disabled) {
+  background: var(--voltz-color-primary-hover, #2563eb);
+  border-color: var(--voltz-color-primary-hover, #2563eb);
+}
+
+/* --- Icon --- */
+.voltz-pagination__icon {
+  flex-shrink: 0;
+}
+
+/* --- Sizes --- */
+.voltz-pagination--sm .voltz-pagination__btn {
+  min-width: 1.75rem;
+  height: 1.75rem;
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+}
+.voltz-pagination--sm .voltz-pagination__icon { width: 0.875rem; height: 0.875rem; }
+
+.voltz-pagination--md .voltz-pagination__btn {
+  min-width: 2.25rem;
+  height: 2.25rem;
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+}
+.voltz-pagination--md .voltz-pagination__icon { width: 1rem; height: 1rem; }
+
+.voltz-pagination--lg .voltz-pagination__btn {
+  min-width: 2.75rem;
+  height: 2.75rem;
+  font-size: var(--voltz-font-size-base, 1rem);
+}
+.voltz-pagination--lg .voltz-pagination__icon { width: 1.25rem; height: 1.25rem; }
+
+/* --- Ellipsis --- */
+.voltz-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--voltz-pagination-ellipsis-color, #9ca3af);
+  padding: 0 var(--voltz-spacing-1, 0.25rem);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+/* --- Simple info text --- */
+.voltz-pagination__info {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  color: var(--voltz-pagination-info-color, #6b7280);
+  padding: 0 var(--voltz-spacing-2, 0.5rem);
+  white-space: nowrap;
+}
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-pagination__btn {
+  background: var(--voltz-pagination-bg-dark, #1f2937);
+  border-color: var(--voltz-pagination-border-dark, #374151);
+  color: var(--voltz-pagination-color-dark, #e5e7eb);
+}
+
+[data-theme="dark"] .voltz-pagination__btn:hover:not(:disabled) {
+  background: var(--voltz-pagination-hover-bg-dark, #374151);
+  border-color: var(--voltz-pagination-hover-border-dark, #4b5563);
+}
+
+[data-theme="dark"] .voltz-pagination__btn--active {
+  background: var(--voltz-color-primary, #3b82f6);
+  color: #ffffff;
+  border-color: var(--voltz-color-primary, #3b82f6);
+}
+
+[data-theme="dark"] .voltz-pagination__ellipsis {
+  color: var(--voltz-pagination-ellipsis-color-dark, #6b7280);
+}
+
+[data-theme="dark"] .voltz-pagination__info {
+  color: var(--voltz-pagination-info-color-dark, #9ca3af);
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-pagination__btn { transition: none; }
+}

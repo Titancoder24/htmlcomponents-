@@ -1,0 +1,19 @@
+<!--
+  Marquee Component
+  Horizontal scrolling content with CSS-only animation.
+  Duplicates content for seamless loop.
+  Direction: left or right. Pauses on hover.
+-->
+<div class="voltz-marquee voltz-marquee--{{variant}}"
+     data-voltz-marquee
+     role="marquee"
+     aria-label="Scrolling content">
+  <div class="voltz-marquee__track">
+    <div class="voltz-marquee__content">
+      {{slot:default}}
+    </div>
+    <div class="voltz-marquee__content" aria-hidden="true">
+      {{slot:default}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<!--
+  Chat Bubble Component
+  Message bubble with sent/received variants, delivery status,
+  optional avatar, timestamps, and directional tail pointer.
+-->
+<div class="voltz-chat-bubble voltz-chat-bubble--{{variant}}" role="listitem">
+  {{#if variant.received}}
+  <div class="voltz-chat-bubble__avatar">
+    <span class="voltz-chat-bubble__avatar-text">AM</span>
+  </div>
+  {{/if}}
+
+  <div class="voltz-chat-bubble__wrapper">
+    {{#if variant.received}}
+    <span class="voltz-chat-bubble__author">Alex Morgan</span>
+    {{/if}}
+
+    <div class="voltz-chat-bubble__body">
+      <div class="voltz-chat-bubble__tail" aria-hidden="true"></div>
+      <p class="voltz-chat-bubble__text">
+        {{slot:content}}
+        Hey! Just wanted to check in on the project status. Are we still on track for the Friday deadline?
+      </p>
+    </div>
+
+    <div class="voltz-chat-bubble__meta">
+      <time class="voltz-chat-bubble__time" datetime="2026-03-16T10:30:00">10:30 AM</time>
+      {{#if variant.sent}}
+      <span class="voltz-chat-bubble__status voltz-chat-bubble__status--read" aria-label="Read">
+        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
+          <path d="M1 5l3 3L10 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 5l3 3L15 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+<!-- Example: Sent bubble -->
+<div class="voltz-chat-bubble voltz-chat-bubble--sent" role="listitem">
+  <div class="voltz-chat-bubble__wrapper">
+    <div class="voltz-chat-bubble__body">
+      <div class="voltz-chat-bubble__tail" aria-hidden="true"></div>
+      <p class="voltz-chat-bubble__text">
+        Yes, everything is on schedule! I'll push the final changes tonight and we can review in the morning.
+      </p>
+    </div>
+    <div class="voltz-chat-bubble__meta">
+      <time class="voltz-chat-bubble__time" datetime="2026-03-16T10:32:00">10:32 AM</time>
+      <span class="voltz-chat-bubble__status voltz-chat-bubble__status--delivered" aria-label="Delivered">
+        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
+          <path d="M1 5l3 3L10 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 5l3 3L15 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- Example: Received bubble -->
+<div class="voltz-chat-bubble voltz-chat-bubble--received" role="listitem">
+  <div class="voltz-chat-bubble__avatar">
+    <span class="voltz-chat-bubble__avatar-text">AM</span>
+  </div>
+  <div class="voltz-chat-bubble__wrapper">
+    <span class="voltz-chat-bubble__author">Alex Morgan</span>
+    <div class="voltz-chat-bubble__body">
+      <div class="voltz-chat-bubble__tail" aria-hidden="true"></div>
+      <p class="voltz-chat-bubble__text">
+        Sounds great! Let me know if you need any help with the testing.
+      </p>
+    </div>
+    <div class="voltz-chat-bubble__meta">
+      <time class="voltz-chat-bubble__time" datetime="2026-03-16T10:33:00">10:33 AM</time>
+    </div>
+  </div>
+</div>
+
+<!-- Example: Sent with pending status -->
+<div class="voltz-chat-bubble voltz-chat-bubble--sent" role="listitem">
+  <div class="voltz-chat-bubble__wrapper">
+    <div class="voltz-chat-bubble__body">
+      <div class="voltz-chat-bubble__tail" aria-hidden="true"></div>
+      <p class="voltz-chat-bubble__text">Will do, thanks!</p>
+    </div>
+    <div class="voltz-chat-bubble__meta">
+      <time class="voltz-chat-bubble__time" datetime="2026-03-16T10:34:00">10:34 AM</time>
+      <span class="voltz-chat-bubble__status voltz-chat-bubble__status--sent" aria-label="Sent">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <path d="M1 5l3 3L9 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>

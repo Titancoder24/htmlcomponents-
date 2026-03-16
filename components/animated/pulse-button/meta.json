@@ -1,0 +1,21 @@
+{
+  "name": "pulse-button",
+  "description": "Button with pulsing glow animation. Supports continuous or hover-triggered ring expansion effect with configurable colors.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["continuous", "hover"],
+  "tags": ["button", "pulse", "glow", "animation", "cta"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-pulse-button-color",
+    "--voltz-pulse-button-text-color",
+    "--voltz-pulse-button-duration",
+    "--voltz-pulse-button-radius",
+    "--voltz-pulse-button-padding",
+    "--voltz-pulse-button-ring-size"
+  ],
+  "slots": {
+    "default": "Button text"
+  }
+}

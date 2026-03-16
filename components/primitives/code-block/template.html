@@ -1,0 +1,44 @@
+<!--
+  Code Block Component - template.html
+  Purpose: Renders a code display block with optional header (language badge
+  and copy button), optional line numbers, and scrollable pre/code content.
+  Syntax highlighting is applied via CSS classes on token spans.
+-->
+<div
+  class="voltz-code-block {{#if showLineNumbers}}voltz-code-block--line-numbers{{/if}}"
+  role="region"
+  aria-label="Code block in {{language}}"
+  {{#if maxHeight}}style="--voltz-code-block-max-height: {{maxHeight}}"{{/if}}
+>
+  {{#if showLanguageBadge}}
+  <div class="voltz-code-block__header">
+    <span class="voltz-code-block__language">{{language}}</span>
+
+    {{#if showCopyButton}}
+    <button
+      class="voltz-code-block__copy"
+      type="button"
+      aria-label="Copy code to clipboard"
+    >
+      <svg class="voltz-code-block__copy-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"/>
+        <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/>
+      </svg>
+      <span class="voltz-code-block__copy-label">Copy</span>
+    </button>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  <div class="voltz-code-block__body">
+    {{#if showLineNumbers}}
+    <div class="voltz-code-block__lines" aria-hidden="true">
+      {{#each lines}}
+      <span class="voltz-code-block__line-number">{{number}}</span>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    <pre class="voltz-code-block__pre" tabindex="0"><code class="voltz-code-block__code voltz-code-block__code--{{language}}">{{slot:default}}</code></pre>
+  </div>
+</div>

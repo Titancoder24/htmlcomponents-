@@ -1,0 +1,96 @@
+/*
+ * Sticky Header Component - style.css
+ * Purpose: Sticky header with scroll shadow and transparent-to-solid transition.
+ * Height options: sm, md, lg. Shadow on scroll. Responsive.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-sticky-header-height-sm: 2.5rem;
+  --voltz-sticky-header-height-md: 3.5rem;
+  --voltz-sticky-header-height-lg: 4.5rem;
+  --voltz-sticky-header-bg: #ffffff;
+  --voltz-sticky-header-bg-transparent: transparent;
+  --voltz-sticky-header-color: #111827;
+  --voltz-sticky-header-border: #e5e7eb;
+  --voltz-sticky-header-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --voltz-sticky-header-transition: 300ms ease;
+  --voltz-sticky-header-z: 50;
+}
+
+[data-theme="dark"] {
+  --voltz-sticky-header-bg: #1f2937;
+  --voltz-sticky-header-color: #f9fafb;
+  --voltz-sticky-header-border: #374151;
+  --voltz-sticky-header-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* === Base === */
+.voltz-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--voltz-sticky-header-z);
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color var(--voltz-sticky-header-transition),
+              box-shadow var(--voltz-sticky-header-transition);
+}
+
+/* === Inner Container === */
+.voltz-sticky-header__inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* === Default Variant === */
+.voltz-sticky-header--default {
+  background: var(--voltz-sticky-header-bg);
+  color: var(--voltz-sticky-header-color);
+  border-bottom: 1px solid var(--voltz-sticky-header-border);
+}
+
+/* === Transparent Variant === */
+.voltz-sticky-header--transparent {
+  background: var(--voltz-sticky-header-bg-transparent);
+  color: var(--voltz-sticky-header-color);
+  border-bottom: 1px solid transparent;
+}
+
+.voltz-sticky-header--transparent[data-scrolled="true"] {
+  background: var(--voltz-sticky-header-bg);
+  border-bottom-color: var(--voltz-sticky-header-border);
+}
+
+/* === Height Options === */
+.voltz-sticky-header[data-height="sm"] {
+  height: var(--voltz-sticky-header-height-sm);
+}
+
+.voltz-sticky-header[data-height="md"],
+.voltz-sticky-header:not([data-height]) {
+  height: var(--voltz-sticky-header-height-md);
+}
+
+.voltz-sticky-header[data-height="lg"] {
+  height: var(--voltz-sticky-header-height-lg);
+}
+
+/* === Shadow on Scroll === */
+.voltz-sticky-header[data-shadow="true"][data-scrolled="true"] {
+  box-shadow: var(--voltz-sticky-header-shadow);
+}
+
+/* === Responsive === */
+@media (max-width: 639px) {
+  .voltz-sticky-header__inner {
+    padding-inline: 0.75rem;
+  }
+
+  .voltz-sticky-header[data-height="lg"] {
+    height: var(--voltz-sticky-header-height-md);
+  }
+}

@@ -1,0 +1,12 @@
+<!--
+  Slide In Component
+  Slide-in from edge animation.
+  Variants: left, right, top, bottom
+  Uses IntersectionObserver for scroll-triggered activation.
+-->
+<div class="voltz-slide-in voltz-slide-in--{{variant}}"
+     data-voltz-slide-in
+     data-variant="{{variant}}"
+     {{#if delay}}style="--voltz-slide-in-delay: {{delay}}"{{/if}}>
+  {{slot:default}}
+</div>

@@ -1,0 +1,38 @@
+<!--
+  Select Component - template.html
+  Purpose: Renders a native select dropdown with optional label, helper text,
+  placeholder, and a custom chevron indicator.
+-->
+<div class="voltz-select-wrapper voltz-select-wrapper--{{variant}} voltz-select-wrapper--{{size}} {{#if error}}voltz-select-wrapper--error{{/if}} {{#if disabled}}voltz-select-wrapper--disabled{{/if}}">
+  {{#if label}}
+  <label class="voltz-select__label" for="{{id}}">
+    {{label}}
+    {{#if required}}<span class="voltz-select__required" aria-hidden="true">*</span>{{/if}}
+  </label>
+  {{/if}}
+  <div class="voltz-select__group">
+    <select
+      class="voltz-select"
+      id="{{id}}"
+      {{#if disabled}}disabled aria-disabled="true"{{/if}}
+      {{#if error}}aria-invalid="true"{{/if}}
+      {{#if required}}required aria-required="true"{{/if}}
+      {{#if helperText}}aria-describedby="{{id}}-helper"{{/if}}
+    >
+      {{#if placeholder}}
+      <option value="" disabled selected hidden>{{placeholder}}</option>
+      {{/if}}
+      {{slot:default}}
+    </select>
+    <span class="voltz-select__chevron" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </div>
+  {{#if helperText}}
+  <span class="voltz-select__helper" id="{{id}}-helper" role="status">
+    {{helperText}}
+  </span>
+  {{/if}}
+</div>

@@ -1,0 +1,19 @@
+<!--
+  Pull Quote Component Template
+  Purpose: Renders a large decorative pull quote for articles
+  with decorative quotation marks and attribution support.
+-->
+<figure class="voltz-pull-quote voltz-pull-quote--{{variant:variant}}">
+  <blockquote class="voltz-pull-quote__blockquote">
+    <span class="voltz-pull-quote__mark voltz-pull-quote__mark--open" aria-hidden="true"></span>
+    <p class="voltz-pull-quote__text">
+      {{slot:default}}
+    </p>
+    <span class="voltz-pull-quote__mark voltz-pull-quote__mark--close" aria-hidden="true"></span>
+  </blockquote>
+  {{#if attribution}}
+  <figcaption class="voltz-pull-quote__attribution">
+    {{slot:attribution}}
+  </figcaption>
+  {{/if}}
+</figure>

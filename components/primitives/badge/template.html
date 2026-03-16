@@ -1,0 +1,13 @@
+<!--
+  Badge Component - template.html
+  Purpose: Renders a status badge with optional dot indicator, supporting
+  solid, outline, and soft variants with multiple color schemes.
+-->
+<span class="voltz-badge voltz-badge--{{variant}} voltz-badge--{{size}} voltz-badge--{{color}} {{#if dot}}voltz-badge--dot{{/if}}" role="status">
+  {{#if dot}}
+  <span class="voltz-badge__dot" aria-hidden="true"></span>
+  {{/if}}
+  <span class="voltz-badge__label">
+    {{slot:default}}
+  </span>
+</span>

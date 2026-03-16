@@ -1,0 +1,46 @@
+<!--
+  Accordion Component - template.html
+  Purpose: Renders a set of expandable/collapsible content sections with
+  trigger headers, animated chevron icons, and ARIA expanded states.
+-->
+<div
+  class="voltz-accordion"
+  data-mode="{{mode}}"
+  data-default-open="{{defaultOpen}}"
+>
+  {{slot:default}}
+</div>
+
+<!--
+  Individual accordion item template:
+  Repeated for each section within the accordion.
+-->
+<!--
+<div class="voltz-accordion__item">
+  <button
+    class="voltz-accordion__header"
+    type="button"
+    aria-expanded="false"
+    aria-controls="{{itemId}}-panel"
+    id="{{itemId}}-header"
+  >
+    <span class="voltz-accordion__title">{{title}}</span>
+    <span class="voltz-accordion__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </button>
+  <div
+    class="voltz-accordion__panel"
+    id="{{itemId}}-panel"
+    role="region"
+    aria-labelledby="{{itemId}}-header"
+    hidden
+  >
+    <div class="voltz-accordion__content">
+      {{slot:item-content}}
+    </div>
+  </div>
+</div>
+-->

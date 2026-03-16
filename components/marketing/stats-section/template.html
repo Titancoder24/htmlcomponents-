@@ -1,0 +1,34 @@
+<!--
+  Stats Section Component
+  Purpose: Display key statistics/metrics in a row with large numbers,
+  labels, optional icons, and animated count-up on scroll.
+  Variants: default, centered, with-icons, card, bordered
+-->
+<section class="voltz-stats {{variant}}" data-component="stats-section"
+         role="region" aria-label="Key statistics">
+  <div class="voltz-stats__container">
+    {{#if showHeader}}
+    <div class="voltz-stats__header">
+      <h2 class="voltz-stats__title">{{slot:title}}</h2>
+      <p class="voltz-stats__subtitle">{{slot:subtitle}}</p>
+    </div>
+    {{/if}}
+    <div class="voltz-stats__grid">
+      {{slot:default}}
+      <!-- Repeatable stat item -->
+      <div class="voltz-stats__item" data-stat-item>
+        {{#if showIcon}}
+        <span class="voltz-stats__icon" aria-hidden="true">{{slot:icon}}</span>
+        {{/if}}
+        <div class="voltz-stats__number" data-stat-value="{{statValue}}"
+             data-stat-prefix="{{statPrefix}}" data-stat-suffix="{{statSuffix}}">
+          {{slot:statDisplay}}
+        </div>
+        <div class="voltz-stats__label">{{slot:statLabel}}</div>
+        {{#if showDescription}}
+        <p class="voltz-stats__description">{{slot:statDescription}}</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</section>

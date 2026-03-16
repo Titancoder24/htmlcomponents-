@@ -1,0 +1,37 @@
+<!--
+  CTA Banner Component
+  Purpose: Full-width banner CTA with inline text and button layout.
+  Dismissible option with smooth animation. Background color/gradient support.
+  Variants: default, gradient, dark, accent, dismissible
+-->
+<section class="voltz-cta-banner {{variant}}" data-component="cta-banner"
+         role="region" aria-label="Call to action">
+  <div class="voltz-cta-banner__container">
+    {{#if showIcon}}
+    <span class="voltz-cta-banner__icon" aria-hidden="true">{{slot:icon}}</span>
+    {{/if}}
+    <div class="voltz-cta-banner__content">
+      <h2 class="voltz-cta-banner__title">{{slot:title}}</h2>
+      <p class="voltz-cta-banner__text">{{slot:description}}</p>
+    </div>
+    <div class="voltz-cta-banner__actions">
+      <a href="#" class="voltz-cta-banner__btn voltz-cta-banner__btn--primary">
+        {{slot:primaryButton}}
+      </a>
+      {{#if showSecondaryButton}}
+      <a href="#" class="voltz-cta-banner__btn voltz-cta-banner__btn--secondary">
+        {{slot:secondaryButton}}
+      </a>
+      {{/if}}
+    </div>
+    {{#if dismissible}}
+    <button class="voltz-cta-banner__dismiss" data-dismiss-banner
+            aria-label="Dismiss banner" type="button">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+    {{/if}}
+  </div>
+</section>

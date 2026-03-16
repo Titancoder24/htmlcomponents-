@@ -1,0 +1,29 @@
+{
+  "name": "sidebar-nav",
+  "displayName": "Sidebar Navigation",
+  "description": "Vertical sidebar navigation with collapsible groups, active state indicators, and icon support.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["compact", "expanded"],
+  "slots": {
+    "header": "Sidebar header area",
+    "default": "Navigation items and groups",
+    "footer": "Sidebar footer area"
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "expanded",
+      "options": ["compact", "expanded"]
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "Space", "ArrowUp", "ArrowDown", "Escape"],
+    "aria": ["role=navigation", "aria-label", "aria-expanded", "aria-current"]
+  }
+}

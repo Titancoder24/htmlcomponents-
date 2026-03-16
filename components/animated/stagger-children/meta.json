@@ -1,0 +1,19 @@
+{
+  "name": "stagger-children",
+  "description": "Children animate in with stagger delay. Supports fade, slide, and scale animation types with configurable stagger delay.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["fade", "slide", "scale"],
+  "tags": ["stagger", "children", "animation", "sequence"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-stagger-duration",
+    "--voltz-stagger-delay",
+    "--voltz-stagger-easing",
+    "--voltz-stagger-distance"
+  ],
+  "slots": {
+    "default": "Child elements to stagger"
+  }
+}

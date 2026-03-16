@@ -1,0 +1,158 @@
+/**
+ * Voltz UI - Radial Burst Background Styles
+ * Sunburst pattern using CSS conic-gradient
+ * @version 1.0.0
+ */
+
+.voltz-radial-burst {
+  --voltz-burst-color: #6366f1;
+  --voltz-burst-color-alt: transparent;
+  --voltz-burst-opacity: 0.15;
+  --voltz-burst-speed: 60s;
+  --voltz-burst-bg: #ffffff;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--voltz-burst-bg);
+}
+
+.voltz-radial-burst__rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  opacity: var(--voltz-burst-opacity);
+  background: conic-gradient(
+    var(--voltz-burst-color) 0deg,
+    var(--voltz-burst-color-alt) 10deg,
+    var(--voltz-burst-color) 20deg,
+    var(--voltz-burst-color-alt) 30deg,
+    var(--voltz-burst-color) 40deg,
+    var(--voltz-burst-color-alt) 50deg,
+    var(--voltz-burst-color) 60deg,
+    var(--voltz-burst-color-alt) 70deg,
+    var(--voltz-burst-color) 80deg,
+    var(--voltz-burst-color-alt) 90deg,
+    var(--voltz-burst-color) 100deg,
+    var(--voltz-burst-color-alt) 110deg,
+    var(--voltz-burst-color) 120deg,
+    var(--voltz-burst-color-alt) 130deg,
+    var(--voltz-burst-color) 140deg,
+    var(--voltz-burst-color-alt) 150deg,
+    var(--voltz-burst-color) 160deg,
+    var(--voltz-burst-color-alt) 170deg,
+    var(--voltz-burst-color) 180deg,
+    var(--voltz-burst-color-alt) 190deg,
+    var(--voltz-burst-color) 200deg,
+    var(--voltz-burst-color-alt) 210deg,
+    var(--voltz-burst-color) 220deg,
+    var(--voltz-burst-color-alt) 230deg,
+    var(--voltz-burst-color) 240deg,
+    var(--voltz-burst-color-alt) 250deg,
+    var(--voltz-burst-color) 260deg,
+    var(--voltz-burst-color-alt) 270deg,
+    var(--voltz-burst-color) 280deg,
+    var(--voltz-burst-color-alt) 290deg,
+    var(--voltz-burst-color) 300deg,
+    var(--voltz-burst-color-alt) 310deg,
+    var(--voltz-burst-color) 320deg,
+    var(--voltz-burst-color-alt) 330deg,
+    var(--voltz-burst-color) 340deg,
+    var(--voltz-burst-color-alt) 350deg,
+    var(--voltz-burst-color) 360deg
+  );
+  will-change: transform;
+}
+
+/* Animated rotation */
+.voltz-radial-burst[data-animated="true"] .voltz-radial-burst__rays {
+  animation: voltz-burst-rotate var(--voltz-burst-speed) linear infinite;
+}
+
+@keyframes voltz-burst-rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.voltz-radial-burst__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Speed */
+.voltz-radial-burst[data-speed="slow"] { --voltz-burst-speed: 120s; }
+.voltz-radial-burst[data-speed="fast"] { --voltz-burst-speed: 30s; }
+
+/* Variant: Subtle */
+.voltz-radial-burst--subtle {
+  --voltz-burst-opacity: 0.06;
+}
+
+/* Variant: Bold */
+.voltz-radial-burst--bold {
+  --voltz-burst-opacity: 0.3;
+}
+
+.voltz-radial-burst--bold .voltz-radial-burst__rays {
+  background: conic-gradient(
+    var(--voltz-burst-color) 0deg,
+    var(--voltz-burst-color-alt) 15deg,
+    var(--voltz-burst-color) 30deg,
+    var(--voltz-burst-color-alt) 45deg,
+    var(--voltz-burst-color) 60deg,
+    var(--voltz-burst-color-alt) 75deg,
+    var(--voltz-burst-color) 90deg,
+    var(--voltz-burst-color-alt) 105deg,
+    var(--voltz-burst-color) 120deg,
+    var(--voltz-burst-color-alt) 135deg,
+    var(--voltz-burst-color) 150deg,
+    var(--voltz-burst-color-alt) 165deg,
+    var(--voltz-burst-color) 180deg,
+    var(--voltz-burst-color-alt) 195deg,
+    var(--voltz-burst-color) 210deg,
+    var(--voltz-burst-color-alt) 225deg,
+    var(--voltz-burst-color) 240deg,
+    var(--voltz-burst-color-alt) 255deg,
+    var(--voltz-burst-color) 270deg,
+    var(--voltz-burst-color-alt) 285deg,
+    var(--voltz-burst-color) 300deg,
+    var(--voltz-burst-color-alt) 315deg,
+    var(--voltz-burst-color) 330deg,
+    var(--voltz-burst-color-alt) 345deg,
+    var(--voltz-burst-color) 360deg
+  );
+}
+
+/* Variant: Bicolor */
+.voltz-radial-burst--bicolor {
+  --voltz-burst-color-alt: #f59e0b;
+  --voltz-burst-opacity: 0.2;
+}
+
+/* Variant: Rainbow */
+.voltz-radial-burst--rainbow .voltz-radial-burst__rays {
+  background: conic-gradient(
+    #ff0000, #ff8800, #ffff00, #00ff00,
+    #0088ff, #8800ff, #ff00ff, #ff0000
+  );
+  opacity: 0.1;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .voltz-radial-burst {
+  --voltz-burst-bg: #0a0a0a;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-radial-burst[data-animated="true"] .voltz-radial-burst__rays {
+    animation: none;
+  }
+}

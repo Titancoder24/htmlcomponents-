@@ -1,0 +1,114 @@
+/*
+ * Footer Simple Component Styles
+ * Purpose: Simple footer layout with logo, copyright, and inline link row.
+ * Supports dark/light variants and responsive stacking.
+ */
+
+.voltz-footer-simple {
+  --voltz-footer-simple-bg: #ffffff;
+  --voltz-footer-simple-text: #6b7280;
+  --voltz-footer-simple-text-hover: #1a1a2e;
+  --voltz-footer-simple-border: #e5e7eb;
+  --voltz-footer-simple-padding: 2rem 1.5rem;
+  --voltz-footer-simple-max-width: 1280px;
+}
+
+[data-theme="dark"] .voltz-footer-simple,
+.voltz-footer-simple[data-theme="dark"],
+.voltz-footer-simple.dark {
+  --voltz-footer-simple-bg: #0f0f1a;
+  --voltz-footer-simple-text: #9ca3af;
+  --voltz-footer-simple-text-hover: #f0f0f5;
+  --voltz-footer-simple-border: #2d2d44;
+}
+
+/* Base */
+.voltz-footer-simple {
+  background: var(--voltz-footer-simple-bg);
+  color: var(--voltz-footer-simple-text);
+  padding: var(--voltz-footer-simple-padding);
+}
+
+.voltz-footer-simple.bordered {
+  border-top: 1px solid var(--voltz-footer-simple-border);
+}
+
+.voltz-footer-simple__container {
+  max-width: var(--voltz-footer-simple-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Brand */
+.voltz-footer-simple__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.voltz-footer-simple__logo {
+  text-decoration: none;
+  color: var(--voltz-footer-simple-text-hover);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.voltz-footer-simple__copyright {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Navigation */
+.voltz-footer-simple__links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.voltz-footer-simple__link {
+  font-size: 0.875rem;
+  color: var(--voltz-footer-simple-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.voltz-footer-simple__link:hover {
+  color: var(--voltz-footer-simple-text-hover);
+}
+
+/* Minimal variant */
+.voltz-footer-simple.minimal .voltz-footer-simple__container {
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .voltz-footer-simple__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .voltz-footer-simple__brand {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .voltz-footer-simple__links {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1920px) {
+  .voltz-footer-simple { --voltz-footer-simple-max-width: 1440px; }
+}

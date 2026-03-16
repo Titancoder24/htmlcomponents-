@@ -1,0 +1,16 @@
+{
+  "name": "user-menu",
+  "description": "User dropdown menu with avatar trigger, name, email, menu items with icons, dividers, and keyboard navigation.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["user", "menu", "dropdown", "profile"],
+  "variants": ["default"],
+  "slots": ["trigger", "menu-items"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "menu",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "wavy-text",
+  "description": "Text with wave animation on characters. Configurable speed and amplitude with hover or continuous trigger options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["continuous", "hover"],
+  "tags": ["text", "wave", "animation", "characters"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-wavy-text-duration",
+    "--voltz-wavy-text-amplitude",
+    "--voltz-wavy-text-delay",
+    "--voltz-wavy-text-color",
+    "--voltz-wavy-text-font-size"
+  ],
+  "slots": {
+    "default": "Text content"
+  }
+}

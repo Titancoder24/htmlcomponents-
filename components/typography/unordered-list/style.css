@@ -1,0 +1,134 @@
+/*
+ * Unordered List Component Styles
+ * Purpose: Provides styling for unordered lists with disc, circle,
+ * check, dash, and arrow markers. Supports nesting and spacing.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-unordered-list {
+  --voltz-ul-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-ul-marker-color: var(--voltz-color-primary, #6366f1);
+  --voltz-ul-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+  --voltz-ul-indent: var(--voltz-spacing-6, 1.5rem);
+
+  color: var(--voltz-ul-color);
+  font-family: var(--voltz-ul-font-family);
+  margin: 0 0 var(--voltz-spacing-4, 1rem);
+  padding-left: var(--voltz-ul-indent);
+  list-style: none;
+}
+
+.voltz-unordered-list li {
+  position: relative;
+  padding-left: var(--voltz-spacing-2, 0.5rem);
+}
+
+.voltz-unordered-list li::before {
+  color: var(--voltz-ul-marker-color);
+  position: absolute;
+  right: 100%;
+  text-align: center;
+  width: 1.25em;
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-unordered-list--size-sm {
+  font-size: var(--voltz-ul-size-sm, 0.875rem);
+}
+
+.voltz-unordered-list--size-md {
+  font-size: var(--voltz-ul-size-md, 1rem);
+}
+
+.voltz-unordered-list--size-lg {
+  font-size: var(--voltz-ul-size-lg, 1.125rem);
+}
+
+/* ========================================
+   Spacing
+   ======================================== */
+.voltz-unordered-list--spacing-compact li {
+  margin-bottom: var(--voltz-spacing-1, 0.25rem);
+}
+
+.voltz-unordered-list--spacing-normal li {
+  margin-bottom: var(--voltz-spacing-2, 0.5rem);
+}
+
+.voltz-unordered-list--spacing-relaxed li {
+  margin-bottom: var(--voltz-spacing-3, 0.75rem);
+}
+
+/* ========================================
+   Variant: Disc
+   ======================================== */
+.voltz-unordered-list--disc li::before {
+  content: "\2022";
+  font-size: 1.2em;
+}
+
+/* ========================================
+   Variant: Circle
+   ======================================== */
+.voltz-unordered-list--circle li::before {
+  content: "\25CB";
+  font-size: 0.9em;
+}
+
+/* ========================================
+   Variant: Check
+   ======================================== */
+.voltz-unordered-list--check li::before {
+  content: "\2713";
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--voltz-color-success, #22c55e);
+}
+
+/* ========================================
+   Variant: Dash
+   ======================================== */
+.voltz-unordered-list--dash li::before {
+  content: "\2013";
+}
+
+/* ========================================
+   Variant: Arrow
+   ======================================== */
+.voltz-unordered-list--arrow li::before {
+  content: "\2192";
+  font-size: 0.9em;
+}
+
+/* ========================================
+   Nested Lists
+   ======================================== */
+.voltz-unordered-list .voltz-unordered-list {
+  margin-top: var(--voltz-spacing-2, 0.5rem);
+  margin-bottom: 0;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-unordered-list {
+  --voltz-ul-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+  --voltz-ul-marker-color: var(--voltz-color-primary-400, #818cf8);
+}
+
+[data-theme="dark"] .voltz-unordered-list--check li::before {
+  color: var(--voltz-color-success-400, #4ade80);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-unordered-list {
+    transition: none;
+  }
+}

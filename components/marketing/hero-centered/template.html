@@ -1,0 +1,48 @@
+<!--
+  Hero Centered Component
+  A full-width centered hero section with headline, subheadline,
+  CTA buttons, and optional image/illustration below.
+  Supports gradient background variant and dark mode.
+-->
+<section class="voltz-hero-centered {{variant}}" data-component="hero-centered">
+  <div class="voltz-hero-centered__container">
+    {{#if badge}}
+    <div class="voltz-hero-centered__badge">
+      <span class="voltz-hero-centered__badge-text">{{badge}}</span>
+    </div>
+    {{/if}}
+
+    <h1 class="voltz-hero-centered__headline">
+      Build Something <span class="voltz-hero-centered__highlight">Extraordinary</span>
+    </h1>
+
+    <p class="voltz-hero-centered__subheadline">
+      Create stunning digital experiences with our powerful platform.
+      Ship faster, scale effortlessly, and delight your users.
+    </p>
+
+    <div class="voltz-hero-centered__actions">
+      <a href="#" class="voltz-hero-centered__cta voltz-hero-centered__cta--primary">
+        Get Started Free
+      </a>
+      <a href="#" class="voltz-hero-centered__cta voltz-hero-centered__cta--secondary">
+        See Demo
+        <svg class="voltz-hero-centered__cta-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    {{#if showImage}}
+    <div class="voltz-hero-centered__image-wrapper">
+      {{slot:image}}
+      <img
+        class="voltz-hero-centered__image"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='540' fill='%231a1a2e'%3E%3Crect width='960' height='540' rx='12'/%3E%3Ctext x='480' y='270' text-anchor='middle' fill='%23555' font-size='24'%3EHero Image%3C/text%3E%3C/svg%3E"
+        alt="Hero illustration"
+        loading="lazy"
+      />
+    </div>
+    {{/if}}
+  </div>
+</section>

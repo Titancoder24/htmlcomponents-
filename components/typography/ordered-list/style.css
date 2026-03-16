@@ -1,0 +1,116 @@
+/*
+ * Ordered List Component Styles
+ * Purpose: Provides styling for ordered lists with numbered,
+ * lettered, and roman numeral variants. Supports nesting.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-ordered-list {
+  --voltz-ol-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-ol-marker-color: var(--voltz-color-primary, #6366f1);
+  --voltz-ol-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+  --voltz-ol-spacing: var(--voltz-spacing-2, 0.5rem);
+  --voltz-ol-indent: var(--voltz-spacing-6, 1.5rem);
+
+  color: var(--voltz-ol-color);
+  font-family: var(--voltz-ol-font-family);
+  margin: 0 0 var(--voltz-spacing-4, 1rem);
+  padding-left: var(--voltz-ol-indent);
+  list-style: none;
+  counter-reset: voltz-ol-counter;
+}
+
+.voltz-ordered-list li {
+  position: relative;
+  padding-left: var(--voltz-spacing-2, 0.5rem);
+  margin-bottom: var(--voltz-ol-spacing);
+  counter-increment: voltz-ol-counter;
+}
+
+.voltz-ordered-list li::before {
+  color: var(--voltz-ol-marker-color);
+  font-weight: 600;
+  position: absolute;
+  right: calc(100%);
+  text-align: right;
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-ordered-list--size-sm {
+  font-size: var(--voltz-ol-size-sm, 0.875rem);
+}
+
+.voltz-ordered-list--size-md {
+  font-size: var(--voltz-ol-size-md, 1rem);
+}
+
+.voltz-ordered-list--size-lg {
+  font-size: var(--voltz-ol-size-lg, 1.125rem);
+}
+
+/* ========================================
+   Variant: Numbered
+   ======================================== */
+.voltz-ordered-list--numbered li::before {
+  content: counter(voltz-ol-counter) ".";
+}
+
+/* ========================================
+   Variant: Lettered
+   ======================================== */
+.voltz-ordered-list--lettered li::before {
+  content: counter(voltz-ol-counter, lower-alpha) ".";
+}
+
+/* ========================================
+   Variant: Roman
+   ======================================== */
+.voltz-ordered-list--roman li::before {
+  content: counter(voltz-ol-counter, lower-roman) ".";
+}
+
+/* ========================================
+   Nested Lists
+   ======================================== */
+.voltz-ordered-list .voltz-ordered-list {
+  margin-top: var(--voltz-ol-spacing);
+  margin-bottom: 0;
+  counter-reset: voltz-ol-counter-nested;
+}
+
+.voltz-ordered-list .voltz-ordered-list li {
+  counter-increment: voltz-ol-counter-nested;
+}
+
+.voltz-ordered-list--numbered .voltz-ordered-list li::before {
+  content: counter(voltz-ol-counter-nested) ".";
+}
+
+.voltz-ordered-list--lettered .voltz-ordered-list li::before {
+  content: counter(voltz-ol-counter-nested, lower-alpha) ".";
+}
+
+.voltz-ordered-list--roman .voltz-ordered-list li::before {
+  content: counter(voltz-ol-counter-nested, lower-roman) ".";
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-ordered-list {
+  --voltz-ol-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+  --voltz-ol-marker-color: var(--voltz-color-primary-400, #818cf8);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-ordered-list {
+    transition: none;
+  }
+}

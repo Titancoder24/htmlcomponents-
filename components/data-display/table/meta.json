@@ -1,0 +1,38 @@
+{
+  "name": "table",
+  "description": "Basic table component with sortable headers, sticky header option, and responsive horizontal scroll.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["simple", "striped", "bordered"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "simple",
+      "options": ["simple", "striped", "bordered"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    },
+    "stickyHeader": {
+      "type": "boolean",
+      "default": false
+    },
+    "sortable": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "slots": {
+    "default": "Table rows and cells content"
+  },
+  "accessibility": {
+    "role": "table",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["table", "data", "grid", "rows", "columns"]
+}

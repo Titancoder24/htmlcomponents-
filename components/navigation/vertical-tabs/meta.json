@@ -1,0 +1,23 @@
+{
+  "name": "vertical-tabs",
+  "displayName": "Vertical Tabs",
+  "description": "Vertical tab navigation with left/right position, icon and label support, active indicator, and responsive collapse.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["left", "right"],
+  "slots": {
+    "default": "Tab items"
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "left",
+      "options": ["left", "right"]
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "ArrowUp", "ArrowDown", "Home", "End", "Enter"],
+    "aria": ["role=navigation", "aria-label", "aria-current"]
+  }
+}

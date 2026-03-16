@@ -1,0 +1,28 @@
+{
+  "name": "table-of-contents",
+  "displayName": "Table of Contents",
+  "description": "Auto-generated table of contents from page headings with active section highlighting on scroll and smooth scroll navigation.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "slots": {
+    "default": "TOC items (auto-generated or manual)"
+  },
+  "props": {
+    "selector": {
+      "type": "string",
+      "default": "h2, h3, h4",
+      "description": "CSS selector for headings to include"
+    },
+    "offset": {
+      "type": "number",
+      "default": 80,
+      "description": "Scroll offset in pixels for sticky headers"
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "ArrowUp", "ArrowDown"],
+    "aria": ["role=navigation", "aria-label", "aria-current"]
+  }
+}

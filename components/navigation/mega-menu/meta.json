@@ -1,0 +1,25 @@
+{
+  "name": "mega-menu",
+  "displayName": "Mega Menu",
+  "description": "Dropdown navigation with multi-column content layout, featured item area, and full keyboard navigation.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "slots": {
+    "trigger": "Menu trigger button",
+    "default": "Menu column content",
+    "featured": "Featured item area"
+  },
+  "props": {
+    "columns": {
+      "type": "number",
+      "default": 3,
+      "options": [2, 3, 4]
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "Escape", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    "aria": ["role=menu", "aria-expanded", "aria-haspopup"]
+  }
+}

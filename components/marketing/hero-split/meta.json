@@ -1,0 +1,38 @@
+/**
+ * Meta configuration for hero-split component.
+ * Split hero with text on one side and image on the other.
+ */
+{
+  "name": "hero-split",
+  "displayName": "Hero Split",
+  "description": "Split hero section with text on one side and image/illustration on the other. Supports left-text and right-text directions. Responsive stacking on mobile.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["hero", "split", "landing", "two-column"],
+  "variants": {
+    "default": {
+      "description": "Text on left, image on right"
+    },
+    "reversed": {
+      "description": "Image on left, text on right"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Text content area"
+    },
+    "media": {
+      "description": "Image or illustration slot"
+    }
+  },
+  "customProperties": {
+    "--voltz-hero-split-bg": { "default": "#0a0a0a", "description": "Background color" },
+    "--voltz-hero-split-text-color": { "default": "#ffffff", "description": "Primary text color" },
+    "--voltz-hero-split-subtext-color": { "default": "#a0a0a0", "description": "Secondary text color" },
+    "--voltz-hero-split-cta-bg": { "default": "#6366f1", "description": "CTA background" },
+    "--voltz-hero-split-gap": { "default": "4rem", "description": "Gap between columns" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true
+}

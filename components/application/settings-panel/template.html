@@ -1,0 +1,108 @@
+<!--
+  Settings Panel Component
+  A structured settings form with sections, toggles, inputs,
+  and action buttons for saving or discarding changes.
+-->
+<div class="voltz-settings-panel" role="form" aria-label="Settings">
+  <div class="voltz-settings-panel__header">
+    <h2 class="voltz-settings-panel__title">Settings</h2>
+    <p class="voltz-settings-panel__subtitle">Manage your account preferences and configuration.</p>
+  </div>
+
+  <div class="voltz-settings-panel__body">
+    <!-- General Section -->
+    <section class="voltz-settings-panel__section">
+      <h3 class="voltz-settings-panel__section-title">General</h3>
+      <p class="voltz-settings-panel__section-desc">Basic account and display settings.</p>
+
+      <div class="voltz-settings-panel__field">
+        <label class="voltz-settings-panel__label" for="settings-name">Display Name</label>
+        <input class="voltz-settings-panel__input" type="text" id="settings-name" value="Jane Doe" />
+      </div>
+
+      <div class="voltz-settings-panel__field">
+        <label class="voltz-settings-panel__label" for="settings-email">Email Address</label>
+        <input class="voltz-settings-panel__input" type="email" id="settings-email" value="jane@example.com" />
+      </div>
+
+      <div class="voltz-settings-panel__field voltz-settings-panel__field--row">
+        <div class="voltz-settings-panel__field-text">
+          <label class="voltz-settings-panel__label">Dark Mode</label>
+          <span class="voltz-settings-panel__hint">Use dark theme across the application.</span>
+        </div>
+        <button class="voltz-settings-panel__toggle" role="switch" aria-checked="false" data-setting="darkMode">
+          <span class="voltz-settings-panel__toggle-track">
+            <span class="voltz-settings-panel__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <hr class="voltz-settings-panel__divider" />
+
+    <!-- Notifications Section -->
+    <section class="voltz-settings-panel__section">
+      <h3 class="voltz-settings-panel__section-title">Notifications</h3>
+      <p class="voltz-settings-panel__section-desc">Choose what you want to be notified about.</p>
+
+      <div class="voltz-settings-panel__field voltz-settings-panel__field--row">
+        <div class="voltz-settings-panel__field-text">
+          <label class="voltz-settings-panel__label">Email Notifications</label>
+          <span class="voltz-settings-panel__hint">Receive updates and alerts via email.</span>
+        </div>
+        <button class="voltz-settings-panel__toggle voltz-settings-panel__toggle--active" role="switch" aria-checked="true" data-setting="emailNotif">
+          <span class="voltz-settings-panel__toggle-track">
+            <span class="voltz-settings-panel__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+
+      <div class="voltz-settings-panel__field voltz-settings-panel__field--row">
+        <div class="voltz-settings-panel__field-text">
+          <label class="voltz-settings-panel__label">Push Notifications</label>
+          <span class="voltz-settings-panel__hint">Get real-time browser push notifications.</span>
+        </div>
+        <button class="voltz-settings-panel__toggle" role="switch" aria-checked="false" data-setting="pushNotif">
+          <span class="voltz-settings-panel__toggle-track">
+            <span class="voltz-settings-panel__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+
+      <div class="voltz-settings-panel__field">
+        <label class="voltz-settings-panel__label" for="settings-digest">Digest Frequency</label>
+        <select class="voltz-settings-panel__select" id="settings-digest">
+          <option value="daily">Daily</option>
+          <option value="weekly" selected>Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="never">Never</option>
+        </select>
+      </div>
+    </section>
+
+    <hr class="voltz-settings-panel__divider" />
+
+    <!-- Privacy Section -->
+    <section class="voltz-settings-panel__section">
+      <h3 class="voltz-settings-panel__section-title">Privacy</h3>
+      <p class="voltz-settings-panel__section-desc">Control your data and visibility.</p>
+
+      <div class="voltz-settings-panel__field voltz-settings-panel__field--row">
+        <div class="voltz-settings-panel__field-text">
+          <label class="voltz-settings-panel__label">Public Profile</label>
+          <span class="voltz-settings-panel__hint">Allow others to see your profile page.</span>
+        </div>
+        <button class="voltz-settings-panel__toggle voltz-settings-panel__toggle--active" role="switch" aria-checked="true" data-setting="publicProfile">
+          <span class="voltz-settings-panel__toggle-track">
+            <span class="voltz-settings-panel__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div class="voltz-settings-panel__footer">
+    <button class="voltz-settings-panel__btn voltz-settings-panel__btn--secondary" data-action="cancel">Cancel</button>
+    <button class="voltz-settings-panel__btn voltz-settings-panel__btn--primary" data-action="save">Save Changes</button>
+  </div>
+</div>

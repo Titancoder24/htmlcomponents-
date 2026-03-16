@@ -1,0 +1,13 @@
+<!--
+  Blur Fade Component
+  Content fades in from a blurred state when entering the viewport.
+  Variants: default, up, down, left, right
+  IntersectionObserver triggers the animation.
+-->
+<div class="voltz-blur-fade voltz-blur-fade--{{variant}}"
+     data-voltz-blur-fade
+     data-variant="{{variant}}">
+  <div class="voltz-blur-fade__content">
+    {{slot:default}}
+  </div>
+</div>

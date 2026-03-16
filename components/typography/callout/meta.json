@@ -1,0 +1,62 @@
+{
+  "id": "callout",
+  "name": "Callout",
+  "description": "Informational callout box with info, tip, warning, danger, and note types. Supports icons, collapsible content, and title/content slots.",
+  "category": "typography",
+  "tags": ["callout", "alert", "info", "warning", "tip", "note", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "note",
+    "aria": {
+      "aria-expanded": "Set on collapsible callouts to indicate open/closed state"
+    },
+    "keyboard": {
+      "Enter": "Toggles collapsible callout open/closed",
+      "Space": "Toggles collapsible callout open/closed"
+    },
+    "description": "Uses role=note for informational callouts. Collapsible version uses button with aria-expanded."
+  },
+  "variants": {
+    "type": {
+      "type": "string",
+      "options": ["info", "tip", "warning", "danger", "note"],
+      "default": "info",
+      "description": "Type/severity of the callout"
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the content can be collapsed"
+    },
+    "icon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to show the type icon"
+    }
+  },
+  "slots": {
+    "title": {
+      "description": "The callout title/header"
+    },
+    "default": {
+      "description": "The callout body content"
+    }
+  },
+  "examples": [
+    {
+      "name": "Info Callout",
+      "props": { "type": "info" },
+      "slots": { "title": "Note" },
+      "content": "This is important information."
+    },
+    {
+      "name": "Collapsible Warning",
+      "props": { "type": "warning", "collapsible": true },
+      "slots": { "title": "Warning" },
+      "content": "Proceed with caution."
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["blockquote", "annotation"]
+}

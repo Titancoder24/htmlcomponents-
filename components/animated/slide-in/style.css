@@ -1,0 +1,54 @@
+/*
+ * Slide In Component Styles
+ * Slide-in from edge animation.
+ * Variants: left, right, top, bottom
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-slide-in {
+  --voltz-slide-in-duration: 0.7s;
+  --voltz-slide-in-delay: 0s;
+  --voltz-slide-in-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --voltz-slide-in-distance: 80px;
+
+  opacity: 0;
+  transition: opacity var(--voltz-slide-in-duration) var(--voltz-slide-in-easing)
+      var(--voltz-slide-in-delay),
+    transform var(--voltz-slide-in-duration) var(--voltz-slide-in-easing)
+      var(--voltz-slide-in-delay);
+  will-change: opacity, transform;
+}
+
+.voltz-slide-in--left {
+  transform: translateX(calc(var(--voltz-slide-in-distance) * -1));
+}
+
+.voltz-slide-in--right {
+  transform: translateX(var(--voltz-slide-in-distance));
+}
+
+.voltz-slide-in--top {
+  transform: translateY(calc(var(--voltz-slide-in-distance) * -1));
+}
+
+.voltz-slide-in--bottom {
+  transform: translateY(var(--voltz-slide-in-distance));
+}
+
+/* Visible state */
+.voltz-slide-in[data-visible] {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-slide-in {
+    opacity: 0;
+    transform: none !important;
+    transition: opacity 0.3s ease var(--voltz-slide-in-delay) !important;
+  }
+
+  .voltz-slide-in[data-visible] {
+    opacity: 1;
+  }
+}

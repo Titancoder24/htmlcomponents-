@@ -1,0 +1,23 @@
+{
+  "name": "bottom-nav",
+  "displayName": "Bottom Navigation",
+  "description": "Mobile bottom navigation bar with icons and labels. Supports up to 5 items with active state indicators.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "slots": {
+    "default": "Navigation items (max 5)"
+  },
+  "props": {
+    "maxItems": {
+      "type": "number",
+      "default": 5,
+      "max": 5
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "ArrowLeft", "ArrowRight", "Enter"],
+    "aria": ["role=navigation", "aria-label", "aria-current"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "sparkles",
+  "description": "Sparkle particles appearing randomly around content. CSS animation based with configurable color, size, and density.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "hover"],
+  "tags": ["sparkles", "particles", "decorative", "animation", "magic"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-sparkles-color",
+    "--voltz-sparkles-size",
+    "--voltz-sparkles-duration",
+    "--voltz-sparkles-count"
+  ],
+  "slots": {
+    "default": "Content to surround with sparkles"
+  }
+}

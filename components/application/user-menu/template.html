@@ -1,0 +1,64 @@
+<!--
+  User Menu Component
+  Dropdown menu triggered by user avatar displaying profile info,
+  navigation items, and logout action with keyboard support.
+-->
+<div class="voltz-user-menu">
+  <button class="voltz-user-menu__trigger" aria-haspopup="true" aria-expanded="false">
+    <div class="voltz-user-menu__avatar">
+      <span class="voltz-user-menu__avatar-text">JD</span>
+    </div>
+  </button>
+
+  <div class="voltz-user-menu__dropdown" role="menu" aria-label="User menu" hidden>
+    <div class="voltz-user-menu__profile">
+      <div class="voltz-user-menu__avatar voltz-user-menu__avatar--lg">
+        <span class="voltz-user-menu__avatar-text">JD</span>
+      </div>
+      <div class="voltz-user-menu__info">
+        <span class="voltz-user-menu__name">Jane Doe</span>
+        <span class="voltz-user-menu__email">jane@example.com</span>
+      </div>
+    </div>
+
+    <div class="voltz-user-menu__divider" role="separator"></div>
+
+    <a class="voltz-user-menu__item" href="#" role="menuitem" tabindex="-1">
+      <svg class="voltz-user-menu__item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M2 14c0-3.3 2.7-5 6-5s6 1.7 6 5" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      My Profile
+    </a>
+    <a class="voltz-user-menu__item" href="#" role="menuitem" tabindex="-1">
+      <svg class="voltz-user-menu__item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      Settings
+    </a>
+    <a class="voltz-user-menu__item" href="#" role="menuitem" tabindex="-1">
+      <svg class="voltz-user-menu__item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M2 6h12" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      Billing
+    </a>
+    <a class="voltz-user-menu__item" href="#" role="menuitem" tabindex="-1">
+      <svg class="voltz-user-menu__item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M8 5v3M8 10v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Help &amp; Support
+    </a>
+
+    <div class="voltz-user-menu__divider" role="separator"></div>
+
+    <button class="voltz-user-menu__item voltz-user-menu__item--danger" role="menuitem" tabindex="-1">
+      <svg class="voltz-user-menu__item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M6 2h8v12H6M2 8h8M8 5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Sign Out
+    </button>
+  </div>
+</div>

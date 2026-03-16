@@ -1,0 +1,165 @@
+/*
+ * Tree View Component Styles
+ * Purpose: Expandable tree structure with indentation, expand/collapse
+ * chevron icons, checkbox selection, and keyboard focus indicators.
+ * Supports dark mode and reduced motion.
+ */
+
+/* === Custom Properties === */
+.voltz-tree-view {
+  --voltz-tree-indent: 1.25rem;
+  --voltz-tree-node-height: 2rem;
+  --voltz-tree-node-radius: 0.25rem;
+  --voltz-tree-label-color: #1e293b;
+  --voltz-tree-label-hover-bg: #f1f5f9;
+  --voltz-tree-label-selected-bg: #eff6ff;
+  --voltz-tree-label-selected-color: #2563eb;
+  --voltz-tree-icon-color: #64748b;
+  --voltz-tree-chevron-color: #94a3b8;
+  --voltz-tree-line-color: #e2e8f0;
+  --voltz-tree-focus-ring: 0 0 0 2px #3b82f6;
+  --voltz-tree-font-size: 0.875rem;
+  --voltz-tree-empty-color: #94a3b8;
+}
+
+[data-theme="dark"] .voltz-tree-view {
+  --voltz-tree-label-color: #e2e8f0;
+  --voltz-tree-label-hover-bg: #1e293b;
+  --voltz-tree-label-selected-bg: #1e3a5f;
+  --voltz-tree-label-selected-color: #60a5fa;
+  --voltz-tree-icon-color: #94a3b8;
+  --voltz-tree-chevron-color: #64748b;
+  --voltz-tree-line-color: #334155;
+  --voltz-tree-focus-ring: 0 0 0 2px #60a5fa;
+  --voltz-tree-empty-color: #64748b;
+}
+
+/* === Base === */
+.voltz-tree-view {
+  font-size: var(--voltz-tree-font-size);
+  color: var(--voltz-tree-label-color);
+  padding: 0.25rem 0;
+}
+
+/* === Node === */
+.voltz-tree-view__node {
+  outline: none;
+}
+
+.voltz-tree-view__node-content {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: var(--voltz-tree-node-height);
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--voltz-tree-node-radius);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.1s ease;
+}
+
+.voltz-tree-view__node-content:hover {
+  background: var(--voltz-tree-label-hover-bg);
+}
+
+.voltz-tree-view__node[aria-selected="true"] > .voltz-tree-view__node-content {
+  background: var(--voltz-tree-label-selected-bg);
+  color: var(--voltz-tree-label-selected-color);
+}
+
+.voltz-tree-view__node:focus > .voltz-tree-view__node-content {
+  box-shadow: var(--voltz-tree-focus-ring);
+}
+
+/* === Toggle / Chevron === */
+.voltz-tree-view__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--voltz-tree-chevron-color);
+  flex-shrink: 0;
+}
+
+.voltz-tree-view__chevron {
+  transition: transform 0.15s ease;
+}
+
+.voltz-tree-view__node[aria-expanded="true"] > .voltz-tree-view__node-content
+  .voltz-tree-view__chevron {
+  transform: rotate(90deg);
+}
+
+/* Leaf nodes without children: hide toggle */
+.voltz-tree-view__toggle--hidden {
+  visibility: hidden;
+}
+
+/* === Checkbox === */
+.voltz-tree-view__checkbox {
+  flex-shrink: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* === Icon === */
+.voltz-tree-view__icon {
+  display: inline-flex;
+  color: var(--voltz-tree-icon-color);
+  flex-shrink: 0;
+}
+
+/* === Label === */
+.voltz-tree-view__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* === Children (nested group) === */
+.voltz-tree-view__children {
+  padding-left: var(--voltz-tree-indent);
+  display: none;
+}
+
+.voltz-tree-view__node[aria-expanded="true"] > .voltz-tree-view__children {
+  display: block;
+}
+
+/* === Variant: Compact === */
+.voltz-tree-view--compact {
+  --voltz-tree-indent: 1rem;
+  --voltz-tree-node-height: 1.5rem;
+  --voltz-tree-font-size: 0.75rem;
+}
+
+/* === Variant: Relaxed === */
+.voltz-tree-view--relaxed {
+  --voltz-tree-indent: 1.5rem;
+  --voltz-tree-node-height: 2.5rem;
+}
+
+/* === Empty State === */
+.voltz-tree-view__empty {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.voltz-tree-view__empty-text {
+  color: var(--voltz-tree-empty-color);
+  font-style: italic;
+  margin: 0;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-tree-view__chevron,
+  .voltz-tree-view__node-content {
+    transition: none;
+  }
+}

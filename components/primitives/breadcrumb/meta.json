@@ -1,0 +1,67 @@
+{
+  "id": "breadcrumb",
+  "name": "breadcrumb",
+  "displayName": "Breadcrumb",
+  "description": "Breadcrumb navigation component with customizable separators, collapsible items for long paths, and current page marker. Uses ARIA nav landmark with aria-current.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["breadcrumb", "navigation", "path", "trail", "wayfinding"],
+  "props": {
+    "separator": {
+      "type": "string",
+      "default": "/",
+      "options": ["/", ">", "arrow"],
+      "description": "Separator character between breadcrumb items"
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to collapse middle items when there are many"
+    },
+    "maxVisible": {
+      "type": "number",
+      "default": 4,
+      "description": "Maximum visible items before collapsing (when collapsible)"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Breadcrumb items list"
+    }
+  },
+  "events": {
+    "navigate": {
+      "description": "Fired when a breadcrumb link is clicked"
+    },
+    "expand": {
+      "description": "Fired when collapsed items are expanded"
+    }
+  },
+  "accessibility": {
+    "role": "navigation",
+    "keyboard": {
+      "Tab": "Moves focus between breadcrumb links",
+      "Enter": "Activates the focused link"
+    },
+    "ariaAttributes": ["aria-label=\"Breadcrumb\"", "aria-current=\"page\""]
+  },
+  "variants": [
+    { "name": "slash", "description": "Forward slash separator" },
+    { "name": "chevron", "description": "Greater-than separator" },
+    { "name": "arrow", "description": "Arrow icon separator" }
+  ],
+  "examples": [
+    {
+      "title": "Simple breadcrumb",
+      "props": { "separator": "/" },
+      "slots": { "default": "<a href='/'>Home</a><a href='/products'>Products</a><span>Widget</span>" }
+    },
+    {
+      "title": "Collapsible breadcrumb",
+      "props": { "separator": "arrow", "collapsible": true, "maxVisible": 3 }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["pagination"]
+}

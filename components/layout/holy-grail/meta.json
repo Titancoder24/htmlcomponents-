@@ -1,0 +1,34 @@
+{
+  "id": "holy-grail",
+  "name": "Holy Grail",
+  "description": "Classic holy grail layout with header, footer, main content, left sidebar, and right sidebar. Responsive collapse for smaller viewports.",
+  "category": "layout",
+  "tags": ["holy-grail", "header", "footer", "sidebar", "three-column", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Uses semantic header, footer, main, nav, and aside elements for proper landmark structure."
+  },
+  "variants": [
+    { "name": "default", "description": "Standard holy grail with both sidebars" },
+    { "name": "no-left", "description": "Holy grail without left sidebar" },
+    { "name": "no-right", "description": "Holy grail without right sidebar" }
+  ],
+  "slots": [
+    { "name": "header", "description": "Header content" },
+    { "name": "left-sidebar", "description": "Left sidebar content" },
+    { "name": "main", "description": "Main content area" },
+    { "name": "right-sidebar", "description": "Right sidebar content" },
+    { "name": "footer", "description": "Footer content" }
+  ],
+  "examples": [
+    {
+      "name": "Full holy grail",
+      "description": "Complete holy grail layout with all sections",
+      "props": { "variant": "default" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["sidebar-layout", "dashboard-shell", "split-pane"]
+}

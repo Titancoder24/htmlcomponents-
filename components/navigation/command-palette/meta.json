@@ -1,0 +1,26 @@
+{
+  "name": "command-palette",
+  "displayName": "Command Palette",
+  "description": "Cmd+K style command palette overlay with search input, filterable command list, and full keyboard navigation with focus trap.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "slots": {
+    "default": "Command items list"
+  },
+  "props": {
+    "placeholder": {
+      "type": "string",
+      "default": "Type a command or search..."
+    },
+    "shortcut": {
+      "type": "string",
+      "default": "cmd+k"
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Cmd+K/Ctrl+K", "Escape", "ArrowUp", "ArrowDown", "Enter", "Tab"],
+    "aria": ["role=dialog", "role=combobox", "aria-modal", "aria-activedescendant", "aria-label"]
+  }
+}

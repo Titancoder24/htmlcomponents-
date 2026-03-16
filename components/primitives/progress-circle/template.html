@@ -2,7 +2,7 @@
   Progress Circle Component - template.html
   Purpose: Renders a circular SVG-based progress indicator with configurable
   value, size, color, and optional center label. Uses stroke-dasharray
-  for progress visualization and ARIA role="progressbar".
+  for the progress arc and ARIA role="progressbar".
 -->
 <div
   class="voltz-progress-circle voltz-progress-circle--{{size}} voltz-progress-circle--{{color}} {{#if indeterminate}}voltz-progress-circle--indeterminate{{/if}}"
@@ -34,7 +34,7 @@
       stroke-width="{{strokeWidth}}"
       stroke-linecap="round"
       stroke-dasharray="100.53"
-      stroke-dashoffset="{{dashoffset}}"
+      stroke-dashoffset="{{dashOffset}}"
       transform="rotate(-90 18 18)"
     />
   </svg>

@@ -1,0 +1,78 @@
+{
+  "id": "file-upload",
+  "name": "FileUpload",
+  "description": "A file upload area with drag-and-drop support, click-to-browse, file type filtering, size limit display, multiple file support, and preview list.",
+  "category": "primitives",
+  "tags": ["file", "upload", "drag-drop", "input", "browse"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "button",
+    "keyboard": {
+      "Enter": "Opens file browser dialog",
+      "Space": "Opens file browser dialog"
+    },
+    "ariaAttributes": ["aria-label", "aria-describedby"]
+  },
+  "props": {
+    "accept": {
+      "type": "string",
+      "default": "",
+      "description": "Accepted file types (e.g. '.png,.jpg,image/*')"
+    },
+    "maxSize": {
+      "type": "number",
+      "default": 0,
+      "description": "Maximum file size in bytes (0 = no limit)"
+    },
+    "maxSizeLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Human-readable max size label (e.g. '5MB')"
+    },
+    "multiple": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether multiple files can be selected"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the upload area is disabled"
+    }
+  },
+  "variants": [],
+  "slots": {
+    "icon": {
+      "description": "Custom icon displayed in the drop zone"
+    },
+    "title": {
+      "description": "Custom title text for the drop zone"
+    },
+    "description": {
+      "description": "Custom description text below the title"
+    }
+  },
+  "events": {
+    "filesSelected": {
+      "description": "Fired when files are selected or dropped",
+      "payload": { "files": "FileList" }
+    },
+    "fileRemoved": {
+      "description": "Fired when a file is removed from the preview list",
+      "payload": { "file": "File", "index": "number" }
+    }
+  },
+  "examples": [
+    {
+      "title": "Basic file upload",
+      "props": { "accept": "image/*", "maxSizeLabel": "5MB" }
+    },
+    {
+      "title": "Multiple files with type filter",
+      "props": { "accept": ".pdf,.doc,.docx", "multiple": true, "maxSizeLabel": "10MB" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["input", "button"]
+}

@@ -1,0 +1,180 @@
+/*
+ * CTA Banner Component Styles
+ * Purpose: Full-width banner CTA with inline layout, dismiss animation,
+ * and multiple background variants including gradients.
+ */
+
+.voltz-cta-banner {
+  --voltz-cta-banner-bg: #6c5ce7;
+  --voltz-cta-banner-text: #ffffff;
+  --voltz-cta-banner-text-muted: rgba(255, 255, 255, 0.85);
+  --voltz-cta-banner-btn-bg: #ffffff;
+  --voltz-cta-banner-btn-text: #6c5ce7;
+  --voltz-cta-banner-btn-hover: #f0f0f5;
+  --voltz-cta-banner-btn-secondary-border: rgba(255, 255, 255, 0.4);
+  --voltz-cta-banner-padding: 3rem 1.5rem;
+  --voltz-cta-banner-max-width: 1280px;
+  --voltz-cta-banner-radius: 0;
+}
+
+[data-theme="dark"] .voltz-cta-banner,
+.voltz-cta-banner[data-theme="dark"] {
+  --voltz-cta-banner-bg: #1a1a2e;
+  --voltz-cta-banner-btn-bg: #6c5ce7;
+  --voltz-cta-banner-btn-text: #ffffff;
+  --voltz-cta-banner-btn-hover: #5a4bd1;
+}
+
+/* Base */
+.voltz-cta-banner {
+  background: var(--voltz-cta-banner-bg);
+  color: var(--voltz-cta-banner-text);
+  padding: var(--voltz-cta-banner-padding);
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+}
+
+.voltz-cta-banner--hidden {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none;
+}
+
+/* Variants */
+.voltz-cta-banner.gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.voltz-cta-banner.dark {
+  --voltz-cta-banner-bg: #0f0f1a;
+}
+
+.voltz-cta-banner.accent {
+  --voltz-cta-banner-bg: #00b894;
+  --voltz-cta-banner-btn-text: #00b894;
+}
+
+/* Container */
+.voltz-cta-banner__container {
+  max-width: var(--voltz-cta-banner-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.voltz-cta-banner__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+/* Content */
+.voltz-cta-banner__content {
+  flex: 1;
+}
+
+.voltz-cta-banner__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.voltz-cta-banner__text {
+  font-size: 1rem;
+  color: var(--voltz-cta-banner-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Actions */
+.voltz-cta-banner__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.voltz-cta-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.voltz-cta-banner__btn--primary {
+  background: var(--voltz-cta-banner-btn-bg);
+  color: var(--voltz-cta-banner-btn-text);
+}
+
+.voltz-cta-banner__btn--primary:hover {
+  background: var(--voltz-cta-banner-btn-hover);
+  transform: translateY(-1px);
+}
+
+.voltz-cta-banner__btn--secondary {
+  background: transparent;
+  color: var(--voltz-cta-banner-text);
+  border: 1.5px solid var(--voltz-cta-banner-btn-secondary-border);
+}
+
+.voltz-cta-banner__btn--secondary:hover {
+  border-color: var(--voltz-cta-banner-text);
+}
+
+/* Dismiss */
+.voltz-cta-banner__dismiss {
+  background: none;
+  border: none;
+  color: var(--voltz-cta-banner-text);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.voltz-cta-banner__dismiss:hover {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .voltz-cta-banner {
+    --voltz-cta-banner-padding: 2rem 1rem;
+  }
+
+  .voltz-cta-banner__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .voltz-cta-banner__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .voltz-cta-banner__btn {
+    justify-content: center;
+  }
+
+  .voltz-cta-banner__dismiss {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .voltz-cta-banner {
+    --voltz-cta-banner-max-width: 1440px;
+  }
+}

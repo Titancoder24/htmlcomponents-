@@ -1,0 +1,127 @@
+/*
+ * Gradient Text Component Styles
+ * Purpose: Applies gradient fills to text with preset gradients,
+ * custom gradient support, and optional animation.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-gradient-text {
+  --voltz-gradient-from: var(--voltz-color-primary, #6366f1);
+  --voltz-gradient-via: var(--voltz-color-primary-400, #818cf8);
+  --voltz-gradient-to: var(--voltz-color-primary-300, #a5b4fc);
+  --voltz-gradient-direction: 135deg;
+
+  background: linear-gradient(
+    var(--voltz-gradient-direction),
+    var(--voltz-gradient-from),
+    var(--voltz-gradient-via),
+    var(--voltz-gradient-to)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* ========================================
+   Preset: Primary
+   ======================================== */
+.voltz-gradient-text--primary {
+  --voltz-gradient-from: #6366f1;
+  --voltz-gradient-via: #8b5cf6;
+  --voltz-gradient-to: #a78bfa;
+}
+
+/* ========================================
+   Preset: Sunset
+   ======================================== */
+.voltz-gradient-text--sunset {
+  --voltz-gradient-from: #f97316;
+  --voltz-gradient-via: #ef4444;
+  --voltz-gradient-to: #ec4899;
+}
+
+/* ========================================
+   Preset: Ocean
+   ======================================== */
+.voltz-gradient-text--ocean {
+  --voltz-gradient-from: #06b6d4;
+  --voltz-gradient-via: #3b82f6;
+  --voltz-gradient-to: #6366f1;
+}
+
+/* ========================================
+   Preset: Forest
+   ======================================== */
+.voltz-gradient-text--forest {
+  --voltz-gradient-from: #22c55e;
+  --voltz-gradient-via: #16a34a;
+  --voltz-gradient-to: #0d9488;
+}
+
+/* ========================================
+   Preset: Custom
+   ======================================== */
+.voltz-gradient-text--custom {
+  --voltz-gradient-from: var(--voltz-gradient-custom-from, #6366f1);
+  --voltz-gradient-via: var(--voltz-gradient-custom-via, #8b5cf6);
+  --voltz-gradient-to: var(--voltz-gradient-custom-to, #a78bfa);
+}
+
+/* ========================================
+   Animation
+   ======================================== */
+@keyframes voltz-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.voltz-gradient-text--animated {
+  background-size: 200% 200%;
+  animation: voltz-gradient-shift 3s ease infinite;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-gradient-text--primary {
+  --voltz-gradient-from: #818cf8;
+  --voltz-gradient-via: #a78bfa;
+  --voltz-gradient-to: #c4b5fd;
+}
+
+[data-theme="dark"] .voltz-gradient-text--sunset {
+  --voltz-gradient-from: #fb923c;
+  --voltz-gradient-via: #f87171;
+  --voltz-gradient-to: #f472b6;
+}
+
+[data-theme="dark"] .voltz-gradient-text--ocean {
+  --voltz-gradient-from: #22d3ee;
+  --voltz-gradient-via: #60a5fa;
+  --voltz-gradient-to: #818cf8;
+}
+
+[data-theme="dark"] .voltz-gradient-text--forest {
+  --voltz-gradient-from: #4ade80;
+  --voltz-gradient-via: #34d399;
+  --voltz-gradient-to: #2dd4bf;
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-gradient-text--animated {
+    animation: none;
+  }
+}

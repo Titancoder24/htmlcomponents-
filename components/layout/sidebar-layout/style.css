@@ -1,0 +1,166 @@
+/*
+ * Sidebar Layout Component - style.css
+ * Purpose: Sidebar + main content layout with left/right positioning.
+ * Collapsible on mobile. Configurable sidebar width.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-sidebar-width: 260px;
+  --voltz-sidebar-min-width: 200px;
+  --voltz-sidebar-max-width: 400px;
+  --voltz-sidebar-bg: #f9fafb;
+  --voltz-sidebar-border: #e5e7eb;
+  --voltz-sidebar-main-bg: #ffffff;
+  --voltz-sidebar-toggle-size: 2rem;
+  --voltz-sidebar-transition: 300ms ease;
+}
+
+[data-theme="dark"] {
+  --voltz-sidebar-bg: #111827;
+  --voltz-sidebar-border: #374151;
+  --voltz-sidebar-main-bg: #1f2937;
+}
+
+/* === Base === */
+.voltz-sidebar-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* === Left Variant (default) === */
+.voltz-sidebar-layout--left {
+  flex-direction: row;
+}
+
+/* === Right Variant === */
+.voltz-sidebar-layout--right {
+  flex-direction: row-reverse;
+}
+
+/* === Sidebar === */
+.voltz-sidebar-layout__sidebar {
+  flex: 0 0 var(--voltz-sidebar-width);
+  width: var(--voltz-sidebar-width);
+  background: var(--voltz-sidebar-bg);
+  border-right: 1px solid var(--voltz-sidebar-border);
+  overflow-y: auto;
+  transition: flex-basis var(--voltz-sidebar-transition),
+              width var(--voltz-sidebar-transition);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.voltz-sidebar-layout--right .voltz-sidebar-layout__sidebar {
+  border-right: none;
+  border-left: 1px solid var(--voltz-sidebar-border);
+}
+
+/* === Sidebar Content === */
+.voltz-sidebar-layout__sidebar-content {
+  padding: 1rem;
+}
+
+/* === Toggle Button === */
+.voltz-sidebar-layout__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--voltz-sidebar-toggle-size);
+  height: var(--voltz-sidebar-toggle-size);
+  border: 1px solid var(--voltz-sidebar-border);
+  background: var(--voltz-sidebar-bg);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+  padding: 0;
+}
+
+.voltz-sidebar-layout__toggle-icon {
+  display: block;
+  width: 1rem;
+  height: 2px;
+  background: currentColor;
+  position: relative;
+}
+
+.voltz-sidebar-layout__toggle-icon::before,
+.voltz-sidebar-layout__toggle-icon::after {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  left: 0;
+}
+
+.voltz-sidebar-layout__toggle-icon::before { top: -5px; }
+.voltz-sidebar-layout__toggle-icon::after { top: 5px; }
+
+/* === Main Content === */
+.voltz-sidebar-layout__main {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--voltz-sidebar-main-bg);
+  box-sizing: border-box;
+}
+
+/* === Collapsed State === */
+.voltz-sidebar-layout[data-collapsed="true"] .voltz-sidebar-layout__sidebar {
+  flex-basis: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* === Custom Width via Data Attribute === */
+.voltz-sidebar-layout[data-sidebar-width="200px"] .voltz-sidebar-layout__sidebar {
+  --voltz-sidebar-width: 200px;
+}
+.voltz-sidebar-layout[data-sidebar-width="250px"] .voltz-sidebar-layout__sidebar {
+  --voltz-sidebar-width: 250px;
+}
+.voltz-sidebar-layout[data-sidebar-width="300px"] .voltz-sidebar-layout__sidebar {
+  --voltz-sidebar-width: 300px;
+}
+.voltz-sidebar-layout[data-sidebar-width="350px"] .voltz-sidebar-layout__sidebar {
+  --voltz-sidebar-width: 350px;
+}
+
+/* === Responsive === */
+@media (max-width: 767px) {
+  .voltz-sidebar-layout {
+    flex-direction: column;
+  }
+
+  .voltz-sidebar-layout__sidebar {
+    flex: 0 0 auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--voltz-sidebar-border);
+  }
+
+  .voltz-sidebar-layout--right .voltz-sidebar-layout__sidebar {
+    border-left: none;
+    border-bottom: 1px solid var(--voltz-sidebar-border);
+  }
+
+  .voltz-sidebar-layout__toggle {
+    display: flex;
+  }
+
+  .voltz-sidebar-layout[data-collapsed="true"] .voltz-sidebar-layout__sidebar {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .voltz-sidebar-layout[data-collapsed="true"]
+    .voltz-sidebar-layout__sidebar-content {
+    display: none;
+  }
+}

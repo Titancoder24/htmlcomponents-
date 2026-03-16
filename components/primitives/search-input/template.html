@@ -1,0 +1,48 @@
+<!--
+  SearchInput Component - template.html
+  Purpose: Renders a search input with leading search icon, optional loading
+  spinner, and clear button. Supports Escape key to clear.
+-->
+<div
+  class="voltz-search-input voltz-search-input--{{size}} {{#if loading}}voltz-search-input--loading{{/if}} {{#if disabled}}voltz-search-input--disabled{{/if}}"
+  data-voltz-search-input
+>
+  <span class="voltz-search-input__icon" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+  </span>
+
+  <input
+    class="voltz-search-input__input"
+    type="search"
+    role="searchbox"
+    placeholder="{{placeholder}}"
+    value="{{value}}"
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+    aria-label="{{placeholder}}"
+    data-voltz-search-input-field
+  />
+
+  {{#if loading}}
+  <span class="voltz-search-input__spinner" aria-hidden="true">
+    <svg class="voltz-search-input__spinner-icon" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="31.4 31.4"/>
+    </svg>
+  </span>
+  {{/if}}
+
+  <button
+    class="voltz-search-input__clear"
+    type="button"
+    aria-label="Clear search"
+    data-voltz-search-input-clear
+    hidden
+  >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+</div>

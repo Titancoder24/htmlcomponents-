@@ -1,0 +1,181 @@
+/**
+ * NumberInput Component - style.css
+ * Purpose: Styles for the number input with increment/decrement buttons,
+ * size variants, focus states, and disabled appearance.
+ */
+
+/* -------------------------------------------------------
+   Custom Properties
+   ------------------------------------------------------- */
+.voltz-number-input {
+  --voltz-number-bg: var(--voltz-color-bg, #ffffff);
+  --voltz-number-border: var(--voltz-color-border, #cbd5e1);
+  --voltz-number-focus-border: var(--voltz-color-primary, #3b82f6);
+  --voltz-number-text: var(--voltz-color-text, #0f172a);
+  --voltz-number-placeholder: var(--voltz-color-text-muted, #94a3b8);
+  --voltz-number-btn-bg: transparent;
+  --voltz-number-btn-hover-bg: var(--voltz-color-bg-subtle, #f1f5f9);
+  --voltz-number-btn-color: var(--voltz-color-text-muted, #64748b);
+  --voltz-number-btn-active-color: var(--voltz-color-text, #0f172a);
+  --voltz-number-radius: var(--voltz-radius-md, 0.375rem);
+}
+
+/* -------------------------------------------------------
+   Base
+   ------------------------------------------------------- */
+.voltz-number-input {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--voltz-number-border);
+  border-radius: var(--voltz-number-radius);
+  background: var(--voltz-number-bg);
+  overflow: hidden;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.voltz-number-input:focus-within {
+  border-color: var(--voltz-number-focus-border);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* -------------------------------------------------------
+   Input
+   ------------------------------------------------------- */
+.voltz-number-input__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: var(--voltz-number-text);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  outline: none;
+}
+
+.voltz-number-input__input::placeholder {
+  color: var(--voltz-number-placeholder);
+}
+
+.voltz-number-input__input::-webkit-outer-spin-button,
+.voltz-number-input__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.voltz-number-input__input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* -------------------------------------------------------
+   Buttons
+   ------------------------------------------------------- */
+.voltz-number-input__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  background: var(--voltz-number-btn-bg);
+  color: var(--voltz-number-btn-color);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.voltz-number-input__btn:hover:not(:disabled) {
+  background: var(--voltz-number-btn-hover-bg);
+  color: var(--voltz-number-btn-active-color);
+}
+
+.voltz-number-input__btn:active:not(:disabled) {
+  background: var(--voltz-number-btn-hover-bg);
+}
+
+.voltz-number-input__btn:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: -2px;
+}
+
+.voltz-number-input__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* -------------------------------------------------------
+   Size: sm
+   ------------------------------------------------------- */
+.voltz-number-input--sm {
+  height: 2rem;
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+}
+
+.voltz-number-input--sm .voltz-number-input__btn {
+  width: 1.75rem;
+}
+
+.voltz-number-input--sm .voltz-number-input__input {
+  width: 3rem;
+}
+
+/* -------------------------------------------------------
+   Size: md
+   ------------------------------------------------------- */
+.voltz-number-input--md {
+  height: 2.5rem;
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+}
+
+.voltz-number-input--md .voltz-number-input__btn {
+  width: 2.25rem;
+}
+
+.voltz-number-input--md .voltz-number-input__input {
+  width: 4rem;
+}
+
+/* -------------------------------------------------------
+   Size: lg
+   ------------------------------------------------------- */
+.voltz-number-input--lg {
+  height: 3rem;
+  font-size: var(--voltz-font-size-md, 1rem);
+}
+
+.voltz-number-input--lg .voltz-number-input__btn {
+  width: 2.75rem;
+}
+
+.voltz-number-input--lg .voltz-number-input__input {
+  width: 5rem;
+}
+
+/* -------------------------------------------------------
+   Disabled
+   ------------------------------------------------------- */
+.voltz-number-input--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------
+   Dark Mode
+   ------------------------------------------------------- */
+[data-theme="dark"] .voltz-number-input {
+  --voltz-number-bg: var(--voltz-color-bg-dark, #0f172a);
+  --voltz-number-border: var(--voltz-color-border-dark, #334155);
+  --voltz-number-text: var(--voltz-color-text-dark, #f1f5f9);
+  --voltz-number-placeholder: var(--voltz-color-text-muted-dark, #64748b);
+  --voltz-number-btn-hover-bg: var(--voltz-color-bg-subtle-dark, #1e293b);
+  --voltz-number-btn-color: var(--voltz-color-text-muted-dark, #94a3b8);
+  --voltz-number-btn-active-color: var(--voltz-color-text-dark, #f1f5f9);
+}
+
+/* -------------------------------------------------------
+   Reduced Motion
+   ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-number-input,
+  .voltz-number-input__btn {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,108 @@
+/*
+ * Text Divider Component Styles
+ * Purpose: Provides styling for horizontal rules with
+ * centered/positioned text labels and line style variants.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-text-divider {
+  --voltz-divider-color: var(--voltz-color-border, #e5e7eb);
+  --voltz-divider-text-color: var(--voltz-color-text-muted, #6b7280);
+  --voltz-divider-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+  --voltz-divider-font-size: var(--voltz-text-sm, 0.875rem);
+  --voltz-divider-gap: var(--voltz-spacing-4, 1rem);
+  --voltz-divider-thickness: 1px;
+  --voltz-divider-style: solid;
+
+  display: flex;
+  align-items: center;
+  font-family: var(--voltz-divider-font-family);
+  margin: var(--voltz-spacing-6, 1.5rem) 0;
+  width: 100%;
+}
+
+.voltz-text-divider::before,
+.voltz-text-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: var(--voltz-divider-thickness) var(--voltz-divider-style) var(--voltz-divider-color);
+}
+
+.voltz-text-divider__label {
+  color: var(--voltz-divider-text-color);
+  font-size: var(--voltz-divider-font-size);
+  font-weight: 500;
+  padding: 0 var(--voltz-divider-gap);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ========================================
+   Alignment: Center
+   ======================================== */
+.voltz-text-divider--align-center::before,
+.voltz-text-divider--align-center::after {
+  flex: 1;
+}
+
+/* ========================================
+   Alignment: Left
+   ======================================== */
+.voltz-text-divider--align-left::before {
+  flex: 0 0 var(--voltz-spacing-4, 1rem);
+}
+
+.voltz-text-divider--align-left::after {
+  flex: 1;
+}
+
+/* ========================================
+   Alignment: Right
+   ======================================== */
+.voltz-text-divider--align-right::before {
+  flex: 1;
+}
+
+.voltz-text-divider--align-right::after {
+  flex: 0 0 var(--voltz-spacing-4, 1rem);
+}
+
+/* ========================================
+   Variant: Solid
+   ======================================== */
+.voltz-text-divider--solid {
+  --voltz-divider-style: solid;
+}
+
+/* ========================================
+   Variant: Dashed
+   ======================================== */
+.voltz-text-divider--dashed {
+  --voltz-divider-style: dashed;
+}
+
+/* ========================================
+   Variant: Dotted
+   ======================================== */
+.voltz-text-divider--dotted {
+  --voltz-divider-style: dotted;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-text-divider {
+  --voltz-divider-color: var(--voltz-color-border-dark, #374151);
+  --voltz-divider-text-color: var(--voltz-color-text-muted-dark, #9ca3af);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-text-divider {
+    transition: none;
+  }
+}

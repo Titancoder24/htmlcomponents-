@@ -1,0 +1,16 @@
+{
+  "name": "chat-bubble",
+  "description": "Chat message bubble with sent/received variants, timestamp, tail pointer, optional avatar, and delivery status indicators.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["chat", "message", "bubble", "conversation"],
+  "variants": ["sent", "received"],
+  "slots": ["content", "avatar"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "listitem",
+    "keyboard": false,
+    "screenReader": true
+  }
+}

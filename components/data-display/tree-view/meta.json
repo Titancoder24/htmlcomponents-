@@ -1,0 +1,34 @@
+{
+  "name": "tree-view",
+  "description": "Expandable tree structure with indent levels, expand/collapse icons, checkbox selection, keyboard navigation, and ARIA tree role.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "compact", "relaxed"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "compact", "relaxed"]
+    },
+    "selectable": {
+      "type": "boolean",
+      "default": false
+    },
+    "multiSelect": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "slots": {
+    "default": "Tree nodes content"
+  },
+  "accessibility": {
+    "role": "tree",
+    "keyboard": true,
+    "screenReader": true,
+    "keys": ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter", "Space"]
+  },
+  "tags": ["tree", "hierarchy", "expandable", "nested", "directory"]
+}

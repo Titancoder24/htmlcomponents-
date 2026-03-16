@@ -1,0 +1,53 @@
+{
+  "id": "text-divider",
+  "name": "Text Divider",
+  "description": "Text centered in a horizontal rule. Configurable alignment, line style variants, and label slot.",
+  "category": "typography",
+  "tags": ["divider", "separator", "hr", "text-divider", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "separator",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses role=separator for proper screen reader announcement. Label text provides context."
+  },
+  "variants": {
+    "align": {
+      "type": "string",
+      "options": ["left", "center", "right"],
+      "default": "center",
+      "description": "Position of the label text"
+    },
+    "variant": {
+      "type": "string",
+      "options": ["solid", "dashed", "dotted"],
+      "default": "solid",
+      "description": "Line style variant"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The divider label text"
+    }
+  },
+  "examples": [
+    {
+      "name": "Centered Solid Divider",
+      "props": { "align": "center", "variant": "solid" },
+      "content": "Section Break"
+    },
+    {
+      "name": "Left Dashed Divider",
+      "props": { "align": "left", "variant": "dashed" },
+      "content": "Chapter 2"
+    },
+    {
+      "name": "Dotted Divider",
+      "props": { "align": "center", "variant": "dotted" },
+      "content": "OR"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["heading", "paragraph"]
+}

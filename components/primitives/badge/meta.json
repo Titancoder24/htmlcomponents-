@@ -1,0 +1,55 @@
+{
+  "name": "badge",
+  "displayName": "Badge",
+  "description": "A status badge with variants (solid, outline, soft), sizes, color schemes, and optional dot indicator.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "soft",
+      "options": ["solid", "outline", "soft"],
+      "description": "Visual style variant"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the badge"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Color scheme of the badge"
+    },
+    "dot": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show a dot indicator before the text"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Badge text content"
+    }
+  },
+  "events": {},
+  "accessibility": {
+    "role": "status",
+    "ariaAttributes": ["aria-label"]
+  },
+  "examples": [
+    {
+      "title": "Success badge",
+      "props": { "variant": "soft", "color": "success" },
+      "slots": { "default": "Active" }
+    },
+    {
+      "title": "Badge with dot",
+      "props": { "variant": "outline", "color": "warning", "dot": true },
+      "slots": { "default": "Pending" }
+    }
+  ]
+}

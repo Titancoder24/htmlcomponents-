@@ -1,0 +1,98 @@
+/*
+ * Bento Grid Component - style.css
+ * Purpose: Asymmetric bento-box grid layout with configurable spans.
+ * Uses CSS Grid with data attributes for column/row spanning.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-bento-columns: 4;
+  --voltz-bento-row-height: 200px;
+  --voltz-bento-gap-sm: 0.5rem;
+  --voltz-bento-gap-md: 1rem;
+  --voltz-bento-gap-lg: 1.5rem;
+  --voltz-bento-gap-xl: 2rem;
+  --voltz-bento-item-bg: #ffffff;
+  --voltz-bento-item-radius: 0.75rem;
+  --voltz-bento-item-border: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --voltz-bento-item-bg: #1f2937;
+  --voltz-bento-item-border: #374151;
+}
+
+/* === Base === */
+.voltz-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--voltz-bento-columns), 1fr);
+  grid-auto-rows: var(--voltz-bento-row-height);
+  gap: var(--voltz-bento-gap-md);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* === Variants === */
+.voltz-bento-grid--dense {
+  grid-auto-flow: dense;
+}
+
+.voltz-bento-grid--loose {
+  gap: var(--voltz-bento-gap-xl);
+}
+
+/* === Gap Sizes === */
+.voltz-bento-grid[data-gap="sm"] { gap: var(--voltz-bento-gap-sm); }
+.voltz-bento-grid[data-gap="md"] { gap: var(--voltz-bento-gap-md); }
+.voltz-bento-grid[data-gap="lg"] { gap: var(--voltz-bento-gap-lg); }
+.voltz-bento-grid[data-gap="xl"] { gap: var(--voltz-bento-gap-xl); }
+
+/* === Item Spans - Columns === */
+.voltz-bento-grid > [data-span-col="1"] { grid-column: span 1; }
+.voltz-bento-grid > [data-span-col="2"] { grid-column: span 2; }
+.voltz-bento-grid > [data-span-col="3"] { grid-column: span 3; }
+.voltz-bento-grid > [data-span-col="4"] { grid-column: span 4; }
+
+/* === Item Spans - Rows === */
+.voltz-bento-grid > [data-span-row="1"] { grid-row: span 1; }
+.voltz-bento-grid > [data-span-row="2"] { grid-row: span 2; }
+.voltz-bento-grid > [data-span-row="3"] { grid-row: span 3; }
+
+/* === Item Base Styling === */
+.voltz-bento-grid > * {
+  background: var(--voltz-bento-item-bg);
+  border: 1px solid var(--voltz-bento-item-border);
+  border-radius: var(--voltz-bento-item-radius);
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* === Responsive === */
+@media (max-width: 639px) {
+  .voltz-bento-grid {
+    --voltz-bento-columns: 1;
+    grid-auto-rows: auto;
+  }
+
+  .voltz-bento-grid > [data-span-col="2"],
+  .voltz-bento-grid > [data-span-col="3"],
+  .voltz-bento-grid > [data-span-col="4"] {
+    grid-column: span 1;
+  }
+
+  .voltz-bento-grid > [data-span-row="2"],
+  .voltz-bento-grid > [data-span-row="3"] {
+    grid-row: span 1;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .voltz-bento-grid {
+    --voltz-bento-columns: 2;
+  }
+
+  .voltz-bento-grid > [data-span-col="3"],
+  .voltz-bento-grid > [data-span-col="4"] {
+    grid-column: span 2;
+  }
+}

@@ -1,0 +1,15 @@
+<!--
+  Voltz UI - Radial Burst Background
+  Radial burst/sunburst pattern
+  @version 1.0.0
+-->
+<div class="voltz-radial-burst voltz-radial-burst--{{variant}}"
+     role="presentation"
+     aria-hidden="true"
+     {{#if animated}}data-animated="true"{{/if}}
+     data-speed="{{speed}}">
+  <div class="voltz-radial-burst__rays"></div>
+  <div class="voltz-radial-burst__content">
+    {{slot:default}}
+  </div>
+</div>

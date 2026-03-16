@@ -1,0 +1,54 @@
+<!--
+  NumberInput Component - template.html
+  Purpose: Renders a numeric input with decrement and increment buttons.
+  Uses role="spinbutton" and ARIA value attributes for accessibility.
+-->
+<div
+  class="voltz-number-input voltz-number-input--{{size}} {{#if disabled}}voltz-number-input--disabled{{/if}}"
+  data-voltz-number-input
+  data-min="{{min}}"
+  data-max="{{max}}"
+  data-step="{{step}}"
+>
+  <button
+    class="voltz-number-input__btn voltz-number-input__btn--decrement"
+    type="button"
+    aria-label="Decrease value"
+    {{#if disabled}}disabled{{/if}}
+    data-voltz-number-decrement
+    tabindex="-1"
+  >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+  </button>
+
+  <input
+    class="voltz-number-input__input"
+    type="text"
+    inputmode="decimal"
+    role="spinbutton"
+    value="{{value}}"
+    placeholder="{{placeholder}}"
+    aria-valuenow="{{value}}"
+    {{#if min}}aria-valuemin="{{min}}"{{/if}}
+    {{#if max}}aria-valuemax="{{max}}"{{/if}}
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+    aria-label="Number input"
+    data-voltz-number-input-field
+  />
+
+  <button
+    class="voltz-number-input__btn voltz-number-input__btn--increment"
+    type="button"
+    aria-label="Increase value"
+    {{#if disabled}}disabled{{/if}}
+    data-voltz-number-increment
+    tabindex="-1"
+  >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+      <line x1="12" y1="5" x2="12" y2="19"/>
+      <line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+  </button>
+</div>

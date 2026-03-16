@@ -1,0 +1,19 @@
+{
+  "name": "FAQ Section",
+  "description": "Frequently asked questions with accordion-style expandable answers. Supports search/filter, categories, and schema markup.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["faq", "accordion", "questions", "support"],
+  "variants": ["default", "bordered", "card", "minimal", "with-categories"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

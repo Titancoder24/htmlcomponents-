@@ -1,0 +1,20 @@
+{
+  "name": "scramble-text",
+  "description": "Text that scrambles and unscrambles characters to reveal content with configurable speed and character set options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "binary", "symbols"],
+  "tags": ["text", "scramble", "animation", "reveal"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-scramble-text-duration",
+    "--voltz-scramble-text-speed",
+    "--voltz-scramble-text-color",
+    "--voltz-scramble-text-scramble-color",
+    "--voltz-scramble-text-font-size"
+  ],
+  "slots": {
+    "default": "Text content to scramble/reveal"
+  }
+}

@@ -1,0 +1,175 @@
+/**
+ * Voltz UI - Entrance Animations
+ *
+ * Fade in, slide in, scale in, and blur in animations.
+ * All animations use only transform and opacity for GPU-accelerated
+ * performance. Each animation has directional variants.
+ * Includes prefers-reduced-motion fallbacks.
+ *
+ * Usage: Apply the class (e.g., .voltz-fade-in) to trigger the animation.
+ */
+
+/* ========================================================================
+ * Keyframes - Fade In
+ * ======================================================================== */
+
+@keyframes voltz-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========================================================================
+ * Keyframes - Slide In
+ * ======================================================================== */
+
+@keyframes voltz-slide-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes voltz-slide-in-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes voltz-slide-in-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes voltz-slide-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ========================================================================
+ * Keyframes - Scale In
+ * ======================================================================== */
+
+@keyframes voltz-scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes voltz-scale-in-up {
+  from { opacity: 0; transform: scale(0.9) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes voltz-scale-in-center {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ========================================================================
+ * Keyframes - Blur In
+ * ======================================================================== */
+
+@keyframes voltz-blur-in {
+  from { opacity: 0; filter: blur(8px); transform: scale(0.95); }
+  to { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+@keyframes voltz-blur-in-up {
+  from { opacity: 0; filter: blur(4px); transform: translateY(8px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+/* ========================================================================
+ * Utility Classes - Fade In
+ * ======================================================================== */
+
+.voltz-fade-in {
+  animation: voltz-fade-in var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+.voltz-fade-in-fast {
+  animation: voltz-fade-in var(--voltz-duration-fast, 100ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+.voltz-fade-in-slow {
+  animation: voltz-fade-in var(--voltz-duration-slow, 300ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+/* ========================================================================
+ * Utility Classes - Slide In
+ * ======================================================================== */
+
+.voltz-slide-in-up {
+  animation: voltz-slide-in-up var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+.voltz-slide-in-down {
+  animation: voltz-slide-in-down var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+.voltz-slide-in-left {
+  animation: voltz-slide-in-left var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+.voltz-slide-in-right {
+  animation: voltz-slide-in-right var(--voltz-duration-normal, 200ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+/* ========================================================================
+ * Utility Classes - Scale In
+ * ======================================================================== */
+
+.voltz-scale-in {
+  animation: voltz-scale-in var(--voltz-duration-normal, 200ms) var(--voltz-easing-spring, cubic-bezier(0.175, 0.885, 0.32, 1.275)) both;
+}
+
+.voltz-scale-in-up {
+  animation: voltz-scale-in-up var(--voltz-duration-normal, 200ms) var(--voltz-easing-spring, cubic-bezier(0.175, 0.885, 0.32, 1.275)) both;
+}
+
+.voltz-scale-in-center {
+  animation: voltz-scale-in-center var(--voltz-duration-slow, 300ms) var(--voltz-easing-spring, cubic-bezier(0.175, 0.885, 0.32, 1.275)) both;
+}
+
+/* ========================================================================
+ * Utility Classes - Blur In
+ * ======================================================================== */
+
+.voltz-blur-in {
+  animation: voltz-blur-in var(--voltz-duration-slow, 300ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+.voltz-blur-in-up {
+  animation: voltz-blur-in-up var(--voltz-duration-slow, 300ms) var(--voltz-easing-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+/* ========================================================================
+ * Animation Delay Utilities
+ * ======================================================================== */
+
+.voltz-delay-100 { animation-delay: 100ms; }
+.voltz-delay-200 { animation-delay: 200ms; }
+.voltz-delay-300 { animation-delay: 300ms; }
+.voltz-delay-500 { animation-delay: 500ms; }
+.voltz-delay-700 { animation-delay: 700ms; }
+.voltz-delay-1000 { animation-delay: 1000ms; }
+
+/* ========================================================================
+ * Reduced Motion Fallback
+ * ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-fade-in,
+  .voltz-fade-in-fast,
+  .voltz-fade-in-slow,
+  .voltz-slide-in-up,
+  .voltz-slide-in-down,
+  .voltz-slide-in-left,
+  .voltz-slide-in-right,
+  .voltz-scale-in,
+  .voltz-scale-in-up,
+  .voltz-scale-in-center,
+  .voltz-blur-in,
+  .voltz-blur-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

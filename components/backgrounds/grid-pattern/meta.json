@@ -1,0 +1,56 @@
+/**
+ * Voltz UI - Grid Pattern Background
+ * Grid/graph paper pattern background
+ * @version 1.0.0
+ */
+{
+  "name": "grid-pattern",
+  "displayName": "Grid Pattern",
+  "description": "Grid/graph paper pattern background with configurable line width, spacing, and color. CSS-only with linear-gradient.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "grid", "pattern", "graph-paper", "css-only"],
+  "variants": ["default", "fine", "bold", "blueprint", "dashed"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "fine", "bold", "blueprint", "dashed"],
+      "description": "Grid pattern preset"
+    },
+    "lineWidth": {
+      "type": "string",
+      "default": "1px",
+      "description": "Grid line width"
+    },
+    "spacing": {
+      "type": "string",
+      "default": "40px",
+      "description": "Grid cell size"
+    },
+    "color": {
+      "type": "string",
+      "default": "#e5e7eb",
+      "description": "Grid line color"
+    },
+    "opacity": {
+      "type": "number",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "description": "Grid opacity"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the grid pattern background"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "No animations - inherently accessible",
+    "role": "presentation"
+  }
+}

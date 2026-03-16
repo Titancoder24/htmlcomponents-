@@ -19,7 +19,6 @@
   --voltz-button-hover-bg: var(--voltz-color-primary-700, #1d4ed8);
   --voltz-button-active-bg: var(--voltz-color-primary-800, #1e40af);
   --voltz-button-focus-ring: var(--voltz-color-primary-400, #60a5fa);
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -45,115 +44,44 @@
   appearance: none;
   -webkit-appearance: none;
 }
-
-.voltz-button:hover {
-  background-color: var(--voltz-button-hover-bg);
-}
-
-.voltz-button:active {
-  background-color: var(--voltz-button-active-bg);
-}
-
-.voltz-button:focus-visible {
-  outline: 2px solid var(--voltz-button-focus-ring);
-  outline-offset: 2px;
-}
+.voltz-button:hover { background-color: var(--voltz-button-hover-bg); }
+.voltz-button:active { background-color: var(--voltz-button-active-bg); }
+.voltz-button:focus-visible { outline: 2px solid var(--voltz-button-focus-ring); outline-offset: 2px; }
 
 /* === Disabled === */
 .voltz-button[disabled],
-.voltz-button[aria-disabled="true"] {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
-}
+.voltz-button[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
 /* === Full Width === */
-.voltz-button--full-width {
-  width: 100%;
-}
+.voltz-button--full-width { width: 100%; }
 
 /* === Sizes === */
-.voltz-button--xs {
-  --voltz-button-height: var(--voltz-size-6, 1.5rem);
-  --voltz-button-px: var(--voltz-space-2, 0.5rem);
-  --voltz-button-font-size: var(--voltz-font-size-xs, 0.75rem);
-  --voltz-button-gap: var(--voltz-space-1, 0.25rem);
-}
+.voltz-button--xs { --voltz-button-height: var(--voltz-size-6, 1.5rem); --voltz-button-px: var(--voltz-space-2, 0.5rem); --voltz-button-font-size: var(--voltz-font-size-xs, 0.75rem); --voltz-button-gap: var(--voltz-space-1, 0.25rem); }
+.voltz-button--sm { --voltz-button-height: var(--voltz-size-8, 2rem); --voltz-button-px: var(--voltz-space-3, 0.75rem); --voltz-button-font-size: var(--voltz-font-size-sm, 0.875rem); }
+.voltz-button--md { --voltz-button-height: var(--voltz-size-10, 2.5rem); --voltz-button-px: var(--voltz-space-4, 1rem); --voltz-button-font-size: var(--voltz-font-size-sm, 0.875rem); }
+.voltz-button--lg { --voltz-button-height: var(--voltz-size-12, 3rem); --voltz-button-px: var(--voltz-space-5, 1.25rem); --voltz-button-font-size: var(--voltz-font-size-md, 1rem); }
+.voltz-button--xl { --voltz-button-height: var(--voltz-size-14, 3.5rem); --voltz-button-px: var(--voltz-space-6, 1.5rem); --voltz-button-font-size: var(--voltz-font-size-lg, 1.125rem); }
 
-.voltz-button--sm {
-  --voltz-button-height: var(--voltz-size-8, 2rem);
-  --voltz-button-px: var(--voltz-space-3, 0.75rem);
-  --voltz-button-font-size: var(--voltz-font-size-sm, 0.875rem);
-}
-
-.voltz-button--md {
-  --voltz-button-height: var(--voltz-size-10, 2.5rem);
-  --voltz-button-px: var(--voltz-space-4, 1rem);
-  --voltz-button-font-size: var(--voltz-font-size-sm, 0.875rem);
-}
-
-.voltz-button--lg {
-  --voltz-button-height: var(--voltz-size-12, 3rem);
-  --voltz-button-px: var(--voltz-space-5, 1.25rem);
-  --voltz-button-font-size: var(--voltz-font-size-md, 1rem);
-}
-
-.voltz-button--xl {
-  --voltz-button-height: var(--voltz-size-14, 3.5rem);
-  --voltz-button-px: var(--voltz-space-6, 1.5rem);
-  --voltz-button-font-size: var(--voltz-font-size-lg, 1.125rem);
-}
-
-/* === Variant: Solid (default) === */
-.voltz-button--solid {
-  --voltz-button-bg: var(--voltz-button-solid-bg);
-  --voltz-button-color: var(--voltz-color-white, #fff);
-  --voltz-button-hover-bg: var(--voltz-button-solid-hover-bg);
-  --voltz-button-active-bg: var(--voltz-button-solid-active-bg);
-}
+/* === Variant: Solid === */
+.voltz-button--solid { --voltz-button-bg: var(--voltz-button-solid-bg); --voltz-button-color: var(--voltz-color-white, #fff); --voltz-button-hover-bg: var(--voltz-button-solid-hover-bg); --voltz-button-active-bg: var(--voltz-button-solid-active-bg); }
 
 /* === Variant: Outline === */
-.voltz-button--outline {
-  --voltz-button-bg: transparent;
-  --voltz-button-color: var(--voltz-button-outline-color);
-  --voltz-button-border-color: var(--voltz-button-outline-border);
-  --voltz-button-hover-bg: var(--voltz-button-outline-hover-bg);
-  --voltz-button-active-bg: var(--voltz-button-outline-active-bg);
-}
+.voltz-button--outline { --voltz-button-bg: transparent; --voltz-button-color: var(--voltz-button-outline-color); --voltz-button-border-color: var(--voltz-button-outline-border); --voltz-button-hover-bg: var(--voltz-button-outline-hover-bg); --voltz-button-active-bg: var(--voltz-button-outline-active-bg); }
 
 /* === Variant: Ghost === */
-.voltz-button--ghost {
-  --voltz-button-bg: transparent;
-  --voltz-button-color: var(--voltz-button-ghost-color);
-  --voltz-button-border-color: transparent;
-  --voltz-button-hover-bg: var(--voltz-button-ghost-hover-bg);
-  --voltz-button-active-bg: var(--voltz-button-ghost-active-bg);
-}
+.voltz-button--ghost { --voltz-button-bg: transparent; --voltz-button-color: var(--voltz-button-ghost-color); --voltz-button-border-color: transparent; --voltz-button-hover-bg: var(--voltz-button-ghost-hover-bg); --voltz-button-active-bg: var(--voltz-button-ghost-active-bg); }
 
 /* === Variant: Soft === */
-.voltz-button--soft {
-  --voltz-button-bg: var(--voltz-button-soft-bg);
-  --voltz-button-color: var(--voltz-button-soft-color);
-  --voltz-button-hover-bg: var(--voltz-button-soft-hover-bg);
-  --voltz-button-active-bg: var(--voltz-button-soft-active-bg);
-}
+.voltz-button--soft { --voltz-button-bg: var(--voltz-button-soft-bg); --voltz-button-color: var(--voltz-button-soft-color); --voltz-button-hover-bg: var(--voltz-button-soft-hover-bg); --voltz-button-active-bg: var(--voltz-button-soft-active-bg); }
 
 /* === Variant: Link === */
 .voltz-button--link {
-  --voltz-button-bg: transparent;
-  --voltz-button-color: var(--voltz-button-link-color);
-  --voltz-button-hover-bg: transparent;
-  --voltz-button-active-bg: transparent;
-  --voltz-button-px: 0;
-  --voltz-button-height: auto;
-  border-color: transparent;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  --voltz-button-bg: transparent; --voltz-button-color: var(--voltz-button-link-color);
+  --voltz-button-hover-bg: transparent; --voltz-button-active-bg: transparent;
+  --voltz-button-px: 0; --voltz-button-height: auto;
+  border-color: transparent; text-decoration: underline; text-underline-offset: 2px;
 }
-
-.voltz-button--link:hover {
-  text-decoration-thickness: 2px;
-}
+.voltz-button--link:hover { text-decoration-thickness: 2px; }
 
 /* === Color: Primary === */
 .voltz-button--primary {
@@ -174,7 +102,6 @@
   --voltz-button-link-color: var(--voltz-color-primary-600, #2563eb);
   --voltz-button-focus-ring: var(--voltz-color-primary-400, #60a5fa);
 }
-
 /* === Color: Neutral === */
 .voltz-button--neutral {
   --voltz-button-solid-bg: var(--voltz-color-neutral-700, #374151);
@@ -194,7 +121,6 @@
   --voltz-button-link-color: var(--voltz-color-neutral-700, #374151);
   --voltz-button-focus-ring: var(--voltz-color-neutral-400, #9ca3af);
 }
-
 /* === Color: Success === */
 .voltz-button--success {
   --voltz-button-solid-bg: var(--voltz-color-success-600, #16a34a);
@@ -214,7 +140,6 @@
   --voltz-button-link-color: var(--voltz-color-success-600, #16a34a);
   --voltz-button-focus-ring: var(--voltz-color-success-400, #4ade80);
 }
-
 /* === Color: Warning === */
 .voltz-button--warning {
   --voltz-button-solid-bg: var(--voltz-color-warning-500, #f59e0b);
@@ -234,7 +159,6 @@
   --voltz-button-link-color: var(--voltz-color-warning-600, #d97706);
   --voltz-button-focus-ring: var(--voltz-color-warning-400, #fbbf24);
 }
-
 /* === Color: Error === */
 .voltz-button--error {
   --voltz-button-solid-bg: var(--voltz-color-error-600, #dc2626);
@@ -256,49 +180,16 @@
 }
 
 /* === Icon Slots === */
-.voltz-button__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 1em;
-  height: 1em;
-  font-size: 1.2em;
-}
+.voltz-button__icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 1em; height: 1em; font-size: 1.2em; }
 
 /* === Loading Spinner === */
-.voltz-button--loading .voltz-button__label {
-  opacity: 0.6;
-}
-
-.voltz-button__spinner {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  inset: 0;
-  margin: auto;
-}
-
-.voltz-button__spinner-icon {
-  width: 1.25em;
-  height: 1.25em;
-  animation: voltz-button-spin 0.75s linear infinite;
-}
-
-@keyframes voltz-button-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
+.voltz-button--loading .voltz-button__label { opacity: 0.6; }
+.voltz-button__spinner { display: inline-flex; align-items: center; justify-content: center; position: absolute; inset: 0; margin: auto; }
+.voltz-button__spinner-icon { width: 1.25em; height: 1.25em; animation: voltz-button-spin 0.75s linear infinite; }
+@keyframes voltz-button-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .voltz-button--loading .voltz-button__label,
-.voltz-button--loading .voltz-button__icon {
-  visibility: hidden;
-}
-
-.voltz-button--loading .voltz-button__spinner {
-  visibility: visible;
-}
+.voltz-button--loading .voltz-button__icon { visibility: hidden; }
+.voltz-button--loading .voltz-button__spinner { visibility: visible; }
 
 /* === Dark Mode === */
 [data-theme="dark"] .voltz-button--primary {
@@ -310,7 +201,6 @@
   --voltz-button-soft-hover-bg: rgba(37, 99, 235, 0.25);
   --voltz-button-soft-active-bg: rgba(37, 99, 235, 0.35);
 }
-
 [data-theme="dark"] .voltz-button--neutral {
   --voltz-button-solid-bg: var(--voltz-color-neutral-200, #e5e7eb);
   --voltz-button-solid-hover-bg: var(--voltz-color-neutral-100, #f3f4f6);
@@ -320,18 +210,10 @@
   --voltz-button-ghost-color: var(--voltz-color-neutral-200, #e5e7eb);
   --voltz-button-soft-color: var(--voltz-color-neutral-200, #e5e7eb);
 }
-
-[data-theme="dark"] .voltz-button--neutral.voltz-button--solid {
-  --voltz-button-color: var(--voltz-color-neutral-900, #111827);
-}
+[data-theme="dark"] .voltz-button--neutral.voltz-button--solid { --voltz-button-color: var(--voltz-color-neutral-900, #111827); }
 
 /* === Reduced Motion === */
 @media (prefers-reduced-motion: reduce) {
-  .voltz-button {
-    transition: none;
-  }
-
-  .voltz-button__spinner-icon {
-    animation-duration: 1.5s;
-  }
+  .voltz-button { transition: none; }
+  .voltz-button__spinner-icon { animation-duration: 1.5s; }
 }

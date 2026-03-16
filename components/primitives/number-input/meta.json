@@ -1,0 +1,85 @@
+{
+  "id": "number-input",
+  "name": "NumberInput",
+  "description": "A number input with increment and decrement buttons. Supports min/max/step constraints, multiple sizes, and keyboard arrow key control.",
+  "category": "primitives",
+  "tags": ["number", "input", "stepper", "increment", "decrement", "counter"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "spinbutton",
+    "keyboard": {
+      "ArrowUp": "Increments the value by step",
+      "ArrowDown": "Decrements the value by step"
+    },
+    "ariaAttributes": ["aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-label"]
+  },
+  "props": {
+    "value": {
+      "type": "number",
+      "default": 0,
+      "description": "Current numeric value"
+    },
+    "min": {
+      "type": "number",
+      "default": null,
+      "description": "Minimum allowed value"
+    },
+    "max": {
+      "type": "number",
+      "default": null,
+      "description": "Maximum allowed value"
+    },
+    "step": {
+      "type": "number",
+      "default": 1,
+      "description": "Increment/decrement step value"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the number input"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is disabled"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "0",
+      "description": "Placeholder text"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {},
+  "events": {
+    "change": {
+      "description": "Fired when the value changes",
+      "payload": { "value": "number" }
+    }
+  },
+  "examples": [
+    {
+      "title": "Default number input",
+      "props": { "value": 0, "min": 0, "max": 100, "step": 1 }
+    },
+    {
+      "title": "With step of 5",
+      "props": { "value": 10, "min": 0, "max": 100, "step": 5, "size": "lg" }
+    },
+    {
+      "title": "Small quantity selector",
+      "props": { "value": 1, "min": 1, "max": 99, "step": 1, "size": "sm" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["input"]
+}

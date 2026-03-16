@@ -1,0 +1,54 @@
+<!--
+  Comparison Table Component Template
+  Purpose: Feature comparison table with check/cross indicators,
+  highlighted recommended column, responsive scroll, and sticky header.
+-->
+<div class="voltz-comparison-table voltz-comparison-table--{{variant}}"
+     role="region"
+     aria-label="Feature comparison"
+     tabindex="0">
+
+  <table class="voltz-comparison-table__table" role="table">
+    <thead class="voltz-comparison-table__head {{#if stickyHeader}}voltz-comparison-table__head--sticky{{/if}}">
+      <tr>
+        <th class="voltz-comparison-table__feature-header" scope="col">Features</th>
+        <!-- Column headers via slot, use data-recommended="true" for highlight -->
+        {{slot:head}}
+      </tr>
+    </thead>
+    <tbody class="voltz-comparison-table__body">
+      {{#if empty}}
+      <tr>
+        <td colspan="100%" class="voltz-comparison-table__empty">
+          <p class="voltz-comparison-table__empty-text">No features to compare.</p>
+        </td>
+      </tr>
+      {{/if}}
+
+      <!-- Example row structure for slot content -->
+      <!--
+      <tr class="voltz-comparison-table__row">
+        <td class="voltz-comparison-table__feature-name">{{featureName}}</td>
+        <td class="voltz-comparison-table__cell">
+          <span class="voltz-comparison-table__check" aria-label="Included">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+        </td>
+        <td class="voltz-comparison-table__cell" data-recommended="true">
+          <span class="voltz-comparison-table__cross" aria-label="Not included">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+        </td>
+      </tr>
+      -->
+      {{slot:default}}
+    </tbody>
+  </table>
+</div>

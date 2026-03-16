@@ -1,0 +1,77 @@
+{
+  "id": "skeleton",
+  "name": "skeleton",
+  "displayName": "Skeleton",
+  "description": "Content placeholder component with shimmer animation. Supports text, circle, and rectangle variants for loading state representations.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["skeleton", "placeholder", "loading", "shimmer", "content-loader"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "text",
+      "options": ["text", "circle", "rectangle"],
+      "description": "Shape variant of the skeleton"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the skeleton element"
+    },
+    "width": {
+      "type": "string",
+      "default": "100%",
+      "description": "Custom width (CSS value)"
+    },
+    "height": {
+      "type": "string",
+      "default": "",
+      "description": "Custom height (CSS value, overrides size)"
+    },
+    "rounded": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to apply rounded corners"
+    },
+    "animated": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to show shimmer animation"
+    },
+    "count": {
+      "type": "number",
+      "default": 1,
+      "description": "Number of skeleton lines to render (text variant)"
+    }
+  },
+  "slots": {},
+  "events": {},
+  "accessibility": {
+    "role": "presentation",
+    "keyboard": {},
+    "ariaAttributes": ["aria-hidden=\"true\"", "aria-label=\"Loading content\""]
+  },
+  "variants": [
+    { "name": "text", "description": "Text line placeholder" },
+    { "name": "circle", "description": "Circular avatar placeholder" },
+    { "name": "rectangle", "description": "Rectangular block placeholder" }
+  ],
+  "examples": [
+    {
+      "title": "Text skeleton lines",
+      "props": { "variant": "text", "count": 3, "size": "md" }
+    },
+    {
+      "title": "Avatar circle skeleton",
+      "props": { "variant": "circle", "size": "lg" }
+    },
+    {
+      "title": "Image rectangle skeleton",
+      "props": { "variant": "rectangle", "width": "100%", "height": "12rem" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["spinner", "progress-bar"]
+}

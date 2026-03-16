@@ -1,0 +1,14 @@
+<!--
+  Voltz UI - Noise Texture Background
+  Subtle noise/grain texture overlay
+  @version 1.0.0
+-->
+<div class="voltz-noise-texture voltz-noise-texture--{{variant}}"
+     role="presentation"
+     aria-hidden="true"
+     {{#if blendMode}}data-blend="{{blendMode}}"{{/if}}>
+  <div class="voltz-noise-texture__noise"></div>
+  <div class="voltz-noise-texture__content">
+    {{slot:default}}
+  </div>
+</div>

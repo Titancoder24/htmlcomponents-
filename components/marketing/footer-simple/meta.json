@@ -1,0 +1,19 @@
+{
+  "name": "Footer Simple",
+  "description": "Simple footer with logo, copyright text, and a row of links. Dark and light variants with responsive layout.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["footer", "simple", "navigation", "copyright"],
+  "variants": ["default", "dark", "bordered", "minimal"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

@@ -1,0 +1,101 @@
+/*
+ * Figure Caption Component Styles
+ * Purpose: Provides styling for figures with captions,
+ * bordered/borderless variants, and responsive images.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-figure-caption {
+  --voltz-figure-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-figure-caption-color: var(--voltz-color-text-muted, #6b7280);
+  --voltz-figure-border-color: var(--voltz-color-border, #e5e7eb);
+  --voltz-figure-bg: transparent;
+  --voltz-figure-radius: var(--voltz-radius-md, 0.5rem);
+  --voltz-figure-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+
+  font-family: var(--voltz-figure-font-family);
+  margin: var(--voltz-spacing-6, 1.5rem) 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+.voltz-figure-caption__media {
+  overflow: hidden;
+  border-radius: var(--voltz-figure-radius);
+}
+
+.voltz-figure-caption__media img,
+.voltz-figure-caption__media video,
+.voltz-figure-caption__media picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.voltz-figure-caption__caption {
+  color: var(--voltz-figure-caption-color);
+  font-size: var(--voltz-figure-caption-size, 0.875rem);
+  line-height: 1.5;
+  margin-top: var(--voltz-spacing-2, 0.5rem);
+  padding: 0 var(--voltz-spacing-1, 0.25rem);
+}
+
+/* ========================================
+   Caption Alignment
+   ======================================== */
+.voltz-figure-caption--caption-left .voltz-figure-caption__caption {
+  text-align: left;
+}
+
+.voltz-figure-caption--caption-center .voltz-figure-caption__caption {
+  text-align: center;
+}
+
+.voltz-figure-caption--caption-right .voltz-figure-caption__caption {
+  text-align: right;
+}
+
+/* ========================================
+   Variant: Bordered
+   ======================================== */
+.voltz-figure-caption--bordered {
+  border: 1px solid var(--voltz-figure-border-color);
+  border-radius: var(--voltz-figure-radius);
+  padding: var(--voltz-spacing-3, 0.75rem);
+  background: var(--voltz-figure-bg);
+}
+
+.voltz-figure-caption--bordered .voltz-figure-caption__caption {
+  padding-top: var(--voltz-spacing-3, 0.75rem);
+  border-top: 1px solid var(--voltz-figure-border-color);
+  margin-top: var(--voltz-spacing-3, 0.75rem);
+}
+
+/* ========================================
+   Variant: Borderless
+   ======================================== */
+.voltz-figure-caption--borderless {
+  border: none;
+  padding: 0;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-figure-caption {
+  --voltz-figure-caption-color: var(--voltz-color-text-muted-dark, #9ca3af);
+  --voltz-figure-border-color: var(--voltz-color-border-dark, #374151);
+  --voltz-figure-bg: var(--voltz-color-surface-dark, #1f2937);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-figure-caption {
+    transition: none;
+  }
+}

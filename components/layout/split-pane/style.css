@@ -1,0 +1,87 @@
+/*
+ * Split Pane Component - style.css
+ * Purpose: Two-panel split layout with direction and ratio options.
+ * Ratios: 50-50, 33-67, 67-33, 25-75, 75-25. Responsive stacking.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-split-gap: 0;
+  --voltz-split-min-height: auto;
+}
+
+/* === Base === */
+.voltz-split-pane {
+  display: flex;
+  width: 100%;
+  min-height: var(--voltz-split-min-height);
+  box-sizing: border-box;
+}
+
+/* === Direction Variants === */
+.voltz-split-pane--horizontal {
+  flex-direction: row;
+}
+
+.voltz-split-pane--vertical {
+  flex-direction: column;
+}
+
+/* === Panel Base === */
+.voltz-split-pane__primary,
+.voltz-split-pane__secondary {
+  box-sizing: border-box;
+  overflow: auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* === Ratio: 50-50 === */
+.voltz-split-pane[data-ratio="50-50"] > .voltz-split-pane__primary,
+.voltz-split-pane[data-ratio="50-50"] > .voltz-split-pane__secondary {
+  flex: 1 1 50%;
+}
+
+/* === Ratio: 33-67 === */
+.voltz-split-pane[data-ratio="33-67"] > .voltz-split-pane__primary {
+  flex: 0 0 33.333%;
+}
+.voltz-split-pane[data-ratio="33-67"] > .voltz-split-pane__secondary {
+  flex: 1 1 66.667%;
+}
+
+/* === Ratio: 67-33 === */
+.voltz-split-pane[data-ratio="67-33"] > .voltz-split-pane__primary {
+  flex: 1 1 66.667%;
+}
+.voltz-split-pane[data-ratio="67-33"] > .voltz-split-pane__secondary {
+  flex: 0 0 33.333%;
+}
+
+/* === Ratio: 25-75 === */
+.voltz-split-pane[data-ratio="25-75"] > .voltz-split-pane__primary {
+  flex: 0 0 25%;
+}
+.voltz-split-pane[data-ratio="25-75"] > .voltz-split-pane__secondary {
+  flex: 1 1 75%;
+}
+
+/* === Ratio: 75-25 === */
+.voltz-split-pane[data-ratio="75-25"] > .voltz-split-pane__primary {
+  flex: 1 1 75%;
+}
+.voltz-split-pane[data-ratio="75-25"] > .voltz-split-pane__secondary {
+  flex: 0 0 25%;
+}
+
+/* === Responsive: stack on mobile === */
+@media (max-width: 767px) {
+  .voltz-split-pane--horizontal {
+    flex-direction: column;
+  }
+
+  .voltz-split-pane--horizontal > .voltz-split-pane__primary,
+  .voltz-split-pane--horizontal > .voltz-split-pane__secondary {
+    flex: 1 1 auto;
+  }
+}

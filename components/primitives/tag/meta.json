@@ -1,0 +1,85 @@
+{
+  "id": "tag",
+  "name": "tag",
+  "displayName": "Tag",
+  "description": "Removable tag/chip component with solid, outline, and soft variants. Supports multiple sizes, colors, an optional close button, and icon support.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["tag", "chip", "label", "badge", "removable"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "solid",
+      "options": ["solid", "outline", "soft"],
+      "description": "Visual style variant"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the tag"
+    },
+    "color": {
+      "type": "string",
+      "default": "neutral",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Color scheme of the tag"
+    },
+    "removable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show a close/remove button"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the tag is in a disabled state"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Tag label content"
+    },
+    "icon": {
+      "description": "Optional leading icon"
+    }
+  },
+  "events": {
+    "remove": {
+      "description": "Fired when the close button is clicked"
+    }
+  },
+  "accessibility": {
+    "role": "listitem",
+    "keyboard": {
+      "Backspace": "Removes the tag when focused",
+      "Delete": "Removes the tag when focused"
+    },
+    "ariaAttributes": ["aria-label", "aria-disabled"]
+  },
+  "variants": [
+    { "name": "solid", "description": "Filled background" },
+    { "name": "outline", "description": "Bordered with transparent background" },
+    { "name": "soft", "description": "Light tinted background" }
+  ],
+  "examples": [
+    {
+      "title": "Primary solid tag",
+      "props": { "variant": "solid", "color": "primary" },
+      "slots": { "default": "Frontend" }
+    },
+    {
+      "title": "Removable success tag",
+      "props": { "variant": "soft", "color": "success", "removable": true },
+      "slots": { "default": "Approved" }
+    },
+    {
+      "title": "Outline error tag",
+      "props": { "variant": "outline", "color": "error", "size": "sm" },
+      "slots": { "default": "Urgent" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["badge", "button"]
+}

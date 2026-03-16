@@ -1,0 +1,156 @@
+/**
+ * Dropdown Component - style.css
+ * Purpose: Styles for the dropdown menu including trigger, menu panel,
+ * menu items with icons, dividers, disabled states, and positioning.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-dropdown {
+  --voltz-dropdown-bg: var(--voltz-color-bg-primary, #ffffff);
+  --voltz-dropdown-color: var(--voltz-color-text-primary, #111827);
+  --voltz-dropdown-border: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-dropdown-radius: var(--voltz-radius-lg, 0.5rem);
+  --voltz-dropdown-shadow: var(--voltz-shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1));
+  --voltz-dropdown-z: 9000;
+  --voltz-dropdown-min-w: 10rem;
+  --voltz-dropdown-max-w: 20rem;
+  --voltz-dropdown-padding: 0.25rem;
+  --voltz-dropdown-offset: 0.25rem;
+  --voltz-dropdown-item-padding: 0.5rem 0.75rem;
+  --voltz-dropdown-item-radius: var(--voltz-radius-md, 0.375rem);
+  --voltz-dropdown-item-hover: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-dropdown-item-focus: var(--voltz-color-primary-50, #eff6ff);
+  --voltz-dropdown-item-disabled: var(--voltz-color-neutral-400, #9ca3af);
+  --voltz-dropdown-divider: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-dropdown-transition: opacity 150ms ease, transform 150ms ease;
+
+  position: relative;
+  display: inline-flex;
+}
+
+.voltz-dropdown__trigger {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.voltz-dropdown__trigger:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 2px;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+}
+
+/* ---- Menu panel ---- */
+.voltz-dropdown__menu {
+  position: absolute;
+  z-index: var(--voltz-dropdown-z);
+  min-width: var(--voltz-dropdown-min-w);
+  max-width: var(--voltz-dropdown-max-w);
+  padding: var(--voltz-dropdown-padding);
+  background: var(--voltz-dropdown-bg);
+  color: var(--voltz-dropdown-color);
+  border: 1px solid var(--voltz-dropdown-border);
+  border-radius: var(--voltz-dropdown-radius);
+  box-shadow: var(--voltz-dropdown-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--voltz-dropdown-transition);
+}
+
+.voltz-dropdown__menu[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- Position variants ---- */
+.voltz-dropdown__menu--bottom-start {
+  top: 100%;
+  left: 0;
+  margin-top: var(--voltz-dropdown-offset);
+}
+
+.voltz-dropdown__menu--bottom-end {
+  top: 100%;
+  right: 0;
+  margin-top: var(--voltz-dropdown-offset);
+}
+
+.voltz-dropdown__menu--top-start {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: var(--voltz-dropdown-offset);
+}
+
+.voltz-dropdown__menu--top-end {
+  bottom: 100%;
+  right: 0;
+  margin-bottom: var(--voltz-dropdown-offset);
+}
+
+/* ---- Menu item ---- */
+.voltz-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--voltz-dropdown-item-padding);
+  border-radius: var(--voltz-dropdown-item-radius);
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: nowrap;
+  user-select: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  text-align: left;
+}
+
+.voltz-dropdown__item:hover {
+  background: var(--voltz-dropdown-item-hover);
+}
+
+.voltz-dropdown__item:focus-visible {
+  background: var(--voltz-dropdown-item-focus);
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: -2px;
+}
+
+/* ---- Disabled item ---- */
+.voltz-dropdown__item[aria-disabled="true"] {
+  color: var(--voltz-dropdown-item-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---- Item icon ---- */
+.voltz-dropdown__item-icon {
+  display: inline-flex;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* ---- Divider ---- */
+.voltz-dropdown__divider {
+  height: 1px;
+  margin: 0.25rem 0;
+  background: var(--voltz-dropdown-divider);
+  border: none;
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-dropdown {
+  --voltz-dropdown-bg: var(--voltz-color-neutral-800, #1f2937);
+  --voltz-dropdown-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-dropdown-border: var(--voltz-color-neutral-700, #374151);
+  --voltz-dropdown-item-hover: var(--voltz-color-neutral-700, #374151);
+  --voltz-dropdown-item-focus: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-dropdown-divider: var(--voltz-color-neutral-700, #374151);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-dropdown__menu {
+    transition: none;
+  }
+}

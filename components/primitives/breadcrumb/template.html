@@ -1,0 +1,65 @@
+<!--
+  Breadcrumb Component - template.html
+  Purpose: Renders a breadcrumb navigation with customizable separators,
+  collapsible middle items, and aria-current for the current page. Uses
+  ARIA nav landmark for accessibility.
+-->
+<nav
+  class="voltz-breadcrumb voltz-breadcrumb--{{separator}}"
+  aria-label="Breadcrumb"
+>
+  <ol class="voltz-breadcrumb__list">
+    {{#each items}}
+    <li class="voltz-breadcrumb__item {{#if isLast}}voltz-breadcrumb__item--current{{/if}}">
+      {{#if !isLast}}
+      <a class="voltz-breadcrumb__link" href="{{href}}">
+        {{#if icon}}
+        <span class="voltz-breadcrumb__icon" aria-hidden="true">{{icon}}</span>
+        {{/if}}
+        {{label}}
+      </a>
+      <span class="voltz-breadcrumb__separator" aria-hidden="true">
+        {{#if separator === '/'}}
+          /
+        {{/if}}
+        {{#if separator === '>'}}
+          &gt;
+        {{/if}}
+        {{#if separator === 'arrow'}}
+        <svg class="voltz-breadcrumb__separator-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        {{/if}}
+      </span>
+      {{/if}}
+      {{#if isLast}}
+      <span class="voltz-breadcrumb__current" aria-current="page">
+        {{label}}
+      </span>
+      {{/if}}
+    </li>
+    {{/each}}
+
+    {{#if collapsible}}
+    <li class="voltz-breadcrumb__item voltz-breadcrumb__item--ellipsis" aria-hidden="true">
+      <button
+        class="voltz-breadcrumb__expand"
+        type="button"
+        aria-label="Show hidden breadcrumb items"
+        aria-expanded="false"
+      >
+        &hellip;
+      </button>
+      <span class="voltz-breadcrumb__separator" aria-hidden="true">
+        {{#if separator === 'arrow'}}
+        <svg class="voltz-breadcrumb__separator-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        {{/if}}
+        {{#if separator === '/'}} / {{/if}}
+        {{#if separator === '>'}} &gt; {{/if}}
+      </span>
+    </li>
+    {{/if}}
+  </ol>
+</nav>

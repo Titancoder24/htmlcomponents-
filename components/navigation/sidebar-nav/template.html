@@ -1,0 +1,41 @@
+<!-- Sidebar Navigation Component Template -->
+<!-- Vertical sidebar with collapsible groups and icon support -->
+<nav class="voltz-sidebar-nav voltz-sidebar-nav--{{variant}}"
+     role="navigation"
+     aria-label="Sidebar navigation">
+
+  <div class="voltz-sidebar-nav__header">
+    {{slot:header}}
+  </div>
+
+  <div class="voltz-sidebar-nav__body">
+    {{slot:default}}
+  </div>
+
+  <!-- Example group structure -->
+  <!--
+  <div class="voltz-sidebar-nav__group" data-group="section-id">
+    <button class="voltz-sidebar-nav__group-toggle"
+            aria-expanded="true"
+            aria-controls="sidebar-group-section-id">
+      <span class="voltz-sidebar-nav__group-icon">{{icon}}</span>
+      <span class="voltz-sidebar-nav__group-label">Section Title</span>
+      <span class="voltz-sidebar-nav__chevron" aria-hidden="true"></span>
+    </button>
+    <ul class="voltz-sidebar-nav__group-items"
+        id="sidebar-group-section-id"
+        role="list">
+      <li class="voltz-sidebar-nav__item">
+        <a href="#" class="voltz-sidebar-nav__link" aria-current="page">
+          <span class="voltz-sidebar-nav__item-icon">{{icon}}</span>
+          <span class="voltz-sidebar-nav__item-label">Item Label</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  -->
+
+  <div class="voltz-sidebar-nav__footer">
+    {{slot:footer}}
+  </div>
+</nav>

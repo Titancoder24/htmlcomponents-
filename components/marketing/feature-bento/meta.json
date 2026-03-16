@@ -1,0 +1,29 @@
+/**
+ * Meta configuration for feature-bento component.
+ * Bento grid layout for features with mixed cell sizes.
+ */
+{
+  "name": "feature-bento",
+  "displayName": "Feature Bento",
+  "description": "Bento-style grid layout for features with mixed large and small cells. Includes icons, titles, descriptions, and hover effects.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["features", "bento", "grid", "cards", "hover"],
+  "variants": {
+    "default": { "description": "Standard bento grid with mixed sizes" },
+    "uniform": { "description": "Equal-sized bento cells" }
+  },
+  "slots": {
+    "default": { "description": "Bento grid items area" }
+  },
+  "customProperties": {
+    "--voltz-feature-bento-bg": { "default": "#0a0a0a", "description": "Section background" },
+    "--voltz-feature-bento-card-bg": { "default": "#111", "description": "Card background" },
+    "--voltz-feature-bento-card-border": { "default": "#1a1a1a", "description": "Card border" },
+    "--voltz-feature-bento-text-color": { "default": "#ffffff", "description": "Title color" },
+    "--voltz-feature-bento-accent": { "default": "#6366f1", "description": "Accent color" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true
+}

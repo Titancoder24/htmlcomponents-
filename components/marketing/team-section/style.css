@@ -1,0 +1,206 @@
+/*
+ * Team Section Component Styles
+ * Purpose: Grid/list layout for team members with photo, name, role,
+ * bio, and social links. Supports 2/3/4 column grids and responsive collapse.
+ */
+
+.voltz-team {
+  --voltz-team-bg: #ffffff;
+  --voltz-team-text: #1a1a2e;
+  --voltz-team-text-muted: #6b7280;
+  --voltz-team-primary: #6c5ce7;
+  --voltz-team-border: #e5e7eb;
+  --voltz-team-card-bg: #f9fafb;
+  --voltz-team-social: #9ca3af;
+  --voltz-team-social-hover: #6c5ce7;
+  --voltz-team-padding: 5rem 1.5rem;
+  --voltz-team-max-width: 1280px;
+  --voltz-team-columns: 3;
+  --voltz-team-radius: 12px;
+}
+
+[data-theme="dark"] .voltz-team,
+.voltz-team[data-theme="dark"] {
+  --voltz-team-bg: #0f0f1a;
+  --voltz-team-text: #f0f0f5;
+  --voltz-team-text-muted: #9ca3af;
+  --voltz-team-border: #2d2d44;
+  --voltz-team-card-bg: #1a1a2e;
+  --voltz-team-social: #6b7280;
+}
+
+/* Base */
+.voltz-team {
+  background: var(--voltz-team-bg);
+  color: var(--voltz-team-text);
+  padding: var(--voltz-team-padding);
+}
+
+.voltz-team__container {
+  max-width: var(--voltz-team-max-width);
+  margin: 0 auto;
+}
+
+/* Header */
+.voltz-team__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.voltz-team__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+}
+
+.voltz-team__subtitle {
+  font-size: 1.0625rem;
+  color: var(--voltz-team-text-muted);
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Grid */
+.voltz-team__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--voltz-team-columns), 1fr);
+  gap: 2.5rem;
+}
+
+.voltz-team.grid-2 { --voltz-team-columns: 2; }
+.voltz-team.grid-3 { --voltz-team-columns: 3; }
+.voltz-team.grid-4 { --voltz-team-columns: 4; }
+
+/* List variant */
+.voltz-team.list .voltz-team__grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.voltz-team.list .voltz-team__member {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.voltz-team.list .voltz-team__photo-wrap {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+/* Member Card */
+.voltz-team__member {
+  text-align: center;
+}
+
+.voltz-team.card .voltz-team__member {
+  background: var(--voltz-team-card-bg);
+  border-radius: var(--voltz-team-radius);
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--voltz-team-border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.voltz-team.card .voltz-team__member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Photo */
+.voltz-team__photo-wrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.25rem;
+  background: var(--voltz-team-card-bg);
+}
+
+.voltz-team__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info */
+.voltz-team__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.voltz-team__role {
+  font-size: 0.9375rem;
+  color: var(--voltz-team-primary);
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+}
+
+.voltz-team__bio {
+  font-size: 0.875rem;
+  color: var(--voltz-team-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+/* Social */
+.voltz-team__social {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.voltz-team.list .voltz-team__social {
+  justify-content: flex-start;
+}
+
+.voltz-team__social-link {
+  color: var(--voltz-team-social);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.voltz-team__social-link:hover {
+  color: var(--voltz-team-social-hover);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .voltz-team.grid-4 { --voltz-team-columns: 3; }
+}
+
+@media (max-width: 768px) {
+  .voltz-team {
+    --voltz-team-padding: 3rem 1rem;
+    --voltz-team-columns: 2;
+  }
+  .voltz-team.grid-4 { --voltz-team-columns: 2; }
+
+  .voltz-team.list .voltz-team__member {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .voltz-team.list .voltz-team__social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .voltz-team { --voltz-team-columns: 1; }
+}
+
+@media (min-width: 1920px) {
+  .voltz-team { --voltz-team-max-width: 1440px; }
+}

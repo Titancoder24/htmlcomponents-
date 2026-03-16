@@ -1,0 +1,105 @@
+/*
+ * Pulse Button Component Styles
+ * Button with pulsing glow animation.
+ * Variants: continuous, hover
+ * Uses only transform (scale) and opacity for compositor-friendly animations.
+ */
+
+.voltz-pulse-button {
+  --voltz-pulse-button-color: #6366f1;
+  --voltz-pulse-button-text-color: #ffffff;
+  --voltz-pulse-button-duration: 2s;
+  --voltz-pulse-button-radius: 8px;
+  --voltz-pulse-button-padding: 12px 28px;
+  --voltz-pulse-button-ring-size: 1.5;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--voltz-pulse-button-padding);
+  background: var(--voltz-pulse-button-color);
+  color: var(--voltz-pulse-button-text-color);
+  border: none;
+  border-radius: var(--voltz-pulse-button-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+[data-theme="dark"] .voltz-pulse-button {
+  --voltz-pulse-button-color: #818cf8;
+  --voltz-pulse-button-text-color: #111827;
+}
+
+.voltz-pulse-button__content {
+  position: relative;
+  z-index: 1;
+}
+
+.voltz-pulse-button__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--voltz-pulse-button-color);
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+}
+
+/* Continuous variant */
+.voltz-pulse-button--continuous .voltz-pulse-button__ring {
+  animation: voltz-pulse-ring var(--voltz-pulse-button-duration) ease-out infinite;
+}
+
+.voltz-pulse-button--continuous .voltz-pulse-button__ring--delayed {
+  animation-delay: calc(var(--voltz-pulse-button-duration) / 2);
+}
+
+/* Hover variant */
+.voltz-pulse-button--hover .voltz-pulse-button__ring {
+  animation: none;
+}
+
+.voltz-pulse-button--hover:hover .voltz-pulse-button__ring {
+  animation: voltz-pulse-ring var(--voltz-pulse-button-duration) ease-out infinite;
+}
+
+.voltz-pulse-button--hover:hover .voltz-pulse-button__ring--delayed {
+  animation-delay: calc(var(--voltz-pulse-button-duration) / 2);
+}
+
+/* Focus visible */
+.voltz-pulse-button:focus-visible {
+  outline: 2px solid var(--voltz-pulse-button-color);
+  outline-offset: 2px;
+}
+
+/* Active state */
+.voltz-pulse-button:active {
+  transform: scale(0.97);
+}
+
+@keyframes voltz-pulse-ring {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(var(--voltz-pulse-button-ring-size, 1.5));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-pulse-button__ring {
+    animation: none !important;
+  }
+
+  .voltz-pulse-button:active {
+    transform: none;
+  }
+}

@@ -1,0 +1,89 @@
+/*
+ * Bento Reveal Component Styles
+ * Bento grid items that reveal with staggered animations.
+ * Variants: fade, scale, slide
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-bento-reveal {
+  --voltz-bento-reveal-duration: 0.6s;
+  --voltz-bento-reveal-delay: 80ms;
+  --voltz-bento-reveal-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --voltz-bento-reveal-columns: 3;
+  --voltz-bento-reveal-gap: 16px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--voltz-bento-reveal-columns), 1fr);
+  gap: var(--voltz-bento-reveal-gap);
+}
+
+/* Grid items initial state */
+.voltz-bento-reveal__item {
+  opacity: 0;
+  transition: opacity var(--voltz-bento-reveal-duration)
+      var(--voltz-bento-reveal-easing),
+    transform var(--voltz-bento-reveal-duration)
+      var(--voltz-bento-reveal-easing);
+  transition-delay: calc(
+    var(--voltz-bento-reveal-delay) * var(--voltz-bento-index, 0)
+  );
+  will-change: opacity, transform;
+}
+
+/* Fade variant */
+.voltz-bento-reveal--fade .voltz-bento-reveal__item {
+  transform: none;
+}
+
+/* Scale variant */
+.voltz-bento-reveal--scale .voltz-bento-reveal__item {
+  transform: scale(0.85);
+}
+
+/* Slide variant */
+.voltz-bento-reveal--slide .voltz-bento-reveal__item {
+  transform: translateY(30px);
+}
+
+/* Visible state */
+.voltz-bento-reveal[data-visible] .voltz-bento-reveal__item {
+  opacity: 1;
+  transform: none;
+}
+
+/* Common item styling */
+.voltz-bento-reveal__item {
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .voltz-bento-reveal__item {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+/* Span helpers */
+.voltz-bento-reveal__item--wide {
+  grid-column: span 2;
+}
+
+.voltz-bento-reveal__item--tall {
+  grid-row: span 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-bento-reveal__item {
+    transform: none !important;
+    transition: opacity 0.2s ease !important;
+    transition-delay: calc(
+      var(--voltz-bento-reveal-delay) * var(--voltz-bento-index, 0)
+    ) !important;
+  }
+
+  .voltz-bento-reveal[data-visible] .voltz-bento-reveal__item {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,57 @@
+<!--
+  Changelog Component Template
+  Purpose: Version changelog with version headers, dates, change type
+  badges (added/changed/fixed/removed), and collapsible version sections.
+-->
+<div class="voltz-changelog voltz-changelog--{{variant}}"
+     role="list"
+     aria-label="Changelog">
+
+  {{#if empty}}
+  <div class="voltz-changelog__empty">
+    <p class="voltz-changelog__empty-text">No changelog entries.</p>
+  </div>
+  {{/if}}
+
+  <!-- Example version entry structure for slot content -->
+  <!--
+  <div class="voltz-changelog__version" role="listitem">
+    <div class="voltz-changelog__version-header"
+         {{#if collapsible}}role="button" aria-expanded="true" tabindex="0"{{/if}}>
+      <div class="voltz-changelog__version-info">
+        <h3 class="voltz-changelog__version-number">v{{version}}</h3>
+        <time class="voltz-changelog__date" datetime="{{datetime}}">{{date}}</time>
+      </div>
+      {{#if collapsible}}
+      <svg class="voltz-changelog__chevron" width="20" height="20"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+      {{/if}}
+    </div>
+    <div class="voltz-changelog__version-body">
+      <ul class="voltz-changelog__changes">
+        <li class="voltz-changelog__change">
+          <span class="voltz-changelog__badge voltz-changelog__badge--added">Added</span>
+          <span class="voltz-changelog__change-text">Description of change</span>
+        </li>
+        <li class="voltz-changelog__change">
+          <span class="voltz-changelog__badge voltz-changelog__badge--changed">Changed</span>
+          <span class="voltz-changelog__change-text">Description of change</span>
+        </li>
+        <li class="voltz-changelog__change">
+          <span class="voltz-changelog__badge voltz-changelog__badge--fixed">Fixed</span>
+          <span class="voltz-changelog__change-text">Description of change</span>
+        </li>
+        <li class="voltz-changelog__change">
+          <span class="voltz-changelog__badge voltz-changelog__badge--removed">Removed</span>
+          <span class="voltz-changelog__change-text">Description of change</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  -->
+
+  {{slot:default}}
+</div>

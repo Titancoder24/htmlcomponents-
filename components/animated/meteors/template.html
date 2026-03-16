@@ -1,0 +1,16 @@
+<!--
+  Meteors Component
+  Falling meteor/shooting star trails effect.
+  CSS-only animation with JS for generating meteor elements.
+  Each meteor has randomized position, delay, and speed.
+-->
+<div class="voltz-meteors"
+     data-voltz-meteors
+     data-count="{{#if count}}{{count}}{{else}}8{{/if}}"
+     role="presentation"
+     aria-hidden="true">
+  <div class="voltz-meteors__field"></div>
+  <div class="voltz-meteors__content">
+    {{slot:default}}
+  </div>
+</div>

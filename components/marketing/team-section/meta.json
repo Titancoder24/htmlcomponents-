@@ -1,0 +1,19 @@
+{
+  "name": "Team Section",
+  "description": "Team members grid with photo, name, role, bio, and social links. Supports grid/list variants and 2/3/4 column layouts.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["team", "members", "grid", "about", "people"],
+  "variants": ["default", "grid-2", "grid-3", "grid-4", "list", "card"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

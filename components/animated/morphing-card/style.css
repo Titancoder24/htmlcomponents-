@@ -1,0 +1,99 @@
+/*
+ * Morphing Card Component Styles
+ * Card that morphs shape on hover/click.
+ * Uses transform and opacity for smooth compositor-only transitions.
+ * Border-radius transition adds shape morphing effect.
+ */
+
+.voltz-morphing-card {
+  --voltz-morphing-card-bg: #ffffff;
+  --voltz-morphing-card-color: #1a1a2e;
+  --voltz-morphing-card-radius: 12px;
+  --voltz-morphing-card-radius-morphed: 24px;
+  --voltz-morphing-card-duration: 0.5s;
+  --voltz-morphing-card-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --voltz-morphing-card-width: 300px;
+  --voltz-morphing-card-height: 200px;
+
+  position: relative;
+  width: var(--voltz-morphing-card-width);
+  min-height: var(--voltz-morphing-card-height);
+  background: var(--voltz-morphing-card-bg);
+  color: var(--voltz-morphing-card-color);
+  border-radius: var(--voltz-morphing-card-radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    border-radius var(--voltz-morphing-card-duration) var(--voltz-morphing-card-easing),
+    transform var(--voltz-morphing-card-duration) var(--voltz-morphing-card-easing);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+}
+
+[data-theme="dark"] .voltz-morphing-card {
+  --voltz-morphing-card-bg: #2a2a3e;
+  --voltz-morphing-card-color: #f0f0f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.voltz-morphing-card__default,
+.voltz-morphing-card__morphed {
+  padding: 1.5rem;
+  transition: opacity var(--voltz-morphing-card-duration) var(--voltz-morphing-card-easing);
+}
+
+.voltz-morphing-card__morphed {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover variant */
+.voltz-morphing-card--hover:hover {
+  border-radius: var(--voltz-morphing-card-radius-morphed);
+  transform: scale(1.05);
+}
+
+.voltz-morphing-card--hover:hover .voltz-morphing-card__default {
+  opacity: 0;
+}
+
+.voltz-morphing-card--hover:hover .voltz-morphing-card__morphed {
+  opacity: 1;
+}
+
+/* Click variant: active state toggled by JS */
+.voltz-morphing-card--click.voltz-morphing-card--active {
+  border-radius: var(--voltz-morphing-card-radius-morphed);
+  transform: scale(1.05);
+}
+
+.voltz-morphing-card--click.voltz-morphing-card--active .voltz-morphing-card__default {
+  opacity: 0;
+}
+
+.voltz-morphing-card--click.voltz-morphing-card--active .voltz-morphing-card__morphed {
+  opacity: 1;
+}
+
+/* Focus */
+.voltz-morphing-card:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-morphing-card {
+    transition: opacity 0.2s ease !important;
+    transform: none !important;
+  }
+
+  .voltz-morphing-card__default,
+  .voltz-morphing-card__morphed {
+    transition: opacity 0.2s ease !important;
+  }
+}

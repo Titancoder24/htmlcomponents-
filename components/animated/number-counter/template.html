@@ -1,0 +1,18 @@
+<!--
+  Number Counter Component
+  Animates counting from 0 to target number.
+  Supports decimals, prefix, suffix, and separator options.
+  IntersectionObserver triggers animation on scroll.
+-->
+<div class="voltz-number-counter"
+     data-voltz-counter
+     data-target="{{target}}"
+     data-duration="{{#if duration}}{{duration}}{{else}}2000{{/if}}"
+     data-decimals="{{#if decimals}}{{decimals}}{{else}}0{{/if}}"
+     data-separator="{{#if separator}}{{separator}}{{else}},{{/if}}"
+     role="status"
+     aria-label="Counter: {{target}}">
+  {{#if prefix}}<span class="voltz-number-counter__prefix">{{prefix}}</span>{{/if}}
+  <span class="voltz-number-counter__value">0</span>
+  {{#if suffix}}<span class="voltz-number-counter__suffix">{{suffix}}</span>{{/if}}
+</div>

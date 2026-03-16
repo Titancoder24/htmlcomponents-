@@ -1,0 +1,54 @@
+/*
+ * Magnetic Button Component Styles
+ * Button that visually follows cursor within its bounds.
+ * Uses transform for compositor-only movement.
+ * Spring-like transition on reset.
+ */
+
+.voltz-magnetic-btn {
+  --voltz-magnetic-btn-bg: #1a1a2e;
+  --voltz-magnetic-btn-color: #ffffff;
+  --voltz-magnetic-btn-radius: 8px;
+  --voltz-magnetic-btn-padding: 0.75rem 1.5rem;
+  --voltz-magnetic-btn-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--voltz-magnetic-btn-padding);
+  background: var(--voltz-magnetic-btn-bg);
+  color: var(--voltz-magnetic-btn-color);
+  border: none;
+  border-radius: var(--voltz-magnetic-btn-radius);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  transform: translate(0, 0);
+  transition: transform var(--voltz-magnetic-btn-transition);
+  will-change: transform;
+}
+
+[data-theme="dark"] .voltz-magnetic-btn {
+  --voltz-magnetic-btn-bg: #2a2a4a;
+}
+
+.voltz-magnetic-btn__label {
+  position: relative;
+  pointer-events: none;
+}
+
+.voltz-magnetic-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Reduced motion: disable magnetic effect visually */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-magnetic-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}

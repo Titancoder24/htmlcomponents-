@@ -1,0 +1,53 @@
+<!--
+  CTA Split Component
+  Purpose: Split call-to-action with text content on one side and a form or image
+  on the other. Responsive stacking on mobile. Supports multiple background options.
+  Variants: default, image-right, image-left, form-right, gradient-bg
+-->
+<section class="voltz-cta-split {{variant}}" data-component="cta-split">
+  <div class="voltz-cta-split__container">
+    <div class="voltz-cta-split__content">
+      <span class="voltz-cta-split__eyebrow">{{slot:eyebrow}}</span>
+      <h2 class="voltz-cta-split__title">{{slot:title}}</h2>
+      <p class="voltz-cta-split__description">{{slot:description}}</p>
+      {{#if showButtons}}
+      <div class="voltz-cta-split__actions">
+        <a href="#" class="voltz-cta-split__btn voltz-cta-split__btn--primary">
+          {{slot:primaryButton}}
+        </a>
+        {{#if showSecondaryButton}}
+        <a href="#" class="voltz-cta-split__btn voltz-cta-split__btn--secondary">
+          {{slot:secondaryButton}}
+        </a>
+        {{/if}}
+      </div>
+      {{/if}}
+    </div>
+    <div class="voltz-cta-split__media">
+      {{#if showForm}}
+      <form class="voltz-cta-split__form" data-cta-form>
+        <h3 class="voltz-cta-split__form-title">{{slot:formTitle}}</h3>
+        <div class="voltz-cta-split__field">
+          <label for="cta-name" class="voltz-cta-split__label">Full Name</label>
+          <input type="text" id="cta-name" class="voltz-cta-split__input"
+                 placeholder="John Doe" required />
+        </div>
+        <div class="voltz-cta-split__field">
+          <label for="cta-email" class="voltz-cta-split__label">Email</label>
+          <input type="email" id="cta-email" class="voltz-cta-split__input"
+                 placeholder="john@example.com" required />
+        </div>
+        <button type="submit" class="voltz-cta-split__btn voltz-cta-split__btn--primary voltz-cta-split__btn--full">
+          {{slot:submitButton}}
+        </button>
+        <p class="voltz-cta-split__privacy">{{slot:privacyText}}</p>
+      </form>
+      {{/if}}
+      {{#if showImage}}
+      <div class="voltz-cta-split__image-wrap">
+        <img src="{{imageSrc}}" alt="{{imageAlt}}" class="voltz-cta-split__image" loading="lazy" />
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+{
+  "name": "floating-nav",
+  "displayName": "Floating Navigation",
+  "description": "Floating navigation bar with fixed position. Pill-shaped with show/hide on scroll direction.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["bottom-center", "bottom-right"],
+  "slots": {
+    "default": "Navigation items"
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "bottom-center",
+      "options": ["bottom-center", "bottom-right"]
+    },
+    "hideOnScrollDown": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "ArrowLeft", "ArrowRight", "Enter"],
+    "aria": ["role=navigation", "aria-label"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "spotlight",
+  "description": "Spotlight effect that follows cursor with configurable radius, color, and intensity. Creates an overlay spotlight on content.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "overlay"],
+  "tags": ["spotlight", "cursor", "glow", "interactive", "animation"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-spotlight-color",
+    "--voltz-spotlight-radius",
+    "--voltz-spotlight-intensity",
+    "--voltz-spotlight-bg"
+  ],
+  "slots": {
+    "default": "Content to apply spotlight effect on"
+  }
+}
