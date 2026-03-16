@@ -1,0 +1,11 @@
+<!--
+  Heading Component Template
+  Purpose: Renders semantic heading elements (h1-h6) with configurable
+  size, weight, alignment, and truncation options.
+  Uses Voltz design tokens for consistent typography.
+-->
+<{{variant:level}}
+  class="voltz-heading voltz-heading--size-{{variant:size}} voltz-heading--weight-{{variant:weight}} voltz-heading--align-{{variant:align}} {{#if truncate}}voltz-heading--truncate{{/if}}"
+>
+  {{slot:default}}
+</{{variant:level}}>

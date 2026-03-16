@@ -1,0 +1,22 @@
+{
+  "name": "orbit",
+  "description": "Elements orbiting around a central point with configurable radius, speed, and item count using CSS transform rotate animation.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "reverse", "elliptical"],
+  "tags": ["orbit", "rotation", "animation", "circular"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-orbit-radius",
+    "--voltz-orbit-duration",
+    "--voltz-orbit-easing",
+    "--voltz-orbit-item-size",
+    "--voltz-orbit-center-size",
+    "--voltz-orbit-color"
+  ],
+  "slots": {
+    "default": "Center content",
+    "items": "Orbiting items"
+  }
+}

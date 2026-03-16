@@ -1,0 +1,37 @@
+<!--
+  Textarea Component - template.html
+  Purpose: Renders a multi-line text input with optional label, helper text,
+  character counter, and auto-resize capability.
+-->
+<div class="voltz-textarea-wrapper voltz-textarea-wrapper--{{variant}} voltz-textarea-wrapper--{{size}} {{#if error}}voltz-textarea-wrapper--error{{/if}} {{#if disabled}}voltz-textarea-wrapper--disabled{{/if}} {{#if autoResize}}voltz-textarea-wrapper--auto-resize{{/if}}">
+  {{#if label}}
+  <label class="voltz-textarea__label" for="{{id}}">
+    {{label}}
+    {{#if required}}<span class="voltz-textarea__required" aria-hidden="true">*</span>{{/if}}
+  </label>
+  {{/if}}
+  <textarea
+    class="voltz-textarea"
+    id="{{id}}"
+    rows="{{rows}}"
+    placeholder="{{placeholder}}"
+    {{#if maxLength}}maxlength="{{maxLength}}"{{/if}}
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+    {{#if readonly}}readonly aria-readonly="true"{{/if}}
+    {{#if error}}aria-invalid="true"{{/if}}
+    {{#if required}}required aria-required="true"{{/if}}
+    {{#if helperText}}aria-describedby="{{id}}-helper"{{/if}}
+  ></textarea>
+  <div class="voltz-textarea__footer">
+    {{#if helperText}}
+    <span class="voltz-textarea__helper" id="{{id}}-helper" role="status">
+      {{helperText}}
+    </span>
+    {{/if}}
+    {{#if maxLength}}
+    <span class="voltz-textarea__counter" aria-live="polite">
+      <span class="voltz-textarea__counter-current">0</span>/<span class="voltz-textarea__counter-max">{{maxLength}}</span>
+    </span>
+    {{/if}}
+  </div>
+</div>

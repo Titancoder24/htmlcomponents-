@@ -1,0 +1,218 @@
+/*
+ * Input Component - style.css
+ * Purpose: Styles for the text input primitive including variants (outline,
+ * filled, flushed), sizes (sm/md/lg), states (disabled, error, readonly),
+ * addons, label, and helper text. Supports dark mode and reduced motion.
+ */
+
+/* === Wrapper === */
+.voltz-input-wrapper {
+  --voltz-input-height: var(--voltz-size-10, 2.5rem);
+  --voltz-input-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-input-radius: var(--voltz-radius-md, 0.375rem);
+  --voltz-input-border-color: var(--voltz-color-neutral-300, #d1d5db);
+  --voltz-input-bg: var(--voltz-color-white, #fff);
+  --voltz-input-color: var(--voltz-color-neutral-900, #111827);
+  --voltz-input-placeholder: var(--voltz-color-neutral-400, #9ca3af);
+  --voltz-input-focus-ring: var(--voltz-color-primary-500, #3b82f6);
+  --voltz-input-error-color: var(--voltz-color-error-500, #ef4444);
+  --voltz-input-px: var(--voltz-space-3, 0.75rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--voltz-space-1, 0.25rem);
+  font-family: var(--voltz-font-family-sans, system-ui, sans-serif);
+  width: 100%;
+}
+
+/* === Label === */
+.voltz-input__label {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  color: var(--voltz-color-neutral-700, #374151);
+}
+
+.voltz-input__required {
+  color: var(--voltz-input-error-color);
+  margin-inline-start: 0.125rem;
+}
+
+/* === Input Group === */
+.voltz-input__group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* === Base Input === */
+.voltz-input {
+  width: 100%;
+  height: var(--voltz-input-height);
+  padding-inline: var(--voltz-input-px);
+  font-family: inherit;
+  font-size: var(--voltz-input-font-size);
+  color: var(--voltz-input-color);
+  background-color: var(--voltz-input-bg);
+  border: 1px solid var(--voltz-input-border-color);
+  border-radius: var(--voltz-input-radius);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.voltz-input::placeholder {
+  color: var(--voltz-input-placeholder);
+}
+
+.voltz-input:focus-visible {
+  border-color: var(--voltz-input-focus-ring);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* === Sizes === */
+.voltz-input-wrapper--sm {
+  --voltz-input-height: var(--voltz-size-8, 2rem);
+  --voltz-input-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-input-px: var(--voltz-space-2, 0.5rem);
+}
+
+.voltz-input-wrapper--md {
+  --voltz-input-height: var(--voltz-size-10, 2.5rem);
+  --voltz-input-font-size: var(--voltz-font-size-sm, 0.875rem);
+}
+
+.voltz-input-wrapper--lg {
+  --voltz-input-height: var(--voltz-size-12, 3rem);
+  --voltz-input-font-size: var(--voltz-font-size-md, 1rem);
+  --voltz-input-px: var(--voltz-space-4, 1rem);
+}
+
+/* === Variant: Outline (default) === */
+.voltz-input-wrapper--outline .voltz-input {
+  background-color: var(--voltz-input-bg);
+  border-color: var(--voltz-input-border-color);
+}
+
+/* === Variant: Filled === */
+.voltz-input-wrapper--filled .voltz-input {
+  background-color: var(--voltz-color-neutral-100, #f3f4f6);
+  border-color: transparent;
+}
+
+.voltz-input-wrapper--filled .voltz-input:focus-visible {
+  background-color: var(--voltz-input-bg);
+  border-color: var(--voltz-input-focus-ring);
+}
+
+/* === Variant: Flushed === */
+.voltz-input-wrapper--flushed .voltz-input {
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-inline: 0;
+  background-color: transparent;
+}
+
+.voltz-input-wrapper--flushed .voltz-input:focus-visible {
+  box-shadow: 0 1px 0 0 var(--voltz-input-focus-ring);
+}
+
+/* === Error State === */
+.voltz-input-wrapper--error .voltz-input {
+  --voltz-input-border-color: var(--voltz-input-error-color);
+}
+
+.voltz-input-wrapper--error .voltz-input:focus-visible {
+  border-color: var(--voltz-input-error-color);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.voltz-input-wrapper--error .voltz-input__helper {
+  color: var(--voltz-input-error-color);
+}
+
+/* === Disabled State === */
+.voltz-input-wrapper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voltz-input-wrapper--disabled .voltz-input {
+  cursor: not-allowed;
+}
+
+/* === Addons === */
+.voltz-input__addon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--voltz-space-3, 0.75rem);
+  height: var(--voltz-input-height);
+  font-size: var(--voltz-input-font-size);
+  color: var(--voltz-color-neutral-500, #6b7280);
+  background-color: var(--voltz-color-neutral-50, #f9fafb);
+  border: 1px solid var(--voltz-input-border-color);
+  white-space: nowrap;
+}
+
+.voltz-input__addon--left {
+  border-right: none;
+  border-radius: var(--voltz-input-radius) 0 0 var(--voltz-input-radius);
+}
+
+.voltz-input__addon--left + .voltz-input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.voltz-input__addon--right {
+  border-left: none;
+  border-radius: 0 var(--voltz-input-radius) var(--voltz-input-radius) 0;
+}
+
+.voltz-input__group:has(.voltz-input__addon--right) .voltz-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* === Helper Text === */
+.voltz-input__helper {
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  color: var(--voltz-color-neutral-500, #6b7280);
+  margin-top: var(--voltz-space-1, 0.25rem);
+}
+
+.voltz-input-wrapper--error .voltz-input__helper {
+  color: var(--voltz-input-error-color);
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] .voltz-input-wrapper {
+  --voltz-input-bg: var(--voltz-color-neutral-900, #111827);
+  --voltz-input-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-input-border-color: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-input-placeholder: var(--voltz-color-neutral-500, #6b7280);
+}
+
+[data-theme="dark"] .voltz-input__label {
+  color: var(--voltz-color-neutral-200, #e5e7eb);
+}
+
+[data-theme="dark"] .voltz-input__addon {
+  background-color: var(--voltz-color-neutral-800, #1f2937);
+  color: var(--voltz-color-neutral-400, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-input-wrapper--filled .voltz-input {
+  background-color: var(--voltz-color-neutral-800, #1f2937);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-input {
+    transition: none;
+  }
+}

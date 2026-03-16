@@ -1,0 +1,42 @@
+{
+  "id": "inline-code",
+  "name": "Inline Code",
+  "description": "Inline code snippet with monospace font and background highlight. Configurable sizes.",
+  "category": "typography",
+  "tags": ["code", "inline-code", "monospace", "snippet", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "code",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses semantic <code> element for proper identification by screen readers."
+  },
+  "variants": {
+    "size": {
+      "type": "string",
+      "options": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Font size of the inline code"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The code text content"
+    }
+  },
+  "examples": [
+    {
+      "name": "Default Code",
+      "props": { "size": "md" },
+      "content": "console.log('hello')"
+    },
+    {
+      "name": "Small Code",
+      "props": { "size": "sm" },
+      "content": "npm install"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["paragraph", "callout"]
+}

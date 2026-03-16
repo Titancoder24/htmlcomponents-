@@ -1,0 +1,68 @@
+/**
+ * Voltz UI - Spacing Tokens
+ *
+ * Spacing scale based on a 4px base grid.
+ * Each step is a multiple of 4px (0.25rem).
+ * Provides consistent spacing for padding, margin, and gap.
+ *
+ * Naming: --voltz-spacing-{multiplier}
+ * Example: --voltz-spacing-4 = 4 * 4px = 16px = 1rem
+ */
+
+:root {
+  /* ========================================================================
+   * Spacing Scale (4px base grid)
+   * ======================================================================== */
+  --voltz-spacing-px: 1px;           /* 1px - fine borders/dividers */
+  --voltz-spacing-0: 0;              /* 0px */
+  --voltz-spacing-0-5: 0.125rem;     /* 2px */
+  --voltz-spacing-1: 0.25rem;        /* 4px */
+  --voltz-spacing-1-5: 0.375rem;     /* 6px */
+  --voltz-spacing-2: 0.5rem;         /* 8px */
+  --voltz-spacing-2-5: 0.625rem;     /* 10px */
+  --voltz-spacing-3: 0.75rem;        /* 12px */
+  --voltz-spacing-3-5: 0.875rem;     /* 14px */
+  --voltz-spacing-4: 1rem;           /* 16px */
+  --voltz-spacing-5: 1.25rem;        /* 20px */
+  --voltz-spacing-6: 1.5rem;         /* 24px */
+  --voltz-spacing-7: 1.75rem;        /* 28px */
+  --voltz-spacing-8: 2rem;           /* 32px */
+  --voltz-spacing-9: 2.25rem;        /* 36px */
+  --voltz-spacing-10: 2.5rem;        /* 40px */
+  --voltz-spacing-11: 2.75rem;       /* 44px */
+  --voltz-spacing-12: 3rem;          /* 48px */
+  --voltz-spacing-14: 3.5rem;        /* 56px */
+  --voltz-spacing-16: 4rem;          /* 64px */
+  --voltz-spacing-18: 4.5rem;        /* 72px */
+  --voltz-spacing-20: 5rem;          /* 80px */
+  --voltz-spacing-24: 6rem;          /* 96px */
+  --voltz-spacing-28: 7rem;          /* 112px */
+  --voltz-spacing-32: 8rem;          /* 128px */
+  --voltz-spacing-36: 9rem;          /* 144px */
+  --voltz-spacing-40: 10rem;         /* 160px */
+  --voltz-spacing-44: 11rem;         /* 176px */
+  --voltz-spacing-48: 12rem;         /* 192px */
+  --voltz-spacing-52: 13rem;         /* 208px */
+  --voltz-spacing-56: 14rem;         /* 224px */
+  --voltz-spacing-60: 15rem;         /* 240px */
+  --voltz-spacing-64: 16rem;         /* 256px */
+  --voltz-spacing-72: 18rem;         /* 288px */
+  --voltz-spacing-80: 20rem;         /* 320px */
+  --voltz-spacing-96: 24rem;         /* 384px */
+
+  /* ========================================================================
+   * Semantic Spacing Aliases
+   * ======================================================================== */
+  --voltz-spacing-component-xs: var(--voltz-spacing-1);
+  --voltz-spacing-component-sm: var(--voltz-spacing-2);
+  --voltz-spacing-component-md: var(--voltz-spacing-3);
+  --voltz-spacing-component-lg: var(--voltz-spacing-4);
+  --voltz-spacing-component-xl: var(--voltz-spacing-6);
+
+  --voltz-spacing-layout-xs: var(--voltz-spacing-4);
+  --voltz-spacing-layout-sm: var(--voltz-spacing-6);
+  --voltz-spacing-layout-md: var(--voltz-spacing-8);
+  --voltz-spacing-layout-lg: var(--voltz-spacing-12);
+  --voltz-spacing-layout-xl: var(--voltz-spacing-16);
+  --voltz-spacing-layout-2xl: var(--voltz-spacing-24);
+}

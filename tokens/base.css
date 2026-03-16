@@ -1,0 +1,221 @@
+/**
+ * Voltz UI - Base Design Tokens
+ *
+ * Core design tokens for the Voltz design system.
+ * All tokens follow the naming convention: --voltz-{category}-{property}-{scale}
+ * This file defines the complete :root token set including colors, typography,
+ * spacing (4px grid), border-radius, shadows, motion, z-index, and containers.
+ *
+ * Import this file to get all tokens at once, or import individual token files
+ * for a more granular approach.
+ */
+
+:root {
+  /* ========================================================================
+   * Colors - Neutral
+   * ======================================================================== */
+  --voltz-color-neutral-50: #fafafa;
+  --voltz-color-neutral-100: #f5f5f5;
+  --voltz-color-neutral-200: #e5e5e5;
+  --voltz-color-neutral-300: #d4d4d4;
+  --voltz-color-neutral-400: #a3a3a3;
+  --voltz-color-neutral-500: #737373;
+  --voltz-color-neutral-600: #525252;
+  --voltz-color-neutral-700: #404040;
+  --voltz-color-neutral-800: #262626;
+  --voltz-color-neutral-900: #171717;
+  --voltz-color-neutral-950: #0a0a0a;
+
+  /* ========================================================================
+   * Colors - Primary (Blue)
+   * ======================================================================== */
+  --voltz-color-primary-50: #eff6ff;
+  --voltz-color-primary-100: #dbeafe;
+  --voltz-color-primary-200: #bfdbfe;
+  --voltz-color-primary-300: #93c5fd;
+  --voltz-color-primary-400: #60a5fa;
+  --voltz-color-primary-500: #3b82f6;
+  --voltz-color-primary-600: #2563eb;
+  --voltz-color-primary-700: #1d4ed8;
+  --voltz-color-primary-800: #1e40af;
+  --voltz-color-primary-900: #1e3a8a;
+
+  /* ========================================================================
+   * Colors - Success (Green)
+   * ======================================================================== */
+  --voltz-color-success-50: #f0fdf4;
+  --voltz-color-success-100: #dcfce7;
+  --voltz-color-success-200: #bbf7d0;
+  --voltz-color-success-300: #86efac;
+  --voltz-color-success-400: #4ade80;
+  --voltz-color-success-500: #22c55e;
+  --voltz-color-success-600: #16a34a;
+  --voltz-color-success-700: #15803d;
+  --voltz-color-success-800: #166534;
+  --voltz-color-success-900: #14532d;
+
+  /* ========================================================================
+   * Colors - Warning (Amber)
+   * ======================================================================== */
+  --voltz-color-warning-50: #fffbeb;
+  --voltz-color-warning-100: #fef3c7;
+  --voltz-color-warning-200: #fde68a;
+  --voltz-color-warning-300: #fcd34d;
+  --voltz-color-warning-400: #fbbf24;
+  --voltz-color-warning-500: #f59e0b;
+  --voltz-color-warning-600: #d97706;
+  --voltz-color-warning-700: #b45309;
+  --voltz-color-warning-800: #92400e;
+  --voltz-color-warning-900: #78350f;
+
+  /* ========================================================================
+   * Colors - Error (Red)
+   * ======================================================================== */
+  --voltz-color-error-50: #fef2f2;
+  --voltz-color-error-100: #fee2e2;
+  --voltz-color-error-200: #fecaca;
+  --voltz-color-error-300: #fca5a5;
+  --voltz-color-error-400: #f87171;
+  --voltz-color-error-500: #ef4444;
+  --voltz-color-error-600: #dc2626;
+  --voltz-color-error-700: #b91c1c;
+  --voltz-color-error-800: #991b1b;
+  --voltz-color-error-900: #7f1d1d;
+
+  /* ========================================================================
+   * Typography - Font Families
+   * ======================================================================== */
+  --voltz-font-family-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --voltz-font-family-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* ========================================================================
+   * Typography - Font Sizes
+   * ======================================================================== */
+  --voltz-font-size-xs: 0.75rem;
+  --voltz-font-size-sm: 0.875rem;
+  --voltz-font-size-base: 1rem;
+  --voltz-font-size-lg: 1.125rem;
+  --voltz-font-size-xl: 1.25rem;
+  --voltz-font-size-2xl: 1.5rem;
+  --voltz-font-size-3xl: 1.875rem;
+  --voltz-font-size-4xl: 2.25rem;
+  --voltz-font-size-5xl: 3rem;
+
+  /* ========================================================================
+   * Typography - Font Weights
+   * ======================================================================== */
+  --voltz-font-weight-regular: 400;
+  --voltz-font-weight-medium: 500;
+  --voltz-font-weight-semibold: 600;
+  --voltz-font-weight-bold: 700;
+
+  /* ========================================================================
+   * Typography - Line Heights
+   * ======================================================================== */
+  --voltz-line-height-tight: 1.25;
+  --voltz-line-height-normal: 1.5;
+  --voltz-line-height-relaxed: 1.75;
+
+  /* ========================================================================
+   * Typography - Letter Spacing
+   * ======================================================================== */
+  --voltz-letter-spacing-tight: -0.025em;
+  --voltz-letter-spacing-normal: 0em;
+  --voltz-letter-spacing-wide: 0.025em;
+  --voltz-letter-spacing-wider: 0.05em;
+
+  /* ========================================================================
+   * Spacing - 4px Base Grid
+   * ======================================================================== */
+  --voltz-spacing-0: 0;
+  --voltz-spacing-1: 0.25rem;
+  --voltz-spacing-2: 0.5rem;
+  --voltz-spacing-3: 0.75rem;
+  --voltz-spacing-4: 1rem;
+  --voltz-spacing-5: 1.25rem;
+  --voltz-spacing-6: 1.5rem;
+  --voltz-spacing-8: 2rem;
+  --voltz-spacing-10: 2.5rem;
+  --voltz-spacing-12: 3rem;
+  --voltz-spacing-16: 4rem;
+  --voltz-spacing-20: 5rem;
+  --voltz-spacing-24: 6rem;
+  --voltz-spacing-32: 8rem;
+  --voltz-spacing-40: 10rem;
+  --voltz-spacing-48: 12rem;
+  --voltz-spacing-64: 16rem;
+
+  /* ========================================================================
+   * Border Radius
+   * ======================================================================== */
+  --voltz-radius-none: 0;
+  --voltz-radius-sm: 0.25rem;
+  --voltz-radius-md: 0.375rem;
+  --voltz-radius-lg: 0.5rem;
+  --voltz-radius-xl: 0.75rem;
+  --voltz-radius-2xl: 1rem;
+  --voltz-radius-full: 9999px;
+
+  /* ========================================================================
+   * Box Shadows
+   * ======================================================================== */
+  --voltz-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --voltz-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --voltz-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --voltz-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --voltz-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --voltz-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --voltz-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --voltz-shadow-none: 0 0 #0000;
+
+  /* ========================================================================
+   * Motion - Durations
+   * ======================================================================== */
+  --voltz-duration-instant: 50ms;
+  --voltz-duration-fast: 100ms;
+  --voltz-duration-normal: 200ms;
+  --voltz-duration-slow: 300ms;
+  --voltz-duration-slower: 500ms;
+  --voltz-duration-slowest: 700ms;
+
+  /* ========================================================================
+   * Motion - Easings
+   * ======================================================================== */
+  --voltz-easing-linear: linear;
+  --voltz-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --voltz-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --voltz-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --voltz-easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --voltz-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ========================================================================
+   * Z-Index Scale
+   * ======================================================================== */
+  --voltz-z-index-hide: -1;
+  --voltz-z-index-base: 0;
+  --voltz-z-index-raised: 1;
+  --voltz-z-index-dropdown: 1000;
+  --voltz-z-index-sticky: 1100;
+  --voltz-z-index-fixed: 1200;
+  --voltz-z-index-overlay: 1300;
+  --voltz-z-index-modal: 1400;
+  --voltz-z-index-popover: 1500;
+  --voltz-z-index-toast: 1600;
+  --voltz-z-index-tooltip: 1700;
+
+  /* ========================================================================
+   * Container Widths
+   * ======================================================================== */
+  --voltz-container-xs: 20rem;
+  --voltz-container-sm: 24rem;
+  --voltz-container-md: 28rem;
+  --voltz-container-lg: 32rem;
+  --voltz-container-xl: 36rem;
+  --voltz-container-2xl: 42rem;
+  --voltz-container-3xl: 48rem;
+  --voltz-container-4xl: 56rem;
+  --voltz-container-5xl: 64rem;
+  --voltz-container-6xl: 72rem;
+  --voltz-container-7xl: 80rem;
+  --voltz-container-full: 100%;
+}

@@ -1,0 +1,100 @@
+/*
+ * Text Reveal Component Styles
+ * Animates text revealing character by character or word by word.
+ * Variants: typewriter, slide-up, fade-in
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-text-reveal {
+  --voltz-text-reveal-duration: 0.05s;
+  --voltz-text-reveal-delay: 0s;
+  --voltz-text-reveal-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --voltz-text-reveal-color: inherit;
+  --voltz-text-reveal-font-size: inherit;
+
+  font-size: var(--voltz-text-reveal-font-size);
+  color: var(--voltz-text-reveal-color);
+  display: inline-block;
+}
+
+[data-theme="dark"] .voltz-text-reveal {
+  --voltz-text-reveal-color: #f0f0f0;
+}
+
+/* Hidden original content after JS splits it */
+.voltz-text-reveal[data-initialized] > .voltz-text-reveal__content {
+  display: none;
+}
+
+/* Individual unit (char or word) */
+.voltz-text-reveal__unit {
+  display: inline-block;
+  white-space: pre;
+}
+
+/* Typewriter variant */
+.voltz-text-reveal--typewriter .voltz-text-reveal__unit {
+  opacity: 0;
+  animation: voltz-text-reveal-typewriter var(--voltz-text-reveal-duration) var(--voltz-text-reveal-easing) forwards;
+}
+
+@keyframes voltz-text-reveal-typewriter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-up variant */
+.voltz-text-reveal--slide-up .voltz-text-reveal__unit {
+  opacity: 0;
+  transform: translateY(100%);
+  animation: voltz-text-reveal-slide-up 0.4s var(--voltz-text-reveal-easing) forwards;
+}
+
+@keyframes voltz-text-reveal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in variant */
+.voltz-text-reveal--fade-in .voltz-text-reveal__unit {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: voltz-text-reveal-fade-in 0.5s var(--voltz-text-reveal-easing) forwards;
+}
+
+@keyframes voltz-text-reveal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Overflow clip for slide-up */
+.voltz-text-reveal--slide-up .voltz-text-reveal__word-wrapper {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-text-reveal__unit {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

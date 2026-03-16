@@ -1,0 +1,27 @@
+/**
+ * Voltz UI - Z-Index Tokens
+ *
+ * Layered z-index scale for predictable stacking order.
+ * Uses well-separated values (1000-step increments) to allow
+ * intermediate values when needed without collisions.
+ *
+ * Naming: --voltz-z-index-{name}
+ */
+
+:root {
+  /* ========================================================================
+   * Z-Index Scale
+   * ======================================================================== */
+  --voltz-z-index-hide: -1;
+  --voltz-z-index-base: 0;
+  --voltz-z-index-raised: 1;
+  --voltz-z-index-dropdown: 1000;
+  --voltz-z-index-sticky: 1100;
+  --voltz-z-index-fixed: 1200;
+  --voltz-z-index-overlay: 1300;
+  --voltz-z-index-modal: 1400;
+  --voltz-z-index-popover: 1500;
+  --voltz-z-index-toast: 1600;
+  --voltz-z-index-tooltip: 1700;
+  --voltz-z-index-max: 9999;
+}

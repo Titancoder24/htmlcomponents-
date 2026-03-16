@@ -1,0 +1,13 @@
+<!--
+  Flex Component - template.html
+  Purpose: Flexbox container with direction, wrap, justify, align, and gap options.
+  Directions: row, column, row-reverse, column-reverse.
+-->
+
+<div class="voltz-flex voltz-flex--{{variant}}"
+     data-justify="{{justify}}"
+     data-align="{{align}}"
+     data-gap="{{gap}}"
+     data-wrap="{{wrap}}">
+  {{slot:default}}
+</div>

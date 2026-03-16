@@ -1,0 +1,36 @@
+{
+  "id": "flex",
+  "name": "Flex",
+  "description": "Flexbox container with configurable direction, wrapping, alignment, justification, and gap options.",
+  "category": "layout",
+  "tags": ["flex", "flexbox", "row", "column", "alignment", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Structural flex container. Content within should use proper semantic elements."
+  },
+  "variants": [
+    { "name": "row", "description": "Horizontal flex layout" },
+    { "name": "column", "description": "Vertical flex layout" },
+    { "name": "row-reverse", "description": "Reversed horizontal flex layout" },
+    { "name": "column-reverse", "description": "Reversed vertical flex layout" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Flex items" }
+  ],
+  "examples": [
+    {
+      "name": "Row with spacing",
+      "description": "Horizontal row with center alignment and medium gap",
+      "props": { "variant": "row", "justify": "start", "align": "center", "gap": "md" }
+    },
+    {
+      "name": "Column stack",
+      "description": "Vertical column layout with stretch alignment",
+      "props": { "variant": "column", "justify": "start", "align": "stretch", "gap": "lg" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["stack", "grid", "container"]
+}

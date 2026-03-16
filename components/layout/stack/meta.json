@@ -1,0 +1,34 @@
+{
+  "id": "stack",
+  "name": "Stack",
+  "description": "Vertical or horizontal stack layout with uniform spacing between children. Supports optional dividers between items.",
+  "category": "layout",
+  "tags": ["stack", "vertical", "horizontal", "spacing", "divider", "layout"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Structural stack container. Use semantic elements within for accessibility."
+  },
+  "variants": [
+    { "name": "vertical", "description": "Vertical stack (items top to bottom)" },
+    { "name": "horizontal", "description": "Horizontal stack (items left to right)" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Stack items" }
+  ],
+  "examples": [
+    {
+      "name": "Vertical stack",
+      "description": "Vertical stack with medium spacing",
+      "props": { "variant": "vertical", "gap": "md" }
+    },
+    {
+      "name": "Horizontal with dividers",
+      "description": "Horizontal stack with dividers between items",
+      "props": { "variant": "horizontal", "gap": "lg", "divider": true }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["flex", "spacer", "divider"]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "progress-bar",
+  "name": "progress-bar",
+  "displayName": "Progress Bar",
+  "description": "Horizontal progress bar with multiple sizes, colors, striped and animated variants, indeterminate mode, and optional label. Uses ARIA role='progressbar'.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["progress", "loading", "bar", "indicator", "status"],
+  "props": {
+    "value": {
+      "type": "number",
+      "default": 0,
+      "description": "Current progress value (0-100)"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["xs", "sm", "md", "lg"],
+      "description": "Height size of the progress bar"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "success", "warning", "error"],
+      "description": "Color of the progress fill"
+    },
+    "striped": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show striped pattern"
+    },
+    "animated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to animate the stripes"
+    },
+    "indeterminate": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show indeterminate loading animation"
+    },
+    "showLabel": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to show the percentage label"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Accessible label for the progress bar"
+    }
+  },
+  "slots": {},
+  "events": {},
+  "accessibility": {
+    "role": "progressbar",
+    "keyboard": {},
+    "ariaAttributes": ["aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-label"]
+  },
+  "variants": [
+    { "name": "default", "description": "Standard progress bar" },
+    { "name": "striped", "description": "Striped pattern overlay" },
+    { "name": "animated", "description": "Animated striped pattern" },
+    { "name": "indeterminate", "description": "Indeterminate loading state" }
+  ],
+  "examples": [
+    {
+      "title": "Default progress at 60%",
+      "props": { "value": 60, "color": "primary", "size": "md" }
+    },
+    {
+      "title": "Striped animated progress",
+      "props": { "value": 75, "striped": true, "animated": true, "color": "success" }
+    },
+    {
+      "title": "Indeterminate loading",
+      "props": { "indeterminate": true, "color": "primary" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["progress-circle", "spinner"]
+}

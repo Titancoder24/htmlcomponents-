@@ -1,0 +1,144 @@
+/**
+ * Tooltip Component - style.css
+ * Purpose: Styles for the tooltip popup including positioning,
+ * arrow indicators, size variants, and show/hide animations.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-tooltip-wrapper {
+  --voltz-tooltip-bg: var(--voltz-color-neutral-900, #111827);
+  --voltz-tooltip-color: var(--voltz-color-white, #ffffff);
+  --voltz-tooltip-radius: var(--voltz-radius-md, 0.375rem);
+  --voltz-tooltip-shadow: var(--voltz-shadow-md, 0 4px 6px -1px rgba(0,0,0,0.1));
+  --voltz-tooltip-offset: 0.5rem;
+  --voltz-tooltip-arrow-size: 6px;
+  --voltz-tooltip-font-sm: 0.6875rem;
+  --voltz-tooltip-font-md: 0.75rem;
+  --voltz-tooltip-padding-sm: 0.25rem 0.5rem;
+  --voltz-tooltip-padding-md: 0.375rem 0.75rem;
+  --voltz-tooltip-z: 9999;
+  --voltz-tooltip-transition: opacity 150ms ease, transform 150ms ease;
+
+  position: relative;
+  display: inline-flex;
+}
+
+.voltz-tooltip-trigger {
+  display: inline-flex;
+}
+
+/* ---- Base tooltip ---- */
+.voltz-tooltip {
+  position: absolute;
+  z-index: var(--voltz-tooltip-z);
+  background: var(--voltz-tooltip-bg);
+  color: var(--voltz-tooltip-color);
+  border-radius: var(--voltz-tooltip-radius);
+  box-shadow: var(--voltz-tooltip-shadow);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--voltz-tooltip-transition);
+}
+
+.voltz-tooltip[aria-hidden="false"] {
+  opacity: 1;
+}
+
+/* ---- Size variants ---- */
+.voltz-tooltip--sm {
+  font-size: var(--voltz-tooltip-font-sm);
+  padding: var(--voltz-tooltip-padding-sm);
+}
+
+.voltz-tooltip--md {
+  font-size: var(--voltz-tooltip-font-md);
+  padding: var(--voltz-tooltip-padding-md);
+}
+
+/* ---- Position variants ---- */
+.voltz-tooltip--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(calc(-1 * var(--voltz-tooltip-offset)));
+}
+
+.voltz-tooltip--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--voltz-tooltip-offset));
+}
+
+.voltz-tooltip--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(calc(-1 * var(--voltz-tooltip-offset)));
+}
+
+.voltz-tooltip--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(var(--voltz-tooltip-offset));
+}
+
+/* ---- Arrow ---- */
+.voltz-tooltip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: var(--voltz-tooltip-arrow-size) solid transparent;
+}
+
+.voltz-tooltip--top .voltz-tooltip__arrow {
+  bottom: calc(-2 * var(--voltz-tooltip-arrow-size));
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: var(--voltz-tooltip-bg);
+}
+
+.voltz-tooltip--bottom .voltz-tooltip__arrow {
+  top: calc(-2 * var(--voltz-tooltip-arrow-size));
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: var(--voltz-tooltip-bg);
+}
+
+.voltz-tooltip--left .voltz-tooltip__arrow {
+  right: calc(-2 * var(--voltz-tooltip-arrow-size));
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: var(--voltz-tooltip-bg);
+}
+
+.voltz-tooltip--right .voltz-tooltip__arrow {
+  left: calc(-2 * var(--voltz-tooltip-arrow-size));
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: var(--voltz-tooltip-bg);
+}
+
+/* ---- Tooltip content ---- */
+.voltz-tooltip__content {
+  display: inline-block;
+  line-height: 1.4;
+}
+
+/* ---- Focus-visible on trigger ---- */
+.voltz-tooltip-trigger:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 2px;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-tooltip-wrapper {
+  --voltz-tooltip-bg: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-tooltip-color: var(--voltz-color-neutral-900, #111827);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-tooltip {
+    transition: none;
+  }
+}

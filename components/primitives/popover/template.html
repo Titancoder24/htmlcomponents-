@@ -1,0 +1,27 @@
+<!--
+  Popover Component - template.html
+  Purpose: Renders a trigger element and a click-activated popup panel
+  with configurable positioning and focus management.
+-->
+<div class="voltz-popover-wrapper">
+  <div
+    class="voltz-popover-trigger"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-controls="{{popoverId}}"
+    tabindex="0"
+  >
+    {{slot:default}}
+  </div>
+  <div
+    id="{{popoverId}}"
+    class="voltz-popover voltz-popover--{{position}}"
+    role="dialog"
+    aria-hidden="true"
+    data-close-on-outside="{{closeOnOutsideClick}}"
+  >
+    <div class="voltz-popover__content">
+      {{slot:content}}
+    </div>
+  </div>
+</div>

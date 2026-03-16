@@ -1,0 +1,100 @@
+/**
+ * Popover Component - style.css
+ * Purpose: Styles for the popover panel including positioning,
+ * content area, visibility transitions, and theming.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-popover-wrapper {
+  --voltz-popover-bg: var(--voltz-color-bg-primary, #ffffff);
+  --voltz-popover-color: var(--voltz-color-text-primary, #111827);
+  --voltz-popover-border: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-popover-radius: var(--voltz-radius-lg, 0.5rem);
+  --voltz-popover-shadow: var(--voltz-shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1));
+  --voltz-popover-offset: 0.5rem;
+  --voltz-popover-padding: 1rem;
+  --voltz-popover-z: 9000;
+  --voltz-popover-min-w: 12rem;
+  --voltz-popover-max-w: 20rem;
+  --voltz-popover-transition: opacity 150ms ease, transform 150ms ease;
+
+  position: relative;
+  display: inline-flex;
+}
+
+.voltz-popover-trigger {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+/* ---- Base popover ---- */
+.voltz-popover {
+  position: absolute;
+  z-index: var(--voltz-popover-z);
+  min-width: var(--voltz-popover-min-w);
+  max-width: var(--voltz-popover-max-w);
+  background: var(--voltz-popover-bg);
+  color: var(--voltz-popover-color);
+  border: 1px solid var(--voltz-popover-border);
+  border-radius: var(--voltz-popover-radius);
+  box-shadow: var(--voltz-popover-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--voltz-popover-transition);
+}
+
+.voltz-popover[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- Position variants ---- */
+.voltz-popover--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(calc(-1 * var(--voltz-popover-offset)));
+}
+
+.voltz-popover--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--voltz-popover-offset));
+}
+
+.voltz-popover--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(calc(-1 * var(--voltz-popover-offset)));
+}
+
+.voltz-popover--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(var(--voltz-popover-offset));
+}
+
+/* ---- Content ---- */
+.voltz-popover__content {
+  padding: var(--voltz-popover-padding);
+}
+
+/* ---- Focus-visible on trigger ---- */
+.voltz-popover-trigger:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 2px;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-popover-wrapper {
+  --voltz-popover-bg: var(--voltz-color-neutral-800, #1f2937);
+  --voltz-popover-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-popover-border: var(--voltz-color-neutral-700, #374151);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-popover {
+    transition: none;
+  }
+}

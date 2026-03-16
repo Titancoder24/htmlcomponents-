@@ -1,0 +1,17 @@
+<!--
+  AvatarGroup Component - template.html
+  Purpose: Renders a horizontal stack of overlapping avatar elements with
+  an optional +N overflow counter when avatars exceed the max visible count.
+-->
+<div
+  class="voltz-avatar-group voltz-avatar-group--{{size}} voltz-avatar-group--spacing-{{spacing}}"
+  role="group"
+  aria-label="{{ariaLabel}}"
+>
+  {{slot:default}}
+  {{#if overflowCount}}
+  <span class="voltz-avatar-group__overflow voltz-avatar-group__overflow--{{size}}" aria-label="{{overflowCount}} more users">
+    +{{overflowCount}}
+  </span>
+  {{/if}}
+</div>

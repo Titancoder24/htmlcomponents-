@@ -1,0 +1,80 @@
+{
+  "id": "scroll-area",
+  "name": "ScrollArea",
+  "description": "A custom scrollbar container with configurable direction, size, and the option to hide scrollbars. Uses CSS-only custom scrollbar styling.",
+  "category": "primitives",
+  "tags": ["scroll", "scrollbar", "overflow", "container", "scroll-area"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "region",
+    "keyboard": {},
+    "ariaAttributes": ["aria-label", "tabindex"]
+  },
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md"],
+      "description": "Size of the custom scrollbar track and thumb"
+    },
+    "direction": {
+      "type": "string",
+      "default": "vertical",
+      "options": ["vertical", "horizontal", "both"],
+      "description": "Scrollable direction of the container"
+    },
+    "hideScrollbar": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to visually hide the scrollbar while keeping scroll behavior"
+    },
+    "maxHeight": {
+      "type": "string",
+      "default": "auto",
+      "description": "Maximum height of the scroll container"
+    },
+    "maxWidth": {
+      "type": "string",
+      "default": "auto",
+      "description": "Maximum width of the scroll container"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md"],
+      "default": "md"
+    },
+    {
+      "name": "direction",
+      "options": ["vertical", "horizontal", "both"],
+      "default": "vertical"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Scrollable content"
+    }
+  },
+  "events": {},
+  "examples": [
+    {
+      "title": "Vertical scroll area",
+      "props": { "direction": "vertical", "maxHeight": "200px" },
+      "slots": { "default": "<p>Scrollable content...</p>" }
+    },
+    {
+      "title": "Hidden scrollbar",
+      "props": { "direction": "vertical", "hideScrollbar": true },
+      "slots": { "default": "<p>Content with hidden scrollbar...</p>" }
+    },
+    {
+      "title": "Both directions small scrollbar",
+      "props": { "direction": "both", "size": "sm" },
+      "slots": { "default": "<p>Two-dimensional scroll...</p>" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": []
+}

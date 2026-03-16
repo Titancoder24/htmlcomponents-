@@ -1,0 +1,41 @@
+<!--
+  Input Component - template.html
+  Purpose: Renders a text input with optional label, helper text, and
+  left/right addon slots. Supports outline, filled, and flushed variants.
+-->
+<div class="voltz-input-wrapper voltz-input-wrapper--{{variant}} voltz-input-wrapper--{{size}} {{#if error}}voltz-input-wrapper--error{{/if}} {{#if disabled}}voltz-input-wrapper--disabled{{/if}}">
+  {{#if label}}
+  <label class="voltz-input__label" for="{{id}}">
+    {{label}}
+    {{#if required}}<span class="voltz-input__required" aria-hidden="true">*</span>{{/if}}
+  </label>
+  {{/if}}
+  <div class="voltz-input__group">
+    {{#if addonLeft}}
+    <span class="voltz-input__addon voltz-input__addon--left" aria-hidden="true">
+      {{slot:addonLeft}}
+    </span>
+    {{/if}}
+    <input
+      class="voltz-input"
+      id="{{id}}"
+      type="{{type}}"
+      placeholder="{{placeholder}}"
+      {{#if disabled}}disabled aria-disabled="true"{{/if}}
+      {{#if readonly}}readonly aria-readonly="true"{{/if}}
+      {{#if error}}aria-invalid="true"{{/if}}
+      {{#if required}}required aria-required="true"{{/if}}
+      {{#if helperText}}aria-describedby="{{id}}-helper"{{/if}}
+    />
+    {{#if addonRight}}
+    <span class="voltz-input__addon voltz-input__addon--right" aria-hidden="true">
+      {{slot:addonRight}}
+    </span>
+    {{/if}}
+  </div>
+  {{#if helperText}}
+  <span class="voltz-input__helper" id="{{id}}-helper" role="status">
+    {{helperText}}
+  </span>
+  {{/if}}
+</div>

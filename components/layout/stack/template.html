@@ -1,0 +1,11 @@
+<!--
+  Stack Component - template.html
+  Purpose: Vertical or horizontal stack with uniform spacing and optional dividers.
+  Directions: vertical, horizontal. Gap sizes: sm, md, lg, xl.
+-->
+
+<div class="voltz-stack voltz-stack--{{variant}}"
+     data-gap="{{gap}}"
+     data-divider="{{divider}}">
+  {{slot:default}}
+</div>

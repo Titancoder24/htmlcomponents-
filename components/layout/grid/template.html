@@ -1,0 +1,23 @@
+<!--
+  Grid Component - template.html
+  Purpose: CSS Grid layout with configurable columns, gap, and responsive options.
+  Supports fixed columns (1-12), auto-fit, and auto-fill modes.
+-->
+
+{{#if variant === "auto-fit"}}
+<div class="voltz-grid voltz-grid--auto-fit" data-gap="{{gap}}" style="--voltz-grid-min-col-width: {{minColumnWidth}}">
+  {{slot:default}}
+</div>
+{{/if}}
+
+{{#if variant === "auto-fill"}}
+<div class="voltz-grid voltz-grid--auto-fill" data-gap="{{gap}}" style="--voltz-grid-min-col-width: {{minColumnWidth}}">
+  {{slot:default}}
+</div>
+{{/if}}
+
+{{#if variant === "fixed"}}
+<div class="voltz-grid voltz-grid--cols-{{columns}}" data-gap="{{gap}}">
+  {{slot:default}}
+</div>
+{{/if}}

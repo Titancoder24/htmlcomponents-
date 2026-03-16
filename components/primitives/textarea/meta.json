@@ -1,0 +1,94 @@
+{
+  "name": "textarea",
+  "displayName": "Textarea",
+  "description": "A multi-line text input with variants, sizes, auto-resize, and character counter support.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "outline",
+      "options": ["outline", "filled"],
+      "description": "Visual style variant"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the textarea"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "",
+      "description": "Placeholder text"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Label text displayed above the textarea"
+    },
+    "helperText": {
+      "type": "string",
+      "default": "",
+      "description": "Helper or error text below the textarea"
+    },
+    "rows": {
+      "type": "number",
+      "default": 3,
+      "description": "Number of visible text rows"
+    },
+    "maxLength": {
+      "type": "number",
+      "default": null,
+      "description": "Maximum character count for the counter"
+    },
+    "autoResize": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea auto-resizes to fit content"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea is disabled"
+    },
+    "readonly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea is read-only"
+    },
+    "error": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea is in an error state"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea is required"
+    }
+  },
+  "slots": {},
+  "events": {
+    "input": { "description": "Fired when the textarea value changes" },
+    "change": { "description": "Fired when the textarea value is committed" }
+  },
+  "accessibility": {
+    "role": "textbox",
+    "keyboard": {
+      "Tab": "Moves focus to/from the textarea"
+    },
+    "ariaAttributes": ["aria-invalid", "aria-disabled", "aria-readonly", "aria-required", "aria-describedby"]
+  },
+  "examples": [
+    {
+      "title": "Basic textarea",
+      "props": { "variant": "outline", "placeholder": "Write something...", "rows": 4 }
+    },
+    {
+      "title": "Textarea with counter",
+      "props": { "variant": "outline", "maxLength": 200 }
+    }
+  ]
+}

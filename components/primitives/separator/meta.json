@@ -1,0 +1,67 @@
+{
+  "id": "separator",
+  "name": "Separator",
+  "description": "A visual divider used to separate content sections. Supports horizontal and vertical orientations, multiple line styles, and an optional centered label.",
+  "category": "primitives",
+  "tags": ["separator", "divider", "line", "hr", "rule"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "separator",
+    "keyboard": {},
+    "ariaAttributes": ["aria-orientation"]
+  },
+  "props": {
+    "orientation": {
+      "type": "string",
+      "default": "horizontal",
+      "options": ["horizontal", "vertical"],
+      "description": "Direction of the separator line"
+    },
+    "variant": {
+      "type": "string",
+      "default": "solid",
+      "options": ["solid", "dashed", "dotted"],
+      "description": "Visual style of the separator line"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Optional text label displayed in the middle of the separator"
+    }
+  },
+  "variants": [
+    {
+      "name": "orientation",
+      "options": ["horizontal", "vertical"],
+      "default": "horizontal"
+    },
+    {
+      "name": "variant",
+      "options": ["solid", "dashed", "dotted"],
+      "default": "solid"
+    }
+  ],
+  "slots": {
+    "label": {
+      "description": "Optional label content displayed at the center of the separator"
+    }
+  },
+  "events": {},
+  "examples": [
+    {
+      "title": "Default horizontal solid separator",
+      "props": { "orientation": "horizontal", "variant": "solid" }
+    },
+    {
+      "title": "Dashed separator with label",
+      "props": { "orientation": "horizontal", "variant": "dashed", "label": "OR" }
+    },
+    {
+      "title": "Vertical dotted separator",
+      "props": { "orientation": "vertical", "variant": "dotted" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": []
+}

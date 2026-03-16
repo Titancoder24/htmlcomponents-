@@ -1,0 +1,199 @@
+/**
+ * Voltz UI - Gradient Mesh Background Styles
+ * Multi-color mesh gradient background with preset palettes
+ * @version 1.0.0
+ */
+
+/* Custom Properties */
+.voltz-gradient-mesh {
+  --voltz-gradient-mesh-color-1: #ff6b6b;
+  --voltz-gradient-mesh-color-2: #4ecdc4;
+  --voltz-gradient-mesh-color-3: #45b7d1;
+  --voltz-gradient-mesh-color-4: #f7dc6f;
+  --voltz-gradient-mesh-opacity: 1;
+  --voltz-gradient-mesh-speed: 20s;
+  --voltz-gradient-mesh-bg: #ffffff;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--voltz-gradient-mesh-bg);
+  opacity: var(--voltz-gradient-mesh-opacity);
+}
+
+/* Gradient Layers */
+.voltz-gradient-mesh__layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.voltz-gradient-mesh__layer--1 {
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(
+    circle,
+    var(--voltz-gradient-mesh-color-1) 0%,
+    transparent 70%
+  );
+}
+
+.voltz-gradient-mesh__layer--2 {
+  top: 10%;
+  right: -10%;
+  width: 55%;
+  height: 55%;
+  background: radial-gradient(
+    circle,
+    var(--voltz-gradient-mesh-color-2) 0%,
+    transparent 70%
+  );
+}
+
+.voltz-gradient-mesh__layer--3 {
+  bottom: -10%;
+  left: 20%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(
+    circle,
+    var(--voltz-gradient-mesh-color-3) 0%,
+    transparent 70%
+  );
+}
+
+.voltz-gradient-mesh__layer--4 {
+  bottom: 10%;
+  right: 20%;
+  width: 45%;
+  height: 45%;
+  background: radial-gradient(
+    circle,
+    var(--voltz-gradient-mesh-color-4) 0%,
+    transparent 70%
+  );
+}
+
+/* Content Layer */
+.voltz-gradient-mesh__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Animation */
+.voltz-gradient-mesh[data-animated="true"] .voltz-gradient-mesh__layer--1 {
+  animation: voltz-gradient-mesh-float-1 var(--voltz-gradient-mesh-speed) ease-in-out infinite;
+}
+
+.voltz-gradient-mesh[data-animated="true"] .voltz-gradient-mesh__layer--2 {
+  animation: voltz-gradient-mesh-float-2 var(--voltz-gradient-mesh-speed) ease-in-out infinite;
+  animation-delay: calc(var(--voltz-gradient-mesh-speed) * -0.25);
+}
+
+.voltz-gradient-mesh[data-animated="true"] .voltz-gradient-mesh__layer--3 {
+  animation: voltz-gradient-mesh-float-3 var(--voltz-gradient-mesh-speed) ease-in-out infinite;
+  animation-delay: calc(var(--voltz-gradient-mesh-speed) * -0.5);
+}
+
+.voltz-gradient-mesh[data-animated="true"] .voltz-gradient-mesh__layer--4 {
+  animation: voltz-gradient-mesh-float-4 var(--voltz-gradient-mesh-speed) ease-in-out infinite;
+  animation-delay: calc(var(--voltz-gradient-mesh-speed) * -0.75);
+}
+
+@keyframes voltz-gradient-mesh-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10%, 15%) scale(1.1); }
+  66% { transform: translate(-5%, 10%) scale(0.95); }
+}
+
+@keyframes voltz-gradient-mesh-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-15%, 5%) scale(1.05); }
+  66% { transform: translate(10%, -10%) scale(1.1); }
+}
+
+@keyframes voltz-gradient-mesh-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(15%, -10%) scale(0.95); }
+  66% { transform: translate(-10%, -5%) scale(1.1); }
+}
+
+@keyframes voltz-gradient-mesh-float-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10%, 10%) scale(1.1); }
+  66% { transform: translate(5%, -15%) scale(0.95); }
+}
+
+/* Variant: Sunset */
+.voltz-gradient-mesh--sunset {
+  --voltz-gradient-mesh-color-1: #ff6a00;
+  --voltz-gradient-mesh-color-2: #ee0979;
+  --voltz-gradient-mesh-color-3: #ff5858;
+  --voltz-gradient-mesh-color-4: #ffc371;
+}
+
+/* Variant: Ocean */
+.voltz-gradient-mesh--ocean {
+  --voltz-gradient-mesh-color-1: #2193b0;
+  --voltz-gradient-mesh-color-2: #6dd5ed;
+  --voltz-gradient-mesh-color-3: #00c6ff;
+  --voltz-gradient-mesh-color-4: #0072ff;
+}
+
+/* Variant: Forest */
+.voltz-gradient-mesh--forest {
+  --voltz-gradient-mesh-color-1: #134e5e;
+  --voltz-gradient-mesh-color-2: #71b280;
+  --voltz-gradient-mesh-color-3: #56ab2f;
+  --voltz-gradient-mesh-color-4: #a8e063;
+}
+
+/* Variant: Neon */
+.voltz-gradient-mesh--neon {
+  --voltz-gradient-mesh-color-1: #ff00ff;
+  --voltz-gradient-mesh-color-2: #00ffff;
+  --voltz-gradient-mesh-color-3: #ff006e;
+  --voltz-gradient-mesh-color-4: #8338ec;
+  --voltz-gradient-mesh-bg: #0a0a0a;
+}
+
+/* Variant: Pastel */
+.voltz-gradient-mesh--pastel {
+  --voltz-gradient-mesh-color-1: #ffd1dc;
+  --voltz-gradient-mesh-color-2: #c1e1c5;
+  --voltz-gradient-mesh-color-3: #c4d7f2;
+  --voltz-gradient-mesh-color-4: #fce4b8;
+}
+
+/* Speed Variants */
+.voltz-gradient-mesh[data-speed="slow"] {
+  --voltz-gradient-mesh-speed: 40s;
+}
+
+.voltz-gradient-mesh[data-speed="fast"] {
+  --voltz-gradient-mesh-speed: 10s;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .voltz-gradient-mesh {
+  --voltz-gradient-mesh-bg: #0a0a0a;
+}
+
+[data-theme="dark"] .voltz-gradient-mesh__layer {
+  opacity: 0.7;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-gradient-mesh[data-animated="true"] .voltz-gradient-mesh__layer {
+    animation: none;
+  }
+}

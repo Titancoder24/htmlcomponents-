@@ -1,0 +1,35 @@
+{
+  "id": "bento-grid",
+  "name": "Bento Grid",
+  "description": "Asymmetric bento-box style grid layout with configurable span sizes for items. Responsive collapse on smaller screens.",
+  "category": "layout",
+  "tags": ["bento", "grid", "asymmetric", "dashboard", "cards", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Decorative grid layout. Ensure content within items is properly structured with headings and landmarks."
+  },
+  "variants": [
+    { "name": "default", "description": "Standard 4-column bento grid" },
+    { "name": "dense", "description": "Dense packing bento grid" },
+    { "name": "loose", "description": "Larger gaps between items" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Bento grid items with data-span-col and data-span-row attributes" }
+  ],
+  "examples": [
+    {
+      "name": "Default bento",
+      "description": "4-column bento grid with mixed item sizes",
+      "props": { "variant": "default", "gap": "md" }
+    },
+    {
+      "name": "Dense bento",
+      "description": "Dense auto-flow bento grid",
+      "props": { "variant": "dense", "gap": "sm" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["grid", "masonry", "dashboard-shell"]
+}

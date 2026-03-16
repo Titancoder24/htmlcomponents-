@@ -1,0 +1,20 @@
+{
+  "name": "animated-gradient-text",
+  "description": "Text with moving gradient fill. Supports gradient presets with configurable speed and direction options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["rainbow", "sunset", "ocean", "custom"],
+  "tags": ["text", "gradient", "animation", "color"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-gradient-text-duration",
+    "--voltz-gradient-text-direction",
+    "--voltz-gradient-text-colors",
+    "--voltz-gradient-text-font-size",
+    "--voltz-gradient-text-font-weight"
+  ],
+  "slots": {
+    "default": "Text content"
+  }
+}

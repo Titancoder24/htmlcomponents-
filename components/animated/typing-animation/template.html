@@ -1,0 +1,16 @@
+<!--
+  Typing Animation Component
+  Simulates typing with a blinking cursor.
+  Cycles through configurable text strings.
+  Uses JS for text cycling, CSS for cursor blink.
+-->
+<div class="voltz-typing-animation"
+     data-voltz-typing
+     data-strings='{{strings}}'
+     data-loop="{{#if loop}}true{{else}}false{{/if}}"
+     role="status"
+     aria-live="polite">
+  <span class="voltz-typing-animation__prefix">{{#if prefix}}{{prefix}}{{/if}}</span>
+  <span class="voltz-typing-animation__text" aria-label=""></span>
+  <span class="voltz-typing-animation__cursor" aria-hidden="true">|</span>
+</div>

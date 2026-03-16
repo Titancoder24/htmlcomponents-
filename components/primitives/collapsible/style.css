@@ -1,0 +1,136 @@
+/**
+ * Collapsible Component - style.css
+ * Purpose: Styles for the expand/collapse disclosure widget including
+ * trigger button, animated content region, and chevron icon rotation.
+ */
+
+/* -------------------------------------------------------
+   Custom Properties
+   ------------------------------------------------------- */
+.voltz-collapsible {
+  --voltz-collapsible-trigger-bg: transparent;
+  --voltz-collapsible-trigger-hover-bg: var(--voltz-color-bg-subtle, #f8fafc);
+  --voltz-collapsible-trigger-color: var(--voltz-color-text, #0f172a);
+  --voltz-collapsible-trigger-padding: 0.75rem 1rem;
+  --voltz-collapsible-trigger-radius: var(--voltz-radius-md, 0.375rem);
+  --voltz-collapsible-content-padding: 0 1rem 1rem;
+  --voltz-collapsible-icon-color: var(--voltz-color-text-muted, #64748b);
+  --voltz-collapsible-transition-duration: 200ms;
+  --voltz-collapsible-border-color: var(--voltz-color-border, #e2e8f0);
+}
+
+/* -------------------------------------------------------
+   Base
+   ------------------------------------------------------- */
+.voltz-collapsible {
+  width: 100%;
+  border: 1px solid var(--voltz-collapsible-border-color);
+  border-radius: var(--voltz-collapsible-trigger-radius);
+}
+
+/* -------------------------------------------------------
+   Trigger
+   ------------------------------------------------------- */
+.voltz-collapsible__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--voltz-collapsible-trigger-padding);
+  background: var(--voltz-collapsible-trigger-bg);
+  color: var(--voltz-collapsible-trigger-color);
+  border: none;
+  border-radius: var(--voltz-collapsible-trigger-radius);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color var(--voltz-collapsible-transition-duration) ease;
+}
+
+.voltz-collapsible__trigger:hover:not(:disabled) {
+  background: var(--voltz-collapsible-trigger-hover-bg);
+}
+
+.voltz-collapsible__trigger:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: -2px;
+}
+
+.voltz-collapsible__trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voltz-collapsible__trigger-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* -------------------------------------------------------
+   Icon
+   ------------------------------------------------------- */
+.voltz-collapsible__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  color: var(--voltz-collapsible-icon-color);
+  transition: transform var(--voltz-collapsible-transition-duration) ease;
+}
+
+.voltz-collapsible--open .voltz-collapsible__icon {
+  transform: rotate(180deg);
+}
+
+/* -------------------------------------------------------
+   Content
+   ------------------------------------------------------- */
+.voltz-collapsible__content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows var(--voltz-collapsible-transition-duration) ease;
+}
+
+.voltz-collapsible--open .voltz-collapsible__content-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.voltz-collapsible__content {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.voltz-collapsible--open .voltz-collapsible__content {
+  padding: var(--voltz-collapsible-content-padding);
+}
+
+/* -------------------------------------------------------
+   Dark Mode
+   ------------------------------------------------------- */
+[data-theme="dark"] .voltz-collapsible {
+  --voltz-collapsible-trigger-hover-bg: var(--voltz-color-bg-subtle-dark, #1e293b);
+  --voltz-collapsible-trigger-color: var(--voltz-color-text-dark, #f1f5f9);
+  --voltz-collapsible-icon-color: var(--voltz-color-text-muted-dark, #94a3b8);
+  --voltz-collapsible-border-color: var(--voltz-color-border-dark, #334155);
+}
+
+/* -------------------------------------------------------
+   Reduced Motion
+   ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-collapsible__icon,
+  .voltz-collapsible__content-wrapper {
+    transition: none !important;
+  }
+
+  .voltz-collapsible__content-wrapper {
+    grid-template-rows: 0fr;
+  }
+
+  .voltz-collapsible--open .voltz-collapsible__content-wrapper {
+    grid-template-rows: 1fr;
+  }
+}

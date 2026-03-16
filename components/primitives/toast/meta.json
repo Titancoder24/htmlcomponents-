@@ -1,0 +1,91 @@
+{
+  "id": "toast",
+  "name": "toast",
+  "displayName": "Toast",
+  "description": "Toast notification component with multiple positions, types, auto-dismiss timer, and stack management. Supports info, success, warning, and error types.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "tags": ["notification", "toast", "alert", "feedback", "message"],
+  "props": {
+    "type": {
+      "type": "string",
+      "default": "info",
+      "options": ["info", "success", "warning", "error"],
+      "description": "Visual type of the toast notification"
+    },
+    "position": {
+      "type": "string",
+      "default": "top-right",
+      "options": ["top-right", "top-left", "bottom-right", "bottom-left", "top-center", "bottom-center"],
+      "description": "Screen position for the toast stack"
+    },
+    "duration": {
+      "type": "number",
+      "default": 5000,
+      "description": "Auto-dismiss duration in milliseconds. Set to 0 to disable."
+    },
+    "dismissible": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the toast can be manually dismissed"
+    },
+    "title": {
+      "type": "string",
+      "default": "",
+      "description": "Optional title text for the toast"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Toast message content"
+    },
+    "icon": {
+      "description": "Custom icon to override the default type icon"
+    },
+    "action": {
+      "description": "Optional action button or link"
+    }
+  },
+  "events": {
+    "dismiss": {
+      "description": "Fired when the toast is dismissed"
+    },
+    "show": {
+      "description": "Fired when the toast becomes visible"
+    }
+  },
+  "accessibility": {
+    "role": "status",
+    "keyboard": {
+      "Escape": "Dismisses the toast",
+      "Tab": "Moves focus to action or close button"
+    },
+    "ariaAttributes": ["role=\"status\"", "aria-live=\"polite\"", "aria-atomic=\"true\""]
+  },
+  "variants": [
+    { "name": "info", "description": "Informational toast" },
+    { "name": "success", "description": "Success toast" },
+    { "name": "warning", "description": "Warning toast" },
+    { "name": "error", "description": "Error toast" }
+  ],
+  "examples": [
+    {
+      "title": "Info toast",
+      "props": { "type": "info", "position": "top-right" },
+      "slots": { "default": "Your changes have been saved." }
+    },
+    {
+      "title": "Success toast with title",
+      "props": { "type": "success", "title": "Success!" },
+      "slots": { "default": "File uploaded successfully." }
+    },
+    {
+      "title": "Error toast",
+      "props": { "type": "error", "duration": 0 },
+      "slots": { "default": "Something went wrong. Please try again." }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["badge", "button"]
+}

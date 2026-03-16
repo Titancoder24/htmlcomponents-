@@ -1,0 +1,35 @@
+<!--
+  Meter Component - template.html
+  Purpose: Renders a value meter/gauge with color thresholds. The fill width
+  and color class are determined by the current value relative to low/high thresholds.
+-->
+<div class="voltz-meter voltz-meter--{{size}}">
+  {{#if label}}
+  <div class="voltz-meter__header">
+    <span class="voltz-meter__label" id="voltz-meter-label-{{id}}">{{label}}</span>
+    {{#if showValue}}
+    <span class="voltz-meter__value-text">{{value}}</span>
+    {{/if}}
+  </div>
+  {{/if}}
+  <div
+    class="voltz-meter__track"
+    role="meter"
+    aria-valuenow="{{value}}"
+    aria-valuemin="{{min}}"
+    aria-valuemax="{{max}}"
+    aria-label="{{label}}"
+    {{#if label}}aria-labelledby="voltz-meter-label-{{id}}"{{/if}}
+    data-voltz-meter
+    data-value="{{value}}"
+    data-min="{{min}}"
+    data-max="{{max}}"
+    data-low="{{low}}"
+    data-high="{{high}}"
+  >
+    <div
+      class="voltz-meter__fill"
+      data-voltz-meter-fill
+    ></div>
+  </div>
+</div>

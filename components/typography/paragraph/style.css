@@ -1,0 +1,95 @@
+/*
+ * Paragraph Component Styles
+ * Purpose: Provides styling for body text with configurable sizes,
+ * line heights, colors, and max-width for readability.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-paragraph {
+  --voltz-paragraph-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-paragraph-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+  --voltz-paragraph-margin-bottom: var(--voltz-spacing-4, 1rem);
+
+  color: var(--voltz-paragraph-color);
+  font-family: var(--voltz-paragraph-font-family);
+  margin-top: 0;
+  margin-bottom: var(--voltz-paragraph-margin-bottom);
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-paragraph--size-sm {
+  font-size: var(--voltz-paragraph-size-sm, 0.875rem);
+}
+
+.voltz-paragraph--size-md {
+  font-size: var(--voltz-paragraph-size-md, 1rem);
+}
+
+.voltz-paragraph--size-lg {
+  font-size: var(--voltz-paragraph-size-lg, 1.125rem);
+}
+
+/* ========================================
+   Leading (Line Height)
+   ======================================== */
+.voltz-paragraph--leading-tight {
+  line-height: var(--voltz-line-height-tight, 1.4);
+}
+
+.voltz-paragraph--leading-normal {
+  line-height: var(--voltz-line-height-normal, 1.6);
+}
+
+.voltz-paragraph--leading-relaxed {
+  line-height: var(--voltz-line-height-relaxed, 1.8);
+}
+
+/* ========================================
+   Colors
+   ======================================== */
+.voltz-paragraph--color-default {
+  color: var(--voltz-color-text-primary, #1a1a2e);
+}
+
+.voltz-paragraph--color-muted {
+  color: var(--voltz-color-text-muted, #6b7280);
+}
+
+.voltz-paragraph--color-accent {
+  color: var(--voltz-color-text-accent, #6366f1);
+}
+
+/* ========================================
+   Max Width for Readability
+   ======================================== */
+.voltz-paragraph--max-width {
+  max-width: var(--voltz-paragraph-max-width, 65ch);
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-paragraph--color-default {
+  color: var(--voltz-color-text-primary-dark, #e0e0e0);
+}
+
+[data-theme="dark"] .voltz-paragraph--color-muted {
+  color: var(--voltz-color-text-muted-dark, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-paragraph--color-accent {
+  color: var(--voltz-color-text-accent-dark, #818cf8);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-paragraph {
+    transition: none;
+  }
+}

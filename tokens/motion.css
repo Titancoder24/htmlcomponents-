@@ -1,0 +1,84 @@
+/**
+ * Voltz UI - Motion Tokens
+ *
+ * Animation durations, easing curves, and reusable keyframes.
+ * All animations use only transform and opacity for GPU-accelerated
+ * performance. Includes prefers-reduced-motion fallbacks.
+ *
+ * Naming: --voltz-duration-{scale}, --voltz-easing-{name}
+ */
+
+:root {
+  /* ========================================================================
+   * Durations
+   * ======================================================================== */
+  --voltz-duration-instant: 50ms;
+  --voltz-duration-fast: 100ms;
+  --voltz-duration-normal: 200ms;
+  --voltz-duration-slow: 300ms;
+  --voltz-duration-slower: 500ms;
+  --voltz-duration-slowest: 700ms;
+
+  /* ========================================================================
+   * Easing Curves
+   * ======================================================================== */
+  --voltz-easing-linear: linear;
+  --voltz-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --voltz-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --voltz-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --voltz-easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --voltz-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --voltz-easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+
+  /* ========================================================================
+   * Composite Motion Presets
+   * ======================================================================== */
+  --voltz-transition-fast: var(--voltz-duration-fast) var(--voltz-easing-ease-out);
+  --voltz-transition-normal: var(--voltz-duration-normal) var(--voltz-easing-ease-out);
+  --voltz-transition-slow: var(--voltz-duration-slow) var(--voltz-easing-ease-in-out);
+  --voltz-transition-spring: var(--voltz-duration-slow) var(--voltz-easing-spring);
+}
+
+/* ========================================================================
+ * Shared Keyframes
+ * ======================================================================== */
+
+@keyframes voltz-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes voltz-ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes voltz-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ========================================================================
+ * Reduced Motion
+ * ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --voltz-duration-instant: 0ms;
+    --voltz-duration-fast: 0ms;
+    --voltz-duration-normal: 0ms;
+    --voltz-duration-slow: 0ms;
+    --voltz-duration-slower: 0ms;
+    --voltz-duration-slowest: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

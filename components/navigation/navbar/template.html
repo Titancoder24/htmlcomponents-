@@ -1,0 +1,31 @@
+<!-- Navbar Component Template -->
+<!-- Top navigation bar with logo, links, and actions -->
+<nav class="voltz-navbar voltz-navbar--{{variant}}"
+     role="navigation"
+     aria-label="Main navigation"
+     {{#if sticky}}data-sticky="true"{{/if}}>
+  <div class="voltz-navbar__container">
+    <div class="voltz-navbar__logo">
+      {{slot:logo}}
+    </div>
+
+    <button class="voltz-navbar__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="voltz-navbar-menu"
+            aria-label="Toggle navigation menu">
+      <span class="voltz-navbar__toggle-bar"></span>
+      <span class="voltz-navbar__toggle-bar"></span>
+      <span class="voltz-navbar__toggle-bar"></span>
+    </button>
+
+    <div class="voltz-navbar__menu" id="voltz-navbar-menu" role="menubar">
+      <div class="voltz-navbar__links">
+        {{slot:default}}
+      </div>
+      <div class="voltz-navbar__actions">
+        {{slot:actions}}
+      </div>
+    </div>
+  </div>
+</nav>

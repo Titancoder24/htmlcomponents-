@@ -1,0 +1,32 @@
+<!--
+  Tooltip Component - template.html
+  Purpose: Renders a trigger element paired with a tooltip popup that
+  appears on hover/focus. Supports position variants and arrow indicators.
+-->
+<div class="voltz-tooltip-wrapper">
+  <div
+    class="voltz-tooltip-trigger"
+    aria-describedby="{{tooltipId}}"
+    tabindex="0"
+  >
+    {{slot:default}}
+  </div>
+  <div
+    id="{{tooltipId}}"
+    class="voltz-tooltip voltz-tooltip--{{position}} voltz-tooltip--{{size}}"
+    role="tooltip"
+    aria-hidden="true"
+    data-delay="{{delay}}"
+  >
+    {{#if arrow}}
+    <span class="voltz-tooltip__arrow" aria-hidden="true"></span>
+    {{/if}}
+    <span class="voltz-tooltip__content">
+      {{#if content}}
+        {{content}}
+      {{else}}
+        {{slot:content}}
+      {{/if}}
+    </span>
+  </div>
+</div>

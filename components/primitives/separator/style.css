@@ -1,0 +1,116 @@
+/**
+ * Separator Component - style.css
+ * Purpose: Styles for the visual divider component including horizontal/vertical
+ * orientations, line style variants (solid/dashed/dotted), and centered labels.
+ */
+
+/* -------------------------------------------------------
+   Custom Properties
+   ------------------------------------------------------- */
+.voltz-separator {
+  --voltz-separator-color: var(--voltz-color-border, #e2e8f0);
+  --voltz-separator-thickness: 1px;
+  --voltz-separator-label-color: var(--voltz-color-text-muted, #64748b);
+  --voltz-separator-label-bg: var(--voltz-color-bg, #ffffff);
+  --voltz-separator-label-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-separator-label-padding: 0 0.75rem;
+  --voltz-separator-gap: 0;
+}
+
+/* -------------------------------------------------------
+   Base
+   ------------------------------------------------------- */
+.voltz-separator {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------
+   Horizontal
+   ------------------------------------------------------- */
+.voltz-separator--horizontal {
+  width: 100%;
+  flex-direction: row;
+}
+
+.voltz-separator--horizontal::before,
+.voltz-separator--horizontal::after {
+  content: "";
+  flex: 1;
+  height: 0;
+  border-top-width: var(--voltz-separator-thickness);
+  border-top-color: var(--voltz-separator-color);
+}
+
+/* -------------------------------------------------------
+   Vertical
+   ------------------------------------------------------- */
+.voltz-separator--vertical {
+  flex-direction: column;
+  align-self: stretch;
+  min-height: 1.5rem;
+}
+
+.voltz-separator--vertical::before,
+.voltz-separator--vertical::after {
+  content: "";
+  flex: 1;
+  width: 0;
+  border-left-width: var(--voltz-separator-thickness);
+  border-left-color: var(--voltz-separator-color);
+}
+
+/* -------------------------------------------------------
+   Line Style Variants
+   ------------------------------------------------------- */
+.voltz-separator--solid::before,
+.voltz-separator--solid::after {
+  border-style: solid;
+}
+
+.voltz-separator--dashed::before,
+.voltz-separator--dashed::after {
+  border-style: dashed;
+}
+
+.voltz-separator--dotted::before,
+.voltz-separator--dotted::after {
+  border-style: dotted;
+}
+
+/* -------------------------------------------------------
+   Label
+   ------------------------------------------------------- */
+.voltz-separator__label {
+  padding: var(--voltz-separator-label-padding);
+  color: var(--voltz-separator-label-color);
+  font-size: var(--voltz-separator-label-font-size);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  background: var(--voltz-separator-label-bg);
+}
+
+.voltz-separator--vertical .voltz-separator__label {
+  padding: 0.5rem 0;
+}
+
+/* -------------------------------------------------------
+   Dark Mode
+   ------------------------------------------------------- */
+[data-theme="dark"] .voltz-separator {
+  --voltz-separator-color: var(--voltz-color-border-dark, #334155);
+  --voltz-separator-label-color: var(--voltz-color-text-muted-dark, #94a3b8);
+  --voltz-separator-label-bg: var(--voltz-color-bg-dark, #0f172a);
+}
+
+/* -------------------------------------------------------
+   Reduced Motion
+   ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-separator,
+  .voltz-separator * {
+    transition: none !important;
+  }
+}

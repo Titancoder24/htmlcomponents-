@@ -1,0 +1,35 @@
+{
+  "id": "grid",
+  "name": "Grid",
+  "description": "CSS Grid layout component with configurable columns (1-12), gap sizes, and responsive breakpoint changes. Supports auto-fit and auto-fill modes.",
+  "category": "layout",
+  "tags": ["grid", "columns", "responsive", "auto-fit", "auto-fill", "layout"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Structural grid container. Use appropriate semantic elements within grid items."
+  },
+  "variants": [
+    { "name": "fixed", "description": "Fixed column count grid (1-12)" },
+    { "name": "auto-fit", "description": "Auto-fit columns based on min-width" },
+    { "name": "auto-fill", "description": "Auto-fill columns based on min-width" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Grid items" }
+  ],
+  "examples": [
+    {
+      "name": "3-column grid",
+      "description": "Fixed 3-column grid with medium gap",
+      "props": { "variant": "fixed", "columns": 3, "gap": "md" }
+    },
+    {
+      "name": "Auto-fit responsive",
+      "description": "Auto-fit grid with 250px minimum column width",
+      "props": { "variant": "auto-fit", "minColumnWidth": "250px", "gap": "lg" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["container", "flex", "bento-grid", "masonry"]
+}

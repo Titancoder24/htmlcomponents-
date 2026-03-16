@@ -1,0 +1,14 @@
+<!--
+  Text Reveal Component
+  Reveals text character by character or word by word.
+  Variants: typewriter, slide-up, fade-in
+  Uses CSS animations with JS for splitting text into spans.
+-->
+<div class="voltz-text-reveal voltz-text-reveal--{{variant}}"
+     data-voltz-text-reveal
+     data-variant="{{variant}}"
+     data-split="{{#if splitByWord}}word{{else}}char{{/if}}"
+     role="text"
+     aria-label="{{slot:default}}">
+  <span class="voltz-text-reveal__content">{{slot:default}}</span>
+</div>

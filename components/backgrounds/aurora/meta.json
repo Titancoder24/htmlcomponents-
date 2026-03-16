@@ -1,0 +1,46 @@
+/**
+ * Voltz UI - Aurora Background
+ * Aurora borealis animated effect
+ * @version 1.0.0
+ */
+{
+  "name": "aurora",
+  "displayName": "Aurora",
+  "description": "Aurora borealis animated background effect with configurable colors, speed, and intensity. CSS gradients and animation.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "aurora", "animated", "borealis", "css-only"],
+  "variants": ["default", "northern", "southern", "cosmic", "fire"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "northern", "southern", "cosmic", "fire"],
+      "description": "Aurora color theme"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Animation speed"
+    },
+    "intensity": {
+      "type": "string",
+      "default": "medium",
+      "options": ["low", "medium", "high"],
+      "description": "Aurora brightness and opacity intensity"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the aurora background"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Falls back to static gradient when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

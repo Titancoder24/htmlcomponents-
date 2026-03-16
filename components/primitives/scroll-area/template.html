@@ -1,0 +1,15 @@
+<!--
+  ScrollArea Component - template.html
+  Purpose: Renders a scrollable container with custom-styled scrollbars.
+  Supports vertical, horizontal, or both directions with hide option.
+-->
+<div
+  class="voltz-scroll-area voltz-scroll-area--{{size}} voltz-scroll-area--{{direction}} {{#if hideScrollbar}}voltz-scroll-area--hidden-scrollbar{{/if}}"
+  role="region"
+  aria-label="{{ariaLabel}}"
+  tabindex="0"
+>
+  <div class="voltz-scroll-area__viewport">
+    {{slot:default}}
+  </div>
+</div>

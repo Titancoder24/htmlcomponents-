@@ -1,0 +1,86 @@
+/**
+ * Voltz UI - Light Theme
+ *
+ * Semantic color assignments for the light theme.
+ * Maps design tokens to functional roles (background, foreground,
+ * border, surface, etc.) for consistent theming.
+ *
+ * Apply via: <html data-theme="light"> or class="voltz-theme-light"
+ */
+
+[data-theme="light"],
+.voltz-theme-light,
+:root {
+  /* ========================================================================
+   * Background
+   * ======================================================================== */
+  --voltz-bg-primary: var(--voltz-color-white, #ffffff);
+  --voltz-bg-secondary: var(--voltz-color-neutral-50, #fafafa);
+  --voltz-bg-tertiary: var(--voltz-color-neutral-100, #f5f5f5);
+  --voltz-bg-inverse: var(--voltz-color-neutral-900, #171717);
+
+  /* ========================================================================
+   * Foreground / Text
+   * ======================================================================== */
+  --voltz-fg-primary: var(--voltz-color-neutral-900, #171717);
+  --voltz-fg-secondary: var(--voltz-color-neutral-600, #525252);
+  --voltz-fg-tertiary: var(--voltz-color-neutral-400, #a3a3a3);
+  --voltz-fg-inverse: var(--voltz-color-white, #ffffff);
+  --voltz-fg-disabled: var(--voltz-color-neutral-300, #d4d4d4);
+  --voltz-fg-link: var(--voltz-color-primary-600, #2563eb);
+  --voltz-fg-link-hover: var(--voltz-color-primary-700, #1d4ed8);
+
+  /* ========================================================================
+   * Border
+   * ======================================================================== */
+  --voltz-border-primary: var(--voltz-color-neutral-200, #e5e5e5);
+  --voltz-border-secondary: var(--voltz-color-neutral-100, #f5f5f5);
+  --voltz-border-focus: var(--voltz-color-primary-500, #3b82f6);
+  --voltz-border-error: var(--voltz-color-error-500, #ef4444);
+
+  /* ========================================================================
+   * Surface (Cards, Panels, etc.)
+   * ======================================================================== */
+  --voltz-surface-primary: var(--voltz-color-white, #ffffff);
+  --voltz-surface-secondary: var(--voltz-color-neutral-50, #fafafa);
+  --voltz-surface-elevated: var(--voltz-color-white, #ffffff);
+  --voltz-surface-overlay: rgb(0 0 0 / 0.5);
+
+  /* ========================================================================
+   * Interactive States
+   * ======================================================================== */
+  --voltz-interactive-hover: var(--voltz-color-neutral-100, #f5f5f5);
+  --voltz-interactive-active: var(--voltz-color-neutral-200, #e5e5e5);
+  --voltz-interactive-selected: var(--voltz-color-primary-50, #eff6ff);
+  --voltz-interactive-disabled: var(--voltz-color-neutral-100, #f5f5f5);
+
+  /* ========================================================================
+   * Status Colors
+   * ======================================================================== */
+  --voltz-status-success-bg: var(--voltz-color-success-50, #f0fdf4);
+  --voltz-status-success-fg: var(--voltz-color-success-700, #15803d);
+  --voltz-status-success-border: var(--voltz-color-success-200, #bbf7d0);
+
+  --voltz-status-warning-bg: var(--voltz-color-warning-50, #fffbeb);
+  --voltz-status-warning-fg: var(--voltz-color-warning-700, #b45309);
+  --voltz-status-warning-border: var(--voltz-color-warning-200, #fde68a);
+
+  --voltz-status-error-bg: var(--voltz-color-error-50, #fef2f2);
+  --voltz-status-error-fg: var(--voltz-color-error-700, #b91c1c);
+  --voltz-status-error-border: var(--voltz-color-error-200, #fecaca);
+
+  --voltz-status-info-bg: var(--voltz-color-primary-50, #eff6ff);
+  --voltz-status-info-fg: var(--voltz-color-primary-700, #1d4ed8);
+  --voltz-status-info-border: var(--voltz-color-primary-200, #bfdbfe);
+
+  /* ========================================================================
+   * Shadows (theme-aware)
+   * ======================================================================== */
+  --voltz-theme-shadow-color: 0 0 0;
+  --voltz-theme-shadow-opacity: 0.1;
+
+  /* ========================================================================
+   * Color Scheme
+   * ======================================================================== */
+  color-scheme: light;
+}

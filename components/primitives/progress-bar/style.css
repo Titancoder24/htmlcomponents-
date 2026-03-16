@@ -1,0 +1,123 @@
+/**
+ * Progress Bar Component - style.css
+ * Purpose: Styles for horizontal progress bar including sizes, colors,
+ * striped patterns, animations, indeterminate mode, and dark mode.
+ */
+
+/* --- Base --- */
+.voltz-progress-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--voltz-spacing-1, 0.25rem);
+}
+
+.voltz-progress-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voltz-progress-bar__label {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  color: var(--voltz-progress-label-color, #374151);
+}
+
+.voltz-progress-bar__value-text {
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  color: var(--voltz-progress-value-color, #6b7280);
+  margin-left: auto;
+}
+
+/* --- Track --- */
+.voltz-progress-bar__track {
+  width: 100%;
+  background: var(--voltz-progress-track-bg, #e5e7eb);
+  border-radius: var(--voltz-radius-full, 9999px);
+  overflow: hidden;
+}
+
+/* --- Fill --- */
+.voltz-progress-bar__fill {
+  height: 100%;
+  border-radius: var(--voltz-radius-full, 9999px);
+  transition: width 0.3s ease;
+}
+
+/* --- Sizes --- */
+.voltz-progress-bar--xs .voltz-progress-bar__track { height: 0.125rem; }
+.voltz-progress-bar--sm .voltz-progress-bar__track { height: 0.25rem; }
+.voltz-progress-bar--md .voltz-progress-bar__track { height: 0.5rem; }
+.voltz-progress-bar--lg .voltz-progress-bar__track { height: 0.75rem; }
+
+/* --- Colors --- */
+.voltz-progress-bar--primary .voltz-progress-bar__fill {
+  background: var(--voltz-color-primary, #3b82f6);
+}
+.voltz-progress-bar--success .voltz-progress-bar__fill {
+  background: var(--voltz-color-success, #22c55e);
+}
+.voltz-progress-bar--warning .voltz-progress-bar__fill {
+  background: var(--voltz-color-warning, #f59e0b);
+}
+.voltz-progress-bar--error .voltz-progress-bar__fill {
+  background: var(--voltz-color-error, #ef4444);
+}
+
+/* --- Striped --- */
+.voltz-progress-bar--striped .voltz-progress-bar__fill {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* --- Animated stripes --- */
+.voltz-progress-bar--animated .voltz-progress-bar__fill {
+  animation: voltz-progress-stripes 1s linear infinite;
+}
+
+@keyframes voltz-progress-stripes {
+  from { background-position: 1rem 0; }
+  to { background-position: 0 0; }
+}
+
+/* --- Indeterminate --- */
+.voltz-progress-bar--indeterminate .voltz-progress-bar__fill {
+  width: 30% !important;
+  animation: voltz-progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes voltz-progress-indeterminate {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-progress-bar__track {
+  background: var(--voltz-progress-track-bg-dark, #374151);
+}
+
+[data-theme="dark"] .voltz-progress-bar__label {
+  color: var(--voltz-progress-label-color-dark, #e5e7eb);
+}
+
+[data-theme="dark"] .voltz-progress-bar__value-text {
+  color: var(--voltz-progress-value-color-dark, #9ca3af);
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-progress-bar__fill { transition: none; }
+  .voltz-progress-bar--animated .voltz-progress-bar__fill { animation: none; }
+  .voltz-progress-bar--indeterminate .voltz-progress-bar__fill { animation: none; width: 100% !important; }
+}

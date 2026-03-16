@@ -1,0 +1,140 @@
+/**
+ * ScrollArea Component - style.css
+ * Purpose: Custom scrollbar styling for a scrollable container. Provides
+ * configurable scrollbar sizes, direction control, and a hidden-scrollbar mode.
+ */
+
+/* -------------------------------------------------------
+   Custom Properties
+   ------------------------------------------------------- */
+.voltz-scroll-area {
+  --voltz-scroll-area-track-bg: var(--voltz-color-bg-subtle, #f1f5f9);
+  --voltz-scroll-area-thumb-bg: var(--voltz-color-border, #cbd5e1);
+  --voltz-scroll-area-thumb-hover-bg: var(--voltz-color-border-hover, #94a3b8);
+  --voltz-scroll-area-thumb-radius: 9999px;
+  --voltz-scroll-area-track-radius: 9999px;
+  --voltz-scroll-area-size-sm: 4px;
+  --voltz-scroll-area-size-md: 8px;
+}
+
+/* -------------------------------------------------------
+   Base
+   ------------------------------------------------------- */
+.voltz-scroll-area {
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
+
+.voltz-scroll-area:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: -2px;
+  border-radius: var(--voltz-radius-md, 0.375rem);
+}
+
+.voltz-scroll-area__viewport {
+  width: 100%;
+  height: 100%;
+}
+
+/* -------------------------------------------------------
+   Direction Variants
+   ------------------------------------------------------- */
+.voltz-scroll-area--vertical .voltz-scroll-area__viewport {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.voltz-scroll-area--horizontal .voltz-scroll-area__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.voltz-scroll-area--both .voltz-scroll-area__viewport {
+  overflow: auto;
+}
+
+/* -------------------------------------------------------
+   Scrollbar Size: sm
+   ------------------------------------------------------- */
+.voltz-scroll-area--sm .voltz-scroll-area__viewport::-webkit-scrollbar {
+  width: var(--voltz-scroll-area-size-sm);
+  height: var(--voltz-scroll-area-size-sm);
+}
+
+.voltz-scroll-area--sm .voltz-scroll-area__viewport::-webkit-scrollbar-track {
+  background: var(--voltz-scroll-area-track-bg);
+  border-radius: var(--voltz-scroll-area-track-radius);
+}
+
+.voltz-scroll-area--sm .voltz-scroll-area__viewport::-webkit-scrollbar-thumb {
+  background: var(--voltz-scroll-area-thumb-bg);
+  border-radius: var(--voltz-scroll-area-thumb-radius);
+}
+
+.voltz-scroll-area--sm .voltz-scroll-area__viewport::-webkit-scrollbar-thumb:hover {
+  background: var(--voltz-scroll-area-thumb-hover-bg);
+}
+
+.voltz-scroll-area--sm .voltz-scroll-area__viewport {
+  scrollbar-width: thin;
+  scrollbar-color: var(--voltz-scroll-area-thumb-bg) var(--voltz-scroll-area-track-bg);
+}
+
+/* -------------------------------------------------------
+   Scrollbar Size: md
+   ------------------------------------------------------- */
+.voltz-scroll-area--md .voltz-scroll-area__viewport::-webkit-scrollbar {
+  width: var(--voltz-scroll-area-size-md);
+  height: var(--voltz-scroll-area-size-md);
+}
+
+.voltz-scroll-area--md .voltz-scroll-area__viewport::-webkit-scrollbar-track {
+  background: var(--voltz-scroll-area-track-bg);
+  border-radius: var(--voltz-scroll-area-track-radius);
+}
+
+.voltz-scroll-area--md .voltz-scroll-area__viewport::-webkit-scrollbar-thumb {
+  background: var(--voltz-scroll-area-thumb-bg);
+  border-radius: var(--voltz-scroll-area-thumb-radius);
+}
+
+.voltz-scroll-area--md .voltz-scroll-area__viewport::-webkit-scrollbar-thumb:hover {
+  background: var(--voltz-scroll-area-thumb-hover-bg);
+}
+
+.voltz-scroll-area--md .voltz-scroll-area__viewport {
+  scrollbar-width: auto;
+  scrollbar-color: var(--voltz-scroll-area-thumb-bg) var(--voltz-scroll-area-track-bg);
+}
+
+/* -------------------------------------------------------
+   Hidden Scrollbar
+   ------------------------------------------------------- */
+.voltz-scroll-area--hidden-scrollbar .voltz-scroll-area__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.voltz-scroll-area--hidden-scrollbar .voltz-scroll-area__viewport {
+  scrollbar-width: none;
+}
+
+/* -------------------------------------------------------
+   Dark Mode
+   ------------------------------------------------------- */
+[data-theme="dark"] .voltz-scroll-area {
+  --voltz-scroll-area-track-bg: var(--voltz-color-bg-subtle-dark, #1e293b);
+  --voltz-scroll-area-thumb-bg: var(--voltz-color-border-dark, #475569);
+  --voltz-scroll-area-thumb-hover-bg: var(--voltz-color-border-hover-dark, #64748b);
+}
+
+/* -------------------------------------------------------
+   Reduced Motion
+   ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-scroll-area,
+  .voltz-scroll-area * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

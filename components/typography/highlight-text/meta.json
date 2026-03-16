@@ -1,0 +1,47 @@
+{
+  "id": "highlight-text",
+  "name": "Highlight Text",
+  "description": "Text with colored highlight background. Supports multiple color presets and animated reveal option.",
+  "category": "typography",
+  "tags": ["highlight", "mark", "emphasis", "text", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "mark",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses semantic <mark> element to indicate highlighted/relevant text."
+  },
+  "variants": {
+    "color": {
+      "type": "string",
+      "options": ["primary", "success", "warning", "error", "custom"],
+      "default": "primary",
+      "description": "Highlight color variant"
+    },
+    "animated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to animate the highlight reveal"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The text content to highlight"
+    }
+  },
+  "examples": [
+    {
+      "name": "Primary Highlight",
+      "props": { "color": "primary" },
+      "content": "important text"
+    },
+    {
+      "name": "Animated Warning Highlight",
+      "props": { "color": "warning", "animated": true },
+      "content": "pay attention"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["paragraph", "gradient-text"]
+}

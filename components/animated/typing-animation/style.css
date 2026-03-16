@@ -1,0 +1,59 @@
+/*
+ * Typing Animation Component Styles
+ * Blinking cursor animation and text display.
+ * Uses only opacity for compositor-friendly cursor blink.
+ */
+
+.voltz-typing-animation {
+  --voltz-typing-cursor-color: currentColor;
+  --voltz-typing-cursor-width: 2px;
+  --voltz-typing-font-size: inherit;
+  --voltz-typing-color: inherit;
+
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--voltz-typing-font-size);
+  color: var(--voltz-typing-color);
+  font-family: inherit;
+}
+
+[data-theme="dark"] .voltz-typing-animation {
+  --voltz-typing-color: #f0f0f0;
+  --voltz-typing-cursor-color: #f0f0f0;
+}
+
+.voltz-typing-animation__prefix {
+  margin-right: 0.15em;
+}
+
+.voltz-typing-animation__text {
+  display: inline;
+  min-width: 1ch;
+}
+
+.voltz-typing-animation__cursor {
+  display: inline-block;
+  width: var(--voltz-typing-cursor-width);
+  color: var(--voltz-typing-cursor-color);
+  animation: voltz-typing-cursor-blink 0.7s step-end infinite;
+  margin-left: 1px;
+  font-weight: 100;
+  user-select: none;
+}
+
+@keyframes voltz-typing-cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion: show static text, no cursor blink */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-typing-animation__cursor {
+    animation: none;
+    opacity: 1;
+  }
+}

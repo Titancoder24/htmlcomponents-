@@ -1,0 +1,11 @@
+<!--
+  Highlight Text Component Template
+  Purpose: Renders text with a colored highlight background.
+  Supports multiple color presets and animated reveal.
+-->
+<mark
+  class="voltz-highlight-text voltz-highlight-text--{{variant:color}} {{#if animated}}voltz-highlight-text--animated{{/if}}"
+  data-voltz-highlight
+>
+  {{slot:default}}
+</mark>

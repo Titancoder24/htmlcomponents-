@@ -1,0 +1,10 @@
+<!--
+  Paragraph Component Template
+  Purpose: Renders body text with configurable size, leading,
+  color, and optional max-width for readability.
+-->
+<p
+  class="voltz-paragraph voltz-paragraph--size-{{variant:size}} voltz-paragraph--leading-{{variant:leading}} voltz-paragraph--color-{{variant:color}} {{#if maxWidth}}voltz-paragraph--max-width{{/if}}"
+>
+  {{slot:default}}
+</p>

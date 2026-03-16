@@ -1,0 +1,100 @@
+{
+  "name": "button",
+  "displayName": "Button",
+  "description": "A versatile button component with multiple variants, sizes, colors, and states. Supports icons, loading indicators, and full-width layouts.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "solid",
+      "options": ["solid", "outline", "ghost", "soft", "link"],
+      "description": "Visual style variant of the button"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["xs", "sm", "md", "lg", "xl"],
+      "description": "Size of the button"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "error"],
+      "description": "Color scheme of the button"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the button is disabled"
+    },
+    "loading": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the button shows a loading spinner"
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the button takes full container width"
+    },
+    "iconLeft": {
+      "type": "string",
+      "default": "",
+      "description": "Slot for an icon to the left of the label"
+    },
+    "iconRight": {
+      "type": "string",
+      "default": "",
+      "description": "Slot for an icon to the right of the label"
+    },
+    "type": {
+      "type": "string",
+      "default": "button",
+      "options": ["button", "submit", "reset"],
+      "description": "HTML button type attribute"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Button label content"
+    },
+    "iconLeft": {
+      "description": "Icon displayed before the label"
+    },
+    "iconRight": {
+      "description": "Icon displayed after the label"
+    }
+  },
+  "events": {
+    "click": {
+      "description": "Fired when the button is clicked"
+    }
+  },
+  "accessibility": {
+    "role": "button",
+    "keyboard": {
+      "Enter": "Activates the button",
+      "Space": "Activates the button"
+    },
+    "ariaAttributes": ["aria-disabled", "aria-busy", "aria-label"]
+  },
+  "examples": [
+    {
+      "title": "Primary solid button",
+      "props": { "variant": "solid", "color": "primary" },
+      "slots": { "default": "Click me" }
+    },
+    {
+      "title": "Loading button",
+      "props": { "variant": "solid", "color": "primary", "loading": true },
+      "slots": { "default": "Saving..." }
+    },
+    {
+      "title": "Outline error button",
+      "props": { "variant": "outline", "color": "error" },
+      "slots": { "default": "Delete" }
+    }
+  ]
+}

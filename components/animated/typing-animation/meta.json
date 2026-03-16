@@ -1,0 +1,20 @@
+{
+  "name": "typing-animation",
+  "description": "Simulates typing with a blinking cursor, cycling through configurable text strings with speed and delay options.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default", "multiline"],
+  "tags": ["typing", "cursor", "animation", "text"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-typing-speed",
+    "--voltz-typing-delete-speed",
+    "--voltz-typing-pause",
+    "--voltz-typing-cursor-color",
+    "--voltz-typing-cursor-width",
+    "--voltz-typing-font-size",
+    "--voltz-typing-color"
+  ],
+  "slots": {}
+}

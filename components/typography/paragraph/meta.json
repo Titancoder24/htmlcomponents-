@@ -1,0 +1,59 @@
+{
+  "id": "paragraph",
+  "name": "Paragraph",
+  "description": "Body text component with configurable sizes, line heights, max-width for readability, and color variants.",
+  "category": "typography",
+  "tags": ["paragraph", "body", "text", "prose", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "aria": {},
+    "keyboard": {},
+    "description": "Uses semantic <p> element. Ensures readable line lengths and sufficient color contrast."
+  },
+  "variants": {
+    "size": {
+      "type": "string",
+      "options": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Font size of the paragraph"
+    },
+    "leading": {
+      "type": "string",
+      "options": ["tight", "normal", "relaxed"],
+      "default": "normal",
+      "description": "Line height / leading"
+    },
+    "color": {
+      "type": "string",
+      "options": ["default", "muted", "accent"],
+      "default": "default",
+      "description": "Text color variant"
+    },
+    "maxWidth": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to apply max-width for readability"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The paragraph text content"
+    }
+  },
+  "examples": [
+    {
+      "name": "Default Paragraph",
+      "props": { "size": "md", "leading": "normal", "color": "default" },
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "name": "Muted Small Text",
+      "props": { "size": "sm", "color": "muted" },
+      "content": "Secondary information displayed in a smaller, muted style."
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["heading", "blockquote"]
+}

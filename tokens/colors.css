@@ -1,0 +1,137 @@
+/**
+ * Voltz UI - Color Palette Tokens
+ *
+ * Full color palette with semantic color scales.
+ * Neutral: 50-950 (11 shades), Primary/Success/Warning/Error: 50-900 (10 shades).
+ * Includes additional semantic aliases for common use cases.
+ *
+ * Naming: --voltz-color-{palette}-{shade}
+ */
+
+:root {
+  /* ========================================================================
+   * Neutral Palette (Gray) - 50 to 950
+   * ======================================================================== */
+  --voltz-color-neutral-50: #fafafa;
+  --voltz-color-neutral-100: #f5f5f5;
+  --voltz-color-neutral-150: #ededed;
+  --voltz-color-neutral-200: #e5e5e5;
+  --voltz-color-neutral-250: #dcdcdc;
+  --voltz-color-neutral-300: #d4d4d4;
+  --voltz-color-neutral-350: #bbbbbb;
+  --voltz-color-neutral-400: #a3a3a3;
+  --voltz-color-neutral-450: #8b8b8b;
+  --voltz-color-neutral-500: #737373;
+  --voltz-color-neutral-550: #636363;
+  --voltz-color-neutral-600: #525252;
+  --voltz-color-neutral-650: #494949;
+  --voltz-color-neutral-700: #404040;
+  --voltz-color-neutral-750: #333333;
+  --voltz-color-neutral-800: #262626;
+  --voltz-color-neutral-850: #1f1f1f;
+  --voltz-color-neutral-900: #171717;
+  --voltz-color-neutral-950: #0a0a0a;
+
+  /* ========================================================================
+   * Primary Palette (Blue) - 50 to 900
+   * ======================================================================== */
+  --voltz-color-primary-50: #eff6ff;
+  --voltz-color-primary-100: #dbeafe;
+  --voltz-color-primary-150: #cde0fe;
+  --voltz-color-primary-200: #bfdbfe;
+  --voltz-color-primary-250: #a9d0fe;
+  --voltz-color-primary-300: #93c5fd;
+  --voltz-color-primary-350: #7ab5fc;
+  --voltz-color-primary-400: #60a5fa;
+  --voltz-color-primary-450: #4e94f8;
+  --voltz-color-primary-500: #3b82f6;
+  --voltz-color-primary-550: #3073f0;
+  --voltz-color-primary-600: #2563eb;
+  --voltz-color-primary-650: #2159e2;
+  --voltz-color-primary-700: #1d4ed8;
+  --voltz-color-primary-750: #1e47c4;
+  --voltz-color-primary-800: #1e40af;
+  --voltz-color-primary-850: #1e3d9d;
+  --voltz-color-primary-900: #1e3a8a;
+
+  /* ========================================================================
+   * Success Palette (Green) - 50 to 900
+   * ======================================================================== */
+  --voltz-color-success-50: #f0fdf4;
+  --voltz-color-success-100: #dcfce7;
+  --voltz-color-success-150: #ccfadc;
+  --voltz-color-success-200: #bbf7d0;
+  --voltz-color-success-250: #a1f3be;
+  --voltz-color-success-300: #86efac;
+  --voltz-color-success-350: #68e696;
+  --voltz-color-success-400: #4ade80;
+  --voltz-color-success-450: #36d26f;
+  --voltz-color-success-500: #22c55e;
+  --voltz-color-success-550: #1cb454;
+  --voltz-color-success-600: #16a34a;
+  --voltz-color-success-650: #169244;
+  --voltz-color-success-700: #15803d;
+  --voltz-color-success-750: #167339;
+  --voltz-color-success-800: #166534;
+  --voltz-color-success-850: #155c31;
+  --voltz-color-success-900: #14532d;
+
+  /* ========================================================================
+   * Warning Palette (Amber) - 50 to 900
+   * ======================================================================== */
+  --voltz-color-warning-50: #fffbeb;
+  --voltz-color-warning-100: #fef3c7;
+  --voltz-color-warning-150: #feeda9;
+  --voltz-color-warning-200: #fde68a;
+  --voltz-color-warning-250: #fcdd6c;
+  --voltz-color-warning-300: #fcd34d;
+  --voltz-color-warning-350: #fbc939;
+  --voltz-color-warning-400: #fbbf24;
+  --voltz-color-warning-450: #f8af18;
+  --voltz-color-warning-500: #f59e0b;
+  --voltz-color-warning-550: #e78b09;
+  --voltz-color-warning-600: #d97706;
+  --voltz-color-warning-650: #c76508;
+  --voltz-color-warning-700: #b45309;
+  --voltz-color-warning-750: #a34a0c;
+  --voltz-color-warning-800: #92400e;
+  --voltz-color-warning-850: #853b0f;
+  --voltz-color-warning-900: #78350f;
+
+  /* ========================================================================
+   * Error Palette (Red) - 50 to 900
+   * ======================================================================== */
+  --voltz-color-error-50: #fef2f2;
+  --voltz-color-error-100: #fee2e2;
+  --voltz-color-error-150: #fed6d6;
+  --voltz-color-error-200: #fecaca;
+  --voltz-color-error-250: #feb8b8;
+  --voltz-color-error-300: #fca5a5;
+  --voltz-color-error-350: #fa8b8b;
+  --voltz-color-error-400: #f87171;
+  --voltz-color-error-450: #f45b5b;
+  --voltz-color-error-500: #ef4444;
+  --voltz-color-error-550: #e63535;
+  --voltz-color-error-600: #dc2626;
+  --voltz-color-error-650: #cb2121;
+  --voltz-color-error-700: #b91c1c;
+  --voltz-color-error-750: #a91c1c;
+  --voltz-color-error-800: #991b1b;
+  --voltz-color-error-850: #8c1c1c;
+  --voltz-color-error-900: #7f1d1d;
+
+  /* ========================================================================
+   * Semantic Color Aliases
+   * ======================================================================== */
+  --voltz-color-white: #ffffff;
+  --voltz-color-black: #000000;
+  --voltz-color-transparent: transparent;
+
+  --voltz-color-info-50: var(--voltz-color-primary-50);
+  --voltz-color-info-500: var(--voltz-color-primary-500);
+  --voltz-color-info-700: var(--voltz-color-primary-700);
+
+  --voltz-color-danger-50: var(--voltz-color-error-50);
+  --voltz-color-danger-500: var(--voltz-color-error-500);
+  --voltz-color-danger-700: var(--voltz-color-error-700);
+}

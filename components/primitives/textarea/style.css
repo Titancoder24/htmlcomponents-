@@ -1,0 +1,164 @@
+/*
+ * Textarea Component - style.css
+ * Purpose: Styles for the multi-line text input including variants (outline,
+ * filled), sizes (sm/md/lg), auto-resize, character counter, and states.
+ * Supports dark mode and reduced motion.
+ */
+
+/* === Wrapper === */
+.voltz-textarea-wrapper {
+  --voltz-textarea-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-textarea-radius: var(--voltz-radius-md, 0.375rem);
+  --voltz-textarea-border-color: var(--voltz-color-neutral-300, #d1d5db);
+  --voltz-textarea-bg: var(--voltz-color-white, #fff);
+  --voltz-textarea-color: var(--voltz-color-neutral-900, #111827);
+  --voltz-textarea-placeholder: var(--voltz-color-neutral-400, #9ca3af);
+  --voltz-textarea-focus-ring: var(--voltz-color-primary-500, #3b82f6);
+  --voltz-textarea-error-color: var(--voltz-color-error-500, #ef4444);
+  --voltz-textarea-px: var(--voltz-space-3, 0.75rem);
+  --voltz-textarea-py: var(--voltz-space-2, 0.5rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--voltz-space-1, 0.25rem);
+  font-family: var(--voltz-font-family-sans, system-ui, sans-serif);
+  width: 100%;
+}
+
+/* === Label === */
+.voltz-textarea__label {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  font-weight: var(--voltz-font-weight-medium, 500);
+  color: var(--voltz-color-neutral-700, #374151);
+}
+
+.voltz-textarea__required {
+  color: var(--voltz-textarea-error-color);
+  margin-inline-start: 0.125rem;
+}
+
+/* === Base Textarea === */
+.voltz-textarea {
+  width: 100%;
+  min-height: 5rem;
+  padding: var(--voltz-textarea-py) var(--voltz-textarea-px);
+  font-family: inherit;
+  font-size: var(--voltz-textarea-font-size);
+  color: var(--voltz-textarea-color);
+  background-color: var(--voltz-textarea-bg);
+  border: 1px solid var(--voltz-textarea-border-color);
+  border-radius: var(--voltz-textarea-radius);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.voltz-textarea::placeholder {
+  color: var(--voltz-textarea-placeholder);
+}
+
+.voltz-textarea:focus-visible {
+  border-color: var(--voltz-textarea-focus-ring);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* === Auto-resize === */
+.voltz-textarea-wrapper--auto-resize .voltz-textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+/* === Sizes === */
+.voltz-textarea-wrapper--sm {
+  --voltz-textarea-font-size: var(--voltz-font-size-sm, 0.875rem);
+  --voltz-textarea-px: var(--voltz-space-2, 0.5rem);
+  --voltz-textarea-py: var(--voltz-space-1, 0.25rem);
+}
+
+.voltz-textarea-wrapper--lg {
+  --voltz-textarea-font-size: var(--voltz-font-size-md, 1rem);
+  --voltz-textarea-px: var(--voltz-space-4, 1rem);
+  --voltz-textarea-py: var(--voltz-space-3, 0.75rem);
+}
+
+/* === Variant: Filled === */
+.voltz-textarea-wrapper--filled .voltz-textarea {
+  background-color: var(--voltz-color-neutral-100, #f3f4f6);
+  border-color: transparent;
+}
+
+.voltz-textarea-wrapper--filled .voltz-textarea:focus-visible {
+  background-color: var(--voltz-textarea-bg);
+  border-color: var(--voltz-textarea-focus-ring);
+}
+
+/* === Error State === */
+.voltz-textarea-wrapper--error .voltz-textarea {
+  border-color: var(--voltz-textarea-error-color);
+}
+
+.voltz-textarea-wrapper--error .voltz-textarea:focus-visible {
+  border-color: var(--voltz-textarea-error-color);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* === Disabled State === */
+.voltz-textarea-wrapper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voltz-textarea-wrapper--disabled .voltz-textarea {
+  cursor: not-allowed;
+  resize: none;
+}
+
+/* === Footer (helper + counter) === */
+.voltz-textarea__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--voltz-space-2, 0.5rem);
+}
+
+.voltz-textarea__helper {
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  color: var(--voltz-color-neutral-500, #6b7280);
+}
+
+.voltz-textarea-wrapper--error .voltz-textarea__helper {
+  color: var(--voltz-textarea-error-color);
+}
+
+.voltz-textarea__counter {
+  font-size: var(--voltz-font-size-xs, 0.75rem);
+  color: var(--voltz-color-neutral-400, #9ca3af);
+  margin-inline-start: auto;
+  white-space: nowrap;
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] .voltz-textarea-wrapper {
+  --voltz-textarea-bg: var(--voltz-color-neutral-900, #111827);
+  --voltz-textarea-color: var(--voltz-color-neutral-100, #f3f4f6);
+  --voltz-textarea-border-color: var(--voltz-color-neutral-600, #4b5563);
+  --voltz-textarea-placeholder: var(--voltz-color-neutral-500, #6b7280);
+}
+
+[data-theme="dark"] .voltz-textarea__label {
+  color: var(--voltz-color-neutral-200, #e5e7eb);
+}
+
+[data-theme="dark"] .voltz-textarea-wrapper--filled .voltz-textarea {
+  background-color: var(--voltz-color-neutral-800, #1f2937);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-textarea {
+    transition: none;
+  }
+}

@@ -1,0 +1,52 @@
+<!--
+  Progress Circle Component - template.html
+  Purpose: Renders a circular SVG-based progress indicator with configurable
+  value, size, color, and optional center label. Uses stroke-dasharray
+  for progress visualization and ARIA role="progressbar".
+-->
+<div
+  class="voltz-progress-circle voltz-progress-circle--{{size}} voltz-progress-circle--{{color}} {{#if indeterminate}}voltz-progress-circle--indeterminate{{/if}}"
+  role="progressbar"
+  aria-valuenow="{{value}}"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  {{#if label}}aria-label="{{label}}"{{/if}}
+>
+  <svg
+    class="voltz-progress-circle__svg"
+    viewBox="0 0 36 36"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      class="voltz-progress-circle__track"
+      cx="18"
+      cy="18"
+      r="16"
+      fill="none"
+      stroke-width="{{strokeWidth}}"
+    />
+    <circle
+      class="voltz-progress-circle__fill"
+      cx="18"
+      cy="18"
+      r="16"
+      fill="none"
+      stroke-width="{{strokeWidth}}"
+      stroke-linecap="round"
+      stroke-dasharray="100.53"
+      stroke-dashoffset="{{dashoffset}}"
+      transform="rotate(-90 18 18)"
+    />
+  </svg>
+
+  {{#if showLabel}}
+  <div class="voltz-progress-circle__label" aria-hidden="true">
+    {{#if default}}
+      {{slot:default}}
+    {{/if}}
+    {{#if !default}}
+      <span class="voltz-progress-circle__value">{{value}}%</span>
+    {{/if}}
+  </div>
+  {{/if}}
+</div>

@@ -1,0 +1,93 @@
+{
+  "name": "input",
+  "displayName": "Input",
+  "description": "A text input component with variants, sizes, states, addons, label, and helper text support.",
+  "category": "primitives",
+  "version": "0.1.0",
+  "status": "stable",
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "outline",
+      "options": ["outline", "filled", "flushed"],
+      "description": "Visual style variant"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the input"
+    },
+    "type": {
+      "type": "string",
+      "default": "text",
+      "description": "HTML input type attribute"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "",
+      "description": "Placeholder text"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Label text displayed above the input"
+    },
+    "helperText": {
+      "type": "string",
+      "default": "",
+      "description": "Helper or error text below the input"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is disabled"
+    },
+    "readonly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is read-only"
+    },
+    "error": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is in an error state"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is required"
+    }
+  },
+  "slots": {
+    "addonLeft": {
+      "description": "Content displayed to the left of the input"
+    },
+    "addonRight": {
+      "description": "Content displayed to the right of the input"
+    }
+  },
+  "events": {
+    "input": { "description": "Fired when the input value changes" },
+    "change": { "description": "Fired when the input value is committed" },
+    "focus": { "description": "Fired when the input gains focus" },
+    "blur": { "description": "Fired when the input loses focus" }
+  },
+  "accessibility": {
+    "role": "textbox",
+    "keyboard": {
+      "Tab": "Moves focus to/from the input"
+    },
+    "ariaAttributes": ["aria-invalid", "aria-disabled", "aria-readonly", "aria-required", "aria-describedby"]
+  },
+  "examples": [
+    {
+      "title": "Basic outline input",
+      "props": { "variant": "outline", "placeholder": "Enter text..." }
+    },
+    {
+      "title": "Input with error",
+      "props": { "variant": "outline", "error": true, "helperText": "This field is required" }
+    }
+  ]
+}

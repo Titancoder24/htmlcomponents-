@@ -1,0 +1,62 @@
+/*
+ * Inline Code Component Styles
+ * Purpose: Provides styling for inline code snippets with
+ * monospace font, background highlight, and size variants.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-inline-code {
+  --voltz-inline-code-color: var(--voltz-color-text-code, #c7254e);
+  --voltz-inline-code-bg: var(--voltz-color-bg-code, #f4f4f8);
+  --voltz-inline-code-font-family: var(--voltz-font-family-mono, 'SF Mono', 'Fira Code', 'Fira Mono', monospace);
+  --voltz-inline-code-border-color: var(--voltz-color-border-code, #e2e2e8);
+  --voltz-inline-code-radius: var(--voltz-radius-sm, 0.25rem);
+  --voltz-inline-code-padding-x: var(--voltz-spacing-1-5, 0.375rem);
+  --voltz-inline-code-padding-y: var(--voltz-spacing-0-5, 0.125rem);
+
+  color: var(--voltz-inline-code-color);
+  background-color: var(--voltz-inline-code-bg);
+  font-family: var(--voltz-inline-code-font-family);
+  border: 1px solid var(--voltz-inline-code-border-color);
+  border-radius: var(--voltz-inline-code-radius);
+  padding: var(--voltz-inline-code-padding-y) var(--voltz-inline-code-padding-x);
+  font-style: normal;
+  font-weight: 400;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-inline-code--size-sm {
+  font-size: var(--voltz-inline-code-size-sm, 0.75rem);
+}
+
+.voltz-inline-code--size-md {
+  font-size: var(--voltz-inline-code-size-md, 0.875rem);
+}
+
+.voltz-inline-code--size-lg {
+  font-size: var(--voltz-inline-code-size-lg, 1rem);
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-inline-code {
+  --voltz-inline-code-color: var(--voltz-color-text-code-dark, #f472b6);
+  --voltz-inline-code-bg: var(--voltz-color-bg-code-dark, #1e1e2e);
+  --voltz-inline-code-border-color: var(--voltz-color-border-code-dark, #374151);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-inline-code {
+    transition: none;
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "tooltip",
+  "name": "Tooltip",
+  "description": "A lightweight popup that appears on hover or focus to display supplementary information. Supports positioning, sizes, delay, and an arrow indicator.",
+  "category": "primitives",
+  "tags": ["tooltip", "popup", "hover", "info", "hint"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "tooltip",
+    "keyboard": {
+      "Escape": "Dismisses the tooltip"
+    },
+    "ariaAttributes": ["aria-describedby", "role"]
+  },
+  "props": {
+    "position": {
+      "type": "string",
+      "default": "top",
+      "options": ["top", "right", "bottom", "left"],
+      "description": "Position of the tooltip relative to the trigger"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md"],
+      "description": "Size of the tooltip text"
+    },
+    "delay": {
+      "type": "number",
+      "default": 200,
+      "description": "Delay in milliseconds before showing the tooltip"
+    },
+    "arrow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to show an arrow indicator"
+    },
+    "content": {
+      "type": "string",
+      "default": "",
+      "description": "Text content of the tooltip"
+    }
+  },
+  "variants": [
+    {
+      "name": "position",
+      "options": ["top", "right", "bottom", "left"],
+      "default": "top"
+    },
+    {
+      "name": "size",
+      "options": ["sm", "md"],
+      "default": "md"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "The trigger element that activates the tooltip"
+    },
+    "content": {
+      "description": "Custom tooltip content"
+    }
+  },
+  "examples": [
+    {
+      "title": "Top tooltip",
+      "props": { "position": "top", "content": "Helpful info" },
+      "slots": { "default": "<button>Hover me</button>" }
+    },
+    {
+      "title": "Right tooltip small",
+      "props": { "position": "right", "size": "sm", "content": "Tip" },
+      "slots": { "default": "<span>Info icon</span>" }
+    },
+    {
+      "title": "Bottom tooltip with delay",
+      "props": { "position": "bottom", "delay": 500, "content": "Delayed tip" },
+      "slots": { "default": "<button>Hover</button>" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["popover"]
+}

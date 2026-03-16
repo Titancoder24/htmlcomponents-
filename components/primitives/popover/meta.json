@@ -1,0 +1,59 @@
+{
+  "id": "popover",
+  "name": "Popover",
+  "description": "A click-triggered popup panel for displaying rich content. Supports positioning, close on outside click, and focus trapping.",
+  "category": "primitives",
+  "tags": ["popover", "popup", "overlay", "click", "content"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "dialog",
+    "keyboard": {
+      "Escape": "Closes the popover",
+      "Tab": "Cycles focus within the popover"
+    },
+    "ariaAttributes": ["aria-expanded", "aria-haspopup", "aria-controls"]
+  },
+  "props": {
+    "position": {
+      "type": "string",
+      "default": "bottom",
+      "options": ["top", "right", "bottom", "left"],
+      "description": "Position of the popover relative to the trigger"
+    },
+    "closeOnOutsideClick": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether clicking outside closes the popover"
+    }
+  },
+  "variants": [
+    {
+      "name": "position",
+      "options": ["top", "right", "bottom", "left"],
+      "default": "bottom"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "The trigger element that opens the popover"
+    },
+    "content": {
+      "description": "The popover body content"
+    }
+  },
+  "examples": [
+    {
+      "title": "Bottom popover",
+      "props": { "position": "bottom" },
+      "slots": { "default": "<button>Open</button>", "content": "Popover content here" }
+    },
+    {
+      "title": "Right popover",
+      "props": { "position": "right" },
+      "slots": { "default": "<button>Menu</button>", "content": "<p>Rich content</p>" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["tooltip", "dropdown"]
+}

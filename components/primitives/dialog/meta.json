@@ -1,0 +1,72 @@
+{
+  "id": "dialog",
+  "name": "Dialog",
+  "description": "A modal dialog overlay that displays content requiring user attention. Supports multiple sizes, backdrop overlay, focus trapping, scroll lock, and Escape to close.",
+  "category": "primitives",
+  "tags": ["dialog", "modal", "overlay", "popup", "confirm"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "dialog",
+    "keyboard": {
+      "Escape": "Closes the dialog",
+      "Tab": "Cycles focus within the dialog"
+    },
+    "ariaAttributes": ["aria-modal", "aria-labelledby", "aria-describedby", "role"]
+  },
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg", "xl", "full"],
+      "description": "Size of the dialog panel"
+    },
+    "closeOnOverlay": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether clicking the overlay backdrop closes the dialog"
+    },
+    "closeOnEscape": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether pressing Escape closes the dialog"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg", "xl", "full"],
+      "default": "md"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Main body content of the dialog"
+    },
+    "header": {
+      "description": "Dialog header with title and close button"
+    },
+    "footer": {
+      "description": "Dialog footer with action buttons"
+    }
+  },
+  "examples": [
+    {
+      "title": "Medium confirmation dialog",
+      "props": { "size": "md" },
+      "slots": { "header": "Confirm Action", "default": "Are you sure?", "footer": "<button>Cancel</button><button>Confirm</button>" }
+    },
+    {
+      "title": "Large content dialog",
+      "props": { "size": "lg" },
+      "slots": { "header": "Details", "default": "<p>Long content here</p>" }
+    },
+    {
+      "title": "Fullscreen dialog",
+      "props": { "size": "full" },
+      "slots": { "header": "Full View", "default": "Full screen content" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["drawer", "popover"]
+}

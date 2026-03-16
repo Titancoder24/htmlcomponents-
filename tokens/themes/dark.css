@@ -1,0 +1,85 @@
+/**
+ * Voltz UI - Dark Theme
+ *
+ * Semantic color assignments for the dark theme.
+ * Maps design tokens to functional roles with darker backgrounds,
+ * lighter foregrounds, and adjusted status colors.
+ *
+ * Apply via: <html data-theme="dark"> or class="voltz-theme-dark"
+ */
+
+[data-theme="dark"],
+.voltz-theme-dark {
+  /* ========================================================================
+   * Background
+   * ======================================================================== */
+  --voltz-bg-primary: var(--voltz-color-neutral-950, #0a0a0a);
+  --voltz-bg-secondary: var(--voltz-color-neutral-900, #171717);
+  --voltz-bg-tertiary: var(--voltz-color-neutral-800, #262626);
+  --voltz-bg-inverse: var(--voltz-color-neutral-50, #fafafa);
+
+  /* ========================================================================
+   * Foreground / Text
+   * ======================================================================== */
+  --voltz-fg-primary: var(--voltz-color-neutral-50, #fafafa);
+  --voltz-fg-secondary: var(--voltz-color-neutral-400, #a3a3a3);
+  --voltz-fg-tertiary: var(--voltz-color-neutral-500, #737373);
+  --voltz-fg-inverse: var(--voltz-color-neutral-900, #171717);
+  --voltz-fg-disabled: var(--voltz-color-neutral-700, #404040);
+  --voltz-fg-link: var(--voltz-color-primary-400, #60a5fa);
+  --voltz-fg-link-hover: var(--voltz-color-primary-300, #93c5fd);
+
+  /* ========================================================================
+   * Border
+   * ======================================================================== */
+  --voltz-border-primary: var(--voltz-color-neutral-800, #262626);
+  --voltz-border-secondary: var(--voltz-color-neutral-700, #404040);
+  --voltz-border-focus: var(--voltz-color-primary-500, #3b82f6);
+  --voltz-border-error: var(--voltz-color-error-500, #ef4444);
+
+  /* ========================================================================
+   * Surface (Cards, Panels, etc.)
+   * ======================================================================== */
+  --voltz-surface-primary: var(--voltz-color-neutral-900, #171717);
+  --voltz-surface-secondary: var(--voltz-color-neutral-800, #262626);
+  --voltz-surface-elevated: var(--voltz-color-neutral-800, #262626);
+  --voltz-surface-overlay: rgb(0 0 0 / 0.7);
+
+  /* ========================================================================
+   * Interactive States
+   * ======================================================================== */
+  --voltz-interactive-hover: var(--voltz-color-neutral-800, #262626);
+  --voltz-interactive-active: var(--voltz-color-neutral-700, #404040);
+  --voltz-interactive-selected: rgb(59 130 246 / 0.15);
+  --voltz-interactive-disabled: var(--voltz-color-neutral-800, #262626);
+
+  /* ========================================================================
+   * Status Colors
+   * ======================================================================== */
+  --voltz-status-success-bg: rgb(34 197 94 / 0.1);
+  --voltz-status-success-fg: var(--voltz-color-success-400, #4ade80);
+  --voltz-status-success-border: rgb(34 197 94 / 0.3);
+
+  --voltz-status-warning-bg: rgb(245 158 11 / 0.1);
+  --voltz-status-warning-fg: var(--voltz-color-warning-400, #fbbf24);
+  --voltz-status-warning-border: rgb(245 158 11 / 0.3);
+
+  --voltz-status-error-bg: rgb(239 68 68 / 0.1);
+  --voltz-status-error-fg: var(--voltz-color-error-400, #f87171);
+  --voltz-status-error-border: rgb(239 68 68 / 0.3);
+
+  --voltz-status-info-bg: rgb(59 130 246 / 0.1);
+  --voltz-status-info-fg: var(--voltz-color-primary-400, #60a5fa);
+  --voltz-status-info-border: rgb(59 130 246 / 0.3);
+
+  /* ========================================================================
+   * Shadows (theme-aware)
+   * ======================================================================== */
+  --voltz-theme-shadow-color: 0 0 0;
+  --voltz-theme-shadow-opacity: 0.4;
+
+  /* ========================================================================
+   * Color Scheme
+   * ======================================================================== */
+  color-scheme: dark;
+}

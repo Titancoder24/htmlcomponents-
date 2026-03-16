@@ -1,0 +1,17 @@
+<!--
+  Separator Component - template.html
+  Purpose: Renders a visual divider with configurable orientation, line style,
+  and an optional centered label. Uses role="separator" for accessibility.
+-->
+<div
+  class="voltz-separator voltz-separator--{{orientation}} voltz-separator--{{variant}}"
+  role="separator"
+  aria-orientation="{{orientation}}"
+>
+  {{#if label}}
+  <span class="voltz-separator__label">{{label}}</span>
+  {{/if}}
+  {{#if slotLabel}}
+  <span class="voltz-separator__label">{{slot:label}}</span>
+  {{/if}}
+</div>

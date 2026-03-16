@@ -1,0 +1,36 @@
+<!--
+  Collapsible Component - template.html
+  Purpose: Renders an expand/collapse disclosure widget with a trigger button
+  and animated content region. Uses ARIA expanded state for accessibility.
+-->
+<div class="voltz-collapsible {{#if open}}voltz-collapsible--open{{/if}}">
+  <button
+    class="voltz-collapsible__trigger"
+    type="button"
+    aria-expanded="{{open}}"
+    aria-controls="voltz-collapsible-content-{{id}}"
+    id="voltz-collapsible-trigger-{{id}}"
+    {{#if disabled}}disabled aria-disabled="true"{{/if}}
+    data-voltz-collapsible-trigger
+  >
+    <span class="voltz-collapsible__trigger-content">
+      {{slot:trigger}}
+    </span>
+    <span class="voltz-collapsible__icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </button>
+  <div
+    class="voltz-collapsible__content-wrapper"
+    id="voltz-collapsible-content-{{id}}"
+    role="region"
+    aria-labelledby="voltz-collapsible-trigger-{{id}}"
+    data-voltz-collapsible-content
+  >
+    <div class="voltz-collapsible__content">
+      {{slot:default}}
+    </div>
+  </div>
+</div>

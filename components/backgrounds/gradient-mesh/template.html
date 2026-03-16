@@ -1,0 +1,17 @@
+<!--
+  Voltz UI - Gradient Mesh Background
+  Multi-color mesh gradient background with preset palettes
+  @version 1.0.0
+-->
+<div class="voltz-gradient-mesh voltz-gradient-mesh--{{variant}}"
+     role="presentation"
+     aria-hidden="true"
+     {{#if animated}}data-animated="true"{{/if}}>
+  <div class="voltz-gradient-mesh__layer voltz-gradient-mesh__layer--1"></div>
+  <div class="voltz-gradient-mesh__layer voltz-gradient-mesh__layer--2"></div>
+  <div class="voltz-gradient-mesh__layer voltz-gradient-mesh__layer--3"></div>
+  <div class="voltz-gradient-mesh__layer voltz-gradient-mesh__layer--4"></div>
+  <div class="voltz-gradient-mesh__content">
+    {{slot:default}}
+  </div>
+</div>

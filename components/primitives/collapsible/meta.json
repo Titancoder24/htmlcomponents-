@@ -1,0 +1,64 @@
+{
+  "id": "collapsible",
+  "name": "Collapsible",
+  "description": "A simple expand/collapse container with animated height transition. Features a trigger slot and content slot with full ARIA expanded state support.",
+  "category": "primitives",
+  "tags": ["collapsible", "expand", "collapse", "toggle", "disclosure"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "region",
+    "keyboard": {
+      "Enter": "Toggles the collapsible content",
+      "Space": "Toggles the collapsible content"
+    },
+    "ariaAttributes": ["aria-expanded", "aria-controls", "aria-labelledby"]
+  },
+  "props": {
+    "open": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the collapsible content is expanded"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the collapsible trigger is disabled"
+    }
+  },
+  "variants": [],
+  "slots": {
+    "trigger": {
+      "description": "The clickable element that toggles the collapsible content"
+    },
+    "default": {
+      "description": "The content revealed when the collapsible is expanded"
+    }
+  },
+  "events": {
+    "toggle": {
+      "description": "Fired when the collapsible open state changes",
+      "payload": { "open": "boolean" }
+    }
+  },
+  "examples": [
+    {
+      "title": "Default collapsed",
+      "props": { "open": false },
+      "slots": {
+        "trigger": "Show more",
+        "default": "<p>Hidden content revealed on expand.</p>"
+      }
+    },
+    {
+      "title": "Initially open",
+      "props": { "open": true },
+      "slots": {
+        "trigger": "Hide details",
+        "default": "<p>This content is visible by default.</p>"
+      }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["accordion"]
+}

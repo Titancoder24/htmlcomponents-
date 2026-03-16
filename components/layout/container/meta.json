@@ -1,0 +1,38 @@
+{
+  "id": "container",
+  "name": "Container",
+  "description": "A max-width container that centers content horizontally with configurable sizing and padding options.",
+  "category": "layout",
+  "tags": ["container", "wrapper", "max-width", "centered", "responsive"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "description": "Structural container with no semantic meaning. Use appropriate landmarks within."
+  },
+  "variants": [
+    { "name": "sm", "description": "Max-width 640px container" },
+    { "name": "md", "description": "Max-width 768px container" },
+    { "name": "lg", "description": "Max-width 1024px container" },
+    { "name": "xl", "description": "Max-width 1280px container" },
+    { "name": "2xl", "description": "Max-width 1536px container" },
+    { "name": "full", "description": "Full-width container with no max-width" }
+  ],
+  "slots": [
+    { "name": "default", "description": "Container content" }
+  ],
+  "examples": [
+    {
+      "name": "Default container",
+      "description": "XL container with default padding",
+      "props": { "variant": "xl", "padding": "md" }
+    },
+    {
+      "name": "Narrow container",
+      "description": "Small container for narrow content",
+      "props": { "variant": "sm", "padding": "lg" }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["grid", "flex", "center"]
+}

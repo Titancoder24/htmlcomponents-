@@ -1,0 +1,17 @@
+<!--
+  Blockquote Component Template
+  Purpose: Renders a styled quote block with optional citation.
+  Supports bordered, highlighted, and minimal variants.
+-->
+<blockquote
+  class="voltz-blockquote voltz-blockquote--{{variant:variant}} voltz-blockquote--size-{{variant:size}}"
+>
+  <div class="voltz-blockquote__content">
+    {{slot:default}}
+  </div>
+  {{#if citation}}
+  <footer class="voltz-blockquote__footer">
+    <cite class="voltz-blockquote__citation">{{slot:citation}}</cite>
+  </footer>
+  {{/if}}
+</blockquote>

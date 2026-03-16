@@ -1,0 +1,29 @@
+<!--
+  Progress Bar Component - template.html
+  Purpose: Renders a horizontal progress bar with configurable value, size,
+  color, striped/animated variants, and indeterminate mode. Uses ARIA
+  role="progressbar" with proper value attributes.
+-->
+<div class="voltz-progress-bar voltz-progress-bar--{{size}} voltz-progress-bar--{{color}} {{#if striped}}voltz-progress-bar--striped{{/if}} {{#if animated}}voltz-progress-bar--animated{{/if}} {{#if indeterminate}}voltz-progress-bar--indeterminate{{/if}}">
+  {{#if showLabel}}
+  <div class="voltz-progress-bar__header">
+    {{#if label}}
+    <span class="voltz-progress-bar__label">{{label}}</span>
+    {{/if}}
+    <span class="voltz-progress-bar__value-text">{{value}}%</span>
+  </div>
+  {{/if}}
+
+  <div class="voltz-progress-bar__track">
+    <div
+      class="voltz-progress-bar__fill"
+      role="progressbar"
+      aria-valuenow="{{value}}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      {{#if label}}aria-label="{{label}}"{{/if}}
+      {{#if indeterminate}}aria-valuenow=""{{/if}}
+      style="width: {{value}}%"
+    ></div>
+  </div>
+</div>

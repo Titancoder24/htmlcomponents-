@@ -1,0 +1,17 @@
+<!--
+  Word Rotate Component
+  Cycles through words with animated transitions.
+  Variants: fade, slide-up, slide-down, blur
+  JS handles word cycling; CSS handles transitions.
+-->
+<span class="voltz-word-rotate voltz-word-rotate--{{variant}}"
+      data-voltz-word-rotate
+      data-words='{{words}}'
+      data-variant="{{variant}}"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true">
+  <span class="voltz-word-rotate__container">
+    <span class="voltz-word-rotate__word voltz-word-rotate__word--active"></span>
+  </span>
+</span>

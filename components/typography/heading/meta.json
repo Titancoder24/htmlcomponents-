@@ -1,0 +1,72 @@
+{
+  "id": "heading",
+  "name": "Heading",
+  "description": "Heading levels h1-h6 with configurable sizes, weights, alignment, and truncation support.",
+  "category": "typography",
+  "tags": ["heading", "title", "h1", "h2", "h3", "h4", "h5", "h6", "typography"],
+  "version": "1.0.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "heading",
+    "aria": {
+      "aria-level": "Automatically set based on heading level"
+    },
+    "keyboard": {},
+    "description": "Uses semantic heading elements for proper document outline and screen reader navigation."
+  },
+  "variants": {
+    "level": {
+      "type": "string",
+      "options": ["h1", "h2", "h3", "h4", "h5", "h6"],
+      "default": "h2",
+      "description": "The HTML heading level"
+    },
+    "size": {
+      "type": "string",
+      "options": ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"],
+      "default": "md",
+      "description": "Visual size of the heading"
+    },
+    "weight": {
+      "type": "string",
+      "options": ["normal", "medium", "semibold", "bold"],
+      "default": "bold",
+      "description": "Font weight of the heading"
+    },
+    "align": {
+      "type": "string",
+      "options": ["left", "center", "right"],
+      "default": "left",
+      "description": "Text alignment"
+    },
+    "truncate": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to truncate text with ellipsis on overflow"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "The heading text content"
+    }
+  },
+  "examples": [
+    {
+      "name": "Default Heading",
+      "props": { "level": "h2", "size": "lg", "weight": "bold" },
+      "content": "Section Title"
+    },
+    {
+      "name": "Small Centered Heading",
+      "props": { "level": "h3", "size": "sm", "align": "center" },
+      "content": "Subtitle"
+    },
+    {
+      "name": "Truncated Heading",
+      "props": { "level": "h1", "size": "4xl", "truncate": true },
+      "content": "A very long heading that should be truncated"
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["paragraph", "text-divider"]
+}

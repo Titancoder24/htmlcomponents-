@@ -1,0 +1,97 @@
+/*
+ * Orbit Component Styles
+ * Elements orbiting around a central point.
+ * Variants: default, reverse, elliptical
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-orbit {
+  --voltz-orbit-radius: 120px;
+  --voltz-orbit-duration: 8s;
+  --voltz-orbit-easing: linear;
+  --voltz-orbit-item-size: 40px;
+  --voltz-orbit-center-size: 60px;
+  --voltz-orbit-color: #6366f1;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--voltz-orbit-radius) * 2 + var(--voltz-orbit-item-size));
+  height: calc(var(--voltz-orbit-radius) * 2 + var(--voltz-orbit-item-size));
+}
+
+[data-theme="dark"] .voltz-orbit {
+  --voltz-orbit-color: #818cf8;
+}
+
+.voltz-orbit__center {
+  position: absolute;
+  width: var(--voltz-orbit-center-size);
+  height: var(--voltz-orbit-center-size);
+  border-radius: 50%;
+  background: var(--voltz-orbit-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.voltz-orbit__track {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--voltz-orbit-color) 30%, transparent);
+  animation: voltz-orbit-spin var(--voltz-orbit-duration) var(--voltz-orbit-easing) infinite;
+}
+
+.voltz-orbit--reverse .voltz-orbit__track {
+  animation-direction: reverse;
+}
+
+.voltz-orbit--elliptical .voltz-orbit__track {
+  transform: scaleY(0.6);
+  animation: voltz-orbit-spin var(--voltz-orbit-duration) var(--voltz-orbit-easing) infinite;
+}
+
+.voltz-orbit__item {
+  position: absolute;
+  width: var(--voltz-orbit-item-size);
+  height: var(--voltz-orbit-item-size);
+  border-radius: 50%;
+  background: var(--voltz-orbit-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  margin-top: calc(var(--voltz-orbit-item-size) / -2);
+  margin-left: calc(var(--voltz-orbit-item-size) / -2);
+  transform: rotate(var(--voltz-orbit-angle)) translateX(var(--voltz-orbit-radius))
+    rotate(calc(var(--voltz-orbit-angle) * -1));
+}
+
+/* Counter-rotate items to keep them upright */
+.voltz-orbit--elliptical .voltz-orbit__item {
+  transform: rotate(var(--voltz-orbit-angle)) translateX(var(--voltz-orbit-radius))
+    rotate(calc(var(--voltz-orbit-angle) * -1)) scaleY(1.667);
+}
+
+@keyframes voltz-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-orbit__track {
+    animation: none !important;
+  }
+
+  .voltz-orbit__item {
+    opacity: 1;
+  }
+}

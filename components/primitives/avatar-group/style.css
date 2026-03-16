@@ -1,0 +1,108 @@
+/**
+ * AvatarGroup Component - style.css
+ * Purpose: Styles for the overlapping avatar group layout including
+ * size variants, spacing control, and the overflow counter badge.
+ */
+
+/* ---- Custom Properties ---- */
+.voltz-avatar-group {
+  --voltz-avatar-group-size-sm: 1.5rem;
+  --voltz-avatar-group-size-md: 2rem;
+  --voltz-avatar-group-size-lg: 2.75rem;
+  --voltz-avatar-group-spacing-sm: -0.375rem;
+  --voltz-avatar-group-spacing-md: -0.5rem;
+  --voltz-avatar-group-spacing-lg: -0.25rem;
+  --voltz-avatar-group-border-width: 2px;
+  --voltz-avatar-group-border-color: var(--voltz-color-bg-primary, #ffffff);
+  --voltz-avatar-group-overflow-bg: var(--voltz-color-neutral-200, #e5e7eb);
+  --voltz-avatar-group-overflow-color: var(--voltz-color-neutral-700, #374151);
+  --voltz-avatar-group-overflow-font-sm: 0.625rem;
+  --voltz-avatar-group-overflow-font-md: 0.75rem;
+  --voltz-avatar-group-overflow-font-lg: 0.875rem;
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* ---- Child avatar items ---- */
+.voltz-avatar-group > * {
+  border: var(--voltz-avatar-group-border-width) solid var(--voltz-avatar-group-border-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* ---- Spacing variants ---- */
+.voltz-avatar-group--spacing-sm > * + * {
+  margin-left: var(--voltz-avatar-group-spacing-sm);
+}
+
+.voltz-avatar-group--spacing-md > * + * {
+  margin-left: var(--voltz-avatar-group-spacing-md);
+}
+
+.voltz-avatar-group--spacing-lg > * + * {
+  margin-left: var(--voltz-avatar-group-spacing-lg);
+}
+
+/* ---- Size variants ---- */
+.voltz-avatar-group--sm > * {
+  width: var(--voltz-avatar-group-size-sm);
+  height: var(--voltz-avatar-group-size-sm);
+}
+
+.voltz-avatar-group--md > * {
+  width: var(--voltz-avatar-group-size-md);
+  height: var(--voltz-avatar-group-size-md);
+}
+
+.voltz-avatar-group--lg > * {
+  width: var(--voltz-avatar-group-size-lg);
+  height: var(--voltz-avatar-group-size-lg);
+}
+
+/* ---- Overflow counter ---- */
+.voltz-avatar-group__overflow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--voltz-avatar-group-overflow-bg);
+  color: var(--voltz-avatar-group-overflow-color);
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.voltz-avatar-group__overflow--sm {
+  width: var(--voltz-avatar-group-size-sm);
+  height: var(--voltz-avatar-group-size-sm);
+  font-size: var(--voltz-avatar-group-overflow-font-sm);
+}
+
+.voltz-avatar-group__overflow--md {
+  width: var(--voltz-avatar-group-size-md);
+  height: var(--voltz-avatar-group-size-md);
+  font-size: var(--voltz-avatar-group-overflow-font-md);
+}
+
+.voltz-avatar-group__overflow--lg {
+  width: var(--voltz-avatar-group-size-lg);
+  height: var(--voltz-avatar-group-size-lg);
+  font-size: var(--voltz-avatar-group-overflow-font-lg);
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] .voltz-avatar-group {
+  --voltz-avatar-group-border-color: var(--voltz-color-bg-dark, #1f2937);
+  --voltz-avatar-group-overflow-bg: var(--voltz-color-neutral-700, #374151);
+  --voltz-avatar-group-overflow-color: var(--voltz-color-neutral-200, #e5e7eb);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-avatar-group,
+  .voltz-avatar-group > * {
+    transition: none;
+  }
+}

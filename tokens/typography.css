@@ -1,0 +1,83 @@
+/**
+ * Voltz UI - Typography Tokens
+ *
+ * Font families, sizes, weights, line heights, and letter spacing.
+ * Uses Inter for sans-serif and JetBrains Mono for monospace.
+ * Font sizes use a modular scale from xs (0.75rem) to 5xl (3rem).
+ *
+ * Naming: --voltz-font-{property}-{scale}
+ *         --voltz-line-height-{scale}
+ *         --voltz-letter-spacing-{scale}
+ */
+
+:root {
+  /* ========================================================================
+   * Font Families
+   * ======================================================================== */
+  --voltz-font-family-sans: 'Inter', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --voltz-font-family-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code',
+    'Fira Code', 'Droid Sans Mono', 'Courier New', monospace;
+  --voltz-font-family-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  /* ========================================================================
+   * Font Sizes - Modular Scale
+   * ======================================================================== */
+  --voltz-font-size-2xs: 0.625rem;   /* 10px */
+  --voltz-font-size-xs: 0.75rem;     /* 12px */
+  --voltz-font-size-sm: 0.875rem;    /* 14px */
+  --voltz-font-size-base: 1rem;      /* 16px */
+  --voltz-font-size-lg: 1.125rem;    /* 18px */
+  --voltz-font-size-xl: 1.25rem;     /* 20px */
+  --voltz-font-size-2xl: 1.5rem;     /* 24px */
+  --voltz-font-size-3xl: 1.875rem;   /* 30px */
+  --voltz-font-size-4xl: 2.25rem;    /* 36px */
+  --voltz-font-size-5xl: 3rem;       /* 48px */
+  --voltz-font-size-6xl: 3.75rem;    /* 60px */
+  --voltz-font-size-7xl: 4.5rem;     /* 72px */
+
+  /* ========================================================================
+   * Font Weights
+   * ======================================================================== */
+  --voltz-font-weight-thin: 100;
+  --voltz-font-weight-light: 300;
+  --voltz-font-weight-regular: 400;
+  --voltz-font-weight-medium: 500;
+  --voltz-font-weight-semibold: 600;
+  --voltz-font-weight-bold: 700;
+  --voltz-font-weight-extrabold: 800;
+  --voltz-font-weight-black: 900;
+
+  /* ========================================================================
+   * Line Heights
+   * ======================================================================== */
+  --voltz-line-height-none: 1;
+  --voltz-line-height-tight: 1.25;
+  --voltz-line-height-snug: 1.375;
+  --voltz-line-height-normal: 1.5;
+  --voltz-line-height-relaxed: 1.75;
+  --voltz-line-height-loose: 2;
+
+  /* ========================================================================
+   * Letter Spacing
+   * ======================================================================== */
+  --voltz-letter-spacing-tighter: -0.05em;
+  --voltz-letter-spacing-tight: -0.025em;
+  --voltz-letter-spacing-normal: 0em;
+  --voltz-letter-spacing-wide: 0.025em;
+  --voltz-letter-spacing-wider: 0.05em;
+  --voltz-letter-spacing-widest: 0.1em;
+
+  /* ========================================================================
+   * Composite Text Styles (size / line-height)
+   * ======================================================================== */
+  --voltz-text-xs: var(--voltz-font-size-xs) / var(--voltz-line-height-normal);
+  --voltz-text-sm: var(--voltz-font-size-sm) / var(--voltz-line-height-normal);
+  --voltz-text-base: var(--voltz-font-size-base) / var(--voltz-line-height-normal);
+  --voltz-text-lg: var(--voltz-font-size-lg) / var(--voltz-line-height-normal);
+  --voltz-text-xl: var(--voltz-font-size-xl) / var(--voltz-line-height-tight);
+  --voltz-text-2xl: var(--voltz-font-size-2xl) / var(--voltz-line-height-tight);
+  --voltz-text-3xl: var(--voltz-font-size-3xl) / var(--voltz-line-height-tight);
+  --voltz-text-4xl: var(--voltz-font-size-4xl) / var(--voltz-line-height-none);
+  --voltz-text-5xl: var(--voltz-font-size-5xl) / var(--voltz-line-height-none);
+}

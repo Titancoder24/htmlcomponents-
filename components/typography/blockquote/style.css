@@ -1,0 +1,107 @@
+/*
+ * Blockquote Component Styles
+ * Purpose: Provides styling for quote blocks with bordered,
+ * highlighted, and minimal variants plus citation support.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+.voltz-blockquote {
+  --voltz-blockquote-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-blockquote-font-family: var(--voltz-font-family-body, system-ui, -apple-system, sans-serif);
+  --voltz-blockquote-border-color: var(--voltz-color-primary, #6366f1);
+  --voltz-blockquote-bg: transparent;
+  --voltz-blockquote-padding: var(--voltz-spacing-4, 1rem);
+  --voltz-blockquote-margin: var(--voltz-spacing-6, 1.5rem) 0;
+  --voltz-blockquote-citation-color: var(--voltz-color-text-muted, #6b7280);
+
+  color: var(--voltz-blockquote-color);
+  font-family: var(--voltz-blockquote-font-family);
+  font-style: italic;
+  margin: var(--voltz-blockquote-margin);
+  padding: var(--voltz-blockquote-padding);
+  background: var(--voltz-blockquote-bg);
+  position: relative;
+}
+
+.voltz-blockquote__content {
+  margin: 0;
+}
+
+.voltz-blockquote__footer {
+  margin-top: var(--voltz-spacing-3, 0.75rem);
+}
+
+.voltz-blockquote__citation {
+  font-style: normal;
+  font-size: 0.875em;
+  color: var(--voltz-blockquote-citation-color);
+}
+
+.voltz-blockquote__citation::before {
+  content: "\2014\00A0";
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-blockquote--size-sm {
+  font-size: var(--voltz-blockquote-size-sm, 0.875rem);
+}
+
+.voltz-blockquote--size-md {
+  font-size: var(--voltz-blockquote-size-md, 1rem);
+}
+
+.voltz-blockquote--size-lg {
+  font-size: var(--voltz-blockquote-size-lg, 1.25rem);
+}
+
+/* ========================================
+   Variant: Bordered
+   ======================================== */
+.voltz-blockquote--bordered {
+  border-left: 4px solid var(--voltz-blockquote-border-color);
+  padding-left: var(--voltz-spacing-5, 1.25rem);
+}
+
+/* ========================================
+   Variant: Highlighted
+   ======================================== */
+.voltz-blockquote--highlighted {
+  --voltz-blockquote-bg: var(--voltz-color-primary-50, #eef2ff);
+  border-radius: var(--voltz-radius-md, 0.5rem);
+  border-left: 4px solid var(--voltz-blockquote-border-color);
+  padding: var(--voltz-spacing-5, 1.25rem);
+}
+
+/* ========================================
+   Variant: Minimal
+   ======================================== */
+.voltz-blockquote--minimal {
+  padding: 0;
+  font-size: 1.1em;
+  opacity: 0.85;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-blockquote {
+  --voltz-blockquote-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+  --voltz-blockquote-citation-color: var(--voltz-color-text-muted-dark, #9ca3af);
+}
+
+[data-theme="dark"] .voltz-blockquote--highlighted {
+  --voltz-blockquote-bg: var(--voltz-color-primary-900, #1e1b4b);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-blockquote {
+    transition: none;
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "meter",
+  "name": "Meter",
+  "description": "A value meter/gauge component that displays a measured value within a known range. Colors change based on value thresholds: low (error), medium (warning), high (success).",
+  "category": "primitives",
+  "tags": ["meter", "gauge", "progress", "value", "threshold"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "meter",
+    "keyboard": {},
+    "ariaAttributes": ["aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-label"]
+  },
+  "props": {
+    "value": {
+      "type": "number",
+      "default": 0,
+      "description": "Current value of the meter"
+    },
+    "min": {
+      "type": "number",
+      "default": 0,
+      "description": "Minimum value of the meter range"
+    },
+    "max": {
+      "type": "number",
+      "default": 100,
+      "description": "Maximum value of the meter range"
+    },
+    "low": {
+      "type": "number",
+      "default": 33,
+      "description": "Threshold below which the value is considered low (error color)"
+    },
+    "high": {
+      "type": "number",
+      "default": 66,
+      "description": "Threshold above which the value is considered high (success color)"
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the meter bar"
+    },
+    "label": {
+      "type": "string",
+      "default": "",
+      "description": "Accessible label for the meter"
+    },
+    "showValue": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to display the numeric value"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {},
+  "events": {},
+  "examples": [
+    {
+      "title": "Low value meter",
+      "props": { "value": 20, "min": 0, "max": 100, "size": "md" }
+    },
+    {
+      "title": "Medium value meter",
+      "props": { "value": 50, "min": 0, "max": 100, "size": "md" }
+    },
+    {
+      "title": "High value meter",
+      "props": { "value": 85, "min": 0, "max": 100, "size": "lg", "showValue": true }
+    }
+  ],
+  "dependencies": [],
+  "relatedComponents": ["progress-bar"]
+}

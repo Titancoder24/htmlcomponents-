@@ -1,0 +1,68 @@
+/*
+ * Stack Component - style.css
+ * Purpose: Uniform spacing layout for vertical or horizontal stacking.
+ * Supports gap sizes (sm/md/lg/xl) and optional dividers between items.
+ */
+
+/* === Custom Properties === */
+:root {
+  --voltz-stack-gap-sm: 0.5rem;
+  --voltz-stack-gap-md: 1rem;
+  --voltz-stack-gap-lg: 1.5rem;
+  --voltz-stack-gap-xl: 2rem;
+  --voltz-stack-divider-color: #e5e7eb;
+  --voltz-stack-divider-size: 1px;
+}
+
+[data-theme="dark"] {
+  --voltz-stack-divider-color: #374151;
+}
+
+/* === Base === */
+.voltz-stack {
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* === Direction Variants === */
+.voltz-stack--vertical {
+  flex-direction: column;
+}
+
+.voltz-stack--horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* === Gap Sizes === */
+.voltz-stack[data-gap="sm"] { gap: var(--voltz-stack-gap-sm); }
+.voltz-stack[data-gap="md"] { gap: var(--voltz-stack-gap-md); }
+.voltz-stack[data-gap="lg"] { gap: var(--voltz-stack-gap-lg); }
+.voltz-stack[data-gap="xl"] { gap: var(--voltz-stack-gap-xl); }
+
+/* === Divider - Vertical Stack === */
+.voltz-stack--vertical[data-divider="true"] > * + * {
+  border-top: var(--voltz-stack-divider-size) solid var(--voltz-stack-divider-color);
+  padding-top: inherit;
+}
+
+/* === Divider - Horizontal Stack === */
+.voltz-stack--horizontal[data-divider="true"] > * + * {
+  border-left: var(--voltz-stack-divider-size) solid var(--voltz-stack-divider-color);
+  padding-left: inherit;
+}
+
+/* === Responsive: horizontal collapses to vertical on mobile === */
+@media (max-width: 639px) {
+  .voltz-stack--horizontal {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .voltz-stack--horizontal[data-divider="true"] > * + * {
+    border-left: none;
+    padding-left: 0;
+    border-top: var(--voltz-stack-divider-size) solid var(--voltz-stack-divider-color);
+    padding-top: inherit;
+  }
+}

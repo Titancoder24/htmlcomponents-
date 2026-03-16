@@ -1,0 +1,69 @@
+{
+  "id": "avatar-group",
+  "name": "AvatarGroup",
+  "description": "A group of overlapping avatars with a +N overflow counter. Supports configurable sizes, max visible count, and spacing control.",
+  "category": "primitives",
+  "tags": ["avatar", "group", "users", "overlap", "counter"],
+  "version": "0.1.0",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "keyboard": {},
+    "ariaAttributes": ["aria-label"]
+  },
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Size of the avatars in the group"
+    },
+    "max": {
+      "type": "number",
+      "default": 5,
+      "description": "Maximum number of visible avatars before showing +N counter"
+    },
+    "spacing": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"],
+      "description": "Overlap spacing between avatars"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    {
+      "name": "spacing",
+      "options": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "slots": {
+    "default": {
+      "description": "Avatar elements to display in the group"
+    }
+  },
+  "examples": [
+    {
+      "title": "Default avatar group",
+      "props": { "size": "md", "max": 5 },
+      "slots": { "default": "<avatar /><avatar /><avatar />" }
+    },
+    {
+      "title": "Small with overflow",
+      "props": { "size": "sm", "max": 3 },
+      "slots": { "default": "<avatar /><avatar /><avatar /><avatar /><avatar />" }
+    },
+    {
+      "title": "Large tight spacing",
+      "props": { "size": "lg", "spacing": "sm" },
+      "slots": { "default": "<avatar /><avatar />" }
+    }
+  ],
+  "dependencies": ["avatar"],
+  "relatedComponents": ["avatar", "badge"]
+}

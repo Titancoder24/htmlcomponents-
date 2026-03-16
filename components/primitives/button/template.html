@@ -1,0 +1,32 @@
+<!--
+  Button Component - template.html
+  Purpose: Renders a button element with configurable variant, size, color,
+  and state classes. Supports icon slots and loading indicator.
+-->
+<button
+  class="voltz-button voltz-button--{{variant}} voltz-button--{{size}} voltz-button--{{color}} {{#if fullWidth}}voltz-button--full-width{{/if}} {{#if loading}}voltz-button--loading{{/if}}"
+  type="{{type}}"
+  {{#if disabled}}disabled aria-disabled="true"{{/if}}
+  {{#if loading}}aria-busy="true"{{/if}}
+>
+  {{#if loading}}
+  <span class="voltz-button__spinner" aria-hidden="true">
+    <svg class="voltz-button__spinner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="31.4 31.4" />
+    </svg>
+  </span>
+  {{/if}}
+  {{#if iconLeft}}
+  <span class="voltz-button__icon voltz-button__icon--left" aria-hidden="true">
+    {{slot:iconLeft}}
+  </span>
+  {{/if}}
+  <span class="voltz-button__label">
+    {{slot:default}}
+  </span>
+  {{#if iconRight}}
+  <span class="voltz-button__icon voltz-button__icon--right" aria-hidden="true">
+    {{slot:iconRight}}
+  </span>
+  {{/if}}
+</button>

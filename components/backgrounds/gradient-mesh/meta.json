@@ -1,0 +1,52 @@
+/**
+ * Voltz UI - Gradient Mesh Background
+ * Multi-color mesh gradient background with preset palettes
+ * @version 1.0.0
+ */
+{
+  "name": "gradient-mesh",
+  "displayName": "Gradient Mesh",
+  "description": "Multi-color mesh gradient background with preset palettes and optional animated color shifting. CSS-only implementation.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "status": "stable",
+  "author": "Voltz UI",
+  "tags": ["background", "gradient", "mesh", "animated", "css-only"],
+  "variants": ["default", "sunset", "ocean", "forest", "neon", "pastel"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "options": ["default", "sunset", "ocean", "forest", "neon", "pastel"],
+      "description": "Color palette preset"
+    },
+    "animated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable slowly shifting color animation"
+    },
+    "speed": {
+      "type": "string",
+      "default": "normal",
+      "options": ["slow", "normal", "fast"],
+      "description": "Animation speed when animated is enabled"
+    },
+    "opacity": {
+      "type": "number",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "description": "Overall background opacity"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Content to overlay on the gradient mesh background"
+    }
+  },
+  "dependencies": [],
+  "accessibility": {
+    "reducedMotion": "Falls back to static gradient when prefers-reduced-motion is enabled",
+    "role": "presentation"
+  }
+}

@@ -1,0 +1,181 @@
+/**
+ * Toast Component - style.css
+ * Purpose: Styles for toast notifications including positioning, type colors,
+ * animations, progress bar, and responsive dark mode support.
+ */
+
+/* --- Container for toast stacks --- */
+.voltz-toast-container {
+  position: fixed;
+  z-index: var(--voltz-z-toast, 9999);
+  display: flex;
+  flex-direction: column;
+  gap: var(--voltz-spacing-2, 0.5rem);
+  pointer-events: none;
+  max-width: min(24rem, calc(100vw - 2rem));
+}
+
+.voltz-toast-container--top-right { top: 1rem; right: 1rem; }
+.voltz-toast-container--top-left { top: 1rem; left: 1rem; }
+.voltz-toast-container--bottom-right { bottom: 1rem; right: 1rem; }
+.voltz-toast-container--bottom-left { bottom: 1rem; left: 1rem; }
+.voltz-toast-container--top-center { top: 1rem; left: 50%; transform: translateX(-50%); }
+.voltz-toast-container--bottom-center { bottom: 1rem; left: 50%; transform: translateX(-50%); }
+
+/* --- Base toast --- */
+.voltz-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--voltz-spacing-3, 0.75rem);
+  padding: var(--voltz-spacing-3, 0.75rem) var(--voltz-spacing-4, 1rem);
+  border-radius: var(--voltz-radius-lg, 0.5rem);
+  background: var(--voltz-toast-bg, #ffffff);
+  border: 1px solid var(--voltz-toast-border, #e5e7eb);
+  box-shadow: var(--voltz-shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1));
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  animation: voltz-toast-enter 0.3s ease-out;
+  min-width: 18rem;
+  max-width: 24rem;
+}
+
+.voltz-toast--exiting {
+  animation: voltz-toast-exit 0.2s ease-in forwards;
+}
+
+/* --- Type colors --- */
+.voltz-toast--info .voltz-toast__icon { color: var(--voltz-color-info, #3b82f6); }
+.voltz-toast--success .voltz-toast__icon { color: var(--voltz-color-success, #22c55e); }
+.voltz-toast--warning .voltz-toast__icon { color: var(--voltz-color-warning, #f59e0b); }
+.voltz-toast--error .voltz-toast__icon { color: var(--voltz-color-error, #ef4444); }
+
+.voltz-toast--info { border-left: 3px solid var(--voltz-color-info, #3b82f6); }
+.voltz-toast--success { border-left: 3px solid var(--voltz-color-success, #22c55e); }
+.voltz-toast--warning { border-left: 3px solid var(--voltz-color-warning, #f59e0b); }
+.voltz-toast--error { border-left: 3px solid var(--voltz-color-error, #ef4444); }
+
+/* --- Icon --- */
+.voltz-toast__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 0.125rem;
+}
+
+.voltz-toast__icon-svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* --- Content --- */
+.voltz-toast__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.voltz-toast__title {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  font-weight: var(--voltz-font-weight-semibold, 600);
+  color: var(--voltz-toast-title-color, #111827);
+  margin-bottom: var(--voltz-spacing-1, 0.25rem);
+}
+
+.voltz-toast__message {
+  font-size: var(--voltz-font-size-sm, 0.875rem);
+  color: var(--voltz-toast-message-color, #6b7280);
+  line-height: 1.4;
+}
+
+.voltz-toast__action {
+  margin-top: var(--voltz-spacing-2, 0.5rem);
+}
+
+/* --- Close button --- */
+.voltz-toast__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  background: transparent;
+  color: var(--voltz-toast-close-color, #9ca3af);
+  cursor: pointer;
+  border-radius: var(--voltz-radius-sm, 0.25rem);
+  padding: 0;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.voltz-toast__close:hover {
+  color: var(--voltz-toast-close-hover, #6b7280);
+  background: var(--voltz-toast-close-hover-bg, rgba(0,0,0,0.05));
+}
+
+.voltz-toast__close:focus-visible {
+  outline: 2px solid var(--voltz-color-focus, #3b82f6);
+  outline-offset: 1px;
+}
+
+.voltz-toast__close-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* --- Progress bar --- */
+.voltz-toast__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  transition: transform linear;
+}
+
+.voltz-toast--info .voltz-toast__progress { background: var(--voltz-color-info, #3b82f6); }
+.voltz-toast--success .voltz-toast__progress { background: var(--voltz-color-success, #22c55e); }
+.voltz-toast--warning .voltz-toast__progress { background: var(--voltz-color-warning, #f59e0b); }
+.voltz-toast--error .voltz-toast__progress { background: var(--voltz-color-error, #ef4444); }
+
+/* --- Animations --- */
+@keyframes voltz-toast-enter {
+  from { opacity: 0; transform: translateY(-0.5rem) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes voltz-toast-exit {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-0.5rem) scale(0.95); }
+}
+
+/* --- Dark mode --- */
+[data-theme="dark"] .voltz-toast {
+  background: var(--voltz-toast-bg-dark, #1f2937);
+  border-color: var(--voltz-toast-border-dark, #374151);
+}
+
+[data-theme="dark"] .voltz-toast__title {
+  color: var(--voltz-toast-title-color-dark, #f9fafb);
+}
+
+[data-theme="dark"] .voltz-toast__message {
+  color: var(--voltz-toast-message-color-dark, #d1d5db);
+}
+
+[data-theme="dark"] .voltz-toast__close {
+  color: var(--voltz-toast-close-color-dark, #6b7280);
+}
+
+[data-theme="dark"] .voltz-toast__close:hover {
+  color: var(--voltz-toast-close-hover-dark, #d1d5db);
+  background: var(--voltz-toast-close-hover-bg-dark, rgba(255,255,255,0.1));
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-toast { animation: none; }
+  .voltz-toast--exiting { animation: none; opacity: 0; }
+  .voltz-toast__progress { transition: none; }
+}

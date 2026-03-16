@@ -1,0 +1,108 @@
+/*
+ * Globe Component Styles
+ * 3D rotating globe wireframe effect.
+ * Variants: dots, lines, wireframe
+ * Uses only transform and opacity for compositor-friendly animations.
+ */
+
+.voltz-globe {
+  --voltz-globe-size: 200px;
+  --voltz-globe-duration: 12s;
+  --voltz-globe-color: #6366f1;
+  --voltz-globe-opacity: 0.6;
+  --voltz-globe-line-width: 1px;
+
+  width: var(--voltz-globe-size);
+  height: var(--voltz-globe-size);
+  perspective: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="dark"] .voltz-globe {
+  --voltz-globe-color: #a5b4fc;
+  --voltz-globe-opacity: 0.5;
+}
+
+.voltz-globe__sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: voltz-globe-rotate var(--voltz-globe-duration) linear infinite;
+}
+
+.voltz-globe__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: var(--voltz-globe-line-width) solid var(--voltz-globe-color);
+  opacity: var(--voltz-globe-opacity);
+}
+
+/* Equator */
+.voltz-globe__ring--equator {
+  transform: rotateX(90deg);
+}
+
+/* Meridians */
+.voltz-globe__ring--meridian-1 {
+  transform: rotateY(0deg);
+}
+
+.voltz-globe__ring--meridian-2 {
+  transform: rotateY(60deg);
+}
+
+.voltz-globe__ring--meridian-3 {
+  transform: rotateY(120deg);
+}
+
+/* Tropics */
+.voltz-globe__ring--tropic-n {
+  transform: rotateX(90deg) scale(0.7);
+  top: 15%;
+  bottom: auto;
+  height: 70%;
+}
+
+.voltz-globe__ring--tropic-s {
+  transform: rotateX(90deg) scale(0.7);
+  bottom: 15%;
+  top: auto;
+  height: 70%;
+}
+
+/* Dots variant - dashed borders */
+.voltz-globe--dots .voltz-globe__ring {
+  border-style: dotted;
+  border-width: 2px;
+}
+
+/* Lines variant - solid */
+.voltz-globe--lines .voltz-globe__ring {
+  border-style: solid;
+}
+
+/* Wireframe variant - more rings with lower opacity */
+.voltz-globe--wireframe .voltz-globe__ring {
+  border-style: solid;
+  opacity: calc(var(--voltz-globe-opacity) * 0.7);
+}
+
+@keyframes voltz-globe-rotate {
+  from {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voltz-globe__sphere {
+    animation: none !important;
+    transform: rotateX(-20deg) rotateY(-30deg);
+  }
+}

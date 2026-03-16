@@ -1,0 +1,13 @@
+<!--
+  Animated Gradient Text Component
+  Text with moving gradient fill.
+  Variants: rainbow, sunset, ocean, custom
+  CSS-only animation using background-clip and transform for GPU compositing.
+-->
+<span class="voltz-gradient-text voltz-gradient-text--{{variant}}"
+      data-voltz-gradient-text
+      data-variant="{{variant}}"
+      {{#if direction}}data-direction="{{direction}}"{{/if}}
+      role="text">
+  <span class="voltz-gradient-text__inner">{{slot:default}}</span>
+</span>

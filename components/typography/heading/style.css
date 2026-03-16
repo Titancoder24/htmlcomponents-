@@ -1,0 +1,121 @@
+/*
+ * Heading Component Styles
+ * Purpose: Provides styling for heading levels h1-h6 with configurable
+ * sizes, weights, alignment, and truncation. Uses Voltz design tokens.
+ */
+
+/* ========================================
+   Custom Properties
+   ======================================== */
+.voltz-heading {
+  --voltz-heading-color: var(--voltz-color-text-primary, #1a1a2e);
+  --voltz-heading-font-family: var(--voltz-font-family-heading, system-ui, -apple-system, sans-serif);
+  --voltz-heading-line-height: var(--voltz-line-height-tight, 1.25);
+  --voltz-heading-letter-spacing: var(--voltz-letter-spacing-tight, -0.025em);
+  --voltz-heading-margin-top: 0;
+  --voltz-heading-margin-bottom: var(--voltz-spacing-4, 1rem);
+
+  color: var(--voltz-heading-color);
+  font-family: var(--voltz-heading-font-family);
+  line-height: var(--voltz-heading-line-height);
+  letter-spacing: var(--voltz-heading-letter-spacing);
+  margin-top: var(--voltz-heading-margin-top);
+  margin-bottom: var(--voltz-heading-margin-bottom);
+  padding: 0;
+}
+
+/* ========================================
+   Sizes
+   ======================================== */
+.voltz-heading--size-xs {
+  font-size: var(--voltz-heading-size-xs, 0.75rem);
+}
+
+.voltz-heading--size-sm {
+  font-size: var(--voltz-heading-size-sm, 0.875rem);
+}
+
+.voltz-heading--size-md {
+  font-size: var(--voltz-heading-size-md, 1.125rem);
+}
+
+.voltz-heading--size-lg {
+  font-size: var(--voltz-heading-size-lg, 1.5rem);
+}
+
+.voltz-heading--size-xl {
+  font-size: var(--voltz-heading-size-xl, 1.875rem);
+}
+
+.voltz-heading--size-2xl {
+  font-size: var(--voltz-heading-size-2xl, 2.25rem);
+}
+
+.voltz-heading--size-3xl {
+  font-size: var(--voltz-heading-size-3xl, 3rem);
+  letter-spacing: var(--voltz-letter-spacing-tighter, -0.05em);
+}
+
+.voltz-heading--size-4xl {
+  font-size: var(--voltz-heading-size-4xl, 3.75rem);
+  letter-spacing: var(--voltz-letter-spacing-tighter, -0.05em);
+}
+
+/* ========================================
+   Weights
+   ======================================== */
+.voltz-heading--weight-normal {
+  font-weight: var(--voltz-font-weight-normal, 400);
+}
+
+.voltz-heading--weight-medium {
+  font-weight: var(--voltz-font-weight-medium, 500);
+}
+
+.voltz-heading--weight-semibold {
+  font-weight: var(--voltz-font-weight-semibold, 600);
+}
+
+.voltz-heading--weight-bold {
+  font-weight: var(--voltz-font-weight-bold, 700);
+}
+
+/* ========================================
+   Alignment
+   ======================================== */
+.voltz-heading--align-left {
+  text-align: left;
+}
+
+.voltz-heading--align-center {
+  text-align: center;
+}
+
+.voltz-heading--align-right {
+  text-align: right;
+}
+
+/* ========================================
+   Truncation
+   ======================================== */
+.voltz-heading--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] .voltz-heading {
+  --voltz-heading-color: var(--voltz-color-text-primary-dark, #e0e0e0);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-heading {
+    transition: none;
+  }
+}

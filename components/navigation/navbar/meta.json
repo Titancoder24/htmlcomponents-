@@ -1,0 +1,29 @@
+{
+  "name": "navbar",
+  "displayName": "Navbar",
+  "description": "Top navigation bar with logo, nav links, and actions area. Supports mobile hamburger menu and sticky positioning.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["simple", "centered", "split"],
+  "slots": {
+    "logo": "Brand logo or text",
+    "default": "Navigation links",
+    "actions": "Action buttons or icons"
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "simple",
+      "options": ["simple", "centered", "split"]
+    },
+    "sticky": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "Escape", "ArrowLeft", "ArrowRight"],
+    "aria": ["role=navigation", "aria-label", "aria-expanded"]
+  }
+}

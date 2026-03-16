@@ -1,0 +1,20 @@
+{
+  "name": "text-reveal",
+  "description": "Text reveals character by character or word by word with configurable speed and animation style.",
+  "category": "animated",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["typewriter", "slide-up", "fade-in"],
+  "tags": ["text", "reveal", "animation", "typewriter"],
+  "dependencies": [],
+  "customProperties": [
+    "--voltz-text-reveal-duration",
+    "--voltz-text-reveal-delay",
+    "--voltz-text-reveal-easing",
+    "--voltz-text-reveal-color",
+    "--voltz-text-reveal-font-size"
+  ],
+  "slots": {
+    "default": "Text content to reveal"
+  }
+}

@@ -1,0 +1,19 @@
+<!--
+  Orbit Component
+  Elements orbiting around a central point.
+  Variants: default, reverse, elliptical
+  Uses CSS transform rotate animations on compositor-friendly properties.
+-->
+<div class="voltz-orbit voltz-orbit--{{variant}}"
+     data-voltz-orbit
+     data-variant="{{variant}}"
+     data-items="{{#if itemCount}}{{itemCount}}{{else}}4{{/if}}"
+     role="img"
+     aria-label="Orbiting elements animation">
+  <div class="voltz-orbit__center">
+    {{slot:default}}
+  </div>
+  <div class="voltz-orbit__track">
+    {{slot:items}}
+  </div>
+</div>

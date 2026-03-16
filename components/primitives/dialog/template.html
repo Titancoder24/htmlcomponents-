@@ -1,0 +1,43 @@
+<!--
+  Dialog Component - template.html
+  Purpose: Renders a modal dialog with backdrop overlay, configurable size,
+  and header/body/footer layout slots. Hidden by default.
+-->
+<div
+  class="voltz-dialog-overlay"
+  aria-hidden="true"
+  data-close-on-overlay="{{closeOnOverlay}}"
+  data-close-on-escape="{{closeOnEscape}}"
+>
+  <div class="voltz-dialog-backdrop"></div>
+  <div
+    class="voltz-dialog voltz-dialog--{{size}}"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="{{dialogId}}-title"
+    aria-describedby="{{dialogId}}-body"
+  >
+    {{#if header}}
+    <div class="voltz-dialog__header" id="{{dialogId}}-title">
+      {{slot:header}}
+      <button
+        class="voltz-dialog__close"
+        type="button"
+        aria-label="Close dialog"
+      >
+        <svg class="voltz-dialog__close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    {{/if}}
+    <div class="voltz-dialog__body" id="{{dialogId}}-body">
+      {{slot:default}}
+    </div>
+    {{#if footer}}
+    <div class="voltz-dialog__footer">
+      {{slot:footer}}
+    </div>
+    {{/if}}
+  </div>
+</div>
