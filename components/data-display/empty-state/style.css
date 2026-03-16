@@ -1,0 +1,144 @@
+/*
+ * Empty State Component Styles
+ * Purpose: Empty state placeholder with icon, title, description,
+ * and action button. Sizes sm/md/lg with card and inline variants.
+ * Dark mode support.
+ */
+
+/* === Custom Properties === */
+.voltz-empty-state {
+  --voltz-empty-bg: transparent;
+  --voltz-empty-border: transparent;
+  --voltz-empty-radius: 0.75rem;
+  --voltz-empty-icon-color: #cbd5e1;
+  --voltz-empty-title-color: #334155;
+  --voltz-empty-title-size: 1.25rem;
+  --voltz-empty-desc-color: #64748b;
+  --voltz-empty-desc-size: 0.875rem;
+  --voltz-empty-btn-bg: #3b82f6;
+  --voltz-empty-btn-color: #ffffff;
+  --voltz-empty-btn-hover: #2563eb;
+  --voltz-empty-padding: 3rem 2rem;
+  --voltz-empty-icon-size: 4rem;
+}
+
+[data-theme="dark"] .voltz-empty-state {
+  --voltz-empty-icon-color: #475569;
+  --voltz-empty-title-color: #e2e8f0;
+  --voltz-empty-desc-color: #94a3b8;
+  --voltz-empty-btn-bg: #3b82f6;
+  --voltz-empty-btn-hover: #60a5fa;
+}
+
+/* === Base === */
+.voltz-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--voltz-empty-padding);
+  background: var(--voltz-empty-bg);
+  border: 1px solid var(--voltz-empty-border);
+  border-radius: var(--voltz-empty-radius);
+}
+
+/* === Icon === */
+.voltz-empty-state__icon {
+  color: var(--voltz-empty-icon-color);
+  margin-bottom: 1rem;
+}
+
+.voltz-empty-state__icon svg,
+.voltz-empty-state__default-icon {
+  width: var(--voltz-empty-icon-size);
+  height: var(--voltz-empty-icon-size);
+}
+
+/* === Title === */
+.voltz-empty-state__title {
+  margin: 0 0 0.375rem;
+  font-size: var(--voltz-empty-title-size);
+  font-weight: 600;
+  color: var(--voltz-empty-title-color);
+}
+
+/* === Description === */
+.voltz-empty-state__description {
+  margin: 0;
+  font-size: var(--voltz-empty-desc-size);
+  color: var(--voltz-empty-desc-color);
+  max-width: 28rem;
+  line-height: 1.5;
+}
+
+/* === Action === */
+.voltz-empty-state__action {
+  margin-top: 1.25rem;
+}
+
+.voltz-empty-state__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 0.375rem;
+  background: var(--voltz-empty-btn-bg);
+  color: var(--voltz-empty-btn-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.voltz-empty-state__btn:hover {
+  background: var(--voltz-empty-btn-hover);
+}
+
+/* === Variant: Card === */
+.voltz-empty-state--card {
+  --voltz-empty-bg: #ffffff;
+  --voltz-empty-border: #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .voltz-empty-state--card {
+  --voltz-empty-bg: #1e293b;
+  --voltz-empty-border: #334155;
+}
+
+/* === Variant: Inline === */
+.voltz-empty-state--inline {
+  flex-direction: row;
+  text-align: left;
+  gap: 1rem;
+  --voltz-empty-padding: 1.5rem;
+  --voltz-empty-icon-size: 2.5rem;
+}
+
+.voltz-empty-state--inline .voltz-empty-state__icon {
+  margin-bottom: 0;
+}
+
+/* === Size: sm === */
+.voltz-empty-state--sm {
+  --voltz-empty-padding: 1.5rem 1rem;
+  --voltz-empty-title-size: 1rem;
+  --voltz-empty-desc-size: 0.8125rem;
+  --voltz-empty-icon-size: 2.5rem;
+}
+
+/* === Size: lg === */
+.voltz-empty-state--lg {
+  --voltz-empty-padding: 4rem 2rem;
+  --voltz-empty-title-size: 1.5rem;
+  --voltz-empty-desc-size: 1rem;
+  --voltz-empty-icon-size: 5rem;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-empty-state__btn {
+    transition: none;
+  }
+}

@@ -39,3 +39,10 @@
   display: inline-block;
   min-width: 1ch;
 }
+
+/* Reduced motion: JS handles showing final value immediately */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-number-counter {
+    transition: none;
+  }
+}

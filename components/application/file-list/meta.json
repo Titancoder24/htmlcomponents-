@@ -1,0 +1,16 @@
+{
+  "name": "file-list",
+  "description": "File browser list with file icons, name, size, date, type, grid/list view toggle, column sorting, and selection support.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["file", "list", "browser", "grid"],
+  "variants": ["list", "grid"],
+  "slots": ["toolbar", "empty-state"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "grid",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

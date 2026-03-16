@@ -1,0 +1,28 @@
+<!-- Link Group Component Template -->
+<!-- Group of related navigation links -->
+<nav class="voltz-link-group voltz-link-group--{{variant}}"
+     role="navigation"
+     aria-labelledby="voltz-link-group-title"
+     {{#if dividers}}data-dividers="true"{{/if}}>
+
+  {{#if title}}
+  <div class="voltz-link-group__title" id="voltz-link-group-title">
+    {{slot:title}}
+  </div>
+  {{/if}}
+
+  <ul class="voltz-link-group__list" role="list">
+    {{slot:default}}
+
+    <!-- Example item structure -->
+    <!--
+    <li class="voltz-link-group__item">
+      <a href="#" class="voltz-link-group__link">
+        <span class="voltz-link-group__link-icon" aria-hidden="true">{{icon}}</span>
+        <span class="voltz-link-group__link-text">Link Label</span>
+        <span class="voltz-link-group__link-badge">New</span>
+      </a>
+    </li>
+    -->
+  </ul>
+</nav>

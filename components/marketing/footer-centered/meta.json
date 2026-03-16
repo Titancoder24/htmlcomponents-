@@ -1,0 +1,19 @@
+{
+  "name": "Footer Centered",
+  "description": "Centered footer with logo, navigation links, social icons, and copyright. All elements centered. Minimal aesthetic.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["footer", "centered", "minimal", "navigation"],
+  "variants": ["default", "dark", "bordered", "compact"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

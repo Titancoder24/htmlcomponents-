@@ -1,0 +1,56 @@
+{
+  "name": "profile-card",
+  "description": "User profile card with avatar, name, role, bio, social links, and stats. Variants: horizontal/vertical. Sizes: sm/md/lg.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["vertical", "horizontal"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "vertical",
+      "options": ["vertical", "horizontal"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "default": ""
+    },
+    "bio": {
+      "type": "string",
+      "default": ""
+    },
+    "avatarUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "showSocial": {
+      "type": "boolean",
+      "default": false
+    },
+    "showStats": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "slots": {
+    "avatar": "Custom avatar content",
+    "social": "Social media links",
+    "stats": "Statistics display"
+  },
+  "accessibility": {
+    "role": "article",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["profile", "card", "user", "avatar", "social"]
+}

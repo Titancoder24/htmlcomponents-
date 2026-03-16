@@ -1,0 +1,28 @@
+{
+  "name": "link-group",
+  "displayName": "Link Group",
+  "description": "Group of related navigation links with vertical and horizontal variants. Supports title and dividers.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["vertical", "horizontal"],
+  "slots": {
+    "title": "Group title",
+    "default": "Link items"
+  },
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "vertical",
+      "options": ["vertical", "horizontal"]
+    },
+    "dividers": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    "aria": ["role=navigation", "aria-label", "aria-labelledby"]
+  }
+}

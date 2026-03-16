@@ -1,0 +1,26 @@
+{
+  "name": "hamburger-menu",
+  "displayName": "Hamburger Menu",
+  "description": "Animated hamburger icon that transforms to X. Supports multiple sizes and animation variants.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["rotate", "slide", "squeeze"],
+  "slots": {},
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "rotate",
+      "options": ["rotate", "slide", "squeeze"]
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "Enter", "Space"],
+    "aria": ["aria-expanded", "aria-label", "aria-controls"]
+  }
+}

@@ -1,0 +1,47 @@
+<!--
+  Error State Component Template
+  Purpose: Error state display with error icon, title, description,
+  retry button, and error code. Variants: page/inline/card.
+-->
+<div class="voltz-error-state voltz-error-state--{{variant}}"
+     role="alert"
+     aria-label="{{title}}">
+
+  <div class="voltz-error-state__icon" aria-hidden="true">
+    {{slot:icon}}
+    <!-- Default error icon -->
+    <svg class="voltz-error-state__default-icon" width="48" height="48"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="1.5" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="8" x2="12" y2="12" />
+      <line x1="12" y1="16" x2="12.01" y2="16" />
+    </svg>
+  </div>
+
+  <div class="voltz-error-state__content">
+    <h3 class="voltz-error-state__title">{{title}}</h3>
+
+    {{#if description}}
+    <p class="voltz-error-state__description">{{description}}</p>
+    {{/if}}
+
+    {{#if errorCode}}
+    <code class="voltz-error-state__code">Error code: {{errorCode}}</code>
+    {{/if}}
+  </div>
+
+  <div class="voltz-error-state__actions">
+    {{#if showRetry}}
+    <button class="voltz-error-state__retry-btn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="23 4 23 10 17 10" />
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+      </svg>
+      {{retryLabel}}
+    </button>
+    {{/if}}
+    {{slot:action}}
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<!--
+  Pricing Table Component
+  Side-by-side pricing plans with feature lists,
+  highlighted recommended plan, and CTA buttons.
+-->
+<section class="voltz-pricing-table {{variant}}" data-component="pricing-table">
+  <div class="voltz-pricing-table__container">
+    <div class="voltz-pricing-table__header">
+      <h2 class="voltz-pricing-table__title">Simple, Transparent Pricing</h2>
+      <p class="voltz-pricing-table__subtitle">
+        Choose the plan that fits your needs. No hidden fees, cancel anytime.
+      </p>
+    </div>
+
+    <div class="voltz-pricing-table__grid">
+      {{slot:default}}
+
+      <!-- Starter Plan -->
+      <div class="voltz-pricing-table__plan">
+        <div class="voltz-pricing-table__plan-header">
+          <h3 class="voltz-pricing-table__plan-name">Starter</h3>
+          <p class="voltz-pricing-table__plan-desc">Perfect for side projects and experiments.</p>
+        </div>
+        <div class="voltz-pricing-table__price">
+          <span class="voltz-pricing-table__currency">$</span>
+          <span class="voltz-pricing-table__amount">0</span>
+          <span class="voltz-pricing-table__period">/month</span>
+        </div>
+        <a href="#" class="voltz-pricing-table__cta voltz-pricing-table__cta--secondary">
+          Get Started Free
+        </a>
+        <ul class="voltz-pricing-table__features">
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Up to 3 projects
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            1 GB storage
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Community support
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Basic analytics
+          </li>
+        </ul>
+      </div>
+
+      <!-- Pro Plan (Featured) -->
+      <div class="voltz-pricing-table__plan voltz-pricing-table__plan--featured">
+        <div class="voltz-pricing-table__badge">Most Popular</div>
+        <div class="voltz-pricing-table__plan-header">
+          <h3 class="voltz-pricing-table__plan-name">Pro</h3>
+          <p class="voltz-pricing-table__plan-desc">For growing teams and serious projects.</p>
+        </div>
+        <div class="voltz-pricing-table__price">
+          <span class="voltz-pricing-table__currency">$</span>
+          <span class="voltz-pricing-table__amount">29</span>
+          <span class="voltz-pricing-table__period">/month</span>
+        </div>
+        <a href="#" class="voltz-pricing-table__cta voltz-pricing-table__cta--primary">
+          Start Free Trial
+        </a>
+        <ul class="voltz-pricing-table__features">
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Unlimited projects
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            50 GB storage
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Priority support
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Advanced analytics
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Custom domains
+          </li>
+        </ul>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="voltz-pricing-table__plan">
+        <div class="voltz-pricing-table__plan-header">
+          <h3 class="voltz-pricing-table__plan-name">Enterprise</h3>
+          <p class="voltz-pricing-table__plan-desc">For large organizations with custom needs.</p>
+        </div>
+        <div class="voltz-pricing-table__price">
+          <span class="voltz-pricing-table__currency">$</span>
+          <span class="voltz-pricing-table__amount">99</span>
+          <span class="voltz-pricing-table__period">/month</span>
+        </div>
+        <a href="#" class="voltz-pricing-table__cta voltz-pricing-table__cta--secondary">
+          Contact Sales
+        </a>
+        <ul class="voltz-pricing-table__features">
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Everything in Pro
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Unlimited storage
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            Dedicated support
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            SSO &amp; SAML
+          </li>
+          <li class="voltz-pricing-table__feature">
+            <svg class="voltz-pricing-table__check" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+            SLA guarantee
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,195 @@
+/*
+ * Footer Columns Component Styles
+ * Purpose: Multi-column footer layout with brand section, link columns,
+ * social icons, and copyright bar. Responsive column collapse.
+ */
+
+.voltz-footer-cols {
+  --voltz-footer-cols-bg: #ffffff;
+  --voltz-footer-cols-text: #6b7280;
+  --voltz-footer-cols-text-hover: #1a1a2e;
+  --voltz-footer-cols-heading: #1a1a2e;
+  --voltz-footer-cols-border: #e5e7eb;
+  --voltz-footer-cols-social: #9ca3af;
+  --voltz-footer-cols-social-hover: #6c5ce7;
+  --voltz-footer-cols-padding: 4rem 1.5rem 0;
+  --voltz-footer-cols-max-width: 1280px;
+}
+
+[data-theme="dark"] .voltz-footer-cols,
+.voltz-footer-cols[data-theme="dark"],
+.voltz-footer-cols.dark {
+  --voltz-footer-cols-bg: #0f0f1a;
+  --voltz-footer-cols-text: #9ca3af;
+  --voltz-footer-cols-text-hover: #f0f0f5;
+  --voltz-footer-cols-heading: #f0f0f5;
+  --voltz-footer-cols-border: #2d2d44;
+  --voltz-footer-cols-social: #6b7280;
+}
+
+/* Base */
+.voltz-footer-cols {
+  background: var(--voltz-footer-cols-bg);
+  color: var(--voltz-footer-cols-text);
+  padding: var(--voltz-footer-cols-padding);
+}
+
+.voltz-footer-cols.bordered {
+  border-top: 1px solid var(--voltz-footer-cols-border);
+}
+
+.voltz-footer-cols__container {
+  max-width: var(--voltz-footer-cols-max-width);
+  margin: 0 auto;
+}
+
+/* Top section */
+.voltz-footer-cols__top {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+}
+
+/* Brand */
+.voltz-footer-cols__logo {
+  text-decoration: none;
+  color: var(--voltz-footer-cols-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.voltz-footer-cols__description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  max-width: 280px;
+}
+
+/* Social */
+.voltz-footer-cols__social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.voltz-footer-cols__social-link {
+  color: var(--voltz-footer-cols-social);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  transition: color 0.2s;
+}
+
+.voltz-footer-cols__social-link:hover {
+  color: var(--voltz-footer-cols-social-hover);
+}
+
+/* Columns */
+.voltz-footer-cols__columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.voltz-footer-cols__column-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--voltz-footer-cols-heading);
+  margin: 0 0 1rem;
+}
+
+.voltz-footer-cols__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.voltz-footer-cols__link {
+  font-size: 0.9375rem;
+  color: var(--voltz-footer-cols-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.voltz-footer-cols__link:hover {
+  color: var(--voltz-footer-cols-text-hover);
+}
+
+/* Bottom bar */
+.voltz-footer-cols__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--voltz-footer-cols-border);
+}
+
+.voltz-footer-cols__copyright {
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+.voltz-footer-cols__bottom-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.voltz-footer-cols__bottom-link {
+  font-size: 0.8125rem;
+  color: var(--voltz-footer-cols-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.voltz-footer-cols__bottom-link:hover {
+  color: var(--voltz-footer-cols-text-hover);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .voltz-footer-cols__columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .voltz-footer-cols {
+    --voltz-footer-cols-padding: 3rem 1rem 0;
+  }
+
+  .voltz-footer-cols__top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .voltz-footer-cols__columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .voltz-footer-cols__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .voltz-footer-cols__columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1920px) {
+  .voltz-footer-cols { --voltz-footer-cols-max-width: 1440px; }
+}

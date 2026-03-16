@@ -1,0 +1,169 @@
+/*
+ * Error State Component Styles
+ * Purpose: Error state with icon, title, description, retry button,
+ * and error code. Variants: page/inline/card. Dark mode support.
+ */
+
+/* === Custom Properties === */
+.voltz-error-state {
+  --voltz-error-bg: #ffffff;
+  --voltz-error-border: #fecaca;
+  --voltz-error-radius: 0.75rem;
+  --voltz-error-icon-color: #dc2626;
+  --voltz-error-title-color: #0f172a;
+  --voltz-error-desc-color: #64748b;
+  --voltz-error-code-color: #94a3b8;
+  --voltz-error-code-bg: #f8fafc;
+  --voltz-error-btn-bg: #dc2626;
+  --voltz-error-btn-color: #ffffff;
+  --voltz-error-btn-hover: #b91c1c;
+  --voltz-error-padding: 2.5rem 2rem;
+}
+
+[data-theme="dark"] .voltz-error-state {
+  --voltz-error-bg: #1e293b;
+  --voltz-error-border: #7f1d1d;
+  --voltz-error-icon-color: #f87171;
+  --voltz-error-title-color: #f1f5f9;
+  --voltz-error-desc-color: #94a3b8;
+  --voltz-error-code-color: #64748b;
+  --voltz-error-code-bg: #0f172a;
+  --voltz-error-btn-bg: #dc2626;
+  --voltz-error-btn-hover: #ef4444;
+}
+
+/* === Base === */
+.voltz-error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--voltz-error-padding);
+  background: var(--voltz-error-bg);
+  border: 1px solid var(--voltz-error-border);
+  border-radius: var(--voltz-error-radius);
+}
+
+/* === Icon === */
+.voltz-error-state__icon {
+  color: var(--voltz-error-icon-color);
+  margin-bottom: 1rem;
+}
+
+/* === Content === */
+.voltz-error-state__content {
+  margin-bottom: 1.25rem;
+}
+
+.voltz-error-state__title {
+  margin: 0 0 0.375rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--voltz-error-title-color);
+}
+
+.voltz-error-state__description {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--voltz-error-desc-color);
+  max-width: 28rem;
+  line-height: 1.5;
+}
+
+.voltz-error-state__code {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--voltz-error-code-color);
+  background: var(--voltz-error-code-bg);
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+/* === Actions === */
+.voltz-error-state__actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.voltz-error-state__retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 0.375rem;
+  background: var(--voltz-error-btn-bg);
+  color: var(--voltz-error-btn-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.voltz-error-state__retry-btn:hover {
+  background: var(--voltz-error-btn-hover);
+}
+
+/* === Variant: Page === */
+.voltz-error-state--page {
+  --voltz-error-padding: 4rem 2rem;
+  min-height: 24rem;
+  justify-content: center;
+  border: none;
+  border-radius: 0;
+}
+
+.voltz-error-state--page .voltz-error-state__title {
+  font-size: 1.5rem;
+}
+
+.voltz-error-state--page .voltz-error-state__default-icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* === Variant: Inline === */
+.voltz-error-state--inline {
+  flex-direction: row;
+  text-align: left;
+  gap: 1rem;
+  --voltz-error-padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.voltz-error-state--inline .voltz-error-state__icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.voltz-error-state--inline .voltz-error-state__default-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.voltz-error-state--inline .voltz-error-state__content {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.voltz-error-state--inline .voltz-error-state__title {
+  font-size: 0.875rem;
+}
+
+.voltz-error-state--inline .voltz-error-state__description {
+  font-size: 0.8125rem;
+}
+
+/* === Variant: Card === */
+.voltz-error-state--card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-error-state__retry-btn {
+    transition: none;
+  }
+}

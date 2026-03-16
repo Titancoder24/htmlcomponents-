@@ -1,0 +1,29 @@
+/**
+ * Meta configuration for pricing-toggle component.
+ * Pricing with monthly/yearly toggle and animated price changes.
+ */
+{
+  "name": "pricing-toggle",
+  "displayName": "Pricing Toggle",
+  "description": "Pricing section with monthly/yearly toggle, discount badge for yearly plans, animated price transitions, and responsive plan cards.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["pricing", "toggle", "monthly", "yearly", "discount"],
+  "variants": {
+    "default": { "description": "Standard pricing with toggle" },
+    "compact": { "description": "Compact pricing cards" }
+  },
+  "slots": {
+    "default": { "description": "Pricing plan cards" }
+  },
+  "customProperties": {
+    "--voltz-pricing-toggle-bg": { "default": "#0a0a0a", "description": "Section background" },
+    "--voltz-pricing-toggle-card-bg": { "default": "#111", "description": "Card background" },
+    "--voltz-pricing-toggle-accent": { "default": "#6366f1", "description": "Accent/toggle color" },
+    "--voltz-pricing-toggle-text-color": { "default": "#ffffff", "description": "Text color" }
+  },
+  "responsive": { "min": "320px", "max": "2560px" },
+  "darkMode": true,
+  "interactive": true
+}

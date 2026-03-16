@@ -1,0 +1,93 @@
+/*
+ * Meteors Component Styles
+ * Falling meteor/shooting star trails with CSS animation.
+ * Uses transform: translateX/translateY and opacity only.
+ * Each meteor is a rotated line with a gradient trail.
+ */
+
+.voltz-meteors {
+  --voltz-meteors-color: #6366f1;
+  --voltz-meteors-speed: 3s;
+  --voltz-meteors-angle: 215deg;
+  --voltz-meteors-trail-length: 80px;
+  --voltz-meteors-size: 2px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .voltz-meteors {
+  --voltz-meteors-color: #818cf8;
+}
+
+.voltz-meteors__field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.voltz-meteors__content {
+  position: relative;
+  z-index: 1;
+}
+
+.voltz-meteors__meteor {
+  position: absolute;
+  width: var(--voltz-meteors-size);
+  height: var(--voltz-meteors-trail-length);
+  border-radius: 9999px;
+  background: linear-gradient(
+    to bottom,
+    var(--voltz-meteors-color),
+    transparent
+  );
+  opacity: 0;
+  transform: rotate(var(--voltz-meteors-angle));
+  animation: voltz-meteor-fall var(--voltz-meteors-speed) linear infinite;
+  animation-delay: var(--meteor-delay, 0s);
+  top: var(--meteor-top, -10%);
+  left: var(--meteor-left, 50%);
+}
+
+/* Head glow */
+.voltz-meteors__meteor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--voltz-meteors-size) * 2);
+  height: calc(var(--voltz-meteors-size) * 2);
+  border-radius: 50%;
+  background: var(--voltz-meteors-color);
+  box-shadow: 0 0 6px 2px var(--voltz-meteors-color);
+}
+
+@keyframes voltz-meteor-fall {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--voltz-meteors-angle))
+               translateY(-100px);
+  }
+  5% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--voltz-meteors-angle))
+               translateY(calc(100vh + 200px));
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-meteors__meteor {
+    animation: none !important;
+    opacity: 0.3;
+    transform: rotate(var(--voltz-meteors-angle)) translateY(30vh);
+  }
+}

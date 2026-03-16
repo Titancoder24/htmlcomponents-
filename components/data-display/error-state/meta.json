@@ -1,0 +1,46 @@
+{
+  "name": "error-state",
+  "description": "Error state display with error icon, title, description, retry button, and error code. Variants: page/inline/card.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["page", "inline", "card"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "card",
+      "options": ["page", "inline", "card"]
+    },
+    "title": {
+      "type": "string",
+      "default": "Something went wrong"
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "errorCode": {
+      "type": "string",
+      "default": ""
+    },
+    "showRetry": {
+      "type": "boolean",
+      "default": true
+    },
+    "retryLabel": {
+      "type": "string",
+      "default": "Try again"
+    }
+  },
+  "slots": {
+    "icon": "Custom error icon",
+    "action": "Custom action content"
+  },
+  "accessibility": {
+    "role": "alert",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["error", "state", "failure", "retry", "problem"]
+}
