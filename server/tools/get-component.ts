@@ -1,55 +1,55 @@
 /**
- * get_component — Fetch a single component compiled to the target framework.
- *
- * This is the primary tool agents use to get production-ready component code.
- * It compiles the universal template into the specified framework format.
+ * @module tools/get-component
+ * @description MCP tool definition for get_component. Fetches a single component
+ * by ID, compiles it for the specified target framework, and returns
+ * the compiled code files along with font imports and usage example.
  */
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
-import { registry } from "../registry.js";
-import { compile } from "../compiler.js";
-import { mergeTokens } from "../utils/merge-tokens.js";
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { z } from 'zod';
+import { registry } from '../registry.js';
+import { compile } from '../compiler.js';
 
+/**
+ * Registers the get_component tool on the MCP server.
+ */
 export function registerGetComponent(server: McpServer): void {
   server.tool(
-    "get_component",
-    "Get the full source code of a Voltz UI component compiled to your target framework.",
+    'get_component',
+    'Get the full source code of a Voltz UI component compiled to your target framework.',
     {
-      id: z.string().describe("Component ID, e.g. 'button', 'hero-gradient'"),
+      id: z.string().describe('Component ID, e.g. "button", "navbar", "hero-centered"'),
       target: z
-        .enum(["html", "react", "vue", "svelte", "web-component"])
-        .default("html")
-        .describe("Target framework"),
+        .enum(['html', 'react', 'vue', 'svelte', 'web-component'])
+        .default('html')
+        .describe('Target framework'),
       variant: z
-        .record(z.string(), z.any())
+        .record(z.string(), z.string())
         .optional()
-        .describe("Variant overrides, e.g. { variant: 'outline', size: 'lg' }"),
+        .describe('Variant overrides, e.g. { "variant": "outline", "size": "lg" }'),
       tokens: z
         .record(z.string(), z.string())
         .optional()
-        .describe("Design token overrides"),
+        .describe('Design token overrides as CSS custom properties'),
       font: z
-        .object({
-          heading: z.string().optional(),
-          body: z.string().optional(),
-        })
+        .string()
         .optional()
-        .describe("Google Font selections"),
-      theme: z.enum(["light", "dark", "system"]).default("system"),
-      includeTokens: z.boolean().default(true),
-      minified: z.boolean().default(false),
+        .describe('Google Font family name'),
+      theme: z
+        .enum(['light', 'dark', 'system'])
+        .default('light')
+        .describe('Theme: light, dark, or system'),
     },
-    async ({ id, target, variant, tokens, font, theme, includeTokens, minified }) => {
+    async ({ id, target, variant, tokens, font, theme }) => {
       const component = registry.get(id);
 
       if (!component) {
         return {
           content: [
             {
-              type: "text" as const,
+              type: 'text' as const,
               text: JSON.stringify({
-                error: "COMPONENT_NOT_FOUND",
+                error: 'COMPONENT_NOT_FOUND',
                 message: `No component found with ID "${id}".`,
                 suggestion: `Try search_components({ query: "${id}" })`,
               }),
@@ -58,27 +58,21 @@ export function registerGetComponent(server: McpServer): void {
         };
       }
 
-      const resolvedTokens = tokens
-        ? mergeTokens(registry.getBaseTokens(), tokens)
-        : registry.getBaseTokens();
+      try {
+        const output = await compile({
+          componentId: id,
+          target,
+          variants: variant,
+          tokenOverrides: tokens,
+          font,
+          theme,
+        });
 
-      const output = await compile({
-        component,
-        target,
-        variant: variant ?? {},
-        tokens: resolvedTokens,
-        font: font ?? {},
-        theme,
-        includeTokens,
-        minified,
-      });
-
-      return {
-        content: [
-          {
-            type: "text" as const,
-            text: JSON.stringify(
-              {
+        return {
+          content: [
+            {
+              type: 'text' as const,
+              text: JSON.stringify({
                 id: component.id,
                 name: component.name,
                 target,
@@ -89,20 +83,20 @@ export function registerGetComponent(server: McpServer): void {
                   code: file.code,
                 })),
                 fontImports: output.fontImports,
-                totalSizeBytes: output.files.reduce(
-                  (sum, f) =>
-                    sum + new TextEncoder().encode(f.code).length,
-                  0
-                ),
                 usage: output.usageExample,
-                notes: component.accessibility,
-              },
-              null,
-              2
-            ),
-          },
-        ],
-      };
+              }, null, 2),
+            },
+          ],
+        };
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        return {
+          content: [
+            { type: 'text' as const, text: `Error: ${message}` },
+          ],
+          isError: true,
+        };
+      }
     }
   );
 }

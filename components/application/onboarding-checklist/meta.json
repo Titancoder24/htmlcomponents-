@@ -1,0 +1,16 @@
+{
+  "name": "onboarding-checklist",
+  "description": "Onboarding progress checklist with tasks, checkmarks, progress bar, collapsible sections, and celebration on completion.",
+  "category": "application",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["onboarding", "checklist", "progress", "tasks"],
+  "variants": ["default", "collapsed"],
+  "slots": ["header"],
+  "dependencies": [],
+  "accessibility": {
+    "role": "list",
+    "keyboard": true,
+    "screenReader": true
+  }
+}

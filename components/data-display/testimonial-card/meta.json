@@ -1,0 +1,51 @@
+{
+  "name": "testimonial-card",
+  "description": "Testimonial/review card with quote, author, role, company, avatar, and rating stars. Variants: simple/bordered/elevated.",
+  "category": "data-display",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["simple", "bordered", "elevated"],
+  "sizes": ["sm", "md", "lg"],
+  "props": {
+    "variant": {
+      "type": "string",
+      "default": "simple",
+      "options": ["simple", "bordered", "elevated"]
+    },
+    "quote": {
+      "type": "string",
+      "default": ""
+    },
+    "author": {
+      "type": "string",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "default": ""
+    },
+    "company": {
+      "type": "string",
+      "default": ""
+    },
+    "avatarUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "rating": {
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 5
+    }
+  },
+  "slots": {
+    "avatar": "Custom avatar content"
+  },
+  "accessibility": {
+    "role": "article",
+    "keyboard": false,
+    "screenReader": true
+  },
+  "tags": ["testimonial", "review", "quote", "rating", "feedback"]
+}
