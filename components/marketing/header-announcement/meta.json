@@ -1,0 +1,19 @@
+{
+  "name": "Header Announcement",
+  "description": "Announcement bar placed above the header. Dismissible with smooth animation. Supports link, icon, and background color options.",
+  "category": "marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "tags": ["announcement", "header", "bar", "notification", "banner"],
+  "variants": ["default", "info", "success", "warning", "gradient"],
+  "dependencies": [],
+  "responsive": {
+    "min": "320px",
+    "max": "2560px"
+  },
+  "accessibility": {
+    "aria": true,
+    "keyboard": true,
+    "contrast": "AAA"
+  }
+}

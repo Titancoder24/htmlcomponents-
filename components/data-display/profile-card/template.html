@@ -1,0 +1,52 @@
+<!--
+  Profile Card Component Template
+  Purpose: User profile card with avatar, name, role, bio, social links,
+  and stats. Supports horizontal/vertical variants and sm/md/lg sizes.
+-->
+<article class="voltz-profile-card voltz-profile-card--{{variant}} voltz-profile-card--{{size}}"
+         role="article"
+         aria-label="Profile: {{name}}">
+
+  <div class="voltz-profile-card__avatar-section">
+    <div class="voltz-profile-card__avatar">
+      {{slot:avatar}}
+      {{#if avatarUrl}}
+      <img class="voltz-profile-card__avatar-img"
+           src="{{avatarUrl}}"
+           alt="{{name}}"
+           loading="lazy" />
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="voltz-profile-card__info">
+    <h3 class="voltz-profile-card__name">{{name}}</h3>
+
+    {{#if role}}
+    <p class="voltz-profile-card__role">{{role}}</p>
+    {{/if}}
+
+    {{#if bio}}
+    <p class="voltz-profile-card__bio">{{bio}}</p>
+    {{/if}}
+
+    {{#if showSocial}}
+    <div class="voltz-profile-card__social" aria-label="Social links">
+      {{slot:social}}
+    </div>
+    {{/if}}
+  </div>
+
+  {{#if showStats}}
+  <div class="voltz-profile-card__stats">
+    {{slot:stats}}
+    <!-- Example stat structure -->
+    <!--
+    <div class="voltz-profile-card__stat">
+      <span class="voltz-profile-card__stat-value">1.2k</span>
+      <span class="voltz-profile-card__stat-label">Followers</span>
+    </div>
+    -->
+  </div>
+  {{/if}}
+</article>

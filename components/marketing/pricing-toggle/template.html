@@ -1,0 +1,93 @@
+<!--
+  Pricing Toggle Component
+  Monthly/yearly pricing toggle with animated price changes.
+  Discount badge for yearly plans.
+-->
+<section class="voltz-pricing-toggle {{variant}}" data-component="pricing-toggle">
+  <div class="voltz-pricing-toggle__container">
+    <div class="voltz-pricing-toggle__header">
+      <h2 class="voltz-pricing-toggle__title">Choose Your Plan</h2>
+      <p class="voltz-pricing-toggle__subtitle">
+        Start free and scale as you grow. Save 20% with annual billing.
+      </p>
+
+      <div class="voltz-pricing-toggle__switch" role="group" aria-label="Billing period">
+        <button
+          class="voltz-pricing-toggle__option voltz-pricing-toggle__option--active"
+          type="button"
+          data-period="monthly"
+          aria-pressed="true"
+        >Monthly</button>
+        <button
+          class="voltz-pricing-toggle__option"
+          type="button"
+          data-period="yearly"
+          aria-pressed="false"
+        >
+          Yearly
+          <span class="voltz-pricing-toggle__discount-badge">-20%</span>
+        </button>
+        <div class="voltz-pricing-toggle__slider" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="voltz-pricing-toggle__grid">
+      {{slot:default}}
+
+      <!-- Starter -->
+      <div class="voltz-pricing-toggle__plan">
+        <h3 class="voltz-pricing-toggle__plan-name">Starter</h3>
+        <p class="voltz-pricing-toggle__plan-desc">For individuals and small teams.</p>
+        <div class="voltz-pricing-toggle__price">
+          <span class="voltz-pricing-toggle__currency">$</span>
+          <span class="voltz-pricing-toggle__amount" data-monthly="9" data-yearly="7">9</span>
+          <span class="voltz-pricing-toggle__period">/month</span>
+        </div>
+        <a href="#" class="voltz-pricing-toggle__cta voltz-pricing-toggle__cta--secondary">Get Started</a>
+        <ul class="voltz-pricing-toggle__features">
+          <li class="voltz-pricing-toggle__feature">5 projects</li>
+          <li class="voltz-pricing-toggle__feature">10 GB storage</li>
+          <li class="voltz-pricing-toggle__feature">Email support</li>
+        </ul>
+      </div>
+
+      <!-- Pro (Featured) -->
+      <div class="voltz-pricing-toggle__plan voltz-pricing-toggle__plan--featured">
+        <div class="voltz-pricing-toggle__badge">Best Value</div>
+        <h3 class="voltz-pricing-toggle__plan-name">Pro</h3>
+        <p class="voltz-pricing-toggle__plan-desc">For growing businesses.</p>
+        <div class="voltz-pricing-toggle__price">
+          <span class="voltz-pricing-toggle__currency">$</span>
+          <span class="voltz-pricing-toggle__amount" data-monthly="29" data-yearly="23">29</span>
+          <span class="voltz-pricing-toggle__period">/month</span>
+        </div>
+        <a href="#" class="voltz-pricing-toggle__cta voltz-pricing-toggle__cta--primary">Start Free Trial</a>
+        <ul class="voltz-pricing-toggle__features">
+          <li class="voltz-pricing-toggle__feature">Unlimited projects</li>
+          <li class="voltz-pricing-toggle__feature">100 GB storage</li>
+          <li class="voltz-pricing-toggle__feature">Priority support</li>
+          <li class="voltz-pricing-toggle__feature">Advanced analytics</li>
+        </ul>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="voltz-pricing-toggle__plan">
+        <h3 class="voltz-pricing-toggle__plan-name">Enterprise</h3>
+        <p class="voltz-pricing-toggle__plan-desc">For large organizations.</p>
+        <div class="voltz-pricing-toggle__price">
+          <span class="voltz-pricing-toggle__currency">$</span>
+          <span class="voltz-pricing-toggle__amount" data-monthly="79" data-yearly="63">79</span>
+          <span class="voltz-pricing-toggle__period">/month</span>
+        </div>
+        <a href="#" class="voltz-pricing-toggle__cta voltz-pricing-toggle__cta--secondary">Contact Sales</a>
+        <ul class="voltz-pricing-toggle__features">
+          <li class="voltz-pricing-toggle__feature">Everything in Pro</li>
+          <li class="voltz-pricing-toggle__feature">Unlimited storage</li>
+          <li class="voltz-pricing-toggle__feature">Dedicated support</li>
+          <li class="voltz-pricing-toggle__feature">SSO &amp; SAML</li>
+          <li class="voltz-pricing-toggle__feature">Custom SLA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
