@@ -1,0 +1,36 @@
+<!--
+  Header Announcement Component
+  Purpose: Announcement bar above header with text, optional link, icon,
+  and dismiss button. Supports multiple color variants.
+  Variants: default, info, success, warning, gradient
+-->
+<div class="voltz-announce {{variant}}" data-component="header-announcement"
+     role="banner" aria-label="Announcement">
+  <div class="voltz-announce__container">
+    {{#if showIcon}}
+    <span class="voltz-announce__icon" aria-hidden="true">{{slot:icon}}</span>
+    {{/if}}
+    <p class="voltz-announce__text">
+      {{slot:text}}
+      {{#if showLink}}
+      <a href="{{linkHref}}" class="voltz-announce__link">
+        {{slot:linkText}}
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
+             aria-hidden="true" class="voltz-announce__arrow">
+          <path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      {{/if}}
+    </p>
+    {{#if dismissible}}
+    <button class="voltz-announce__dismiss" data-announce-dismiss
+            aria-label="Dismiss announcement" type="button">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,289 @@
+/**
+ * Pricing Toggle Styles
+ * Monthly/yearly toggle with animated price transitions.
+ * Responsive 320px-2560px. Dark mode supported.
+ */
+
+.voltz-pricing-toggle {
+  --voltz-pricing-toggle-bg: #0a0a0a;
+  --voltz-pricing-toggle-card-bg: #111111;
+  --voltz-pricing-toggle-card-border: #1a1a1a;
+  --voltz-pricing-toggle-featured-border: #6366f1;
+  --voltz-pricing-toggle-text-color: #ffffff;
+  --voltz-pricing-toggle-desc-color: #888;
+  --voltz-pricing-toggle-price-color: #ffffff;
+  --voltz-pricing-toggle-period-color: #666;
+  --voltz-pricing-toggle-feature-color: #aaa;
+  --voltz-pricing-toggle-accent: #6366f1;
+  --voltz-pricing-toggle-switch-bg: #1a1a1a;
+  --voltz-pricing-toggle-switch-active-bg: #6366f1;
+  --voltz-pricing-toggle-switch-text: #888;
+  --voltz-pricing-toggle-switch-active-text: #ffffff;
+  --voltz-pricing-toggle-cta-bg: #6366f1;
+  --voltz-pricing-toggle-cta-hover-bg: #4f46e5;
+  --voltz-pricing-toggle-cta-secondary-border: #333;
+  --voltz-pricing-toggle-cta-secondary-text: #ffffff;
+  --voltz-pricing-toggle-badge-bg: #6366f1;
+  --voltz-pricing-toggle-discount-bg: #22c55e;
+  --voltz-pricing-toggle-padding: 5rem 1.5rem;
+}
+
+[data-theme="light"] .voltz-pricing-toggle,
+.voltz-pricing-toggle[data-theme="light"] {
+  --voltz-pricing-toggle-bg: #ffffff;
+  --voltz-pricing-toggle-card-bg: #ffffff;
+  --voltz-pricing-toggle-card-border: #e5e7eb;
+  --voltz-pricing-toggle-text-color: #111827;
+  --voltz-pricing-toggle-desc-color: #6b7280;
+  --voltz-pricing-toggle-price-color: #111827;
+  --voltz-pricing-toggle-period-color: #9ca3af;
+  --voltz-pricing-toggle-feature-color: #6b7280;
+  --voltz-pricing-toggle-switch-bg: #f3f4f6;
+  --voltz-pricing-toggle-switch-text: #6b7280;
+  --voltz-pricing-toggle-cta-secondary-border: #d1d5db;
+  --voltz-pricing-toggle-cta-secondary-text: #111827;
+}
+
+.voltz-pricing-toggle {
+  width: 100%;
+  background: var(--voltz-pricing-toggle-bg);
+  padding: var(--voltz-pricing-toggle-padding);
+}
+
+.voltz-pricing-toggle__container { max-width: 1200px; margin: 0 auto; }
+
+.voltz-pricing-toggle__header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.voltz-pricing-toggle__title {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.75rem);
+  font-weight: 700;
+  color: var(--voltz-pricing-toggle-text-color);
+  margin: 0;
+}
+
+.voltz-pricing-toggle__subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  color: var(--voltz-pricing-toggle-desc-color);
+  margin: 0;
+}
+
+/* Toggle Switch */
+.voltz-pricing-toggle__switch {
+  display: inline-flex;
+  position: relative;
+  background: var(--voltz-pricing-toggle-switch-bg);
+  border-radius: 9999px;
+  padding: 4px;
+}
+
+.voltz-pricing-toggle__option {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--voltz-pricing-toggle-switch-text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 9999px;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.voltz-pricing-toggle__option--active {
+  color: var(--voltz-pricing-toggle-switch-active-text);
+}
+
+.voltz-pricing-toggle__slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  width: calc(50% - 4px);
+  background: var(--voltz-pricing-toggle-switch-active-bg);
+  border-radius: 9999px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.voltz-pricing-toggle__switch[data-active="yearly"] .voltz-pricing-toggle__slider {
+  transform: translateX(100%);
+}
+
+.voltz-pricing-toggle__discount-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--voltz-pricing-toggle-discount-bg);
+  color: #ffffff;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+/* Plans Grid */
+.voltz-pricing-toggle__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.voltz-pricing-toggle__plan {
+  background: var(--voltz-pricing-toggle-card-bg);
+  border: 1px solid var(--voltz-pricing-toggle-card-border);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.voltz-pricing-toggle__plan--featured {
+  border-color: var(--voltz-pricing-toggle-featured-border);
+  box-shadow: 0 0 0 1px var(--voltz-pricing-toggle-featured-border),
+    0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+.voltz-pricing-toggle__badge {
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 1rem;
+  background: var(--voltz-pricing-toggle-badge-bg);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.voltz-pricing-toggle__plan-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--voltz-pricing-toggle-text-color);
+  margin: 0;
+}
+
+.voltz-pricing-toggle__plan-desc {
+  font-size: 0.875rem;
+  color: var(--voltz-pricing-toggle-desc-color);
+  margin: -0.5rem 0 0;
+}
+
+/* Animated Price */
+.voltz-pricing-toggle__price {
+  display: flex;
+  align-items: baseline;
+}
+
+.voltz-pricing-toggle__currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--voltz-pricing-toggle-price-color);
+}
+
+.voltz-pricing-toggle__amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--voltz-pricing-toggle-price-color);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.voltz-pricing-toggle__amount.is-changing {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.voltz-pricing-toggle__period {
+  font-size: 1rem;
+  color: var(--voltz-pricing-toggle-period-color);
+  margin-left: 0.25rem;
+}
+
+/* CTA */
+.voltz-pricing-toggle__cta {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.voltz-pricing-toggle__cta--primary {
+  background: var(--voltz-pricing-toggle-cta-bg);
+  color: #fff;
+  border: none;
+}
+
+.voltz-pricing-toggle__cta--primary:hover {
+  background: var(--voltz-pricing-toggle-cta-hover-bg);
+}
+
+.voltz-pricing-toggle__cta--secondary {
+  background: transparent;
+  color: var(--voltz-pricing-toggle-cta-secondary-text);
+  border: 1px solid var(--voltz-pricing-toggle-cta-secondary-border);
+}
+
+.voltz-pricing-toggle__cta--secondary:hover {
+  border-color: var(--voltz-pricing-toggle-cta-secondary-text);
+}
+
+/* Features */
+.voltz-pricing-toggle__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.voltz-pricing-toggle__feature {
+  font-size: 0.9375rem;
+  color: var(--voltz-pricing-toggle-feature-color);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.voltz-pricing-toggle__feature::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+@media (max-width: 968px) {
+  .voltz-pricing-toggle__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .voltz-pricing-toggle { --voltz-pricing-toggle-padding: 3rem 1rem; }
+}
+
+@media (min-width: 1920px) {
+  .voltz-pricing-toggle { --voltz-pricing-toggle-padding: 7rem 2rem; }
+}

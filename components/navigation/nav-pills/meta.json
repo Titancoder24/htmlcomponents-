@@ -1,0 +1,28 @@
+{
+  "name": "nav-pills",
+  "displayName": "Nav Pills",
+  "description": "Pill-shaped navigation items with single-select behavior, multiple sizes, color options, and animated active indicator.",
+  "category": "navigation",
+  "version": "1.0.0",
+  "status": "stable",
+  "variants": ["default"],
+  "slots": {
+    "default": "Pill items"
+  },
+  "props": {
+    "size": {
+      "type": "string",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    },
+    "color": {
+      "type": "string",
+      "default": "primary",
+      "options": ["primary", "neutral", "success", "warning", "danger"]
+    }
+  },
+  "accessibility": {
+    "keyboard": ["Tab", "ArrowLeft", "ArrowRight", "Home", "End", "Enter"],
+    "aria": ["role=navigation", "aria-label", "aria-current"]
+  }
+}

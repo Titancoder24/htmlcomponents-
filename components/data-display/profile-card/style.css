@@ -1,0 +1,203 @@
+/*
+ * Profile Card Component Styles
+ * Purpose: User profile card with avatar, name, role, bio, social links,
+ * and stats. Horizontal/vertical variants, sm/md/lg sizes. Dark mode.
+ */
+
+/* === Custom Properties === */
+.voltz-profile-card {
+  --voltz-profile-bg: #ffffff;
+  --voltz-profile-border: #e2e8f0;
+  --voltz-profile-radius: 0.75rem;
+  --voltz-profile-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --voltz-profile-padding: 1.5rem;
+  --voltz-profile-name-color: #0f172a;
+  --voltz-profile-name-size: 1.125rem;
+  --voltz-profile-role-color: #3b82f6;
+  --voltz-profile-bio-color: #64748b;
+  --voltz-profile-avatar-size: 5rem;
+  --voltz-profile-avatar-bg: #e2e8f0;
+  --voltz-profile-stat-value-color: #0f172a;
+  --voltz-profile-stat-label-color: #94a3b8;
+  --voltz-profile-social-color: #64748b;
+  --voltz-profile-social-hover: #3b82f6;
+  --voltz-profile-stat-border: #f1f5f9;
+}
+
+[data-theme="dark"] .voltz-profile-card {
+  --voltz-profile-bg: #1e293b;
+  --voltz-profile-border: #334155;
+  --voltz-profile-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --voltz-profile-name-color: #f1f5f9;
+  --voltz-profile-role-color: #60a5fa;
+  --voltz-profile-bio-color: #94a3b8;
+  --voltz-profile-avatar-bg: #334155;
+  --voltz-profile-stat-value-color: #f1f5f9;
+  --voltz-profile-stat-label-color: #64748b;
+  --voltz-profile-social-color: #94a3b8;
+  --voltz-profile-social-hover: #60a5fa;
+  --voltz-profile-stat-border: #0f172a;
+}
+
+/* === Base (Vertical) === */
+.voltz-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--voltz-profile-padding);
+  background: var(--voltz-profile-bg);
+  border: 1px solid var(--voltz-profile-border);
+  border-radius: var(--voltz-profile-radius);
+  box-shadow: var(--voltz-profile-shadow);
+}
+
+/* === Avatar === */
+.voltz-profile-card__avatar {
+  width: var(--voltz-profile-avatar-size);
+  height: var(--voltz-profile-avatar-size);
+  border-radius: 50%;
+  background: var(--voltz-profile-avatar-bg);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.voltz-profile-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Info === */
+.voltz-profile-card__info {
+  margin-top: 1rem;
+  min-width: 0;
+}
+
+.voltz-profile-card__name {
+  margin: 0;
+  font-size: var(--voltz-profile-name-size);
+  font-weight: 600;
+  color: var(--voltz-profile-name-color);
+}
+
+.voltz-profile-card__role {
+  margin: 0.125rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--voltz-profile-role-color);
+}
+
+.voltz-profile-card__bio {
+  margin: 0.625rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--voltz-profile-bio-color);
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* === Social === */
+.voltz-profile-card__social {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.voltz-profile-card__social a {
+  color: var(--voltz-profile-social-color);
+  transition: color 0.15s ease;
+}
+
+.voltz-profile-card__social a:hover {
+  color: var(--voltz-profile-social-hover);
+}
+
+/* === Stats === */
+.voltz-profile-card__stats {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--voltz-profile-stat-border);
+}
+
+.voltz-profile-card__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voltz-profile-card__stat + .voltz-profile-card__stat {
+  border-left: 1px solid var(--voltz-profile-stat-border);
+}
+
+.voltz-profile-card__stat-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--voltz-profile-stat-value-color);
+}
+
+.voltz-profile-card__stat-label {
+  font-size: 0.6875rem;
+  color: var(--voltz-profile-stat-label-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* === Variant: Horizontal === */
+.voltz-profile-card--horizontal {
+  flex-direction: row;
+  text-align: left;
+  gap: 1.25rem;
+}
+
+.voltz-profile-card--horizontal .voltz-profile-card__info {
+  margin-top: 0;
+  flex: 1;
+}
+
+.voltz-profile-card--horizontal .voltz-profile-card__social {
+  justify-content: flex-start;
+}
+
+.voltz-profile-card--horizontal .voltz-profile-card__stats {
+  flex-direction: column;
+  width: auto;
+  border-top: none;
+  border-left: 1px solid var(--voltz-profile-stat-border);
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: 1.25rem;
+}
+
+.voltz-profile-card--horizontal .voltz-profile-card__stat + .voltz-profile-card__stat {
+  border-left: none;
+  margin-top: 0.5rem;
+}
+
+/* === Size: sm === */
+.voltz-profile-card--sm {
+  --voltz-profile-padding: 1rem;
+  --voltz-profile-name-size: 0.9375rem;
+  --voltz-profile-avatar-size: 3.5rem;
+}
+
+/* === Size: lg === */
+.voltz-profile-card--lg {
+  --voltz-profile-padding: 2rem;
+  --voltz-profile-name-size: 1.375rem;
+  --voltz-profile-avatar-size: 6.5rem;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .voltz-profile-card__social a {
+    transition: none;
+  }
+}
